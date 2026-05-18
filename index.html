@@ -518,3 +518,385 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Agrinho 2026 - Edição Avançada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Configurações Globais e Variáveis de Tema */
+        :root {
+            --primary: #0b3c1d;
+            --primary-light: #1e5a32;
+            --secondary: #ffcc00;
+            --accent: #00ff88;
+            --bg-site: #f4f7f5;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text-main: #1a2e22;
+            --text-muted: #53685a;
+            --border-color: rgba(11, 60, 29, 0.1);
+            --blur: blur(12px);
+        }
+
+        [data-theme="dark"] {
+            --primary: #00ff88;
+            --primary-light: #00b35f;
+            --secondary: #ffcc00;
+            --bg-site: #0a140e;
+            --card-bg: rgba(15, 32, 22, 0.85);
+            --text-main: #ecf3ee;
+            --text-muted: #a3b8ab;
+            --border-color: rgba(0, 255, 136, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+        }
+
+        h1, h2, h3, h4, .btn-tech {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-site);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Menu de Navegação Fluid com Efeito Vidro */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Botão de Alternância de Tema (Dark/Light) */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Seção Hero de Alto Impacto */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at top right, rgba(0, 255, 136, 0.15), transparent), var(--primary);
+            color: white;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero-text h2 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h2 span {
+            color: var(--secondary);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 35px;
+            color: rgba(255,255,255,0.85);
+            max-width: 700px;
+        }
+
+        .btn-tech {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #0b3c1d;
+            padding: 16px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-tech:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.4);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        /* Layout Cards Modernos */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .card-glass {
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+        }
+
+        .card-glass h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card-glass p {
+            color: var(--text-muted);
+        }
+
+        /* --- EXCLUSIVO: CALCULADORA INTERATIVA (SIMULADOR BIO-TECH) --- */
+        .simulator-box {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 50px;
+            border-radius: 24px;
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .simulator-inputs h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .simulator-inputs p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            backdrop-filter: var(--blur);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .input-group input:focus {
+            outline: 2px solid var(--secondary);
+        }
+
+        .simulator-result {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: var(--blur);
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 15px 0;
+            display: block;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #050f09;
+            color: #a3b8ab;
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .hero-grid, .simulator-box { grid-template-columns: 1fr; }
+            .hero-text h2 { font-size: 2.8rem; }
+            .container { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>AGRINHO<span>⁺</span></h1>
+            </div>
+            <div class="nav-controls">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#pilares">Ciência & Campo</a></li>
+                        <li><a href="#simulador">Simulador IoT</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" id="themeBtn">Alternar Tema</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h2>Equilíbrio entre <span>Produção</span> e Meio Ambiente</h2>
+                <p>O ecossistema definitivo que integra a agricultura de alta performance à conservação da biodiversidade do planeta. Criado para mentes disruptivas do Ensino Médio.</p>
+                <a href="#simulador" class="btn-tech">Iniciar Simulação</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section class="grid-cards" id="pilares">
+            <div class="card-glass">
+                <h3>01 / Biotecnologia Aplicada</h3>
+                <p>Uso de bioinsumos e defensores biológicos baseados em microrganismos benéficos para eliminar pragas sem contaminar os lençóis freáticos.</p>
+            </div>
+            <div class="card-glass">
+                <h3>02 / Algoritmos de Precisão</h3>
+                <p>Análise preditiva por Inteligência Artificial que calcula exatamente o mililitro de água necessário para cada centímetro quadrado de plantação.</p>
+            </div>
+            <div class="card-glass">
+                <h3>03 / Conexão Multissetorial</h3>
+                <p>Pontes lógicas integrando as necessidades alimentares dos grandes centros urbanos com o planejamento sustentável das safras rurais.</p>
+            </div>
+        </section>
+
+        <section class="simulator-box" id="simulador">
+            <div class="simulator-inputs">
+                <h3>Calculadora de Impacto Agro-Tech</h3>
+                <p>Descubra em tempo real quanta água um sistema automatizado com sensores IoT economiza em comparação aos métodos de irrigação tradicionais.</p>
+                <div class="input-group">
+                    <label for="hectares">Área da Propriedade (em hectares):</label>
+                    <input type="number" id="hectares" value="10" min="1" oninput="calcularEconomia()">
+                </div>
+            </div>
+            <div class="simulator-result">
+                <h4>Economia Mensal Estimada</h4>
+                <span class="result-number" id="resultado">450.000</span>
+                <p>Litros de água preservados com o uso de sensores de solo inteligentes.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Plataforma Científica Agrinho — Desenvolvida para o 1º Ano do Ensino Médio.</p>
+    </footer>
+
+    <script>
+        // Função do Simulador de Impacto (Lógica Matemática)
+        function calcularEconomia() {
+            const hectares = document.getElementById('hectares').value;
+            // Regra de negócio fictícia: Cada hectare com tecnologia IoT economiza cerca de 45.000 litros/mês
+            const economiaPorHectare = 45000;
+            const total = hectares * economiaPorHectare;
+            
+            // Formata o número com pontos para ficar bonito
+            document.getElementById('resultado').innerText = total.toLocaleString('pt-BR');
+        }
+
+        // Lógica de Alternância de Temas (Dark Mode/Light Mode)
+        const themeBtn = document.getElementById('themeBtn');
+        let currentTheme = "light";
+
+        themeBtn.addEventListener('click', () => {
+            if (currentTheme === "light") {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                currentTheme = "dark";
+                themeBtn.innerText = "Modo Claro ☀️";
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                currentTheme = "light";
+                themeBtn.innerText = "Modo Escuro 🌙";
+            }
+        });
+    </script>
+</body>
+</html>
