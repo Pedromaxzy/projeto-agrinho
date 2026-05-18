@@ -1,14 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto Agrinho - Conectando Educação e Campo</title>
+    <style>
+        /* Reset de Estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f9f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho / Menu */
+        header {
+            background-color: #0b5e28;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: #ffcc00;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+
+        /* Seção Hero (Destaque Principal) */
+        .hero {
+            background: linear-gradient(rgba(11, 94, 40, 0.7), rgba(11, 94, 40, 0.7)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background-color: #ffcc00;
+            color: #0b5e28;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e6b800;
+            transform: scale(1.05);
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Seção Sobre */
+        .about {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about h3 {
+            font-size: 2rem;
+            color: #0b5e28;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cards de Pilares (Sustentabilidade, Cidadania, Inovação) */
+        .pilares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid #0b5e28;
+            transition: translateY 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h4 {
+            color: #0b5e28;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: #ffcc00;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>bem vindo ao site </h1>
-    <h1>do agrinho </h1>
-    <h1> vou falar sobre alguns assuntos a debater</h1> 
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Agrinho<span>.org</span></h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#pilares">Pilares</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Semeando Conhecimento, Colhendo Cidadania</h2>
+        <p>Unindo as escolas do campo e da cidade para construir um futuro sustentável e consciente através da educação.</p>
+        <a href="#sobre" class="btn">Saiba Mais</a>
+    </section>
+
+    <main class="container">
+        
+        <section id="sobre" class="about">
+            <h3>O que é o Programa Agrinho?</h3>
+            <p>
+                O Agrinho é uma iniciativa do Sistema FAEP/SENAR-PR que há décadas incentiva o desenvolvimento da cidadania e da sustentabilidade em escolas públicas e particulares. Através de concursos de redação, desenho e relatos pedagógicos, o projeto transforma a realidade de milhares de crianças, aproximando o universo rural do urbano.
+            </p>
+        </section>
+
+        <section id="pilares" class="pilares">
+            <div class="card">
+                <h4>🌱 Sustentabilidade</h4>
+                <p>Práticas conscientes no campo e na cidade, promovendo a preservação ambiental e o respeito aos recursos naturais do nosso planeta.</p>
+            </div>
+            <div class="card">
+                <h4>🤝 Cidadania</h4>
+                <p>Formação de cidadãos éticos, conscientes de seus direitos e deveres, capazes de atuar ativamente na melhoria de suas comunidades.</p>
+            </div>
+            <div class="card">
+                <h4>💡 Inovação e Tecnologia</h4>
+                <p>Levar para a sala de aula a evolução tecnológica do agronegócio moderno, estimulando a criatividade e a pesquisa científica.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato">
+        <p>&copy; 2026 Site Temático do Projeto Agrinho. Desenvolvido para fins educacionais.</p>
+        <p>Inspirado nas ações do <strong>Sistema FAEP / SENAR-PR</strong></p>
+    </footer>
 
 </body>
 </html>
