@@ -1,137 +1,397 @@
-// DARK MODE
+/* =========================
+   THEME TOGGLE
+========================= */
 
 const themeBtn = document.getElementById("themeBtn");
 
-function applyTheme(theme) {
-
-  if (theme === "dark") {
-
-    document.documentElement.setAttribute("data-theme", "dark");
-
-    themeBtn.innerText = "Modo Claro ☀️";
-
-  } else {
-
-    document.documentElement.removeAttribute("data-theme");
-
-    themeBtn.innerText = "Modo Escuro 🌙";
-
-  }
-
-}
-
-const savedTheme =
-  localStorage.getItem("agrinho-theme") || "light";
-
-applyTheme(savedTheme);
+let darkMode = true;
 
 themeBtn.addEventListener("click", () => {
 
-  const currentTheme =
-    document.documentElement.getAttribute("data-theme") === "dark"
-      ? "dark"
-      : "light";
+  darkMode = !darkMode;
 
-  const newTheme =
-    currentTheme === "dark"
-      ? "light"
-      : "dark";
+  if (darkMode) {
 
-  localStorage.setItem("agrinho-theme", newTheme);
+    document.body.classList.remove("light-mode");
+    themeBtn.textContent = "🌙";
 
-  applyTheme(newTheme);
+  } else {
+
+    document.body.classList.add("light-mode");
+    themeBtn.textContent = "☀️";
+
+  }
 
 });
 
-// NAVEGAÇÃO
+/* =========================
+   SMOOTH SCROLL
+========================= */
 
-const navLinks =
-  document.querySelectorAll("[data-page]");
+const navLinks = document.querySelectorAll("nav a");
 
-const sections =
-  document.querySelectorAll(".page-section");
+navLinks.forEach(link => {
 
-function showSection(sectionId) {
-
-  sections.forEach((section) => {
-
-    section.classList.remove("active-section");
-
-  });
-
-  navLinks.forEach((link) => {
-
-    link.classList.remove("active-link");
-
-  });
-
-  const target =
-    document.getElementById(sectionId);
-
-  target.classList.add("active-section");
-
-  document
-    .querySelector(`[data-page="${sectionId}"]`)
-    .classList.add("active-link");
-
-}
-
-navLinks.forEach((link) => {
-
-  link.addEventListener("click", (e) => {
+  link.addEventListener("click", e => {
 
     e.preventDefault();
 
-    const page = link.dataset.page;
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
 
-    showSection(page);
+    targetSection.scrollIntoView({
+      behavior: "smooth"
+    });
 
   });
 
 });
 
-// HERO BUTTON
+/* =========================
+   SCROLL ANIMATION
+========================= */
 
-const heroBtn =
-  document.querySelector("[data-page-btn]");
+const revealElements = document.querySelectorAll(
+  ".card, .tech-box, .stat, .impact-card, .floating-card"
+);
 
-heroBtn.addEventListener("click", () => {
+const revealOnScroll = () => {
 
-  const page =
-    heroBtn.dataset.pageBtn;
+  const windowHeight = window.innerHeight;
 
-  showSection(page);
+  revealElements.forEach(element => {
+
+    const elementTop = element.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+
+      element.classList.add("active-reveal");
+
+    }
+
+  });
+
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+/* =========================
+   COUNTER ANIMATION
+========================= */
+
+const counters = document.querySelectorAll(".stat h3");
+
+const animateCounter = (counter) => {
+
+  const targetText = counter.innerText;
+
+  const target = parseInt(targetText);
+
+  let current = 0;
+
+  const increment = target / 80;
+
+  const updateCounter = () => {
+
+    current += increment;
+
+    if (current < target) {
+
+      counter.innerText = `${Math.floor(current)}%`;
+
+      requestAnimationFrame(updateCounter);
+
+    } else {
+
+      counter.innerText = `${target}%`;
+
+    }
+
+  };
+
+  updateCounter();
+
+};
+
+const observer = new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      animateCounter(
+        entry.target
+      );
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+}, {
+  threshold: 0.5
+});
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+
+/* =========================
+   PARALLAX EFFECT
+========================= */
+
+window.addEventListener("mousemove", (e) => {
+
+  const glow = document.querySelector(".background-glow");
+
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  glow.style.transform = `
+    translate(
+      ${x * 30}px,
+      ${y * 30}px
+    )
+  `;
 
 });
 
-// SIMULADOR
+/* =========================
+   FLOATING EFFECT
+========================= */
 
-const hectaresInput =
-  document.getElementById("hectares");
+const floatingCard = document.querySelector(".floating-card");
 
-const resultado =
-  document.getElementById("resultado");
+window.addEventListener("mousemove", (e) => {
 
-function calcularEconomia() {
+  const x = (window.innerWidth / 2 - e.clientX) / 30;
+  const y = (window.innerHeight / 2 - e.clientY) / 30;
 
-  const hectares =
-    Number(hectaresInput.value);
+  floatingCard.style.transform = `
+    rotateY(${x}deg)
+    rotateX(${-y}deg)
+  `;
 
-  const economiaPorHectare = 45000;
+});
 
-  const total =
-    hectares * economiaPorHectare;
+/* =========================
+   ACTIVE NAV LINK
+========================= */
 
-  resultado.innerText =
-    total.toLocaleString("pt-BR");
+const sections = document.querySelectorAll("section");
 
-}
+window.addEventListener("scroll", () => {
 
-hectaresInput.addEventListener(
-  "input",
-  calcularEconomia
-);
+  let current = "";
 
-calcularEconomia();
+  sections.forEach(section => {
 
-console.log("🌱 Agrinho 2026 iniciado!");
+    const sectionTop = section.offsetTop;
+
+    if (scrollY >= sectionTop - 200) {
+
+      current = section.getAttribute("id");
+
+    }
+
+  });
+
+  navLinks.forEach(link => {
+
+    link.classList.remove("active");
+
+    if (
+      link.getAttribute("href") === `#${current}`
+    ) {
+
+      link.classList.add("active");
+
+    }
+
+  });
+
+});
+
+/* =========================
+   TYPING EFFECT
+========================= */
+
+const heroTitle = document.querySelector(".hero-text h2");
+
+const originalText = heroTitle.innerHTML;
+
+heroTitle.innerHTML = "";
+
+let i = 0;
+
+const typingEffect = () => {
+
+  if (i < originalText.length) {
+
+    heroTitle.innerHTML += originalText.charAt(i);
+
+    i++;
+
+    setTimeout(typingEffect, 25);
+
+  }
+
+};
+
+setTimeout(typingEffect, 400);
+
+/* =========================
+   PARTICLES
+========================= */
+
+const createParticle = () => {
+
+  const particle = document.createElement("div");
+
+  particle.classList.add("particle");
+
+  document.body.appendChild(particle);
+
+  const size = Math.random() * 5 + 2;
+
+  particle.style.width = `${size}px`;
+  particle.style.height = `${size}px`;
+
+  particle.style.left = `${Math.random() * window.innerWidth}px`;
+
+  particle.style.animationDuration = `
+    ${Math.random() * 10 + 5}s
+  `;
+
+  setTimeout(() => {
+    particle.remove();
+  }, 15000);
+
+};
+
+setInterval(createParticle, 300);
+
+/* =========================
+   SIMULATED LIVE DATA
+========================= */
+
+const impactNumbers = document.querySelectorAll(".stat h3");
+
+setInterval(() => {
+
+  impactNumbers.forEach(number => {
+
+    const base = parseInt(number.innerText);
+
+    const variation = Math.floor(
+      Math.random() * 3
+    );
+
+    number.innerText = `${base + variation}%`;
+
+  });
+
+}, 4000);
+
+/* =========================
+   SCROLL PROGRESS BAR
+========================= */
+
+const progressBar = document.createElement("div");
+
+progressBar.classList.add("progress-bar");
+
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll", () => {
+
+  const scrollTop = document.documentElement.scrollTop;
+
+  const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  const progress = (scrollTop / height) * 100;
+
+  progressBar.style.width = `${progress}%`;
+
+});
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+const loader = document.createElement("div");
+
+loader.classList.add("loader");
+
+loader.innerHTML = `
+  <div class="loader-logo">
+    AGRINHO 2026
+  </div>
+`;
+
+document.body.appendChild(loader);
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    loader.classList.add("loader-hidden");
+
+  }, 1800);
+
+});
+
+/* =========================
+   DYNAMIC YEAR
+========================= */
+
+const footer = document.querySelector("footer p");
+
+footer.innerHTML = `
+  © ${new Date().getFullYear()}
+  Projeto desenvolvido para o Concurso Agrinho 2026
+`;
+
+/* =========================
+   SOUND EFFECT BUTTONS
+========================= */
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+
+  button.addEventListener("mouseenter", () => {
+
+    button.style.transform = "scale(1.05)";
+
+  });
+
+  button.addEventListener("mouseleave", () => {
+
+    button.style.transform = "scale(1)";
+
+  });
+
+});
+
+/* =========================
+   RANDOM GLOW EFFECT
+========================= */
+
+setInterval(() => {
+
+  document.body.style.boxShadow = `
+    inset 0 0 120px rgba(
+      ${Math.random() * 50},
+      255,
+      ${Math.random() * 255},
+      0.08
+    )
+  `;
+
+}, 2500);
