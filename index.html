@@ -3,18 +3,16 @@
 
 <head>
 
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agrinho 2026 | Agro do Futuro</title>
 
-  <title>Agrinho 2026</title>
-
-  <!-- FONTES -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -23,438 +21,252 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- BACKGROUND -->
+  <div class="background-glow"></div>
 
+  <!-- HEADER -->
   <header>
 
-    <div class="navbar">
+    <div class="logo">
+      <h1>AGRINHO<span>2026</span></h1>
+    </div>
 
-      <div class="logo">
-        <h1>AGRINHO<span>⁺</span></h1>
-      </div>
+    <nav>
 
-      <nav>
+      <a href="#home">Início</a>
+      <a href="#future">Futuro</a>
+      <a href="#tech">Tecnologia</a>
+      <a href="#sustain">Sustentabilidade</a>
+      <a href="#impact">Impacto</a>
 
-        <ul class="nav-links">
+    </nav>
 
-          <li>
-            <a href="#" data-page="home" class="active-link">
-              Início
-            </a>
-          </li>
+    <button id="themeBtn">
+      🌙
+    </button>
 
-          <li>
-            <a href="#" data-page="conexao">
-              Campo & Cidade
-            </a>
-          </li>
+  </header>
 
-          <li>
-            <a href="#" data-page="tecnologia">
-              Tecnologia
-            </a>
-          </li>
+  <!-- HERO -->
+  <section class="hero" id="home">
 
-          <li>
-            <a href="#" data-page="sustentabilidade">
-              Sustentabilidade
-            </a>
-          </li>
+    <div class="hero-text">
 
-          <li>
-            <a href="#" data-page="simulador">
-              Simulador
-            </a>
-          </li>
+      <span class="tag">
+        AGRINHO 2026
+      </span>
 
-          <li>
-            <a href="#" data-page="estatisticas">
-              Estatísticas
-            </a>
-          </li>
+      <h2>
 
-        </ul>
+        Agro Forte,
+        <span>Futuro Sustentável</span>
 
-      </nav>
+      </h2>
 
-      <button id="themeBtn" class="theme-toggle">
-        🌙
+      <p>
+
+        Tecnologia, sustentabilidade e inovação conectando
+        o campo e a cidade para transformar o futuro do planeta.
+
+      </p>
+
+      <button>
+        Explorar Projeto
       </button>
 
     </div>
 
-  </header>
+    <div class="hero-card">
 
-  <!-- APP -->
+      <div class="floating-card">
 
-  <main class="app-container">
+        <h3>🌎 Sustentabilidade</h3>
 
-    <!-- HOME -->
+        <p>
+          Sensores inteligentes economizam água e aumentam a produtividade.
+        </p>
 
-    <section class="page-section active-section hero" id="home">
+      </div>
 
-      <div class="hero-content">
+    </div>
 
-        <span class="mini-tag">
-          AGRINHO 2026
-        </span>
+  </section>
 
-        <h2>
+  <!-- FUTURO -->
+  <section class="future-section" id="future">
 
-          Campo e Cidade:
-          <span>Conexões</span>
-          que Transformam
+    <div class="section-title">
 
-        </h2>
+      <span>FUTURO AGRO</span>
+
+      <h2>
+        O Campo Inteligente
+      </h2>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">🚜</div>
+
+        <h3>Máquinas Autônomas</h3>
 
         <p>
 
-          O futuro sustentável depende da união entre
-          tecnologia urbana, inovação científica
-          e produção rural inteligente.
-
-        </p>
-
-        <button class="btn-tech" data-page-btn="conexao">
-          Explorar Projeto
-        </button>
-
-      </div>
-
-    </section>
-
-    <!-- CONEXÃO -->
-
-    <section class="page-section" id="conexao">
-
-      <div class="premium-header">
-
-        <span class="mini-tag">
-          CONEXÃO
-        </span>
-
-        <h2 class="section-title">
-          Campo & Cidade
-        </h2>
-
-        <p class="section-description">
-
-          O campo abastece as cidades com alimentos,
-          enquanto as cidades fornecem inovação,
-          tecnologia e conhecimento para o agro.
+          Tratores inteligentes realizam plantio,
+          irrigação e colheita automaticamente.
 
         </p>
 
       </div>
 
-      <div class="cards-grid">
+      <div class="card">
 
-        <div class="premium-card">
+        <div class="icon">🛰️</div>
 
-          <div class="card-icon">🚜</div>
+        <h3>Monitoramento via Satélite</h3>
 
-          <h3>Produção Rural</h3>
+        <p>
 
-          <p>
+          Dados climáticos em tempo real ajudam
+          produtores a tomarem decisões precisas.
 
-            O agronegócio produz alimentos,
-            fibras e energia para milhões
-            de pessoas no Brasil e no mundo.
-
-          </p>
-
-        </div>
-
-        <div class="premium-card">
-
-          <div class="card-icon">🏙️</div>
-
-          <h3>Inovação Urbana</h3>
-
-          <p>
-
-            As cidades desenvolvem tecnologias,
-            inteligência artificial e pesquisas
-            para modernizar o campo.
-
-          </p>
-
-        </div>
-
-        <div class="premium-card">
-
-          <div class="card-icon">🔄</div>
-
-          <h3>Conexão Sustentável</h3>
-
-          <p>
-
-            Campo e cidade trabalham juntos
-            para criar um futuro equilibrado,
-            sustentável e tecnológico.
-
-          </p>
-
-        </div>
+        </p>
 
       </div>
 
-    </section>
+      <div class="card">
 
-    <!-- TECNOLOGIA -->
+        <div class="icon">🤖</div>
 
-    <section class="page-section" id="tecnologia">
+        <h3>Inteligência Artificial</h3>
 
-      <div class="premium-header">
+        <p>
 
-        <span class="mini-tag">
-          FUTURO AGRO
-        </span>
+          IA analisa solo, clima e produtividade,
+          reduzindo desperdícios.
 
-        <h2 class="section-title">
-          Tecnologias do Futuro
-        </h2>
+        </p>
 
       </div>
 
-      <div class="timeline">
+    </div>
 
-        <div class="timeline-card">
+  </section>
 
-          <span>2026</span>
+  <!-- TECNOLOGIA -->
+  <section class="tech-section" id="tech">
 
-          <h3>Inteligência Artificial</h3>
+    <div class="tech-left">
 
-          <p>
+      <span class="tag">
+        AGROTECH
+      </span>
 
-            Sistemas inteligentes analisam
-            clima, solo e produtividade
-            em tempo real.
+      <h2>
+        Tecnologia que conecta campo e cidade
+      </h2>
 
-          </p>
+      <p>
 
-        </div>
+        O avanço tecnológico permite uma agricultura
+        mais eficiente, sustentável e conectada com as cidades.
 
-        <div class="timeline-card">
+      </p>
 
-          <span>2030</span>
+    </div>
 
-          <h3>Drones Agrícolas</h3>
+    <div class="tech-grid">
 
-          <p>
-
-            Drones ajudam no monitoramento
-            ambiental e redução de desperdícios.
-
-          </p>
-
-        </div>
-
-        <div class="timeline-card">
-
-          <span>2040</span>
-
-          <h3>Fazendas Automatizadas</h3>
-
-          <p>
-
-            Máquinas autônomas realizarão
-            plantio e colheita inteligente.
-
-          </p>
-
-        </div>
-
+      <div class="tech-box">
+        🌱 Agricultura Sustentável
       </div>
 
-    </section>
-
-    <!-- SUSTENTABILIDADE -->
-
-    <section class="page-section" id="sustentabilidade">
-
-      <div class="premium-header">
-
-        <span class="mini-tag">
-          SUSTENTABILIDADE
-        </span>
-
-        <h2 class="section-title">
-          Preservação Ambiental
-        </h2>
-
+      <div class="tech-box">
+        💧 Economia de Água
       </div>
 
-      <div class="cards-grid">
-
-        <div class="premium-card">
-
-          <div class="card-icon">💧</div>
-
-          <h3>Economia de Água</h3>
-
-          <p>
-
-            Sensores inteligentes reduzem
-            desperdícios na irrigação.
-
-          </p>
-
-        </div>
-
-        <div class="premium-card">
-
-          <div class="card-icon">🌳</div>
-
-          <h3>Preservação Florestal</h3>
-
-          <p>
-
-            Drones monitoram áreas ambientais
-            protegendo a biodiversidade.
-
-          </p>
-
-        </div>
-
-        <div class="premium-card">
-
-          <div class="card-icon">⚡</div>
-
-          <h3>Energia Limpa</h3>
-
-          <p>
-
-            Energia solar e fontes renováveis
-            já fazem parte do agro moderno.
-
-          </p>
-
-        </div>
-
+      <div class="tech-box">
+        ⚡ Energia Renovável
       </div>
 
-    </section>
-
-    <!-- SIMULADOR -->
-
-    <section class="page-section" id="simulador">
-
-      <div class="simulator-box">
-
-        <div>
-
-          <span class="mini-tag">
-            AGRO TECH
-          </span>
-
-          <h2>
-            Simulador Inteligente
-          </h2>
-
-          <p>
-
-            Descubra quanto de água pode ser
-            economizado utilizando sensores IoT.
-
-          </p>
-
-          <label>
-            Área da propriedade (hectares)
-          </label>
-
-          <input
-            type="number"
-            id="hectares"
-            value="10"
-            min="1"
-          >
-
-        </div>
-
-        <div class="simulator-result">
-
-          <h3>Economia Mensal</h3>
-
-          <span id="resultado">
-            450.000
-          </span>
-
-          <p>
-            litros de água preservados.
-          </p>
-
-        </div>
-
+      <div class="tech-box">
+        📡 Internet Rural
       </div>
 
-    </section>
+    </div>
 
-    <!-- ESTATÍSTICAS -->
+  </section>
 
-    <section class="page-section" id="estatisticas">
+  <!-- SUSTENTABILIDADE -->
+  <section class="sustain-section" id="sustain">
 
-      <div class="premium-header">
+    <div class="section-title">
 
-        <span class="mini-tag">
-          IMPACTO GLOBAL
-        </span>
+      <span>MEIO AMBIENTE</span>
 
-        <h2 class="section-title">
-          Agro em Números
-        </h2>
+      <h2>
+        Produzir sem destruir
+      </h2>
 
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h3>45%</h3>
+        <p>menos desperdício hídrico</p>
       </div>
 
-      <div class="stats-grid">
-
-        <div class="stat-card">
-
-          <h3>45%</h3>
-
-          <p>
-            redução do desperdício hídrico.
-          </p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>95%</h3>
-
-          <p>
-            precisão no monitoramento.
-          </p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>70%</h3>
-
-          <p>
-            da água doce é usada na agricultura.
-          </p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>100%</h3>
-
-          <p>
-            conexão entre campo e cidade.
-          </p>
-
-        </div>
-
+      <div class="stat">
+        <h3>80%</h3>
+        <p>mais eficiência agrícola</p>
       </div>
 
-    </section>
+      <div class="stat">
+        <h3>100%</h3>
+        <p>conexão campo e cidade</p>
+      </div>
 
-  </main>
+    </div>
 
-  <!-- JS -->
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" id="impact">
+
+    <div class="impact-card">
+
+      <h2>
+        O futuro começa agora
+      </h2>
+
+      <p>
+
+        O Agrinho 2026 mostra que tecnologia,
+        sustentabilidade e educação podem transformar o mundo.
+
+      </p>
+
+      <button>
+        Conhecer Mais
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      Projeto desenvolvido para o Concurso Agrinho 2026
+    </p>
+
+  </footer>
+
   <script src="main.js"></script>
 
 </body>
