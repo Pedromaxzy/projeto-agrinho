@@ -1,902 +1,246 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Conexões que Transformam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset e Base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
 
-        :root {
-            --primary-color: #0d3b1e; /* Verde Profundo */
-            --secondary-color: #f1b700; /* Ouro Metálico */
-            --accent-color: #27ae60; /* Verde Claro Tech */
-            --bg-color: #f8faf8;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --transition: all 0.3s ease;
-        }
+  <meta charset="UTF-8" />
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        /* Animação de Entrada */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+  <title>Agrinho 2026</title>
 
-        /* Menu de Navegação */
-        header {
-            background-color: white;
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        .logo h1 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .logo h1 span {
-            color: var(--secondary-color);
-        }
+  <link rel="stylesheet" href="style.css">
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Seção Hero */
-        .hero {
-            height: 80vh;
-            background-color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(13, 59, 30, 0.9) 30%, rgba(13, 59, 30, 0.7) 100%), 
-                        url('https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=2000&auto=format&fit=crop') center/cover;
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 40px;
-            z-index: 2;
-            color: white;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content h2 {
-            font-size: 4rem;
-            line-height: 1.1;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-
-        .hero-content h2 span {
-            color: var(--secondary-color);
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            max-width: 650px;
-            margin-bottom: 35px;
-            opacity: 0.9;
-        }
-
-        .btn-modern {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 40px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(241, 183, 0, 0.3);
-        }
-
-        .btn-modern:hover {
-            background-color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-        }
-
-        /* Conteúdo Principal */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 60px 40px;
-        }
-
-        /* Títulos de Seções */
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            margin-top: 40px;
-        }
-
-        .section-title h3 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .section-title span {
-            color: var(--secondary-color);
-        }
-
-        /* Seção Sobre */
-        .about-modern {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            background-color: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            margin-bottom: 60px;
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .about-text p {
-            color: #555;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .about-img img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Grid de Pilares */
-        .pilares-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .pilar-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
-            border-left: 0px solid var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .pilar-card:hover {
-            border-left-width: 8px;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .pilar-card h4 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* --- SEÇÃO NOVA 1: DATA & IMPACTO (MÉTRICAS) --- */
-        .metrics-section {
-            background-color: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-            margin-bottom: 60px;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .metric-bar-container {
-            margin-bottom: 25px;
-        }
-
-        .metric-info {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-
-        .bar-bg {
-            background-color: #e0e0e0;
-            height: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .bar-fill {
-            background-color: var(--accent-color);
-            height: 100%;
-            border-radius: 6px;
-            transition: width 1.5s ease-in-out;
-        }
-
-        /* --- SEÇÃO NOVA 2: FEED DE NOTÍCIAS/CONCURSO --- */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .news-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-        }
-
-        .news-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .news-content {
-            padding: 25px;
-        }
-
-        .news-tag {
-            background-color: rgba(13, 59, 30, 0.1);
-            color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .news-content h4 {
-            color: var(--primary-color);
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        .news-content p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #111;
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
-
-        footer strong { color: white; }
-
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .hero-content h2 { font-size: 3rem; }
-            .about-modern, .metrics-grid { grid-template-columns: 1fr; gap: 40px; }
-            .about-modern { padding: 30px; }
-        }
-    </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <h1>AGRINHO<span>2026</span></h1>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#projeto">O Projeto</a></li>
-                    <li><a href="#pilares">Pilares</a></li>
-                    <li><a href="#impacto">Impacto Tecnológico</a></li>
-                    <li><a href="#concurso">Concurso 1º Ano</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- HEADER -->
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Campo e Cidade:<br><span>Conexões</span> que Transformam</h2>
-            <p>Descubra como a educação, a tecnologia e a sustentabilidade unem o mundo rural e o urbano para construir um futuro forte e equilibrado.</p>
-            <a href="#projeto" class="btn-modern">Explorar Projeto</a>
-        </div>
+  <header>
+
+    <div class="navbar">
+
+      <div class="logo">
+        <h1>AGRINHO<span>⁺</span></h1>
+      </div>
+
+      <nav>
+
+        <ul class="nav-links">
+
+          <li>
+            <a href="#" data-page="home" class="active-link">
+              Início
+            </a>
+          </li>
+
+          <li>
+            <a href="#" data-page="pilares">
+              Ciência & Campo
+            </a>
+          </li>
+
+          <li>
+            <a href="#" data-page="simulador">
+              Simulador IoT
+            </a>
+          </li>
+
+          <li>
+            <a href="#" data-page="impacto">
+              Impacto
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button id="themeBtn" class="theme-toggle">
+        Modo Escuro 🌙
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- APP -->
+
+  <main class="app-container">
+
+    <!-- HOME -->
+
+    <section class="page-section active-section hero" id="home">
+
+      <div class="hero-content">
+
+        <h2>
+          Campo e Cidade:
+          <span>Conexões</span>
+          que Transformam
+        </h2>
+
+        <p>
+          Tecnologia, sustentabilidade e inovação
+          conectando o futuro do agronegócio.
+        </p>
+
+        <button class="btn-tech" data-page-btn="pilares">
+          Explorar Projeto
+        </button>
+
+      </div>
+
     </section>
 
-    <main class="container">
-        
-        <section id="projeto" class="about-modern">
-            <div class="about-text">
-                <h3>Educação para a Cidadania</h3>
-                <p>
-                    O Agrinho é mais do que um concurso; é o maior programa de responsabilidade social do Sistema FAEP/SENAR-PR. Há décadas, ele desafia estudantes e professores a pensarem de forma crítica sobre o papel do agronegócio e a importância da preservação ambiental.
-                </p>
-                <p>
-                    No Ensino Médio, o foco se expande para a ciência, o empreendedorismo e como as novas tecnologias (Agrotechs) garantem o equilíbrio entre alta produção e respeito ao meio ambiente.
-                </p>
-            </div>
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1595155702283-4903328e3b56?q=80&w=800&auto=format&fit=crop" alt="Estudantes usando tecnologia no campo">
-            </div>
-        </section>
+    <!-- PILARES -->
 
-        <section id="pilares">
-            <div class="section-title">
-                <h3>Pilares do <span>Futuro</span></h3>
-            </div>
-            <div class="pilares-grid">
-                <div class="pilar-card">
-                    <div class="icon">🛰️</div>
-                    <h4>Inovação & Tech</h4>
-                    <p>O uso de drones, sensores IoT, robótica e Inteligência Artificial para otimizar safras, reduzir desperdícios de recursos e monitorar a saúde do solo em tempo real.</p>
-                </div>
-                <div class="pilar-card">
-                    <div class="icon">🌍</div>
-                    <h4>Sustentabilidade</h4>
-                    <p>Produzir mais com menos. O equilíbrio através da rotação de culturas, sistemas de plantio direto, recuperação de nascentes e manejo consciente de recursos.</p>
-                </div>
-                <div class="pilar-card">
-                    <div class="icon">👥</div>
-                    <h4>Cidadania Ativa</h4>
-                    <p>Formar jovens líderes e empreendedores rurais e urbanos, conscientes de seu impacto na sociedade e capazes de promover o desenvolvimento local.</p>
-                </div>
-            </div>
-        </section>
+    <section class="page-section" id="pilares">
 
-        <section id="impacto" class="metrics-section">
-            <div class="metrics-grid">
-                <div>
-                    <h3 style="color: var(--primary-color); font-size: 2rem; margin-bottom: 20px; font-weight: 700;">O Impacto da Tecnologia no Campo</h3>
-                    <p style="color: #555; margin-bottom: 15px;">A agricultura de precisão e a robótica aplicada — grandes temas do Ensino Médio no Agrinho — provam que a eficiência tecnológica reduz o impacto ambiental de forma drástica.</p>
-                    <p style="color: #555;">Gráficos de metas para a produção sustentável com base na adoção de tecnologias limpas:</p>
-                </div>
-                <div>
-                    <div class="metric-bar-container">
-                        <div class="metric-info">
-                            <span>Redução de Desperdício de Água (Irrigação Inteligente)</span>
-                            <span>Aumento de 45%</span>
-                        </div>
-                        <div class="bar-bg">
-                            <div class="bar-fill" style="width: 45%;"></div>
-                        </div>
-                    </div>
-                    <div class="metric-bar-container">
-                        <div class="metric-info">
-                            <span>Eficiência de Defensivos Orgânicos / Alvos Biológicos</span>
-                            <span>Precisão de 85%</span>
-                        </div>
-                        <div class="bar-bg">
-                            <div class="bar-fill" style="width: 85%; background-color: var(--secondary-color);"></div>
-                        </div>
-                    </div>
-                    <div class="metric-bar-container">
-                        <div class="metric-info">
-                            <span>Preservação de Áreas de Mata Nativa (Monitoramento por Drone)</span>
-                            <span>Proteção de 95%</span>
-                        </div>
-                        <div class="bar-bg">
-                            <div class="bar-fill" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <h2 class="section-title">
+        Ciência & Campo
+      </h2>
 
-        <section id="concurso">
-            <div class="section-title">
-                <h3>O Agrinho no <span>Ensino Médio</span></h3>
-            </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="news-content">
-                        <span class="news-tag">Robótica</span>
-                        <h4>Automação no Campo</h4>
-                        <p>Estudantes do 1º ano projetando protótipos de automação para irrigação baseados em sensores de umidade do solo.</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="news-content">
-                        <span class="news-tag">Ecossistemas</span>
-                        <h4>Créditos de Carbono</h4>
-                        <p>Como as novas gerações transformam o manejo de pastagens e o plantio direto em ferramentas para reter carbono no solo.</p>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="news-content">
-                        <span class="news-tag">Cidadania</span>
-                        <h4>Projetos Coletivos</h4>
-                        <p>Relatos pedagógicos e redações que debatem a segurança alimentar e a conexão direta do produtor com o consumidor final.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="grid-cards">
 
-    </main>
+        <div class="card-glass">
 
-    <footer>
-        <p>&copy; 2026 Portal Temático Agrinho • Conteúdo focado no Ensino Médio.</p>
-        <p>Desenvolvido em conformidade com as diretrizes do <strong>Sistema FAEP / SENAR-PR</strong></p>
-    </footer>
+          <h3>🛰️ Agricultura Inteligente</h3>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma Agrinho 2026 - Edição Avançada</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Configurações Globais e Variáveis de Tema */
-        :root {
-            --primary: #0b3c1d;
-            --primary-light: #1e5a32;
-            --secondary: #ffcc00;
-            --accent: #00ff88;
-            --bg-site: #f4f7f5;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --text-main: #1a2e22;
-            --text-muted: #53685a;
-            --border-color: rgba(11, 60, 29, 0.1);
-            --blur: blur(12px);
-        }
+          <p>
+            Sensores IoT monitoram o solo em tempo real,
+            reduzindo desperdícios e aumentando a produção.
+          </p>
 
-        [data-theme="dark"] {
-            --primary: #00ff88;
-            --primary-light: #00b35f;
-            --secondary: #ffcc00;
-            --bg-site: #0a140e;
-            --card-bg: rgba(15, 32, 22, 0.85);
-            --text-main: #ecf3ee;
-            --text-muted: #a3b8ab;
-            --border-color: rgba(0, 255, 136, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
-        }
-
-        h1, h2, h3, h4, .btn-tech {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-site);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Menu de Navegação Fluid com Efeito Vidro */
-        header {
-            position: sticky;
-            top: 0;
-            background: var(--card-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
-
-        .navbar {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        /* Botão de Alternância de Tema (Dark/Light) */
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--border-color);
-            color: var(--text-main);
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        /* Seção Hero de Alto Impacto */
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(circle at top right, rgba(0, 255, 136, 0.15), transparent), var(--primary);
-            color: white;
-            padding: 40px;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .hero-text h2 {
-            font-size: 3.8rem;
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-
-        .hero-text h2 span {
-            color: var(--secondary);
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            margin-bottom: 35px;
-            color: rgba(255,255,255,0.85);
-            max-width: 700px;
-        }
-
-        .btn-tech {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: #0b3c1d;
-            padding: 16px 35px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-tech:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.4);
-        }
-
-        /* Container Principal */
-        .container {
-            max-width: 1400px;
-            margin: 80px auto;
-            padding: 0 40px;
-        }
-
-        /* Layout Cards Modernos */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-        }
-
-        .card-glass {
-            background: var(--card-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-
-        .card-glass h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .card-glass p {
-            color: var(--text-muted);
-        }
-
-        /* --- EXCLUSIVO: CALCULADORA INTERATIVA (SIMULADOR BIO-TECH) --- */
-        .simulator-box {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            padding: 50px;
-            border-radius: 24px;
-            margin-bottom: 80px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .simulator-inputs h3 {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-        }
-
-        .simulator-inputs p {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 30px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            border-radius: 8px;
-            border: none;
-            font-size: 1.1rem;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            backdrop-filter: var(--blur);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .input-group input:focus {
-            outline: 2px solid var(--secondary);
-        }
-
-        .simulator-result {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 40px;
-            border-radius: 16px;
-            backdrop-filter: var(--blur);
-            text-align: center;
-        }
-
-        .result-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin: 15px 0;
-            display: block;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #050f09;
-            color: #a3b8ab;
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Responsividade */
-        @media (max-width: 1024px) {
-            .hero-grid, .simulator-box { grid-template-columns: 1fr; }
-            .hero-text h2 { font-size: 2.8rem; }
-            .container { padding: 0 20px; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <h1>AGRINHO<span>⁺</span></h1>
-            </div>
-            <div class="nav-controls">
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="#pilares">Ciência & Campo</a></li>
-                        <li><a href="#simulador">Simulador IoT</a></li>
-                    </ul>
-                </nav>
-                <button class="theme-toggle" id="themeBtn">Alternar Tema</button>
-            </div>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="hero-grid">
-            <div class="hero-text">
-                <h2>Equilíbrio entre <span>Produção</span> e Meio Ambiente</h2>
-                <p>O ecossistema definitivo que integra a agricultura de alta performance à conservação da biodiversidade do planeta. Criado para mentes disruptivas do Ensino Médio.</p>
-                <a href="#simulador" class="btn-tech">Iniciar Simulação</a>
-            </div>
+        <div class="card-glass">
+
+          <h3>🌱 Sustentabilidade</h3>
+
+          <p>
+            O uso de bioinsumos e irrigação inteligente
+            preserva recursos naturais.
+          </p>
+
         </div>
+
+        <div class="card-glass">
+
+          <h3>🤖 Robótica no Campo</h3>
+
+          <p>
+            Máquinas autônomas ajudam no plantio,
+            monitoramento e colheita sustentável.
+          </p>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <main class="container">
+    <!-- SIMULADOR -->
 
-        <section class="grid-cards" id="pilares">
-            <div class="card-glass">
-                <h3>01 / Biotecnologia Aplicada</h3>
-                <p>Uso de bioinsumos e defensores biológicos baseados em microrganismos benéficos para eliminar pragas sem contaminar os lençóis freáticos.</p>
-            </div>
-            <div class="card-glass">
-                <h3>02 / Algoritmos de Precisão</h3>
-                <p>Análise preditiva por Inteligência Artificial que calcula exatamente o mililitro de água necessário para cada centímetro quadrado de plantação.</p>
-            </div>
-            <div class="card-glass">
-                <h3>03 / Conexão Multissetorial</h3>
-                <p>Pontes lógicas integrando as necessidades alimentares dos grandes centros urbanos com o planejamento sustentável das safras rurais.</p>
-            </div>
-        </section>
+    <section class="page-section" id="simulador">
 
-        <section class="simulator-box" id="simulador">
-            <div class="simulator-inputs">
-                <h3>Calculadora de Impacto Agro-Tech</h3>
-                <p>Descubra em tempo real quanta água um sistema automatizado com sensores IoT economiza em comparação aos métodos de irrigação tradicionais.</p>
-                <div class="input-group">
-                    <label for="hectares">Área da Propriedade (em hectares):</label>
-                    <input type="number" id="hectares" value="10" min="1" oninput="calcularEconomia()">
-                </div>
-            </div>
-            <div class="simulator-result">
-                <h4>Economia Mensal Estimada</h4>
-                <span class="result-number" id="resultado">450.000</span>
-                <p>Litros de água preservados com o uso de sensores de solo inteligentes.</p>
-            </div>
-        </section>
+      <div class="simulator-box">
 
-    </main>
+        <div class="simulator-left">
 
-    <footer>
-        <p>© 2026 Plataforma Científica Agrinho — Desenvolvida para o 1º Ano do Ensino Médio.</p>
-    </footer>
+          <h2>Simulador Agro-Tech</h2>
 
-    <script>
-        // Função do Simulador de Impacto (Lógica Matemática)
-        function calcularEconomia() {
-            const hectares = document.getElementById('hectares').value;
-            // Regra de negócio fictícia: Cada hectare com tecnologia IoT economiza cerca de 45.000 litros/mês
-            const economiaPorHectare = 45000;
-            const total = hectares * economiaPorHectare;
-            
-            // Formata o número com pontos para ficar bonito
-            document.getElementById('resultado').innerText = total.toLocaleString('pt-BR');
-        }
+          <p>
+            Descubra quanto de água pode ser economizado
+            utilizando sensores inteligentes.
+          </p>
 
-        // Lógica de Alternância de Temas (Dark Mode/Light Mode)
-        const themeBtn = document.getElementById('themeBtn');
-        let currentTheme = "light";
+          <label>
+            Área da propriedade (hectares)
+          </label>
 
-        themeBtn.addEventListener('click', () => {
-            if (currentTheme === "light") {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                currentTheme = "dark";
-                themeBtn.innerText = "Modo Claro ☀️";
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                currentTheme = "light";
-                themeBtn.innerText = "Modo Escuro 🌙";
-            }
-        });
-    </script>
+          <input
+            type="number"
+            id="hectares"
+            value="10"
+            min="1"
+          >
+
+        </div>
+
+        <div class="simulator-right">
+
+          <h3>Economia Mensal</h3>
+
+          <span id="resultado">
+            450.000
+          </span>
+
+          <p>
+            litros preservados por mês.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- IMPACTO -->
+
+    <section class="page-section" id="impacto">
+
+      <h2 class="section-title">
+        Impacto Tecnológico
+      </h2>
+
+      <div class="impact-box">
+
+        <div class="impact-item">
+
+          <h3>💧 45%</h3>
+
+          <p>
+            redução do desperdício de água
+          </p>
+
+        </div>
+
+        <div class="impact-item">
+
+          <h3>🌳 95%</h3>
+
+          <p>
+            preservação monitorada por drones
+          </p>
+
+        </div>
+
+        <div class="impact-item">
+
+          <h3>⚡ 85%</h3>
+
+          <p>
+            precisão na aplicação biológica
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="main.js"></script>
+
 </body>
+
 </html>
