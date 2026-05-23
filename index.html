@@ -3,6 +3,7 @@
 
 <head>
 
+  <!-- META -->
   <meta charset="UTF-8">
 
   <meta
@@ -10,9 +11,20 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <meta
+    name="description"
+    content="Projeto Agrinho 2026 - Campo e Cidade conectados através da tecnologia e sustentabilidade."
+  >
+
   <title>
-    Agrinho 2026 | Campo e Cidade
+    Agrinho 2026 | Conexões do Futuro
   </title>
+
+  <!-- FAVICON -->
+  <link
+    rel="icon"
+    href="https://cdn-icons-png.flaticon.com/512/2909/2909763.png"
+  >
 
   <!-- FONTES -->
   <link
@@ -27,7 +39,7 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -47,6 +59,18 @@
 
 <body>
 
+  <!-- LOADING -->
+  <div class="loader">
+
+    <div class="loader-leaf">
+      🌱
+    </div>
+
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar"></div>
+
   <!-- MENU MOBILE -->
   <div class="mobile-menu">
 
@@ -62,8 +86,8 @@
       Tecnologia
     </a>
 
-    <a href="#impacto">
-      Impacto
+    <a href="#estatisticas">
+      Estatísticas
     </a>
 
     <a href="#galeria">
@@ -71,6 +95,9 @@
     </a>
 
   </div>
+
+  <!-- OVERLAY -->
+  <div class="menu-overlay"></div>
 
   <!-- HEADER -->
   <header>
@@ -93,8 +120,8 @@
         Tecnologia
       </a>
 
-      <a href="#impacto">
-        Impacto
+      <a href="#estatisticas">
+        Estatísticas
       </a>
 
       <a href="#galeria">
@@ -123,15 +150,25 @@
     id="inicio"
   >
 
-    <img
-      class="hero-image"
-      src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1800&auto=format&fit=crop"
-      alt="Plantação"
+    <!-- VÍDEO -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="hero-video"
     >
+
+      <source
+        src="https://cdn.coverr.co/videos/coverr-farmer-walking-through-field-1561456935063?download=1080p"
+        type="video/mp4"
+      >
+
+    </video>
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
 
       <span class="tag">
         CONCURSO AGRINHO 2026
@@ -147,9 +184,8 @@
 
       <p>
 
-        O futuro sustentável depende da união
-        entre tecnologia, agricultura moderna
-        e preservação ambiental.
+        O futuro sustentável nasce da união entre
+        agricultura moderna, tecnologia e preservação ambiental.
 
       </p>
 
@@ -163,10 +199,10 @@
         </a>
 
         <a
-          href="#impacto"
+          href="#tecnologia"
           class="secondary-btn"
         >
-          Ver Impactos
+          Tecnologias
         </a>
 
       </div>
@@ -181,7 +217,7 @@
     id="sobre"
   >
 
-    <div class="section-title">
+    <div class="section-title reveal">
 
       <span>
         CONEXÃO
@@ -199,7 +235,7 @@
 
         <img
           src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
-          alt="Agricultura"
+          alt="Agricultura moderna"
         >
 
         <div class="card-content">
@@ -210,9 +246,8 @@
 
           <p>
 
-            Máquinas modernas e novas técnicas
-            ajudam produtores a aumentar a produtividade
-            com sustentabilidade.
+            Máquinas modernas e técnicas sustentáveis
+            aumentam a produtividade preservando o meio ambiente.
 
           </p>
 
@@ -224,7 +259,7 @@
 
         <img
           src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop"
-          alt="Tecnologia"
+          alt="Tecnologia no agro"
         >
 
         <div class="card-content">
@@ -236,7 +271,7 @@
           <p>
 
             Drones, sensores e inteligência artificial
-            tornam o agro mais eficiente e inteligente.
+            tornam o agronegócio mais eficiente.
 
           </p>
 
@@ -259,8 +294,9 @@
 
           <p>
 
-            Preservar recursos naturais é essencial
-            para garantir alimento e qualidade de vida.
+            Produzir alimentos preservando
+            recursos naturais é essencial
+            para o futuro.
 
           </p>
 
@@ -278,7 +314,7 @@
     id="tecnologia"
   >
 
-    <div class="tech-image">
+    <div class="tech-image reveal">
 
       <img
         src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1400&auto=format&fit=crop"
@@ -287,7 +323,7 @@
 
     </div>
 
-    <div class="tech-content">
+    <div class="tech-content reveal">
 
       <span>
         TECNOLOGIA
@@ -295,15 +331,15 @@
 
       <h2>
 
-        Inovação transformando o agronegócio
+        Inovação transformando o agro
 
       </h2>
 
       <p>
 
-        Sensores inteligentes, drones agrícolas
-        e internet rural conectam produtores
-        a dados em tempo real.
+        Sensores inteligentes, internet rural
+        e drones ajudam produtores a tomar
+        decisões mais rápidas e eficientes.
 
       </p>
 
@@ -321,7 +357,7 @@
 
         <div>
           <i class="fa-solid fa-check"></i>
-          Redução de desperdícios
+          Agricultura inteligente
         </div>
 
       </div>
@@ -330,20 +366,20 @@
 
   </section>
 
-  <!-- IMPACTO -->
+  <!-- ESTATÍSTICAS -->
   <section
-    class="impact-section"
-    id="impacto"
+    class="stats-section"
+    id="estatisticas"
   >
 
-    <div class="section-title">
+    <div class="section-title reveal">
 
       <span>
         IMPACTO
       </span>
 
       <h2>
-        Agro em números
+        Agro em Números
       </h2>
 
     </div>
@@ -352,8 +388,11 @@
 
       <div class="stat-card reveal">
 
-        <h3 class="counter">
-          45
+        <h3
+          class="counter"
+          data-target="45"
+        >
+          0
         </h3>
 
         <p>
@@ -364,8 +403,11 @@
 
       <div class="stat-card reveal">
 
-        <h3 class="counter">
-          80
+        <h3
+          class="counter"
+          data-target="80"
+        >
+          0
         </h3>
 
         <p>
@@ -376,8 +418,11 @@
 
       <div class="stat-card reveal">
 
-        <h3 class="counter">
-          100
+        <h3
+          class="counter"
+          data-target="100"
+        >
+          0
         </h3>
 
         <p>
@@ -396,7 +441,7 @@
     id="galeria"
   >
 
-    <div class="section-title">
+    <div class="section-title reveal">
 
       <span>
         GALERIA
@@ -413,21 +458,25 @@
       <img
         src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
         alt="Campo"
+        class="reveal"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
+        alt="Plantação"
+        class="reveal"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1200&auto=format&fit=crop"
+        alt="Agricultura"
+        class="reveal"
       >
 
       <img
         src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1200&auto=format&fit=crop"
         alt="Fazenda"
-      >
-
-      <img
-        src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1200&auto=format&fit=crop"
-        alt="Plantação"
-      >
-
-      <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
-        alt="Agricultura"
+        class="reveal"
       >
 
     </div>
@@ -437,12 +486,26 @@
   <!-- FOOTER -->
   <footer>
 
+    <h3>
+      AGRINHO 2026
+    </h3>
+
     <p>
 
-      © 2026 • Projeto desenvolvido
-      para o Concurso Agrinho
+      Projeto educativo desenvolvido
+      para o Concurso Agrinho.
 
     </p>
+
+    <div class="socials">
+
+      <i class="fa-brands fa-instagram"></i>
+
+      <i class="fa-brands fa-youtube"></i>
+
+      <i class="fa-brands fa-github"></i>
+
+    </div>
 
   </footer>
 
