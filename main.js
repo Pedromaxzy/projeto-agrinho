@@ -1,219 +1,588 @@
-/* =========================
-   LOADER
-========================= */
+/* =========================================================
+   AGRINHO 2026 - MAIN.JS
+   Tema:
+   "Agro forte, futuro sustentável:
+   equilíbrio entre produção e meio ambiente"
+========================================================= */
 
-window.addEventListener("load", () => {
+/* =========================================================
+   SELETORES
+========================================================= */
 
-  const loader = document.querySelector(".loader");
+const body = document.body;
 
-  setTimeout(() => {
+const themeBtn = document.getElementById("themeBtn");
 
-    loader.classList.add("hide");
+const navLinks = document.querySelectorAll(".nav-link");
 
-  }, 1200);
+const pages = document.querySelectorAll(".page");
 
-});
+const revealElements = document.querySelectorAll(
+  ".card, .impact-box, .timeline-item, .gallery img"
+);
 
-/* =========================
-   PAGE SYSTEM
-========================= */
+const counters = document.querySelectorAll(".counter");
 
-const navButtons =
-document.querySelectorAll(".nav-btn");
+const quizButtons = document.querySelectorAll(".quiz-option");
 
-const pages =
-document.querySelectorAll(".page");
+const quizResult = document.getElementById("quizResult");
 
-function changePage(pageId){
+const typingText = document.getElementById("typingText");
 
-  pages.forEach(page => {
+const progressBar = document.getElementById("progressBar");
 
-    page.classList.remove("active-page");
+/* =========================================================
+   MODO ESCURO / CLARO
+========================================================= */
 
-  });
+function applyTheme(theme) {
 
-  navButtons.forEach(btn => {
+    if(theme === "dark") {
 
-    btn.classList.remove("active");
+        body.classList.add("dark");
 
-  });
+        if(themeBtn){
+            themeBtn.innerHTML = "☀️";
+        }
 
-  document
-    .getElementById(pageId)
-    .classList.add("active-page");
+    } else {
 
-  document
-    .querySelector(`[data-page="${pageId}"]`)
-    ?.classList.add("active");
+        body.classList.remove("dark");
 
+        if(themeBtn){
+            themeBtn.innerHTML = "🌙";
+        }
+    }
 }
 
-navButtons.forEach(button => {
+const savedTheme = localStorage.getItem("agrinho-theme");
 
-  button.addEventListener("click", () => {
-
-    const pageId =
-    button.dataset.page;
-
-    changePage(pageId);
-
-  });
-
-});
-
-/* =========================
-   HERO BUTTONS
-========================= */
-
-const heroButtons =
-document.querySelectorAll("[data-page-target]");
-
-heroButtons.forEach(button => {
-
-  button.addEventListener("click", () => {
-
-    const pageId =
-    button.dataset.pageTarget;
-
-    changePage(pageId);
-
-  });
-
-});
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-const menuBtn =
-document.getElementById("menuBtn");
-
-const mobileMenu =
-document.querySelector(".mobile-menu");
-
-const overlay =
-document.querySelector(".overlay");
-
-menuBtn.addEventListener("click", () => {
-
-  mobileMenu.classList.toggle("active");
-
-  overlay.classList.toggle("active");
-
-});
-
-overlay.addEventListener("click", closeMenu);
-
-function closeMenu(){
-
-  mobileMenu.classList.remove("active");
-
-  overlay.classList.remove("active");
-
+if(savedTheme){
+    applyTheme(savedTheme);
 }
 
-const mobileLinks =
-document.querySelectorAll(".mobile-link");
+if(themeBtn){
 
-mobileLinks.forEach(link => {
+    themeBtn.addEventListener("click", () => {
 
-  link.addEventListener("click", () => {
+        const isDark = body.classList.contains("dark");
 
-    const pageId =
-    link.dataset.page;
+        if(isDark){
 
-    changePage(pageId);
+            applyTheme("light");
 
-    closeMenu();
+            localStorage.setItem(
+                "agrinho-theme",
+                "light"
+            );
 
-  });
+        } else {
 
-});
+            applyTheme("dark");
 
-/* =========================
-   DARK MODE
-========================= */
-
-const themeBtn =
-document.getElementById("themeBtn");
-
-const savedTheme =
-localStorage.getItem("theme");
-
-if(savedTheme === "dark"){
-
-  document.body.classList.add("dark-mode");
-
-  themeBtn.textContent = "☀️";
-
+            localStorage.setItem(
+                "agrinho-theme",
+                "dark"
+            );
+        }
+    });
 }
 
-themeBtn.addEventListener("click", () => {
+/* =========================================================
+   SISTEMA DE PÁGINAS
+========================================================= */
 
-  document.body.classList.toggle("dark-mode");
+function openPage(pageId){
 
-  const darkMode =
-  document.body.classList.contains("dark-mode");
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
 
-  if(darkMode){
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+    });
 
-    themeBtn.textContent = "☀️";
+    const targetPage = document.getElementById(pageId);
 
-    localStorage.setItem("theme","dark");
+    if(targetPage){
+        targetPage.classList.add("active");
+    }
 
-  }else{
+    const activeLink = document.querySelector(
+        `.nav-link[data-page="${pageId}"]`
+    );
 
-    themeBtn.textContent = "🌙";
+    if(activeLink){
+        activeLink.classList.add("active");
+    }
 
-    localStorage.setItem("theme","light");
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
 
-  }
+navLinks.forEach(link => {
 
+    link.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        const pageId = link.getAttribute("data-page");
+
+        openPage(pageId);
+    });
 });
 
-/* =========================
-   COUNTER
-========================= */
+/* =========================================================
+   ANIMAÇÕES AO APARECER
+========================================================= */
 
-const counters =
-document.querySelectorAll(".counter");
+const observer = new IntersectionObserver((entries) => {
 
-function startCounters(){
+    entries.forEach(entry => {
 
-  counters.forEach(counter => {
+        if(entry.isIntersecting){
 
-    const target =
-    +counter.dataset.target;
+            entry.target.classList.add("show");
+        }
+    });
 
-    let count = 0;
+},{
+    threshold:0.2
+});
 
-    const increment =
-    target / 100;
+revealElements.forEach(element => {
+
+    element.classList.add("hidden");
+
+    observer.observe(element);
+});
+
+/* =========================================================
+   CONTADORES ANIMADOS
+========================================================= */
+
+function animateCounter(counter){
+
+    const target = +counter.getAttribute("data-target");
+
+    let current = 0;
+
+    const increment = target / 120;
 
     const updateCounter = () => {
 
-      count += increment;
+        current += increment;
 
-      if(count < target){
+        if(current < target){
 
-        counter.innerText =
-        Math.floor(count) + "%";
+            counter.innerText =
+            Math.floor(current);
 
-        requestAnimationFrame(updateCounter);
+            requestAnimationFrame(updateCounter);
 
-      }else{
+        } else {
 
-        counter.innerText =
-        target + "%";
-
-      }
-
+            counter.innerText = target;
+        }
     };
 
     updateCounter();
-
-  });
-
 }
 
-startCounters();
+counters.forEach(counter => {
+
+    const counterObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                animateCounter(counter);
+
+                counterObserver.unobserve(counter);
+            }
+        });
+
+    },{
+        threshold:0.5
+    });
+
+    counterObserver.observe(counter);
+});
+
+/* =========================================================
+   QUIZ INTERATIVO
+========================================================= */
+
+if(quizButtons.length > 0){
+
+    quizButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const answer =
+            button.getAttribute("data-answer");
+
+            if(answer === "correct"){
+
+                quizResult.innerHTML =
+                "✅ Correto! Agricultura sustentável ajuda a preservar o meio ambiente.";
+
+                quizResult.style.color =
+                "#2e7d32";
+
+            } else {
+
+                quizResult.innerHTML =
+                "❌ Resposta incorreta. Tente novamente.";
+
+                quizResult.style.color =
+                "#c62828";
+            }
+        });
+    });
+}
+
+/* =========================================================
+   TEXTO DIGITANDO
+========================================================= */
+
+const phrases = [
+
+    "Agro forte, futuro sustentável.",
+
+    "Tecnologia e natureza caminhando juntas.",
+
+    "Campo e cidade unidos pelo futuro.",
+
+    "Produção agrícola com responsabilidade ambiental.",
+
+    "Sustentabilidade começa com consciência."
+];
+
+let phraseIndex = 0;
+
+let charIndex = 0;
+
+let isDeleting = false;
+
+function typeEffect(){
+
+    if(!typingText) return;
+
+    const currentPhrase =
+    phrases[phraseIndex];
+
+    if(!isDeleting){
+
+        typingText.innerHTML =
+        currentPhrase.substring(
+            0,
+            charIndex + 1
+        );
+
+        charIndex++;
+
+        if(charIndex === currentPhrase.length){
+
+            isDeleting = true;
+
+            setTimeout(typeEffect, 1800);
+
+            return;
+        }
+
+    } else {
+
+        typingText.innerHTML =
+        currentPhrase.substring(
+            0,
+            charIndex - 1
+        );
+
+        charIndex--;
+
+        if(charIndex === 0){
+
+            isDeleting = false;
+
+            phraseIndex++;
+
+            if(phraseIndex >= phrases.length){
+                phraseIndex = 0;
+            }
+        }
+    }
+
+    setTimeout(
+        typeEffect,
+        isDeleting ? 40 : 90
+    );
+}
+
+typeEffect();
+
+/* =========================================================
+   BARRA DE PROGRESSO
+========================================================= */
+
+window.addEventListener("scroll", () => {
+
+    if(!progressBar) return;
+
+    const scrollTop =
+    document.documentElement.scrollTop;
+
+    const scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+    const progress =
+    (scrollTop / scrollHeight) * 100;
+
+    progressBar.style.width =
+    progress + "%";
+});
+
+/* =========================================================
+   EFEITO PARALLAX HERO
+========================================================= */
+
+const hero = document.querySelector(".hero");
+
+window.addEventListener("scroll", () => {
+
+    if(hero){
+
+        let offset = window.pageYOffset;
+
+        hero.style.backgroundPositionY =
+        offset * 0.4 + "px";
+    }
+});
+
+/* =========================================================
+   BOTÃO VOLTAR AO TOPO
+========================================================= */
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if(!topBtn) return;
+
+    if(window.scrollY > 400){
+
+        topBtn.classList.add("showTop");
+
+    } else {
+
+        topBtn.classList.remove("showTop");
+    }
+});
+
+if(topBtn){
+
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    });
+}
+
+/* =========================================================
+   SOMBIENTO AUTOMÁTICO HEADER
+========================================================= */
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        header.style.boxShadow =
+        "0 10px 25px rgba(0,0,0,0.12)";
+
+    } else {
+
+        header.style.boxShadow =
+        "none";
+    }
+});
+
+/* =========================================================
+   EFEITO HOVER DINÂMICO
+========================================================= */
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect =
+        card.getBoundingClientRect();
+
+        const x =
+        e.clientX - rect.left;
+
+        const y =
+        e.clientY - rect.top;
+
+        card.style.background =
+        `
+        radial-gradient(
+            circle at ${x}px ${y}px,
+            rgba(76,175,80,0.18),
+            transparent 55%
+        ),
+        var(--card)
+        `;
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.background =
+        "var(--card)";
+    });
+});
+
+/* =========================================================
+   SIMULADOR DE ECONOMIA DE ÁGUA
+========================================================= */
+
+const hectaresInput =
+document.getElementById("hectares");
+
+const waterResult =
+document.getElementById("waterResult");
+
+function calculateWater(){
+
+    if(!hectaresInput || !waterResult) return;
+
+    const hectares =
+    Number(hectaresInput.value);
+
+    const economy =
+    hectares * 45000;
+
+    waterResult.innerHTML =
+    economy.toLocaleString("pt-BR");
+}
+
+if(hectaresInput){
+
+    hectaresInput.addEventListener(
+        "input",
+        calculateWater
+    );
+
+    calculateWater();
+}
+
+/* =========================================================
+   FRASE MOTIVACIONAL ALEATÓRIA
+========================================================= */
+
+const motivationalText =
+document.getElementById("motivationalText");
+
+const motivationalPhrases = [
+
+    "🌱 Sustentabilidade é plantar hoje pensando no amanhã.",
+
+    "🚜 O agro moderno produz respeitando a natureza.",
+
+    "💧 Cada gota de água preservada faz diferença.",
+
+    "🌎 Produção e meio ambiente devem caminhar juntos.",
+
+    "☀️ Tecnologia pode transformar o campo de forma sustentável."
+];
+
+function randomPhrase(){
+
+    if(!motivationalText) return;
+
+    const random =
+    Math.floor(
+        Math.random() *
+        motivationalPhrases.length
+    );
+
+    motivationalText.innerHTML =
+    motivationalPhrases[random];
+}
+
+setInterval(randomPhrase, 5000);
+
+randomPhrase();
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+window.addEventListener("load", () => {
+
+    const loader =
+    document.getElementById("loader");
+
+    if(loader){
+
+        loader.classList.add("loader-hidden");
+
+        setTimeout(() => {
+
+            loader.style.display = "none";
+
+        },700);
+    }
+});
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+const mobileBtn =
+document.getElementById("mobileBtn");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+if(mobileBtn){
+
+    mobileBtn.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("open");
+    });
+}
+
+/* =========================================================
+   REVELAÇÃO SUAVE
+========================================================= */
+
+window.addEventListener("DOMContentLoaded", () => {
+
+    document.body.classList.add("loaded");
+});
+
+/* =========================================================
+   LOG FINAL
+========================================================= */
+
+console.log(
+`
+🌱 AGRINHO 2026
+
+Tema:
+"Agro forte, futuro sustentável:
+equilíbrio entre produção e meio ambiente"
+
+Projeto carregado com sucesso.
+`
+);
