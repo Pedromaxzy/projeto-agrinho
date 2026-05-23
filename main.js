@@ -6,15 +6,19 @@ window.addEventListener(
   "load",
   () => {
 
-    document
-    .querySelector(".loader")
-    .classList.add("hide");
+    setTimeout(() => {
+
+      document
+      .querySelector(".loader")
+      .classList.add("hide");
+
+    }, 1200);
 
   }
 );
 
 /* =========================
-   DARK MODE
+   THEME
 ========================= */
 
 const themeBtn =
@@ -41,12 +45,12 @@ themeBtn.addEventListener(
       "dark-mode"
     );
 
-    const darkMode =
+    const isDark =
     document.body.classList.contains(
       "dark-mode"
     );
 
-    if(darkMode){
+    if(isDark){
 
       localStorage.setItem(
         "theme",
@@ -71,17 +75,128 @@ themeBtn.addEventListener(
 );
 
 /* =========================
+   PAGE SYSTEM
+========================= */
+
+const navButtons =
+document.querySelectorAll(
+  ".nav-btn"
+);
+
+const mobileButtons =
+document.querySelectorAll(
+  ".mobile-link"
+);
+
+const pageButtons =
+document.querySelectorAll(
+  "[data-page-target]"
+);
+
+const pages =
+document.querySelectorAll(
+  ".page"
+);
+
+function changePage(pageId){
+
+  pages.forEach(page => {
+
+    page.classList.remove(
+      "active-page"
+    );
+
+  });
+
+  document
+  .getElementById(pageId)
+  .classList.add("active-page");
+
+  navButtons.forEach(btn => {
+
+    btn.classList.remove(
+      "active"
+    );
+
+    if(
+      btn.dataset.page === pageId
+    ){
+
+      btn.classList.add(
+        "active"
+      );
+
+    }
+
+  });
+
+  closeMenu();
+
+}
+
+navButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      changePage(
+        button.dataset.page
+      );
+
+    }
+  );
+
+});
+
+mobileButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      changePage(
+        button.dataset.page
+      );
+
+    }
+  );
+
+});
+
+pageButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      changePage(
+        button.dataset.pageTarget
+      );
+
+    }
+  );
+
+});
+
+/* =========================
    MOBILE MENU
 ========================= */
 
 const menuBtn =
-document.getElementById("menuBtn");
+document.getElementById(
+  "menuBtn"
+);
 
 const mobileMenu =
-document.querySelector(".mobile-menu");
+document.querySelector(
+  ".mobile-menu"
+);
 
 const overlay =
-document.querySelector(".overlay");
+document.querySelector(
+  ".overlay"
+);
 
 menuBtn.addEventListener(
   "click",
@@ -103,17 +218,6 @@ overlay.addEventListener(
   closeMenu
 );
 
-document
-.querySelectorAll(".mobile-menu a")
-.forEach(link => {
-
-  link.addEventListener(
-    "click",
-    closeMenu
-  );
-
-});
-
 function closeMenu(){
 
   mobileMenu.classList.remove(
@@ -127,164 +231,82 @@ function closeMenu(){
 }
 
 /* =========================
-   REVEAL ANIMATION
+   COUNTERS
 ========================= */
 
-const reveals =
-document.querySelectorAll(".reveal");
+const counters =
+document.querySelectorAll(
+  ".counter"
+);
 
-function revealOnScroll(){
+const speed = 200;
 
-  reveals.forEach(reveal => {
+function animateCounters(){
 
-    const windowHeight =
-    window.innerHeight;
+  counters.forEach(counter => {
 
-    const revealTop =
-    reveal.getBoundingClientRect().top;
+    const target =
+    +counter.dataset.target;
 
-    if(revealTop < windowHeight - 100){
+    let count = 0;
 
-      reveal.classList.add(
-        "active"
-      );
+    const updateCounter = () => {
 
-    }
+      const increment =
+      target / speed;
+
+      count += increment;
+
+      if(count < target){
+
+        counter.innerText =
+        Math.ceil(count);
+
+        requestAnimationFrame(
+          updateCounter
+        );
+
+      }
+      else{
+
+        counter.innerText =
+        target;
+
+      }
+
+    };
+
+    updateCounter();
 
   });
 
 }
 
-window.addEventListener(
-  "scroll",
-  revealOnScroll
-);
-
-revealOnScroll();
-
-/* =========================
-   PROGRESS BAR
-========================= */
-
-window.addEventListener(
-  "scroll",
-  () => {
-
-    const scrollTop =
-    document.documentElement.scrollTop;
-
-    const height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-    const progress =
-    (scrollTop / height) * 100;
-
-    document.querySelector(
-      ".progress-bar"
-    ).style.width =
-    progress + "%";
-
-  }
-);
-
-/* =========================
-   COUNTERS
-========================= */
-
-const counters =
-document.querySelectorAll(".counter");
-
-const speed = 200;
-
-const counterObserver =
-new IntersectionObserver(entries => {
-
-  entries.forEach(entry => {
-
-    if(entry.isIntersecting){
-
-      const counter =
-      entry.target;
-
-      const updateCounter = () => {
-
-        const target =
-        +counter.getAttribute(
-          "data-target"
-        );
-
-        const current =
-        +counter.innerText;
-
-        const increment =
-        target / speed;
-
-        if(current < target){
-
-          counter.innerText =
-          `${Math.ceil(
-            current + increment
-          )}`;
-
-          setTimeout(
-            updateCounter,
-            10
-          );
-
-        }
-        else{
-
-          counter.innerText =
-          target;
-
-        }
-
-      };
-
-      updateCounter();
-
-      counterObserver.unobserve(
-        counter
-      );
-
-    }
-
-  });
-
-});
-
-counters.forEach(counter => {
-
-  counterObserver.observe(
-    counter
-  );
-
-});
+animateCounters();
 
 /* =========================
    HEADER EFFECT
 ========================= */
 
 window.addEventListener(
-  "scroll",
-  () => {
+  "mousemove",
+  (e) => {
 
     const header =
-    document.querySelector("header");
+    document.querySelector(
+      "header"
+    );
 
-    if(window.scrollY > 50){
+    const x =
+    (window.innerWidth / 2 - e.pageX)
+    / 90;
 
-      header.style.padding =
-      "15px 7%";
+    const y =
+    (window.innerHeight / 2 - e.pageY)
+    / 90;
 
-    }
-    else{
-
-      header.style.padding =
-      "20px 7%";
-
-    }
+    header.style.transform =
+    `translate(${x}px, ${y}px)`;
 
   }
 );

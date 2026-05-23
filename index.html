@@ -13,19 +13,14 @@
 
   <meta
     name="description"
-    content="Projeto Agrinho 2026 - Campo e Cidade conectados através da tecnologia, sustentabilidade e inovação."
-  >
-
-  <meta
-    name="keywords"
-    content="Agrinho, Agro, Sustentabilidade, Tecnologia, Campo e Cidade"
+    content="Projeto Agrinho 2026 - Festejando a conexão entre campo e cidade."
   >
 
   <title>
-    Agrinho 2026 | Conexões do Futuro
+    Agrinho 2026
   </title>
 
-  <!-- FONTS -->
+  <!-- FONT -->
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -42,7 +37,7 @@
     rel="stylesheet"
   >
 
-  <!-- ÍCONES -->
+  <!-- ICONS -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -63,7 +58,7 @@
 
     <div class="loader-content">
 
-      <div class="loader-icon">
+      <div class="loader-leaf">
         🌱
       </div>
 
@@ -75,43 +70,8 @@
 
   </div>
 
-  <!-- PROGRESS BAR -->
-  <div class="progress-bar"></div>
-
-  <!-- PARTICLES -->
-  <div class="particles"></div>
-
   <!-- OVERLAY -->
   <div class="overlay"></div>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu">
-
-    <a href="#inicio">
-      Início
-    </a>
-
-    <a href="#sobre">
-      Sobre
-    </a>
-
-    <a href="#tecnologia">
-      Tecnologia
-    </a>
-
-    <a href="#dashboard">
-      Dashboard
-    </a>
-
-    <a href="#estatisticas">
-      Estatísticas
-    </a>
-
-    <a href="#galeria">
-      Galeria
-    </a>
-
-  </div>
 
   <!-- HEADER -->
   <header>
@@ -124,45 +84,57 @@
 
     <nav>
 
-      <a href="#inicio">
-        Início
-      </a>
-
-      <a href="#sobre">
-        Sobre
-      </a>
-
-      <a href="#tecnologia">
-        Tecnologia
-      </a>
-
-      <a href="#dashboard">
-        Dashboard
-      </a>
-
-      <a href="#estatisticas">
-        Estatísticas
-      </a>
-
-      <a href="#galeria">
-        Galeria
-      </a>
-
-    </nav>
-
-    <div class="header-buttons">
-
       <button
-        id="themeBtn"
-        aria-label="Modo Escuro"
+        class="nav-btn active"
+        data-page="home"
       >
-        🌙
+        Início
       </button>
 
       <button
-        id="menuBtn"
-        aria-label="Abrir Menu"
+        class="nav-btn"
+        data-page="campo"
       >
+        Campo & Cidade
+      </button>
+
+      <button
+        class="nav-btn"
+        data-page="tecnologia"
+      >
+        Tecnologia
+      </button>
+
+      <button
+        class="nav-btn"
+        data-page="sustentabilidade"
+      >
+        Sustentabilidade
+      </button>
+
+      <button
+        class="nav-btn"
+        data-page="estatisticas"
+      >
+        Estatísticas
+      </button>
+
+      <button
+        class="nav-btn"
+        data-page="galeria"
+      >
+        Galeria
+      </button>
+
+    </nav>
+
+    <div class="header-actions">
+
+      <button id="themeBtn">
+        🌙
+      </button>
+
+      <button id="menuBtn">
 
         <i class="fa-solid fa-bars"></i>
 
@@ -172,114 +144,405 @@
 
   </header>
 
-  <!-- HERO -->
-  <section
-    class="hero"
-    id="inicio"
-  >
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu">
 
-    <!-- VIDEO -->
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="hero-video"
+    <button class="mobile-link" data-page="home">
+      Início
+    </button>
+
+    <button class="mobile-link" data-page="campo">
+      Campo & Cidade
+    </button>
+
+    <button class="mobile-link" data-page="tecnologia">
+      Tecnologia
+    </button>
+
+    <button class="mobile-link" data-page="sustentabilidade">
+      Sustentabilidade
+    </button>
+
+    <button class="mobile-link" data-page="estatisticas">
+      Estatísticas
+    </button>
+
+    <button class="mobile-link" data-page="galeria">
+      Galeria
+    </button>
+
+  </div>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HOME -->
+    <section
+      class="page active-page"
+      id="home"
     >
 
-      <source
-        src="videos/agro.mp4"
-        type="video/mp4"
-      >
+      <div class="hero">
 
-    </video>
+        <div class="hero-image">
 
-    <div class="hero-overlay"></div>
+          <img
+            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop"
+            alt="Campo"
+          >
 
-    <div class="hero-content reveal">
+        </div>
 
-      <span class="hero-tag">
+        <div class="hero-overlay"></div>
 
-        CONCURSO AGRINHO 2026
+        <div class="hero-content">
 
-      </span>
+          <span class="hero-tag">
 
-      <h1>
+            CONCURSO AGRINHO 2026
 
-        Campo e Cidade:
-        <span>Conectando</span>
-        o Futuro
+          </span>
 
-      </h1>
+          <h1>
 
-      <p>
+            Festejando a conexão entre
+            <span>Campo</span>
+            e
+            <span>Cidade</span>
 
-        Tecnologia, inovação e sustentabilidade
-        transformando o agronegócio brasileiro.
+          </h1>
 
-      </p>
+          <p>
 
-      <div class="hero-buttons">
+            O campo produz alimentos,
+            enquanto a cidade cria tecnologias
+            que ajudam o agro crescer
+            de forma sustentável.
 
-        <a
-          href="#sobre"
-          class="main-btn"
-        >
-          Explorar Projeto
-        </a>
+          </p>
 
-        <a
-          href="#dashboard"
-          class="secondary-btn"
-        >
-          Dashboard
-        </a>
+          <div class="hero-buttons">
+
+            <button
+              class="main-btn"
+              data-page-target="campo"
+            >
+              Explorar Projeto
+            </button>
+
+            <button
+              class="secondary-btn"
+              data-page-target="galeria"
+            >
+              Ver Galeria
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+    <!-- CAMPO -->
+    <section
+      class="page"
+      id="campo"
+    >
 
-  <!-- SOBRE -->
-  <section
-    class="about-section"
-    id="sobre"
-  >
+      <div class="page-header">
 
-    <div class="section-title reveal">
+        <span>
+          CONEXÃO
+        </span>
 
-      <span>
-        CONEXÃO
-      </span>
+        <h2>
 
-      <h2>
+          Campo & Cidade
 
-        O Agro conectado ao futuro
+        </h2>
 
-      </h2>
+        <p>
 
-    </div>
+          A união entre o campo e a cidade
+          é essencial para o desenvolvimento
+          sustentável do Brasil.
 
-    <div class="cards-grid">
+        </p>
 
-      <div class="card reveal">
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
+            alt="Agricultura"
+          >
+
+          <div class="card-content">
+
+            <h3>
+              Produção Rural
+            </h3>
+
+            <p>
+
+              O campo produz alimentos,
+              fibras e energia para milhões
+              de pessoas.
+
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop"
+            alt="Cidade"
+          >
+
+          <div class="card-content">
+
+            <h3>
+              Tecnologia Urbana
+            </h3>
+
+            <p>
+
+              As cidades desenvolvem pesquisas,
+              máquinas e tecnologias
+              para modernizar o agro.
+
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <img
+            src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+            alt="Sustentabilidade"
+          >
+
+          <div class="card-content">
+
+            <h3>
+              Sustentabilidade
+            </h3>
+
+            <p>
+
+              Preservar os recursos naturais
+              é garantir o futuro das próximas gerações.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TECNOLOGIA -->
+    <section
+      class="page"
+      id="tecnologia"
+    >
+
+      <div class="page-header">
+
+        <span>
+          TECNOLOGIA
+        </span>
+
+        <h2>
+
+          Inovação no Campo
+
+        </h2>
+
+      </div>
+
+      <div class="tech-layout">
 
         <img
-          src="img/agro1.jpg"
-          alt="Agricultura Moderna"
+          src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1400&auto=format&fit=crop"
+          alt="Drone"
         >
 
-        <div class="card-content">
+        <div class="tech-content">
 
           <h3>
-            Agricultura Moderna
+
+            Agricultura Inteligente
+
           </h3>
 
           <p>
 
-            Máquinas modernas e agricultura de precisão
-            ajudam produtores a produzir mais.
+            Sensores, drones agrícolas e internet rural
+            ajudam produtores a monitorar
+            plantações em tempo real.
+
+          </p>
+
+          <div class="tech-list">
+
+            <div>
+              <i class="fa-solid fa-check"></i>
+              Monitoramento climático
+            </div>
+
+            <div>
+              <i class="fa-solid fa-check"></i>
+              Economia de água
+            </div>
+
+            <div>
+              <i class="fa-solid fa-check"></i>
+              Maior produtividade
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SUSTENTABILIDADE -->
+    <section
+      class="page"
+      id="sustentabilidade"
+    >
+
+      <div class="page-header">
+
+        <span>
+          SUSTENTABILIDADE
+        </span>
+
+        <h2>
+
+          Preservar é essencial
+
+        </h2>
+
+      </div>
+
+      <div class="sustainability-layout">
+
+        <div class="sustainability-text">
+
+          <p>
+
+            A agricultura sustentável busca
+            produzir alimentos preservando
+            a natureza e economizando recursos.
+
+          </p>
+
+          <div class="sustainability-items">
+
+            <div>
+              🌳 Preservação ambiental
+            </div>
+
+            <div>
+              💧 Uso consciente da água
+            </div>
+
+            <div>
+              ☀️ Energia limpa
+            </div>
+
+            <div>
+              🚜 Produção sustentável
+            </div>
+
+          </div>
+
+        </div>
+
+        <img
+          src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1400&auto=format&fit=crop"
+          alt="Natureza"
+        >
+
+      </div>
+
+    </section>
+
+    <!-- ESTATÍSTICAS -->
+    <section
+      class="page"
+      id="estatisticas"
+    >
+
+      <div class="page-header">
+
+        <span>
+          ESTATÍSTICAS
+        </span>
+
+        <h2>
+
+          Agro em Números
+
+        </h2>
+
+      </div>
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+
+          <h3 class="counter" data-target="45">
+            0
+          </h3>
+
+          <p>
+
+            redução do desperdício de água
+
+          </p>
+
+        </div>
+
+        <div class="stat-card">
+
+          <h3 class="counter" data-target="80">
+            0
+          </h3>
+
+          <p>
+
+            aumento da eficiência agrícola
+
+          </p>
+
+        </div>
+
+        <div class="stat-card">
+
+          <h3 class="counter" data-target="100">
+            0
+          </h3>
+
+          <p>
+
+            conexão campo e cidade
 
           </p>
 
@@ -287,327 +550,55 @@
 
       </div>
 
-      <div class="card reveal">
+    </section>
+
+    <!-- GALERIA -->
+    <section
+      class="page"
+      id="galeria"
+    >
+
+      <div class="page-header">
+
+        <span>
+          GALERIA
+        </span>
+
+        <h2>
+
+          Agro Brasileiro
+
+        </h2>
+
+      </div>
+
+      <div class="gallery-grid">
 
         <img
-          src="img/agro2.jpg"
-          alt="Tecnologia"
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
+          alt="Plantação"
         >
-
-        <div class="card-content">
-
-          <h3>
-            Tecnologia no Campo
-          </h3>
-
-          <p>
-
-            Drones, sensores e inteligência artificial
-            tornam o campo mais eficiente.
-
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="card reveal">
 
         <img
-          src="img/agro3.jpg"
-          alt="Sustentabilidade"
+          src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+          alt="Campo"
         >
 
-        <div class="card-content">
-
-          <h3>
-            Sustentabilidade
-          </h3>
-
-          <p>
-
-            O futuro depende da preservação ambiental
-            e do uso consciente dos recursos naturais.
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- TECNOLOGIA -->
-  <section
-    class="tech-section"
-    id="tecnologia"
-  >
-
-    <div class="tech-image reveal">
-
-      <img
-        src="img/drone.jpg"
-        alt="Drone agrícola"
-      >
-
-    </div>
-
-    <div class="tech-content reveal">
-
-      <span>
-        TECNOLOGIA
-      </span>
-
-      <h2>
-
-        Inovação transformando o agronegócio
-
-      </h2>
-
-      <p>
-
-        Sensores inteligentes, drones agrícolas
-        e internet rural ajudam produtores
-        a tomar decisões em tempo real.
-
-      </p>
-
-      <div class="tech-list">
-
-        <div>
-
-          <i class="fa-solid fa-check"></i>
-
-          Economia de água
-
-        </div>
-
-        <div>
-
-          <i class="fa-solid fa-check"></i>
-
-          Monitoramento climático
-
-        </div>
-
-        <div>
-
-          <i class="fa-solid fa-check"></i>
-
-          Agricultura inteligente
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- DASHBOARD -->
-  <section
-    class="dashboard-section"
-    id="dashboard"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        DASHBOARD
-      </span>
-
-      <h2>
-
-        Monitoramento Inteligente
-
-      </h2>
-
-    </div>
-
-    <div class="dashboard-grid">
-
-      <div class="dashboard-card reveal">
-
-        <i class="fa-solid fa-cloud-sun"></i>
-
-        <h3>
-          Clima
-        </h3>
-
-        <p>
-          24°C • Céu limpo
-        </p>
-
-      </div>
-
-      <div class="dashboard-card reveal">
-
-        <i class="fa-solid fa-droplet"></i>
-
-        <h3>
-          Umidade
-        </h3>
-
-        <p>
-          72%
-        </p>
-
-      </div>
-
-      <div class="dashboard-card reveal">
-
-        <i class="fa-solid fa-seedling"></i>
-
-        <h3>
-          Produção
-        </h3>
-
-        <p>
-          +18%
-        </p>
-
-      </div>
-
-      <div class="dashboard-card reveal">
-
-        <i class="fa-solid fa-satellite"></i>
-
-        <h3>
-          Sensores
-        </h3>
-
-        <p>
-          Online
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ESTATÍSTICAS -->
-  <section
-    class="stats-section"
-    id="estatisticas"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        IMPACTO
-      </span>
-
-      <h2>
-
-        Agro em números
-
-      </h2>
-
-    </div>
-
-    <div class="stats-grid">
-
-      <div class="stat-card reveal">
-
-        <h3
-          class="counter"
-          data-target="45"
+        <img
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
+          alt="Agricultura"
         >
-          0
-        </h3>
 
-        <p>
-          % menos desperdício de água
-        </p>
-
-      </div>
-
-      <div class="stat-card reveal">
-
-        <h3
-          class="counter"
-          data-target="80"
+        <img
+          src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1200&auto=format&fit=crop"
+          alt="Drone"
         >
-          0
-        </h3>
-
-        <p>
-          % mais eficiência agrícola
-        </p>
 
       </div>
 
-      <div class="stat-card reveal">
+    </section>
 
-        <h3
-          class="counter"
-          data-target="100"
-        >
-          0
-        </h3>
-
-        <p>
-          % conexão campo e cidade
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- GALERIA -->
-  <section
-    class="gallery-section"
-    id="galeria"
-  >
-
-    <div class="section-title reveal">
-
-      <span>
-        GALERIA
-      </span>
-
-      <h2>
-
-        Agro Brasileiro
-
-      </h2>
-
-    </div>
-
-    <div class="gallery-grid">
-
-      <img
-        src="img/gallery1.jpg"
-        alt="Campo"
-        class="reveal"
-      >
-
-      <img
-        src="img/gallery2.jpg"
-        alt="Plantação"
-        class="reveal"
-      >
-
-      <img
-        src="img/gallery3.jpg"
-        alt="Agricultura"
-        class="reveal"
-      >
-
-      <img
-        src="img/gallery4.jpg"
-        alt="Fazenda"
-        class="reveal"
-      >
-
-    </div>
-
-  </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -621,16 +612,6 @@
       Projeto desenvolvido para o Concurso Agrinho.
 
     </p>
-
-    <div class="socials">
-
-      <i class="fa-brands fa-instagram"></i>
-
-      <i class="fa-brands fa-youtube"></i>
-
-      <i class="fa-brands fa-github"></i>
-
-    </div>
 
   </footer>
 
