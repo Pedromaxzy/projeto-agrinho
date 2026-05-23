@@ -1,15 +1,14 @@
 /* =========================
-   LOADING SCREEN
+   LOADER
 ========================= */
 
 window.addEventListener(
   "load",
   () => {
 
-    const loader =
-    document.querySelector(".loader");
-
-    loader.classList.add("hide");
+    document
+    .querySelector(".loader")
+    .classList.add("hide");
 
   }
 );
@@ -72,7 +71,7 @@ themeBtn.addEventListener(
 );
 
 /* =========================
-   MENU MOBILE
+   MOBILE MENU
 ========================= */
 
 const menuBtn =
@@ -82,7 +81,7 @@ const mobileMenu =
 document.querySelector(".mobile-menu");
 
 const overlay =
-document.querySelector(".menu-overlay");
+document.querySelector(".overlay");
 
 menuBtn.addEventListener(
   "click",
@@ -101,21 +100,34 @@ menuBtn.addEventListener(
 
 overlay.addEventListener(
   "click",
-  () => {
-
-    mobileMenu.classList.remove(
-      "active"
-    );
-
-    overlay.classList.remove(
-      "active"
-    );
-
-  }
+  closeMenu
 );
 
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(link => {
+
+  link.addEventListener(
+    "click",
+    closeMenu
+  );
+
+});
+
+function closeMenu(){
+
+  mobileMenu.classList.remove(
+    "active"
+  );
+
+  overlay.classList.remove(
+    "active"
+  );
+
+}
+
 /* =========================
-   ANIMAÇÃO SCROLL
+   REVEAL ANIMATION
 ========================= */
 
 const reveals =
@@ -177,49 +189,102 @@ window.addEventListener(
 );
 
 /* =========================
-   CONTADOR
+   COUNTERS
 ========================= */
 
 const counters =
 document.querySelectorAll(".counter");
 
+const speed = 200;
+
+const counterObserver =
+new IntersectionObserver(entries => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      const counter =
+      entry.target;
+
+      const updateCounter = () => {
+
+        const target =
+        +counter.getAttribute(
+          "data-target"
+        );
+
+        const current =
+        +counter.innerText;
+
+        const increment =
+        target / speed;
+
+        if(current < target){
+
+          counter.innerText =
+          `${Math.ceil(
+            current + increment
+          )}`;
+
+          setTimeout(
+            updateCounter,
+            10
+          );
+
+        }
+        else{
+
+          counter.innerText =
+          target;
+
+        }
+
+      };
+
+      updateCounter();
+
+      counterObserver.unobserve(
+        counter
+      );
+
+    }
+
+  });
+
+});
+
 counters.forEach(counter => {
 
-  const updateCounter = () => {
+  counterObserver.observe(
+    counter
+  );
 
-    const target =
-    +counter.getAttribute(
-      "data-target"
-    );
+});
 
-    const current =
-    +counter.innerText;
+/* =========================
+   HEADER EFFECT
+========================= */
 
-    const increment =
-    target / 100;
+window.addEventListener(
+  "scroll",
+  () => {
 
-    if(current < target){
+    const header =
+    document.querySelector("header");
 
-      counter.innerText =
-      `${Math.ceil(
-        current + increment
-      )}`;
+    if(window.scrollY > 50){
 
-      setTimeout(
-        updateCounter,
-        20
-      );
+      header.style.padding =
+      "15px 7%";
 
     }
     else{
 
-      counter.innerText =
-      target;
+      header.style.padding =
+      "20px 7%";
 
     }
 
-  };
-
-  updateCounter();
-
-});
+  }
+);

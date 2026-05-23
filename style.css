@@ -18,22 +18,18 @@
   --bg:#f4f7f2;
   --card:#ffffff;
   --text:#1e293b;
-  --secondary:#5b6472;
+  --secondary:#64748b;
   --primary:#2f855a;
   --shadow:rgba(0,0,0,0.08);
 
 }
-
-/* =========================
-   DARK MODE
-========================= */
 
 body.dark-mode{
 
   --bg:#07111f;
   --card:#101b2d;
   --text:#ffffff;
-  --secondary:#c7d2e0;
+  --secondary:#cbd5e1;
   --primary:#4ade80;
   --shadow:rgba(0,0,0,0.35);
 
@@ -86,11 +82,17 @@ body{
 
 }
 
-.loader-leaf{
+.loader-content{
+
+  text-align:center;
+
+}
+
+.loader-icon{
 
   font-size:4rem;
 
-  animation:spin 2s infinite linear;
+  animation:spin 2s linear infinite;
 
 }
 
@@ -123,7 +125,33 @@ body{
 
   background:var(--primary);
 
-  z-index:99999;
+  z-index:999999;
+
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particles{
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background-image:
+  radial-gradient(
+    rgba(255,255,255,0.15) 2px,
+    transparent 2px
+  );
+
+  background-size:50px 50px;
+
+  opacity:0.2;
+
+  z-index:-1;
 
 }
 
@@ -148,7 +176,7 @@ header{
 
   backdrop-filter:blur(14px);
 
-  background:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.65);
 
   z-index:999;
 
@@ -159,10 +187,6 @@ body.dark-mode header{
   background:rgba(0,0,0,0.35);
 
 }
-
-/* =========================
-   LOGO
-========================= */
 
 .logo{
 
@@ -198,18 +222,37 @@ nav a{
 
   font-weight:500;
 
-  transition:0.3s;
+  position:relative;
 
 }
 
-nav a:hover{
+nav a::after{
 
-  color:var(--primary);
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-6px;
+
+  width:0%;
+
+  height:2px;
+
+  background:var(--primary);
+
+  transition:0.4s;
+
+}
+
+nav a:hover::after{
+
+  width:100%;
 
 }
 
 /* =========================
-   BOTÕES HEADER
+   BUTTONS
 ========================= */
 
 .header-buttons{
@@ -226,6 +269,7 @@ nav a:hover{
   height:50px;
 
   border:none;
+
   border-radius:50%;
 
   background:var(--card);
@@ -237,6 +281,15 @@ nav a:hover{
   font-size:1rem;
 
   box-shadow:0 5px 15px var(--shadow);
+
+  transition:0.3s;
+
+}
+
+#themeBtn:hover,
+#menuBtn:hover{
+
+  transform:translateY(-3px);
 
 }
 
@@ -281,7 +334,7 @@ nav a:hover{
 
   inset:0;
 
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.55);
 
 }
 
@@ -296,11 +349,11 @@ nav a:hover{
   color:white;
 
   width:90%;
-  max-width:850px;
+  max-width:900px;
 
 }
 
-.tag{
+.hero-tag{
 
   display:inline-block;
 
@@ -341,7 +394,7 @@ nav a:hover{
 }
 
 /* =========================
-   BOTÕES HERO
+   HERO BUTTONS
 ========================= */
 
 .hero-buttons{
@@ -391,11 +444,12 @@ nav a:hover{
 }
 
 /* =========================
-   SEÇÕES
+   SECTIONS
 ========================= */
 
 .about-section,
 .tech-section,
+.dashboard-section,
 .stats-section,
 .gallery-section{
 
@@ -404,14 +458,14 @@ nav a:hover{
 }
 
 /* =========================
-   TITULOS
+   TITLES
 ========================= */
 
 .section-title{
 
   text-align:center;
 
-  margin-bottom:60px;
+  margin-bottom:70px;
 
 }
 
@@ -498,7 +552,7 @@ nav a:hover{
 }
 
 /* =========================
-   TECNOLOGIA
+   TECH
 ========================= */
 
 .tech-section{
@@ -572,6 +626,59 @@ nav a:hover{
 }
 
 /* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+
+  gap:25px;
+
+}
+
+.dashboard-card{
+
+  background:var(--card);
+
+  padding:40px;
+
+  border-radius:25px;
+
+  text-align:center;
+
+  box-shadow:0 10px 30px var(--shadow);
+
+  transition:0.4s;
+
+}
+
+.dashboard-card:hover{
+
+  transform:translateY(-10px);
+
+}
+
+.dashboard-card i{
+
+  font-size:3rem;
+
+  color:var(--primary);
+
+  margin-bottom:20px;
+
+}
+
+.dashboard-card p{
+
+  color:var(--secondary);
+
+}
+
+/* =========================
    STATS
 ========================= */
 
@@ -598,14 +705,6 @@ nav a:hover{
 
   box-shadow:0 10px 30px var(--shadow);
 
-  transition:0.4s;
-
-}
-
-.stat-card:hover{
-
-  transform:translateY(-10px);
-
 }
 
 .stat-card h3{
@@ -617,7 +716,7 @@ nav a:hover{
 }
 
 /* =========================
-   GALERIA
+   GALLERY
 ========================= */
 
 .gallery-grid{
@@ -707,7 +806,7 @@ footer p{
 }
 
 /* =========================
-   MENU MOBILE
+   MOBILE MENU
 ========================= */
 
 .mobile-menu{
@@ -717,15 +816,15 @@ footer p{
   top:0;
   right:-100%;
 
-  width:280px;
+  width:300px;
   height:100vh;
 
   background:var(--card);
 
-  padding:120px 40px;
-
   display:flex;
   flex-direction:column;
+
+  padding:120px 40px;
 
   gap:30px;
 
@@ -751,13 +850,13 @@ footer p{
 
 }
 
-.menu-overlay{
+.overlay{
 
   position:fixed;
 
   inset:0;
 
-  background:rgba(0,0,0,0.4);
+  background:rgba(0,0,0,0.5);
 
   opacity:0;
   visibility:hidden;
@@ -768,7 +867,7 @@ footer p{
 
 }
 
-.menu-overlay.active{
+.overlay.active{
 
   opacity:1;
   visibility:visible;
@@ -776,14 +875,14 @@ footer p{
 }
 
 /* =========================
-   ANIMAÇÕES
+   ANIMATIONS
 ========================= */
 
 .reveal{
 
   opacity:0;
 
-  transform:translateY(50px);
+  transform:translateY(70px);
 
   transition:1s;
 
@@ -798,7 +897,7 @@ footer p{
 }
 
 /* =========================
-   RESPONSIVO
+   RESPONSIVE
 ========================= */
 
 @media(max-width:1000px){
@@ -841,6 +940,7 @@ footer p{
 
   .about-section,
   .tech-section,
+  .dashboard-section,
   .stats-section,
   .gallery-section{
 

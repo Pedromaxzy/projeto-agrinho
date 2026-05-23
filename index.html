@@ -13,20 +13,19 @@
 
   <meta
     name="description"
-    content="Projeto Agrinho 2026 - Campo e Cidade conectados através da tecnologia e sustentabilidade."
+    content="Projeto Agrinho 2026 - Campo e Cidade conectados através da tecnologia, sustentabilidade e inovação."
+  >
+
+  <meta
+    name="keywords"
+    content="Agrinho, Agro, Sustentabilidade, Tecnologia, Campo e Cidade"
   >
 
   <title>
     Agrinho 2026 | Conexões do Futuro
   </title>
 
-  <!-- FAVICON -->
-  <link
-    rel="icon"
-    href="https://cdn-icons-png.flaticon.com/512/2909/2909763.png"
-  >
-
-  <!-- FONTES -->
+  <!-- FONTS -->
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com"
@@ -59,11 +58,19 @@
 
 <body>
 
-  <!-- LOADING -->
+  <!-- LOADER -->
   <div class="loader">
 
-    <div class="loader-leaf">
-      🌱
+    <div class="loader-content">
+
+      <div class="loader-icon">
+        🌱
+      </div>
+
+      <h2>
+        AGRINHO 2026
+      </h2>
+
     </div>
 
   </div>
@@ -71,7 +78,13 @@
   <!-- PROGRESS BAR -->
   <div class="progress-bar"></div>
 
-  <!-- MENU MOBILE -->
+  <!-- PARTICLES -->
+  <div class="particles"></div>
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- MOBILE MENU -->
   <div class="mobile-menu">
 
     <a href="#inicio">
@@ -86,6 +99,10 @@
       Tecnologia
     </a>
 
+    <a href="#dashboard">
+      Dashboard
+    </a>
+
     <a href="#estatisticas">
       Estatísticas
     </a>
@@ -96,14 +113,13 @@
 
   </div>
 
-  <!-- OVERLAY -->
-  <div class="menu-overlay"></div>
-
   <!-- HEADER -->
   <header>
 
     <div class="logo">
+
       AGRINHO<span>2026</span>
+
     </div>
 
     <nav>
@@ -120,6 +136,10 @@
         Tecnologia
       </a>
 
+      <a href="#dashboard">
+        Dashboard
+      </a>
+
       <a href="#estatisticas">
         Estatísticas
       </a>
@@ -132,12 +152,20 @@
 
     <div class="header-buttons">
 
-      <button id="themeBtn">
+      <button
+        id="themeBtn"
+        aria-label="Modo Escuro"
+      >
         🌙
       </button>
 
-      <button id="menuBtn">
+      <button
+        id="menuBtn"
+        aria-label="Abrir Menu"
+      >
+
         <i class="fa-solid fa-bars"></i>
+
       </button>
 
     </div>
@@ -150,7 +178,7 @@
     id="inicio"
   >
 
-    <!-- VÍDEO -->
+    <!-- VIDEO -->
     <video
       autoplay
       muted
@@ -160,7 +188,7 @@
     >
 
       <source
-        src="https://cdn.coverr.co/videos/coverr-farmer-walking-through-field-1561456935063?download=1080p"
+        src="videos/agro.mp4"
         type="video/mp4"
       >
 
@@ -170,22 +198,24 @@
 
     <div class="hero-content reveal">
 
-      <span class="tag">
+      <span class="hero-tag">
+
         CONCURSO AGRINHO 2026
+
       </span>
 
       <h1>
 
         Campo e Cidade:
-        <span>Conexões</span>
-        que Transformam
+        <span>Conectando</span>
+        o Futuro
 
       </h1>
 
       <p>
 
-        O futuro sustentável nasce da união entre
-        agricultura moderna, tecnologia e preservação ambiental.
+        Tecnologia, inovação e sustentabilidade
+        transformando o agronegócio brasileiro.
 
       </p>
 
@@ -199,10 +229,10 @@
         </a>
 
         <a
-          href="#tecnologia"
+          href="#dashboard"
           class="secondary-btn"
         >
-          Tecnologias
+          Dashboard
         </a>
 
       </div>
@@ -224,7 +254,9 @@
       </span>
 
       <h2>
-        O Agro conectado ao Futuro
+
+        O Agro conectado ao futuro
+
       </h2>
 
     </div>
@@ -234,8 +266,8 @@
       <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
-          alt="Agricultura moderna"
+          src="img/agro1.jpg"
+          alt="Agricultura Moderna"
         >
 
         <div class="card-content">
@@ -246,8 +278,8 @@
 
           <p>
 
-            Máquinas modernas e técnicas sustentáveis
-            aumentam a produtividade preservando o meio ambiente.
+            Máquinas modernas e agricultura de precisão
+            ajudam produtores a produzir mais.
 
           </p>
 
@@ -258,8 +290,8 @@
       <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop"
-          alt="Tecnologia no agro"
+          src="img/agro2.jpg"
+          alt="Tecnologia"
         >
 
         <div class="card-content">
@@ -271,7 +303,7 @@
           <p>
 
             Drones, sensores e inteligência artificial
-            tornam o agronegócio mais eficiente.
+            tornam o campo mais eficiente.
 
           </p>
 
@@ -282,7 +314,7 @@
       <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop"
+          src="img/agro3.jpg"
           alt="Sustentabilidade"
         >
 
@@ -294,9 +326,8 @@
 
           <p>
 
-            Produzir alimentos preservando
-            recursos naturais é essencial
-            para o futuro.
+            O futuro depende da preservação ambiental
+            e do uso consciente dos recursos naturais.
 
           </p>
 
@@ -317,7 +348,7 @@
     <div class="tech-image reveal">
 
       <img
-        src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1400&auto=format&fit=crop"
+        src="img/drone.jpg"
         alt="Drone agrícola"
       >
 
@@ -331,34 +362,125 @@
 
       <h2>
 
-        Inovação transformando o agro
+        Inovação transformando o agronegócio
 
       </h2>
 
       <p>
 
-        Sensores inteligentes, internet rural
-        e drones ajudam produtores a tomar
-        decisões mais rápidas e eficientes.
+        Sensores inteligentes, drones agrícolas
+        e internet rural ajudam produtores
+        a tomar decisões em tempo real.
 
       </p>
 
       <div class="tech-list">
 
         <div>
+
           <i class="fa-solid fa-check"></i>
+
           Economia de água
+
         </div>
 
         <div>
+
           <i class="fa-solid fa-check"></i>
+
           Monitoramento climático
+
         </div>
 
         <div>
+
           <i class="fa-solid fa-check"></i>
+
           Agricultura inteligente
+
         </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DASHBOARD -->
+  <section
+    class="dashboard-section"
+    id="dashboard"
+  >
+
+    <div class="section-title reveal">
+
+      <span>
+        DASHBOARD
+      </span>
+
+      <h2>
+
+        Monitoramento Inteligente
+
+      </h2>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card reveal">
+
+        <i class="fa-solid fa-cloud-sun"></i>
+
+        <h3>
+          Clima
+        </h3>
+
+        <p>
+          24°C • Céu limpo
+        </p>
+
+      </div>
+
+      <div class="dashboard-card reveal">
+
+        <i class="fa-solid fa-droplet"></i>
+
+        <h3>
+          Umidade
+        </h3>
+
+        <p>
+          72%
+        </p>
+
+      </div>
+
+      <div class="dashboard-card reveal">
+
+        <i class="fa-solid fa-seedling"></i>
+
+        <h3>
+          Produção
+        </h3>
+
+        <p>
+          +18%
+        </p>
+
+      </div>
+
+      <div class="dashboard-card reveal">
+
+        <i class="fa-solid fa-satellite"></i>
+
+        <h3>
+          Sensores
+        </h3>
+
+        <p>
+          Online
+        </p>
 
       </div>
 
@@ -379,7 +501,9 @@
       </span>
 
       <h2>
-        Agro em Números
+
+        Agro em números
+
       </h2>
 
     </div>
@@ -448,7 +572,9 @@
       </span>
 
       <h2>
+
         Agro Brasileiro
+
       </h2>
 
     </div>
@@ -456,25 +582,25 @@
     <div class="gallery-grid">
 
       <img
-        src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+        src="img/gallery1.jpg"
         alt="Campo"
         class="reveal"
       >
 
       <img
-        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
+        src="img/gallery2.jpg"
         alt="Plantação"
         class="reveal"
       >
 
       <img
-        src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1200&auto=format&fit=crop"
+        src="img/gallery3.jpg"
         alt="Agricultura"
         class="reveal"
       >
 
       <img
-        src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1200&auto=format&fit=crop"
+        src="img/gallery4.jpg"
         alt="Fazenda"
         class="reveal"
       >
@@ -492,8 +618,7 @@
 
     <p>
 
-      Projeto educativo desenvolvido
-      para o Concurso Agrinho.
+      Projeto desenvolvido para o Concurso Agrinho.
 
     </p>
 
