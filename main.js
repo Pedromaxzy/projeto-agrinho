@@ -2,23 +2,136 @@
    LOADER
 ========================= */
 
-window.addEventListener(
-  "load",
-  () => {
+window.addEventListener("load", () => {
 
-    setTimeout(() => {
+  const loader = document.querySelector(".loader");
 
-      document
-      .querySelector(".loader")
-      .classList.add("hide");
+  setTimeout(() => {
 
-    }, 1200);
+    loader.classList.add("hide");
 
-  }
-);
+  }, 1200);
+
+});
 
 /* =========================
-   THEME
+   PAGE SYSTEM
+========================= */
+
+const navButtons =
+document.querySelectorAll(".nav-btn");
+
+const pages =
+document.querySelectorAll(".page");
+
+function changePage(pageId){
+
+  pages.forEach(page => {
+
+    page.classList.remove("active-page");
+
+  });
+
+  navButtons.forEach(btn => {
+
+    btn.classList.remove("active");
+
+  });
+
+  document
+    .getElementById(pageId)
+    .classList.add("active-page");
+
+  document
+    .querySelector(`[data-page="${pageId}"]`)
+    ?.classList.add("active");
+
+}
+
+navButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const pageId =
+    button.dataset.page;
+
+    changePage(pageId);
+
+  });
+
+});
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+const heroButtons =
+document.querySelectorAll("[data-page-target]");
+
+heroButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const pageId =
+    button.dataset.pageTarget;
+
+    changePage(pageId);
+
+  });
+
+});
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const mobileMenu =
+document.querySelector(".mobile-menu");
+
+const overlay =
+document.querySelector(".overlay");
+
+menuBtn.addEventListener("click", () => {
+
+  mobileMenu.classList.toggle("active");
+
+  overlay.classList.toggle("active");
+
+});
+
+overlay.addEventListener("click", closeMenu);
+
+function closeMenu(){
+
+  mobileMenu.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+}
+
+const mobileLinks =
+document.querySelectorAll(".mobile-link");
+
+mobileLinks.forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    const pageId =
+    link.dataset.page;
+
+    changePage(pageId);
+
+    closeMenu();
+
+  });
+
+});
+
+/* =========================
+   DARK MODE
 ========================= */
 
 const themeBtn =
@@ -29,219 +142,43 @@ localStorage.getItem("theme");
 
 if(savedTheme === "dark"){
 
-  document.body.classList.add(
-    "dark-mode"
-  );
+  document.body.classList.add("dark-mode");
 
   themeBtn.textContent = "☀️";
 
 }
 
-themeBtn.addEventListener(
-  "click",
-  () => {
+themeBtn.addEventListener("click", () => {
 
-    document.body.classList.toggle(
-      "dark-mode"
-    );
+  document.body.classList.toggle("dark-mode");
 
-    const isDark =
-    document.body.classList.contains(
-      "dark-mode"
-    );
+  const darkMode =
+  document.body.classList.contains("dark-mode");
 
-    if(isDark){
+  if(darkMode){
 
-      localStorage.setItem(
-        "theme",
-        "dark"
-      );
+    themeBtn.textContent = "☀️";
 
-      themeBtn.textContent = "☀️";
+    localStorage.setItem("theme","dark");
 
-    }
-    else{
+  }else{
 
-      localStorage.setItem(
-        "theme",
-        "light"
-      );
+    themeBtn.textContent = "🌙";
 
-      themeBtn.textContent = "🌙";
-
-    }
+    localStorage.setItem("theme","light");
 
   }
-);
-
-/* =========================
-   PAGE SYSTEM
-========================= */
-
-const navButtons =
-document.querySelectorAll(
-  ".nav-btn"
-);
-
-const mobileButtons =
-document.querySelectorAll(
-  ".mobile-link"
-);
-
-const pageButtons =
-document.querySelectorAll(
-  "[data-page-target]"
-);
-
-const pages =
-document.querySelectorAll(
-  ".page"
-);
-
-function changePage(pageId){
-
-  pages.forEach(page => {
-
-    page.classList.remove(
-      "active-page"
-    );
-
-  });
-
-  document
-  .getElementById(pageId)
-  .classList.add("active-page");
-
-  navButtons.forEach(btn => {
-
-    btn.classList.remove(
-      "active"
-    );
-
-    if(
-      btn.dataset.page === pageId
-    ){
-
-      btn.classList.add(
-        "active"
-      );
-
-    }
-
-  });
-
-  closeMenu();
-
-}
-
-navButtons.forEach(button => {
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      changePage(
-        button.dataset.page
-      );
-
-    }
-  );
-
-});
-
-mobileButtons.forEach(button => {
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      changePage(
-        button.dataset.page
-      );
-
-    }
-  );
-
-});
-
-pageButtons.forEach(button => {
-
-  button.addEventListener(
-    "click",
-    () => {
-
-      changePage(
-        button.dataset.pageTarget
-      );
-
-    }
-  );
 
 });
 
 /* =========================
-   MOBILE MENU
-========================= */
-
-const menuBtn =
-document.getElementById(
-  "menuBtn"
-);
-
-const mobileMenu =
-document.querySelector(
-  ".mobile-menu"
-);
-
-const overlay =
-document.querySelector(
-  ".overlay"
-);
-
-menuBtn.addEventListener(
-  "click",
-  () => {
-
-    mobileMenu.classList.toggle(
-      "active"
-    );
-
-    overlay.classList.toggle(
-      "active"
-    );
-
-  }
-);
-
-overlay.addEventListener(
-  "click",
-  closeMenu
-);
-
-function closeMenu(){
-
-  mobileMenu.classList.remove(
-    "active"
-  );
-
-  overlay.classList.remove(
-    "active"
-  );
-
-}
-
-/* =========================
-   COUNTERS
+   COUNTER
 ========================= */
 
 const counters =
-document.querySelectorAll(
-  ".counter"
-);
+document.querySelectorAll(".counter");
 
-const speed = 200;
-
-function animateCounters(){
+function startCounters(){
 
   counters.forEach(counter => {
 
@@ -250,27 +187,24 @@ function animateCounters(){
 
     let count = 0;
 
-    const updateCounter = () => {
+    const increment =
+    target / 100;
 
-      const increment =
-      target / speed;
+    const updateCounter = () => {
 
       count += increment;
 
       if(count < target){
 
         counter.innerText =
-        Math.ceil(count);
+        Math.floor(count) + "%";
 
-        requestAnimationFrame(
-          updateCounter
-        );
+        requestAnimationFrame(updateCounter);
 
-      }
-      else{
+      }else{
 
         counter.innerText =
-        target;
+        target + "%";
 
       }
 
@@ -282,31 +216,4 @@ function animateCounters(){
 
 }
 
-animateCounters();
-
-/* =========================
-   HEADER EFFECT
-========================= */
-
-window.addEventListener(
-  "mousemove",
-  (e) => {
-
-    const header =
-    document.querySelector(
-      "header"
-    );
-
-    const x =
-    (window.innerWidth / 2 - e.pageX)
-    / 90;
-
-    const y =
-    (window.innerHeight / 2 - e.pageY)
-    / 90;
-
-    header.style.transform =
-    `translate(${x}px, ${y}px)`;
-
-  }
-);
+startCounters();
