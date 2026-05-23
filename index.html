@@ -31,6 +31,12 @@
     rel="stylesheet"
   >
 
+  <!-- ÍCONES -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
   <!-- CSS -->
   <link
     rel="stylesheet"
@@ -41,6 +47,31 @@
 
 <body>
 
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu">
+
+    <a href="#inicio">
+      Início
+    </a>
+
+    <a href="#sobre">
+      Sobre
+    </a>
+
+    <a href="#tecnologia">
+      Tecnologia
+    </a>
+
+    <a href="#impacto">
+      Impacto
+    </a>
+
+    <a href="#galeria">
+      Galeria
+    </a>
+
+  </div>
+
   <!-- HEADER -->
   <header>
 
@@ -50,47 +81,55 @@
 
     <nav>
 
-      <a
-        href="#"
-        class="active-link"
-      >
+      <a href="#inicio">
         Início
       </a>
 
-      <a href="#">
-        Campo
+      <a href="#sobre">
+        Sobre
       </a>
 
-      <a href="#">
+      <a href="#tecnologia">
         Tecnologia
       </a>
 
-      <a href="#">
-        Sustentabilidade
+      <a href="#impacto">
+        Impacto
       </a>
 
-      <a href="#">
-        Impacto
+      <a href="#galeria">
+        Galeria
       </a>
 
     </nav>
 
-    <button id="themeBtn">
-      🌙
-    </button>
+    <div class="header-buttons">
+
+      <button id="themeBtn">
+        🌙
+      </button>
+
+      <button id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+    </div>
 
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-
-    <div class="hero-overlay"></div>
+  <section
+    class="hero"
+    id="inicio"
+  >
 
     <img
       class="hero-image"
       src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1800&auto=format&fit=crop"
       alt="Plantação"
     >
+
+    <div class="hero-overlay"></div>
 
     <div class="hero-content">
 
@@ -109,15 +148,15 @@
       <p>
 
         O futuro sustentável depende da união
-        entre produção agrícola, tecnologia,
-        inovação e preservação ambiental.
+        entre tecnologia, agricultura moderna
+        e preservação ambiental.
 
       </p>
 
       <div class="hero-buttons">
 
         <a
-          href="#cards"
+          href="#sobre"
           class="main-btn"
         >
           Explorar Projeto
@@ -136,10 +175,10 @@
 
   </section>
 
-  <!-- CARDS -->
+  <!-- SOBRE -->
   <section
-    class="cards-section"
-    id="cards"
+    class="about-section"
+    id="sobre"
   >
 
     <div class="section-title">
@@ -149,17 +188,17 @@
       </span>
 
       <h2>
-        O Campo conectado ao Futuro
+        O Agro conectado ao Futuro
       </h2>
 
     </div>
 
     <div class="cards-grid">
 
-      <div class="card">
+      <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop"
           alt="Agricultura"
         >
 
@@ -171,9 +210,9 @@
 
           <p>
 
-            Máquinas modernas e técnicas
-            sustentáveis aumentam a produtividade
-            sem prejudicar o meio ambiente.
+            Máquinas modernas e novas técnicas
+            ajudam produtores a aumentar a produtividade
+            com sustentabilidade.
 
           </p>
 
@@ -181,24 +220,23 @@
 
       </div>
 
-      <div class="card">
+      <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop"
           alt="Tecnologia"
         >
 
         <div class="card-content">
 
           <h3>
-            Tecnologia no Agro
+            Tecnologia no Campo
           </h3>
 
           <p>
 
-            Sensores, drones e inteligência
-            artificial ajudam produtores
-            a tomarem melhores decisões.
+            Drones, sensores e inteligência artificial
+            tornam o agro mais eficiente e inteligente.
 
           </p>
 
@@ -206,10 +244,10 @@
 
       </div>
 
-      <div class="card">
+      <div class="card reveal">
 
         <img
-          src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop"
           alt="Sustentabilidade"
         >
 
@@ -221,12 +259,69 @@
 
           <p>
 
-            O equilíbrio entre produção
-            e preservação ambiental é essencial
-            para o futuro do planeta.
+            Preservar recursos naturais é essencial
+            para garantir alimento e qualidade de vida.
 
           </p>
 
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TECNOLOGIA -->
+  <section
+    class="tech-section"
+    id="tecnologia"
+  >
+
+    <div class="tech-image">
+
+      <img
+        src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?q=80&w=1400&auto=format&fit=crop"
+        alt="Drone agrícola"
+      >
+
+    </div>
+
+    <div class="tech-content">
+
+      <span>
+        TECNOLOGIA
+      </span>
+
+      <h2>
+
+        Inovação transformando o agronegócio
+
+      </h2>
+
+      <p>
+
+        Sensores inteligentes, drones agrícolas
+        e internet rural conectam produtores
+        a dados em tempo real.
+
+      </p>
+
+      <div class="tech-list">
+
+        <div>
+          <i class="fa-solid fa-check"></i>
+          Economia de água
+        </div>
+
+        <div>
+          <i class="fa-solid fa-check"></i>
+          Monitoramento climático
+        </div>
+
+        <div>
+          <i class="fa-solid fa-check"></i>
+          Redução de desperdícios
         </div>
 
       </div>
@@ -241,70 +336,99 @@
     id="impacto"
   >
 
-    <div class="impact-box">
+    <div class="section-title">
 
-      <div class="impact-text">
+      <span>
+        IMPACTO
+      </span>
 
-        <span>
-          IMPACTO
-        </span>
+      <h2>
+        Agro em números
+      </h2>
 
-        <h2>
+    </div>
 
-          Produzir
-          preservando o planeta
+    <div class="stats-grid">
 
-        </h2>
+      <div class="stat-card reveal">
+
+        <h3 class="counter">
+          45
+        </h3>
 
         <p>
-
-          O agronegócio moderno utiliza
-          tecnologia para reduzir desperdícios,
-          economizar água e preservar recursos naturais.
-
+          % menos desperdício de água
         </p>
 
       </div>
 
-      <div class="stats">
+      <div class="stat-card reveal">
 
-        <div class="stat-card">
+        <h3 class="counter">
+          80
+        </h3>
 
-          <h3>
-            45%
-          </h3>
-
-          <p>
-            redução no desperdício hídrico
-          </p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>
-            80%
-          </h3>
-
-          <p>
-            aumento da eficiência agrícola
-          </p>
-
-        </div>
-
-        <div class="stat-card">
-
-          <h3>
-            100%
-          </h3>
-
-          <p>
-            conexão entre campo e cidade
-          </p>
-
-        </div>
+        <p>
+          % mais eficiência agrícola
+        </p>
 
       </div>
+
+      <div class="stat-card reveal">
+
+        <h3 class="counter">
+          100
+        </h3>
+
+        <p>
+          % conexão campo e cidade
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALERIA -->
+  <section
+    class="gallery-section"
+    id="galeria"
+  >
+
+    <div class="section-title">
+
+      <span>
+        GALERIA
+      </span>
+
+      <h2>
+        Agro Brasileiro
+      </h2>
+
+    </div>
+
+    <div class="gallery-grid">
+
+      <img
+        src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+        alt="Campo"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1200&auto=format&fit=crop"
+        alt="Fazenda"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1200&auto=format&fit=crop"
+        alt="Plantação"
+      >
+
+      <img
+        src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop"
+        alt="Agricultura"
+      >
 
     </div>
 
