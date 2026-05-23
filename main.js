@@ -1,41 +1,64 @@
-const themeBtn = document.getElementById("themeBtn");
+/* =========================
+   BOTÃO TEMA
+========================= */
 
-const currentTheme = localStorage.getItem("theme");
+const themeBtn =
+document.getElementById("themeBtn");
 
-if(currentTheme === "light"){
+/* =========================
+   CARREGAR TEMA
+========================= */
 
-  document.body.classList.add("light-mode");
+const savedTheme =
+localStorage.getItem("theme");
+
+if(savedTheme === "dark"){
+
+  document.body.classList.add(
+    "dark-mode"
+  );
 
   themeBtn.textContent = "☀️";
 
 }
 
-themeBtn.addEventListener("click", () => {
+/* =========================
+   TROCAR TEMA
+========================= */
 
-  document.body.classList.toggle("light-mode");
+themeBtn.addEventListener(
+  "click",
+  () => {
 
-  const lightMode =
-  document.body.classList.contains("light-mode");
-
-  if(lightMode){
-
-    themeBtn.textContent = "☀️";
-
-    localStorage.setItem(
-      "theme",
-      "light"
+    document.body.classList.toggle(
+      "dark-mode"
     );
 
-  }
-  else{
-
-    themeBtn.textContent = "🌙";
-
-    localStorage.setItem(
-      "theme",
-      "dark"
+    const darkMode =
+    document.body.classList.contains(
+      "dark-mode"
     );
 
-  }
+    if(darkMode){
 
-});
+      localStorage.setItem(
+        "theme",
+        "dark"
+      );
+
+      themeBtn.textContent = "☀️";
+
+    }
+    else{
+
+      localStorage.setItem(
+        "theme",
+        "light"
+      );
+
+      themeBtn.textContent = "🌙";
+
+    }
+
+  }
+);

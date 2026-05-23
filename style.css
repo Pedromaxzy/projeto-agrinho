@@ -1,58 +1,67 @@
+/* =========================
+   RESET
+========================= */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
+/* =========================
+   VARIÁVEIS
+========================= */
+
 :root{
+
+  --bg:#f4f7f2;
+  --card:#ffffff;
+  --text:#1e293b;
+  --secondary:#5b6472;
+  --primary:#2f855a;
+  --shadow:rgba(0,0,0,0.08);
+
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode{
 
   --bg:#07111f;
   --card:#101b2d;
   --text:#ffffff;
-  --secondary:#b9c4d3;
-  --primary:#00ff9d;
+  --secondary:#c5cfdd;
+  --primary:#3ddc97;
+  --shadow:rgba(0,0,0,0.35);
 
 }
 
-body.light-mode{
-
-  --bg:#edf3f8;
-  --card:#ffffff;
-  --text:#07111f;
-  --secondary:#3f4d5f;
-  --primary:#00995d;
-
-}
+/* =========================
+   BODY
+========================= */
 
 body{
 
   font-family:'Poppins', sans-serif;
 
   background:var(--bg);
+
   color:var(--text);
 
   transition:0.4s;
 
-  overflow-x:hidden;
-
 }
 
-.background-overlay{
-
-  position:fixed;
-  inset:0;
-
-  background:
-  radial-gradient(circle at top left, rgba(0,255,157,0.15), transparent 30%),
-  radial-gradient(circle at bottom right, rgba(0,170,255,0.15), transparent 30%);
-
-  z-index:-1;
-
-}
+/* =========================
+   HEADER
+========================= */
 
 header{
 
   position:fixed;
+
   top:0;
   left:0;
 
@@ -62,30 +71,48 @@ header{
   justify-content:space-between;
   align-items:center;
 
-  padding:22px 7%;
+  padding:20px 7%;
 
-  backdrop-filter:blur(14px);
-  background:rgba(0,0,0,0.25);
+  background:rgba(255,255,255,0.75);
+
+  backdrop-filter:blur(10px);
 
   z-index:1000;
 
 }
 
+body.dark-mode header{
+
+  background:rgba(0,0,0,0.35);
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
 .logo{
 
   font-size:2rem;
-  font-family:'Orbitron', sans-serif;
+
   font-weight:700;
 
 }
 
 .logo span{
+
   color:var(--primary);
+
 }
+
+/* =========================
+   NAV
+========================= */
 
 nav{
 
   display:flex;
+
   gap:35px;
 
 }
@@ -93,7 +120,10 @@ nav{
 nav a{
 
   text-decoration:none;
+
   color:var(--text);
+
+  font-weight:500;
 
   transition:0.3s;
 
@@ -106,6 +136,10 @@ nav a:hover,
 
 }
 
+/* =========================
+   BOTÃO
+========================= */
+
 #themeBtn{
 
   width:50px;
@@ -115,32 +149,87 @@ nav a:hover,
   border-radius:50%;
 
   background:var(--card);
+
   color:var(--text);
 
   cursor:pointer;
 
-  font-size:1.1rem;
+  font-size:1rem;
+
+  box-shadow:0 5px 15px var(--shadow);
 
 }
 
+/* =========================
+   HERO
+========================= */
+
 .hero{
 
-  min-height:100vh;
+  position:relative;
 
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  height:100vh;
 
+  display:flex;
+  justify-content:center;
   align-items:center;
 
-  gap:70px;
+  overflow:hidden;
 
-  padding:140px 7%;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-image{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.hero-overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.45);
+
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content{
+
+  position:relative;
+
+  z-index:2;
+
+  text-align:center;
+
+  color:white;
+
+  width:90%;
+  max-width:850px;
 
 }
 
 .hero-content h1{
 
   font-size:5rem;
+
   line-height:1.1;
 
   margin:25px 0;
@@ -149,13 +238,13 @@ nav a:hover,
 
 .hero-content h1 span{
 
-  color:var(--primary);
+  color:#9ae6b4;
 
 }
 
 .hero-content p{
 
-  color:var(--secondary);
+  font-size:1.2rem;
 
   line-height:1.8;
 
@@ -163,23 +252,33 @@ nav a:hover,
 
 }
 
+/* =========================
+   TAG
+========================= */
+
 .tag{
 
   display:inline-block;
 
-  padding:12px 20px;
+  padding:12px 22px;
 
   border-radius:999px;
 
-  background:rgba(0,255,157,0.12);
+  background:rgba(255,255,255,0.15);
 
-  color:var(--primary);
+  backdrop-filter:blur(10px);
 
 }
+
+/* =========================
+   BOTÕES
+========================= */
 
 .hero-buttons{
 
   display:flex;
+  justify-content:center;
+
   gap:20px;
 
 }
@@ -189,29 +288,29 @@ nav a:hover,
 
   padding:18px 30px;
 
-  border-radius:18px;
+  border-radius:14px;
 
   text-decoration:none;
 
   font-weight:600;
 
-  transition:0.4s;
+  transition:0.3s;
 
 }
 
 .main-btn{
 
-  background:linear-gradient(135deg,var(--primary),#00b7ff);
+  background:var(--primary);
 
-  color:#07111f;
+  color:white;
 
 }
 
 .secondary-btn{
 
-  border:1px solid rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.3);
 
-  color:var(--text);
+  color:white;
 
 }
 
@@ -222,32 +321,213 @@ nav a:hover,
 
 }
 
-.hero-image img{
+/* =========================
+   SEÇÕES
+========================= */
 
-  width:100%;
-  height:700px;
+.cards-section,
+.impact-section{
 
-  object-fit:cover;
-
-  border-radius:35px;
+  padding:120px 7%;
 
 }
 
-@media(max-width:1000px){
+/* =========================
+   TÍTULOS
+========================= */
 
-  .hero{
+.section-title{
 
-    grid-template-columns:1fr;
+  text-align:center;
 
-    text-align:center;
+  margin-bottom:60px;
 
-  }
+}
 
-  .hero-buttons{
+.section-title span{
 
-    justify-content:center;
+  color:var(--primary);
 
-  }
+  font-weight:600;
+
+}
+
+.section-title h2{
+
+  font-size:3rem;
+
+  margin-top:15px;
+
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:30px;
+
+}
+
+.card{
+
+  background:var(--card);
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  box-shadow:0 10px 30px var(--shadow);
+
+  transition:0.3s;
+
+}
+
+.card:hover{
+
+  transform:translateY(-10px);
+
+}
+
+.card img{
+
+  width:100%;
+  height:240px;
+
+  object-fit:cover;
+
+}
+
+.card-content{
+
+  padding:30px;
+
+}
+
+.card-content h3{
+
+  margin-bottom:15px;
+
+}
+
+.card-content p{
+
+  color:var(--secondary);
+
+  line-height:1.8;
+
+}
+
+/* =========================
+   IMPACTO
+========================= */
+
+.impact-box{
+
+  background:var(--card);
+
+  border-radius:30px;
+
+  padding:60px;
+
+  box-shadow:0 10px 40px var(--shadow);
+
+}
+
+.impact-text span{
+
+  color:var(--primary);
+
+  font-weight:600;
+
+}
+
+.impact-text h2{
+
+  font-size:3rem;
+
+  margin:20px 0;
+
+}
+
+.impact-text p{
+
+  color:var(--secondary);
+
+  line-height:1.8;
+
+  margin-bottom:50px;
+
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:25px;
+
+}
+
+.stat-card{
+
+  background:rgba(0,0,0,0.03);
+
+  border-radius:20px;
+
+  padding:35px;
+
+  text-align:center;
+
+}
+
+body.dark-mode .stat-card{
+
+  background:rgba(255,255,255,0.05);
+
+}
+
+.stat-card h3{
+
+  font-size:3rem;
+
+  color:var(--primary);
+
+  margin-bottom:10px;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+  text-align:center;
+
+  padding:35px;
+
+  color:var(--secondary);
+
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:900px){
 
   .hero-content h1{
 
@@ -263,15 +543,28 @@ nav a:hover,
     display:none;
   }
 
-  .hero{
+  .hero-buttons{
 
-    padding:120px 5%;
+    flex-direction:column;
 
   }
 
-  .hero-image img{
+  .cards-section,
+  .impact-section{
 
-    height:450px;
+    padding:100px 5%;
+
+  }
+
+  .impact-box{
+
+    padding:40px 25px;
+
+  }
+
+  .impact-text h2{
+
+    font-size:2.2rem;
 
   }
 
