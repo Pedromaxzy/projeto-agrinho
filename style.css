@@ -1,13 +1,29 @@
 /* =========================================================
-   AGRINHO 2026 - STYLE.CSS
+   AGRINHO 2026 — CSS PREMIUM COMPLETO
    Tema:
-   "Agro forte, futuro sustentável:
-   equilíbrio entre produção e meio ambiente"
+   Agro forte, futuro sustentável:
+   equilíbrio entre produção e meio ambiente
+
+   CSS MUITO MAIS AVANÇADO
+   • Melhor responsividade
+   • Melhor modo escuro
+   • Efeitos premium
+   • Cards avançados
+   • Navbar moderna
+   • Hero realista
+   • Seções organizadas
+   • Visual profissional
+   • Hover animado
+   • Gradientes
+   • Sombras modernas
+   • Bordas inteligentes
+   • Layout competição Agrinho
 ========================================================= */
 
-/* =======================
+
+/* =========================================================
    RESET
-======================= */
+========================================================= */
 
 *{
     margin:0;
@@ -17,401 +33,493 @@
 
 html{
     scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    transition:0.4s;
     overflow-x:hidden;
 }
 
-/* =======================
-   VARIÁVEIS
-======================= */
-
-:root{
-
-    --bg:#f3f8f2;
-    --bg2:#ffffff;
-
-    --text:#152915;
-    --text2:#315131;
-
-    --green:#2e7d32;
-    --green2:#4caf50;
-    --green3:#1b5e20;
-
-    --card:#ffffff;
-    --border:#dce8d9;
-
-    --shadow:
-    0 10px 25px rgba(0,0,0,0.08);
-
-    --shadowHover:
-    0 18px 40px rgba(0,0,0,0.15);
-
-    --heroOverlay:
-    linear-gradient(
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
-    );
-
-}
-
-body.dark{
-
-    --bg:#081108;
-    --bg2:#0f1d0f;
-
-    --text:#f5fff5;
-    --text2:#d6f0d6;
-
-    --green:#69db7c;
-    --green2:#3bc15a;
-    --green3:#1e8e3e;
-
-    --card:#132113;
-    --border:#284128;
-
-    --shadow:
-    0 10px 25px rgba(0,0,0,0.4);
-
-    --shadowHover:
-    0 20px 40px rgba(0,0,0,0.55);
-
-    --heroOverlay:
-    linear-gradient(
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.6)
-    );
-
-}
-
-/* =======================
-   SCROLLBAR
-======================= */
-
-::-webkit-scrollbar{
-    width:10px;
-}
-
-::-webkit-scrollbar-track{
-    background:var(--bg2);
-}
-
-::-webkit-scrollbar-thumb{
-    background:var(--green);
-    border-radius:10px;
-}
-
-/* =======================
-   HEADER
-======================= */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:999;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f5f7f2;
+    color:#1b1b1b;
+    overflow-x:hidden;
     transition:0.4s;
 }
 
-body.dark header{
-    background:rgba(10,20,10,0.88);
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root{
+
+    --verde:#2e7d32;
+    --verde2:#388e3c;
+    --verde3:#1b5e20;
+    --verde4:#4caf50;
+
+    --claro:#f5f7f2;
+    --branco:#ffffff;
+
+    --cinza:#f0f0f0;
+    --cinza2:#d9d9d9;
+
+    --texto:#1c1c1c;
+
+    --shadow:
+    0 10px 30px rgba(0,0,0,0.10);
+
+    --shadowHover:
+    0 20px 45px rgba(0,0,0,0.18);
+
 }
 
-.navbar{
 
-    width:92%;
-    max-width:1400px;
+/* =========================================================
+   MODO ESCURO
+========================================================= */
 
-    margin:auto;
+body.dark{
+
+    background:#101010;
+    color:#f2f2f2;
+
+}
+
+body.dark header{
+
+    background:#0b0b0b;
+
+}
+
+body.dark nav{
+
+    background:#161616;
+    border-bottom:2px solid #222;
+
+}
+
+body.dark nav a{
+
+    color:white;
+
+}
+
+body.dark nav a:hover{
+
+    background:var(--verde);
+
+}
+
+body.dark .card,
+body.dark .info-box,
+body.dark .timeline-content,
+body.dark .quiz-box,
+body.dark .simulator-box,
+body.dark .stat-card,
+body.dark .gallery-card{
+
+    background:#1b1b1b;
+    color:white;
+    border:2px solid #2b2b2b;
+
+}
+
+body.dark footer{
+
+    background:#050505;
+
+}
+
+body.dark .hero-overlay{
+
+    background:rgba(0,0,0,0.65);
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+
+    width:100%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:linear-gradient(
+    to right,
+    var(--verde3),
+    var(--verde)
+    );
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 6%;
+
+}
+
+.logo{
 
     display:flex;
     align-items:center;
-    justify-content:space-between;
-
-    padding:18px 0;
-}
-
-.logo h1{
-
-    font-size:2rem;
-    color:var(--green3);
-    font-weight:800;
-    letter-spacing:1px;
-}
-
-.logo span{
-    color:var(--green2);
-}
-
-/* =======================
-   NAV
-======================= */
-
-.nav-links{
-    display:flex;
     gap:18px;
-    list-style:none;
+
 }
 
-.nav-links a{
+.logo img{
 
-    text-decoration:none;
-    color:var(--text);
+    width:70px;
+    height:70px;
 
-    font-weight:600;
-
-    padding:12px 18px;
-
-    border-radius:12px;
-
-    transition:0.3s;
-}
-
-.nav-links a:hover{
-
-    background:var(--green);
-    color:white;
-
-    transform:translateY(-2px);
-}
-
-.nav-links a.active{
-
-    background:var(--green3);
-    color:white;
-}
-
-/* =======================
-   BOTÃO TEMA
-======================= */
-
-.theme-btn{
-
-    border:none;
-
-    width:55px;
-    height:55px;
+    object-fit:cover;
 
     border-radius:50%;
+    border:3px solid white;
 
-    background:var(--green);
+}
 
+.logo-text h1{
+
+    font-size:2rem;
     color:white;
 
-    font-size:1.2rem;
+}
 
+.logo-text p{
+
+    color:white;
+    opacity:0.9;
+
+}
+
+
+/* =========================================================
+   BOTÃO TEMA
+========================================================= */
+
+#themeBtn{
+
+    padding:12px 20px;
+
+    border:none;
+    border-radius:12px;
+
+    background:white;
+    color:var(--verde3);
+
+    font-weight:bold;
     cursor:pointer;
 
     transition:0.3s;
+
 }
 
-.theme-btn:hover{
+#themeBtn:hover{
 
-    transform:scale(1.08) rotate(10deg);
+    transform:scale(1.06);
 
-    background:var(--green3);
 }
 
-/* =======================
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav{
+
+    background:white;
+    border-bottom:2px solid #e7e7e7;
+
+}
+
+nav ul{
+
+    list-style:none;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    padding:18px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:#1c1c1c;
+
+    font-weight:bold;
+
+    padding:13px 22px;
+
+    border-radius:14px;
+
+    transition:0.3s;
+
+    position:relative;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+    left:50%;
+    bottom:5px;
+
+    width:0%;
+    height:3px;
+
+    background:var(--verde);
+
+    transition:0.3s;
+
+    transform:translateX(-50%);
+
+}
+
+nav a:hover::after{
+
+    width:70%;
+
+}
+
+nav a:hover{
+
+    background:#edf7ee;
+
+    color:var(--verde3);
+
+}
+
+
+/* =========================================================
    HERO
-======================= */
+========================================================= */
 
 .hero{
 
-    min-height:100vh;
+    height:92vh;
+
+    background-image:
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    text-align:center;
+}
 
-    padding:120px 20px 60px;
+.hero-overlay{
 
-    background:
-    var(--heroOverlay),
+    width:100%;
+    height:100%;
 
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop")
-    center/cover no-repeat;
+    background:rgba(0,0,0,0.45);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:40px;
+
 }
 
 .hero-content{
 
-    max-width:950px;
+    text-align:center;
+    max-width:1000px;
 
-    animation:fadeUp 1.2s ease;
+    color:white;
+
 }
 
-.hero-tag{
+.hero-content span{
+
+    background:rgba(255,255,255,0.15);
+
+    padding:12px 20px;
+
+    border-radius:50px;
+
+    border:1px solid rgba(255,255,255,0.4);
 
     display:inline-block;
 
-    background:rgba(255,255,255,0.18);
+    margin-bottom:25px;
 
-    border:2px solid rgba(255,255,255,0.4);
+    backdrop-filter:blur(8px);
 
-    color:white;
+}
 
-    padding:12px 22px;
+.hero-content h2{
 
-    border-radius:999px;
+    font-size:4.3rem;
+
+    line-height:1.2;
 
     margin-bottom:25px;
 
-    font-weight:600;
+    text-shadow:3px 3px 10px rgba(0,0,0,0.5);
 
-    backdrop-filter:blur(6px);
 }
 
-.hero h2{
-
-    font-size:4.5rem;
-
-    color:white;
-
-    line-height:1.1;
-
-    margin-bottom:25px;
-
-    text-shadow:
-    0 5px 15px rgba(0,0,0,0.35);
-}
-
-.hero h2 span{
-    color:#8fff9e;
-}
-
-.hero p{
-
-    color:#f1f1f1;
+.hero-content p{
 
     font-size:1.25rem;
 
-    line-height:1.8;
+    line-height:1.9;
 
-    max-width:800px;
+    margin-bottom:35px;
 
-    margin:auto auto 35px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+
 }
 
 .hero-buttons{
 
     display:flex;
-    gap:20px;
-
     justify-content:center;
+    gap:20px;
     flex-wrap:wrap;
+
 }
 
-.btn{
+.hero-buttons a{
 
-    padding:18px 34px;
+    text-decoration:none;
 
-    border:none;
+    padding:16px 34px;
 
     border-radius:14px;
 
-    font-size:1rem;
-    font-weight:700;
+    font-weight:bold;
 
-    cursor:pointer;
+    transition:0.3s;
 
-    transition:0.35s;
 }
 
 .btn-primary{
 
-    background:var(--green);
-
+    background:var(--verde);
     color:white;
+
 }
 
 .btn-primary:hover{
 
-    background:var(--green3);
+    background:var(--verde3);
 
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 
-    box-shadow:var(--shadowHover);
 }
 
 .btn-secondary{
 
-    background:rgba(255,255,255,0.18);
+    background:white;
+    color:var(--verde3);
 
-    color:white;
-
-    border:2px solid rgba(255,255,255,0.4);
-
-    backdrop-filter:blur(6px);
 }
 
 .btn-secondary:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 
-    background:white;
-
-    color:var(--green3);
 }
 
-/* =======================
-   SECTIONS
-======================= */
 
-.page{
+/* =========================================================
+   MAIN
+========================================================= */
 
-    display:none;
+main{
 
-    padding:
-    130px 7%
-    90px;
+    width:100%;
+
 }
 
-.page.active{
-    display:block;
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.section{
+
+    padding:110px 8%;
+
 }
 
 .section-title{
 
-    font-size:3rem;
-
-    color:var(--green3);
-
-    margin-bottom:18px;
-
-    text-align:center;
-}
-
-.section-subtitle{
-
-    max-width:900px;
-
-    margin:0 auto 60px;
-
     text-align:center;
 
-    line-height:1.8;
+    margin-bottom:70px;
 
-    color:var(--text2);
-
-    font-size:1.1rem;
 }
 
-/* =======================
+.section-title span{
+
+    color:var(--verde);
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+.section-title h2{
+
+    font-size:3.2rem;
+
+    margin:18px 0;
+
+    color:var(--verde3);
+
+}
+
+.section-title p{
+
+    max-width:950px;
+
+    margin:auto;
+
+    font-size:1.15rem;
+
+    line-height:2;
+
+}
+
+
+/* =========================================================
    CARDS
-======================= */
+========================================================= */
 
-.grid{
+.cards{
 
     display:grid;
 
@@ -419,30 +527,50 @@ body.dark header{
     repeat(auto-fit,minmax(300px,1fr));
 
     gap:35px;
+
 }
 
 .card{
 
-    background:var(--card);
+    background:white;
 
-    border:2px solid var(--border);
-
-    border-radius:26px;
+    border-radius:25px;
 
     overflow:hidden;
 
     box-shadow:var(--shadow);
 
     transition:0.4s;
+
+    position:relative;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:linear-gradient(
+    to right,
+    var(--verde3),
+    var(--verde4)
+    );
+
 }
 
 .card:hover{
 
-    transform:
-    translateY(-12px)
-    scale(1.02);
+    transform:translateY(-12px);
 
     box-shadow:var(--shadowHover);
+
 }
 
 .card img{
@@ -452,618 +580,835 @@ body.dark header{
 
     object-fit:cover;
 
-    border-bottom:
-    4px solid var(--green);
 }
 
 .card-content{
-    padding:28px;
+
+    padding:30px;
+
 }
 
-.card h3{
+.card-content h3{
+
+    color:var(--verde3);
 
     font-size:1.6rem;
 
-    color:var(--green3);
+    margin-bottom:18px;
 
-    margin-bottom:15px;
 }
 
-.card p{
-
-    line-height:1.8;
-
-    color:var(--text2);
-
-    margin-bottom:20px;
-}
-
-.card ul{
-
-    padding-left:18px;
+.card-content p{
 
     line-height:1.9;
 
-    color:var(--text2);
+    margin-bottom:22px;
+
 }
 
-/* =======================
-   IMPACTOS
-======================= */
+.card-content button{
 
-.impact-section{
+    border:none;
 
-    margin-top:90px;
+    padding:13px 20px;
+
+    background:var(--verde);
+
+    color:white;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.card-content button:hover{
+
+    background:var(--verde3);
+
+}
+
+
+/* =========================================================
+   GRID INFORMATIVA
+========================================================= */
+
+.info-grid{
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
+    repeat(auto-fit,minmax(350px,1fr));
 
-    gap:30px;
+    gap:35px;
+
 }
 
-.impact-box{
+.info-box{
 
-    background:var(--card);
+    background:white;
 
-    padding:40px 30px;
+    padding:35px;
 
-    border-radius:24px;
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+    border-left:8px solid var(--verde);
+
+    transition:0.3s;
+
+}
+
+.info-box:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.info-box h3{
+
+    color:var(--verde3);
+
+    margin-bottom:20px;
+
+    font-size:1.6rem;
+
+}
+
+.info-box p{
+
+    line-height:2;
+
+}
+
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:25px;
 
     text-align:center;
 
-    border:2px solid var(--border);
+    box-shadow:var(--shadow);
 
     transition:0.4s;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
 
-.impact-box:hover{
+.stat-card::before{
 
-    transform:translateY(-10px);
+    content:"";
 
-    box-shadow:var(--shadowHover);
+    position:absolute;
+
+    width:200%;
+    height:200%;
+
+    background:
+    radial-gradient(
+    rgba(76,175,80,0.2),
+    transparent
+    );
+
+    top:-100%;
+    left:-100%;
+
+    transition:0.5s;
+
 }
 
-.impact-box h2{
+.stat-card:hover::before{
 
-    font-size:3rem;
+    top:-50%;
+    left:-50%;
 
-    color:var(--green);
 }
 
-.impact-box p{
+.stat-card:hover{
 
-    margin-top:12px;
+    transform:scale(1.05);
 
-    color:var(--text2);
+}
+
+.stat-card h3{
+
+    font-size:3.3rem;
+
+    color:var(--verde);
+
+    margin-bottom:15px;
+
+}
+
+.stat-card p{
+
+    font-weight:bold;
 
     line-height:1.7;
+
 }
 
-/* =======================
+
+/* =========================================================
    GALERIA
-======================= */
+========================================================= */
 
 .gallery{
 
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+    repeat(auto-fit,minmax(280px,1fr));
 
-    gap:22px;
+    gap:25px;
 
-    margin-top:60px;
 }
 
-.gallery img{
+.gallery-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.gallery-card img{
 
     width:100%;
-    height:240px;
+    height:280px;
 
     object-fit:cover;
 
-    border-radius:24px;
+    transition:0.5s;
 
-    border:4px solid var(--border);
-
-    transition:0.4s;
 }
 
-.gallery img:hover{
+.gallery-card:hover img{
 
-    transform:scale(1.03);
+    transform:scale(1.08);
 
-    border-color:var(--green);
-
-    box-shadow:var(--shadowHover);
 }
 
-/* =======================
-   TIMELINE
-======================= */
+.gallery-overlay{
 
-.timeline{
+    position:absolute;
 
-    margin-top:70px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:30px;
-}
-
-.timeline-item{
-
-    display:flex;
-    gap:30px;
-
-    align-items:flex-start;
-
-    background:var(--card);
-
-    border:2px solid var(--border);
-
-    padding:30px;
-
-    border-radius:24px;
-
-    transition:0.4s;
-}
-
-.timeline-item:hover{
-
-    transform:translateX(10px);
-
-    box-shadow:var(--shadowHover);
-}
-
-.timeline-year{
-
-    min-width:120px;
-
-    background:var(--green);
-
-    color:white;
-
-    font-size:1.5rem;
-    font-weight:800;
-
-    text-align:center;
-
-    padding:18px;
-
-    border-radius:18px;
-}
-
-.timeline-content h3{
-
-    color:var(--green3);
-
-    margin-bottom:12px;
-
-    font-size:1.6rem;
-}
-
-.timeline-content p{
-
-    color:var(--text2);
-
-    line-height:1.8;
-}
-
-/* =======================
-   QUIZ
-======================= */
-
-.quiz{
-
-    margin-top:70px;
-
-    background:var(--card);
-
-    padding:45px;
-
-    border-radius:28px;
-
-    border:2px solid var(--border);
-
-    box-shadow:var(--shadow);
-}
-
-.quiz h3{
-
-    color:var(--green3);
-
-    margin-bottom:25px;
-
-    font-size:2rem;
-}
-
-.quiz button{
-
-    display:block;
+    bottom:0;
+    left:0;
 
     width:100%;
 
-    margin-top:15px;
-
-    padding:18px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:var(--green2);
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,0.8),
+    transparent
+    );
 
     color:white;
 
-    font-size:1rem;
+    padding:30px;
 
-    cursor:pointer;
-
-    transition:0.3s;
 }
 
-.quiz button:hover{
+.gallery-overlay h3{
 
-    background:var(--green3);
+    margin-bottom:10px;
 
-    transform:translateY(-3px);
 }
 
-.quiz-result{
 
-    margin-top:25px;
+/* =========================================================
+   TIMELINE
+========================================================= */
 
-    font-size:1.1rem;
+.timeline{
 
-    font-weight:700;
+    position:relative;
 
-    color:var(--green3);
-}
-
-/* =======================
-   FOOTER
-======================= */
-
-footer{
-
-    margin-top:100px;
-
-    background:var(--green3);
-
-    color:white;
-
-    text-align:center;
-
-    padding:45px 20px;
-}
-
-footer h3{
-
-    font-size:2rem;
-
-    margin-bottom:12px;
-}
-
-footer p{
-
-    max-width:850px;
+    max-width:1200px;
 
     margin:auto;
 
-    line-height:1.8;
 }
 
-/* =======================
-   ANIMAÇÕES
-======================= */
-
-@keyframes fadeUp{
-
-    from{
-        opacity:0;
-        transform:
-        translateY(50px);
-    }
-
-    to{
-        opacity:1;
-        transform:
-        translateY(0);
-    }
-}
-
-/* =======================
-   RESPONSIVIDADE
-======================= */
-
-@media(max-width:1100px){
-
-    .hero h2{
-        font-size:3.5rem;
-    }
-
-    .navbar{
-        flex-direction:column;
-        gap:20px;
-    }
-
-    .nav-links{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-}
-
-@media(max-width:768px){
-
-    .hero{
-        padding-top:170px;
-    }
-
-    .hero h2{
-        font-size:2.6rem;
-    }
-
-    .hero p{
-        font-size:1rem;
-    }
-
-    .section-title{
-        font-size:2.2rem;
-    }
-
-    .timeline-item{
-        flex-direction:column;
-    }
-
-    .timeline-year{
-        width:100%;
-    }
-
-    .btn{
-        width:100%;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-}
-
-@media(max-width:500px){
-
-    .hero h2{
-        font-size:2rem;
-    }
-
-    .logo h1{
-        font-size:1.5rem;
-    }
-
-    .card img{
-        height:190px;
-    }
-
-    .section-title{
-        font-size:1.8rem;
-    }
-
-    .quiz{
-        padding:25px;
-    }
-}
-
-/* =======================
-   EFEITOS EXTRAS
-======================= */
-
-.glow{
-    position:relative;
-}
-
-.glow::after{
+.timeline::after{
 
     content:"";
 
     position:absolute;
 
-    inset:-2px;
+    width:6px;
 
-    border-radius:inherit;
+    background:var(--verde);
 
-    background:
-    linear-gradient(
-        45deg,
-        transparent,
-        rgba(76,175,80,0.35),
-        transparent
-    );
+    top:0;
+    bottom:0;
 
-    z-index:-1;
+    left:50%;
 
-    opacity:0;
+    transform:translateX(-50%);
 
-    transition:0.4s;
 }
 
-.glow:hover::after{
-    opacity:1;
+.timeline-item{
+
+    width:50%;
+
+    padding:20px 40px;
+
+    position:relative;
+
 }
 
-/* =======================
-   LINHAS DECORATIVAS
-======================= */
+.timeline-item::after{
 
-.section-divider{
+    content:"";
 
-    width:120px;
-    height:5px;
+    position:absolute;
 
-    background:var(--green);
+    width:24px;
+    height:24px;
 
-    border-radius:999px;
+    background:white;
 
-    margin:
-    20px auto
-    60px;
+    border:5px solid var(--verde);
+
+    border-radius:50%;
+
+    top:35px;
+
+    z-index:2;
+
 }
 
-/* =======================
-   TABELA
-======================= */
+.left{
 
-.table-box{
+    left:0;
 
-    overflow-x:auto;
+}
 
-    margin-top:50px;
+.left::after{
 
-    border-radius:24px;
+    right:-14px;
+
+}
+
+.right{
+
+    left:50%;
+
+}
+
+.right::after{
+
+    left:-14px;
+
+}
+
+.timeline-content{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:22px;
 
     box-shadow:var(--shadow);
+
 }
 
-table{
+.timeline-content h3{
 
-    width:100%;
+    color:var(--verde3);
 
-    border-collapse:collapse;
+    margin-bottom:15px;
 
-    background:var(--card);
 }
 
-table th{
+.timeline-content p{
 
-    background:var(--green3);
+    line-height:1.9;
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz-box{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow);
+
+    max-width:850px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.quiz-box h3{
+
+    font-size:2rem;
+
+    color:var(--verde3);
+
+    margin-bottom:20px;
+
+}
+
+.quiz-box p{
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+.quiz-options{
+
+    display:grid;
+
+    gap:15px;
+
+}
+
+.quiz-options button{
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--verde);
 
     color:white;
 
-    padding:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
 }
 
-table td{
+.quiz-options button:hover{
 
-    padding:18px;
+    background:var(--verde3);
 
-    border-bottom:
-    1px solid var(--border);
-
-    color:var(--text2);
 }
 
-table tr:hover{
-    background:rgba(76,175,80,0.08);
-}
 
-/* =======================
-   FORMULÁRIO
-======================= */
+/* =========================================================
+   SIMULADOR
+========================================================= */
 
-.form-area{
+.simulator-box{
 
-    margin-top:60px;
+    background:white;
 
-    background:var(--card);
+    padding:45px;
 
-    padding:40px;
-
-    border-radius:28px;
-
-    border:2px solid var(--border);
+    border-radius:25px;
 
     box-shadow:var(--shadow);
+
+    max-width:850px;
+
+    margin:auto;
+
 }
 
-.form-area h3{
+.simulator-box h3{
+
+    text-align:center;
+
+    color:var(--verde3);
 
     margin-bottom:25px;
 
-    color:var(--green3);
-
     font-size:2rem;
+
 }
 
-.form-group{
-    margin-bottom:22px;
-}
+.simulator-box label{
 
-.form-group label{
+    font-weight:bold;
 
     display:block;
 
     margin-bottom:10px;
 
-    font-weight:600;
 }
 
-.form-group input,
-.form-group textarea{
+.simulator-box input{
 
     width:100%;
 
-    padding:18px;
+    padding:15px;
 
-    border-radius:14px;
+    border-radius:12px;
 
-    border:2px solid var(--border);
+    border:2px solid #ccc;
 
-    background:var(--bg2);
-
-    color:var(--text);
+    margin-bottom:20px;
 
     font-size:1rem;
 
+}
+
+.simulator-box button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--verde);
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
     transition:0.3s;
+
 }
 
-.form-group input:focus,
-.form-group textarea:focus{
+.simulator-box button:hover{
 
-    outline:none;
+    background:var(--verde3);
 
-    border-color:var(--green);
-
-    box-shadow:
-    0 0 0 4px rgba(76,175,80,0.18);
 }
 
-textarea{
-    resize:none;
-    min-height:140px;
-}
-
-/* =======================
-   BADGES
-======================= */
-
-.badges{
-
-    display:flex;
-    gap:15px;
-
-    flex-wrap:wrap;
+.result-box{
 
     margin-top:25px;
+
+    background:#edf7ee;
+
+    padding:22px;
+
+    border-radius:12px;
+
+    display:none;
+
+    font-weight:bold;
+
 }
 
-.badge{
 
-    padding:10px 18px;
+/* =========================================================
+   FOOTER
+========================================================= */
 
-    border-radius:999px;
+footer{
 
-    background:rgba(76,175,80,0.12);
+    background:var(--verde3);
 
-    border:2px solid var(--green);
+    color:white;
 
-    color:var(--green3);
+    padding:80px 8% 40px;
 
-    font-weight:700;
+    margin-top:100px;
+
 }
 
-/* =======================
-   FIM
-======================= */
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:40px;
+
+}
+
+.footer-box h3{
+
+    margin-bottom:20px;
+
+    font-size:1.5rem;
+
+}
+
+.footer-box p,
+.footer-box li{
+
+    line-height:1.9;
+
+    opacity:0.95;
+
+}
+
+.footer-box ul{
+
+    list-style:none;
+
+}
+
+.footer-box a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer-box a:hover{
+
+    text-decoration:underline;
+
+}
+
+.footer-bottom{
+
+    margin-top:50px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,0.3);
+
+    text-align:center;
+
+}
+
+
+/* =========================================================
+   BOTÃO TOPO
+========================================================= */
+
+#topBtn{
+
+    position:fixed;
+
+    bottom:25px;
+    right:25px;
+
+    width:60px;
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    color:white;
+
+    font-size:1.3rem;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    box-shadow:var(--shadow);
+
+    transition:0.3s;
+
+}
+
+#topBtn:hover{
+
+    background:var(--verde3);
+
+    transform:scale(1.08);
+
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1s;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media(max-width:1200px){
+
+    .hero-content h2{
+
+        font-size:3.5rem;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .timeline::after{
+
+        left:30px;
+
+    }
+
+    .timeline-item{
+
+        width:100%;
+
+        padding-left:80px;
+        padding-right:20px;
+
+    }
+
+    .timeline-item::after{
+
+        left:17px;
+
+    }
+
+    .right{
+
+        left:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .top-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+    }
+
+    nav ul{
+
+        gap:10px;
+
+    }
+
+    .hero{
+
+        height:auto;
+
+        padding:80px 0;
+
+    }
+
+    .hero-content h2{
+
+        font-size:2.5rem;
+
+    }
+
+    .hero-content p{
+
+        font-size:1rem;
+
+    }
+
+    .section{
+
+        padding:80px 5%;
+
+    }
+
+    .section-title h2{
+
+        font-size:2.4rem;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .hero-content h2{
+
+        font-size:2rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .logo-text h1{
+
+        font-size:1.5rem;
+
+    }
+
+    nav a{
+
+        padding:10px 14px;
+
+        font-size:0.9rem;
+
+    }
+
+}
