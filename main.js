@@ -1,4 +1,20 @@
 /* =========================
+   LOADING SCREEN
+========================= */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    const loader =
+    document.querySelector(".loader");
+
+    loader.classList.add("hide");
+
+  }
+);
+
+/* =========================
    DARK MODE
 ========================= */
 
@@ -65,11 +81,33 @@ document.getElementById("menuBtn");
 const mobileMenu =
 document.querySelector(".mobile-menu");
 
+const overlay =
+document.querySelector(".menu-overlay");
+
 menuBtn.addEventListener(
   "click",
   () => {
 
     mobileMenu.classList.toggle(
+      "active"
+    );
+
+    overlay.classList.toggle(
+      "active"
+    );
+
+  }
+);
+
+overlay.addEventListener(
+  "click",
+  () => {
+
+    mobileMenu.classList.remove(
+      "active"
+    );
+
+    overlay.classList.remove(
       "active"
     );
 
@@ -113,6 +151,32 @@ window.addEventListener(
 revealOnScroll();
 
 /* =========================
+   PROGRESS BAR
+========================= */
+
+window.addEventListener(
+  "scroll",
+  () => {
+
+    const scrollTop =
+    document.documentElement.scrollTop;
+
+    const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+    const progress =
+    (scrollTop / height) * 100;
+
+    document.querySelector(
+      ".progress-bar"
+    ).style.width =
+    progress + "%";
+
+  }
+);
+
+/* =========================
    CONTADOR
 ========================= */
 
@@ -121,20 +185,18 @@ document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
 
-  counter.innerText = "0";
-
   const updateCounter = () => {
 
     const target =
     +counter.getAttribute(
       "data-target"
-    ) || +counter.innerText;
+    );
 
     const current =
     +counter.innerText;
 
     const increment =
-    target / 80;
+    target / 100;
 
     if(current < target){
 
@@ -145,7 +207,7 @@ counters.forEach(counter => {
 
       setTimeout(
         updateCounter,
-        30
+        20
       );
 
     }
@@ -157,5 +219,7 @@ counters.forEach(counter => {
     }
 
   };
+
+  updateCounter();
 
 });
