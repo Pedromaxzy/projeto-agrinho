@@ -1,229 +1,732 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agrinho 2026 | Agro, Tecnologia e Futuro Sustentável</title>
+<title>Agrinho 2026 | Agro Forte, Futuro Sustentável</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<!-- BACKGROUND CANVAS (FUTURISTA) -->
-<canvas id="bg"></canvas>
+<!-- ========================================= -->
+<!-- FUNDO -->
+<!-- ========================================= -->
 
-<!-- LOADING SCREEN -->
+<div class="backgroundOverlay"></div>
+
+<canvas id="backgroundCanvas"></canvas>
+
+<!-- ========================================= -->
+<!-- LOADING -->
+<!-- ========================================= -->
+
 <div id="loadingScreen">
-  <div class="loaderRing"></div>
-  <h1>Agrinho 2026</h1>
-  <p>Conectando tecnologia, natureza e futuro...</p>
+
+<div class="loadingBox">
+
+<div class="loaderCircle"></div>
+
+<h1>AGRINHO 2026</h1>
+
+<p>
+Conectando agricultura, tecnologia e sustentabilidade...
+</p>
+
 </div>
 
-<!-- HEADER FIXO -->
-<header>
-  <div class="logo">
-    🌱 AGRINHO FUTURE
-  </div>
+</div>
 
-  <nav>
-    <button onclick="navigate('home')">Início</button>
-    <button onclick="navigate('agro')">Agricultura</button>
-    <button onclick="navigate('tech')">Tecnologia</button>
-    <button onclick="navigate('sust')">Sustentabilidade</button>
-    <button onclick="navigate('quiz')">Quiz</button>
-  </nav>
+<!-- ========================================= -->
+<!-- HEADER -->
+<!-- ========================================= -->
 
-  <div class="actions">
-    <button id="themeToggle">🌙</button>
-  </div>
+<header id="header">
+
+<div class="logoArea">
+
+<h1>🌱 AGRINHO 2026</h1>
+
+<span>
+Agro forte, futuro sustentável
+</span>
+
+</div>
+
+<nav class="navigation">
+
+<button onclick="navigateTo('home')">
+Início
+</button>
+
+<button onclick="navigateTo('agriculture')">
+Agricultura
+</button>
+
+<button onclick="navigateTo('technology')">
+Tecnologia
+</button>
+
+<button onclick="navigateTo('sustainability')">
+Sustentabilidade
+</button>
+
+<button onclick="navigateTo('future')">
+Futuro
+</button>
+
+<button onclick="navigateTo('gallery')">
+Galeria
+</button>
+
+<button onclick="navigateTo('quiz')">
+Quiz
+</button>
+
+</nav>
+
+<div class="headerActions">
+
+<button id="themeToggle">
+🌙
+</button>
+
+</div>
+
 </header>
 
+<!-- ========================================= -->
 <!-- HOME -->
+<!-- ========================================= -->
+
 <section id="home" class="page active">
 
-  <div class="hero">
-    <h1>Agro forte, futuro inteligente</h1>
-    <p>
-      O agronegócio brasileiro é uma das maiores forças econômicas do mundo,
-      mas seu futuro depende do equilíbrio entre produção e preservação ambiental.
-    </p>
+<div class="heroSection">
 
-    <div class="heroButtons">
-      <button onclick="navigate('agro')">Explorar Agricultura</button>
-      <button onclick="navigate('tech')">Ver Tecnologia</button>
-    </div>
-  </div>
+<div class="heroText">
 
-  <div class="cardsGrid">
+<h2>
+Agro forte, futuro inteligente
+</h2>
 
-    <div class="card">
-      <h3>🌾 Produção</h3>
-      <p>
-        O Brasil é líder global em soja, milho e café, com alta produtividade agrícola.
-      </p>
-    </div>
+<p>
+O agronegócio brasileiro é uma das maiores forças econômicas do planeta.
+A união entre produção agrícola, tecnologia e sustentabilidade define o futuro
+da humanidade e do meio ambiente.
+</p>
 
-    <div class="card">
-      <h3>🤖 Tecnologia</h3>
-      <p>
-        Drones, sensores e IA estão revolucionando o campo.
-      </p>
-    </div>
+<div class="heroButtons">
 
-    <div class="card">
-      <h3>🌍 Sustentabilidade</h3>
-      <p>
-        Produzir sem destruir é o maior desafio do século.
-      </p>
-    </div>
+<button onclick="navigateTo('agriculture')">
+Explorar Agricultura
+</button>
 
-  </div>
+<button onclick="navigateTo('technology')">
+Ver Tecnologia
+</button>
 
-</section>
+<button onclick="navigateTo('quiz')">
+Fazer Quiz
+</button>
 
-<!-- AGRICULTURA -->
-<section id="agro" class="page">
+</div>
 
-  <h1>Agricultura Brasileira</h1>
+</div>
 
-  <div class="textBlock">
+<div class="heroImage">
 
-    <p>
-      A agricultura brasileira passou por uma transformação profunda nas últimas décadas.
-      Antes baseada em métodos tradicionais, hoje ela utiliza ciência, engenharia genética,
-      automação e análise de dados para alcançar níveis de produtividade altíssimos.
-    </p>
+<img src="img/agro.jpg" alt="Agricultura moderna">
 
-    <p>
-      O Brasil se destaca mundialmente na produção de soja, milho, café, carne bovina e cana-de-açúcar.
-      Esses produtos são fundamentais não apenas para o consumo interno, mas também para exportação,
-      fortalecendo a economia nacional.
-    </p>
+</div>
 
-  </div>
+</div>
 
-  <div class="infoCards">
+<div class="statsGrid">
 
-    <div class="infoCard">
-      <h3>🌱 Soja</h3>
-      <p>Base da exportação agrícola brasileira e essencial para alimentação animal e óleo vegetal.</p>
-    </div>
+<div class="statCard">
 
-    <div class="infoCard">
-      <h3>🌽 Milho</h3>
-      <p>Utilizado na alimentação humana, animal e produção de biocombustíveis.</p>
-    </div>
+<h3>🌾 Produção</h3>
 
-    <div class="infoCard">
-      <h3>☕ Café</h3>
-      <p>O Brasil é o maior produtor mundial de café há mais de 150 anos.</p>
-    </div>
+<p>
+O Brasil é líder mundial em produção agrícola.
+</p>
 
-  </div>
+</div>
 
-</section>
+<div class="statCard">
 
-<!-- TECNOLOGIA -->
-<section id="tech" class="page">
+<h3>🤖 Tecnologia</h3>
 
-  <h1>Tecnologia no Campo</h1>
+<p>
+Máquinas inteligentes revolucionam o campo.
+</p>
 
-  <p>
-    A tecnologia agrícola (AgTech) revolucionou completamente a forma de produzir alimentos.
-    Hoje, o campo é altamente conectado e automatizado.
-  </p>
+</div>
 
-  <div class="techGrid">
+<div class="statCard">
 
-    <div class="techCard">
-      🚜 Máquinas inteligentes operam com precisão milimétrica.
-    </div>
+<h3>🌍 Sustentabilidade</h3>
 
-    <div class="techCard">
-      🚁 Drones monitoram plantações em tempo real.
-    </div>
+<p>
+Preservar hoje garante o amanhã.
+</p>
 
-    <div class="techCard">
-      🧠 Inteligência Artificial prevê safras e reduz perdas.
-    </div>
+</div>
 
-    <div class="techCard">
-      🌡️ Sensores controlam água e solo automaticamente.
-    </div>
+<div class="statCard">
 
-  </div>
+<h3>🚜 Inovação</h3>
+
+<p>
+A inovação agrícola cresce a cada ano.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- SUSTENTABILIDADE -->
-<section id="sust" class="page">
+<!-- ========================================= -->
+<!-- AGRICULTURE -->
+<!-- ========================================= -->
 
-  <h1>Sustentabilidade</h1>
+<section id="agriculture" class="page">
 
-  <p>
-    Sustentabilidade significa produzir hoje sem comprometer o amanhã.
-  </p>
+<div class="sectionTitle">
 
-  <div class="sustBlock">
+<h2>
+Agricultura Brasileira
+</h2>
 
-    <div class="sustItem">
-      🌱 Rotação de culturas para preservar o solo
-    </div>
+<p>
+O coração econômico do país
+</p>
 
-    <div class="sustItem">
-      💧 Uso consciente da água
-    </div>
+</div>
 
-    <div class="sustItem">
-      🌳 Preservação de áreas verdes
-    </div>
+<div class="contentGrid">
 
-    <div class="sustItem">
-      ⚡ Redução de impacto ambiental
-    </div>
+<div class="contentCard">
 
-  </div>
+<h3>
+🌱 Soja
+</h3>
+
+<p>
+A soja brasileira é uma das mais exportadas do mundo.
+Ela é utilizada em alimentação, indústria e produção animal.
+</p>
+
+</div>
+
+<div class="contentCard">
+
+<h3>
+🌽 Milho
+</h3>
+
+<p>
+O milho possui enorme importância alimentar e industrial.
+</p>
+
+</div>
+
+<div class="contentCard">
+
+<h3>
+☕ Café
+</h3>
+
+<p>
+O café brasileiro é reconhecido internacionalmente pela qualidade.
+</p>
+
+</div>
+
+<div class="contentCard">
+
+<h3>
+🌾 Cana-de-açúcar
+</h3>
+
+<p>
+Importante para produção de açúcar e biocombustíveis.
+</p>
+
+</div>
+
+</div>
+
+<div class="largeText">
+
+<p>
+A agricultura brasileira passou por transformações profundas ao longo das últimas décadas.
+Hoje, o setor agrícola combina conhecimento científico, automação e sustentabilidade.
+</p>
+
+<p>
+Além de alimentar milhões de pessoas, o agronegócio gera empregos,
+fortalece a economia e impulsiona o desenvolvimento tecnológico.
+</p>
+
+<p>
+A busca por maior produtividade sem ampliar impactos ambientais é um dos maiores desafios atuais.
+</p>
+
+</div>
+
+<img src="img/agro2.jpg" class="sectionImage">
 
 </section>
 
+<!-- ========================================= -->
+<!-- TECHNOLOGY -->
+<!-- ========================================= -->
+
+<section id="technology" class="page">
+
+<div class="sectionTitle">
+
+<h2>
+Tecnologia no Campo
+</h2>
+
+<p>
+A revolução digital agrícola
+</p>
+
+</div>
+
+<div class="techGrid">
+
+<div class="techCard">
+
+<h3>
+🚁 Drones
+</h3>
+
+<p>
+Monitoram plantações em tempo real.
+</p>
+
+</div>
+
+<div class="techCard">
+
+<h3>
+🤖 Inteligência Artificial
+</h3>
+
+<p>
+Prevê clima, colheitas e produtividade.
+</p>
+
+</div>
+
+<div class="techCard">
+
+<h3>
+🌡️ Sensores
+</h3>
+
+<p>
+Controlam solo, irrigação e temperatura.
+</p>
+
+</div>
+
+<div class="techCard">
+
+<h3>
+🚜 Automação
+</h3>
+
+<p>
+Máquinas inteligentes aumentam eficiência.
+</p>
+
+</div>
+
+<div class="techCard">
+
+<h3>
+📡 Satélites
+</h3>
+
+<p>
+Monitoram grandes áreas agrícolas.
+</p>
+
+</div>
+
+<div class="techCard">
+
+<h3>
+💻 Dados
+</h3>
+
+<p>
+Análise inteligente melhora decisões.
+</p>
+
+</div>
+
+</div>
+
+<div class="technologyText">
+
+<p>
+A tecnologia agrícola, também chamada AgTech,
+transformou completamente o agronegócio moderno.
+</p>
+
+<p>
+Hoje, fazendas utilizam inteligência artificial,
+internet das coisas e automação avançada.
+</p>
+
+<p>
+Essas tecnologias reduzem desperdícios,
+economizam água e aumentam produtividade.
+</p>
+
+</div>
+
+<img src="img/tech.jpg" class="sectionImage">
+
+</section>
+
+<!-- ========================================= -->
+<!-- SUSTAINABILITY -->
+<!-- ========================================= -->
+
+<section id="sustainability" class="page">
+
+<div class="sectionTitle">
+
+<h2>
+Sustentabilidade
+</h2>
+
+<p>
+Produzir sem destruir o futuro
+</p>
+
+</div>
+
+<div class="sustainabilityGrid">
+
+<div class="sustainCard">
+
+<h3>
+🌱 Solo
+</h3>
+
+<p>
+Rotação de culturas preserva nutrientes.
+</p>
+
+</div>
+
+<div class="sustainCard">
+
+<h3>
+💧 Água
+</h3>
+
+<p>
+Uso consciente evita desperdícios.
+</p>
+
+</div>
+
+<div class="sustainCard">
+
+<h3>
+🌳 Natureza
+</h3>
+
+<p>
+Preservar biodiversidade é essencial.
+</p>
+
+</div>
+
+<div class="sustainCard">
+
+<h3>
+♻️ Reciclagem
+</h3>
+
+<p>
+Tecnologias limpas reduzem impacto ambiental.
+</p>
+
+</div>
+
+</div>
+
+<div class="largeText">
+
+<p>
+A sustentabilidade é um dos pilares do futuro agrícola.
+</p>
+
+<p>
+Sem preservação ambiental,
+a produção agrícola estaria ameaçada.
+</p>
+
+<p>
+Por isso, práticas sustentáveis são fundamentais
+para garantir equilíbrio entre economia e natureza.
+</p>
+
+</div>
+
+<img src="img/sust.jpg" class="sectionImage">
+
+</section>
+
+<!-- ========================================= -->
+<!-- FUTURE -->
+<!-- ========================================= -->
+
+<section id="future" class="page">
+
+<div class="sectionTitle">
+
+<h2>
+O Futuro do Agro
+</h2>
+
+<p>
+Tecnologia, inovação e equilíbrio ambiental
+</p>
+
+</div>
+
+<div class="futureCards">
+
+<div class="futureCard">
+
+<h3>
+🛰️ Agricultura Inteligente
+</h3>
+
+<p>
+Sistemas automatizados tomarão decisões em tempo real.
+</p>
+
+</div>
+
+<div class="futureCard">
+
+<h3>
+🌍 Sustentabilidade Global
+</h3>
+
+<p>
+Produção agrícola mais limpa será prioridade mundial.
+</p>
+
+</div>
+
+<div class="futureCard">
+
+<h3>
+⚡ Energia Verde
+</h3>
+
+<p>
+Uso de energias renováveis crescerá no campo.
+</p>
+
+</div>
+
+<div class="futureCard">
+
+<h3>
+🧠 IA Avançada
+</h3>
+
+<p>
+Inteligência artificial reduzirá desperdícios.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- GALLERY -->
+<!-- ========================================= -->
+
+<section id="gallery" class="page">
+
+<div class="sectionTitle">
+
+<h2>
+Galeria
+</h2>
+
+<p>
+Imagens do agro moderno
+</p>
+
+</div>
+
+<div class="galleryGrid">
+
+<img src="img/agro.jpg">
+
+<img src="img/agro2.jpg">
+
+<img src="img/tech.jpg">
+
+<img src="img/sust.jpg">
+
+<img src="img/agro.jpg">
+
+<img src="img/tech.jpg">
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
 <!-- QUIZ -->
+<!-- ========================================= -->
+
 <section id="quiz" class="page">
 
-  <h1>Quiz Agrinho</h1>
+<div class="sectionTitle">
 
-  <div class="quizBox">
+<h2>
+Quiz Agrinho
+</h2>
 
-    <div class="question">
-      <p>1. Qual tecnologia é usada no campo moderno?</p>
-      <button onclick="quiz(this,2)">Drones</button>
-      <button onclick="quiz(this,0)">Rádio antigo</button>
-      <button onclick="quiz(this,0)">Máquina de escrever</button>
-    </div>
+<p>
+Teste seus conhecimentos
+</p>
 
-    <div class="question">
-      <p>2. Qual cultura o Brasil lidera?</p>
-      <button onclick="quiz(this,2)">Soja</button>
-      <button onclick="quiz(this,0)">Uva europeia</button>
-      <button onclick="quiz(this,0)">Trigo importado</button>
-    </div>
+</div>
 
-    <div class="question">
-      <p>3. Sustentabilidade significa:</p>
-      <button onclick="quiz(this,2)">Equilíbrio ambiental</button>
-      <button onclick="quiz(this,0)">Destruição total</button>
-      <button onclick="quiz(this,0)">Exploração sem controle</button>
-    </div>
+<div class="quizContainer">
 
-    <button class="finishBtn" onclick="finishQuiz()">Finalizar</button>
+<div class="questionBlock">
 
-    <div id="result"></div>
+<p>
+1. Qual tecnologia é usada no agronegócio moderno?
+</p>
 
-  </div>
+<button onclick="answer(this,2)">
+Drones
+</button>
+
+<button onclick="answer(this,0)">
+Máquina de escrever
+</button>
+
+<button onclick="answer(this,0)">
+Rádio antigo
+</button>
+
+</div>
+
+<div class="questionBlock">
+
+<p>
+2. Qual cultura é destaque no Brasil?
+</p>
+
+<button onclick="answer(this,2)">
+Soja
+</button>
+
+<button onclick="answer(this,0)">
+Uva importada
+</button>
+
+<button onclick="answer(this,0)">
+Trigo europeu
+</button>
+
+</div>
+
+<div class="questionBlock">
+
+<p>
+3. Sustentabilidade significa:
+</p>
+
+<button onclick="answer(this,2)">
+Equilíbrio ambiental
+</button>
+
+<button onclick="answer(this,0)">
+Destruição ambiental
+</button>
+
+<button onclick="answer(this,0)">
+Exploração total
+</button>
+
+</div>
+
+<button class="finishButton" onclick="finishQuiz()">
+Finalizar Quiz
+</button>
+
+<div id="quizResult"></div>
+
+</div>
 
 </section>
 
+<!-- ========================================= -->
+<!-- FOOTER -->
+<!-- ========================================= -->
+
+<footer>
+
+<h2>
+🌱 AGRINHO 2026
+</h2>
+
+<p>
+Projeto educativo sobre agricultura,
+tecnologia e sustentabilidade.
+</p>
+
+<div class="footerLinks">
+
+<span>
+Produção agrícola
+</span>
+
+<span>
+Tecnologia sustentável
+</span>
+
+<span>
+Futuro ambiental
+</span>
+
+</div>
+
+</footer>
+
 <script src="main.js"></script>
+
 </body>
+
 </html>
