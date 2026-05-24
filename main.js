@@ -1,9 +1,11 @@
+
 /* =========================
-   AGRINHO 2026 - JS ESTÁVEL
-   (VERSÃO CORRIGIDA)
+   AGRINHO 2026 - MAIN JS
+   VERSÃO FINAL ESTÁVEL
 ========================= */
 
-/* ===== LOADING (SEM BUG) ===== */
+
+/* ================= LOADING ================= */
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading-screen");
 
@@ -11,14 +13,16 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     loading.style.opacity = "0";
+    loading.style.transition = "0.6s ease";
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 500);
-  }, 1000);
+    }, 600);
+  }, 1200);
 });
 
-/* ===== NAVEGAÇÃO ENTRE TELAS ===== */
+
+/* ================= NAVEGAÇÃO ENTRE TELAS ================= */
 function mostrarTela(id) {
   const telas = document.querySelectorAll(".tela");
 
@@ -30,19 +34,26 @@ function mostrarTela(id) {
 
   if (alvo) {
     alvo.classList.add("ativa");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   }
 }
 
-/* ===== TEMA ESCURO/CLARO (ROBUSTO) ===== */
+
+/* ================= TEMA ESCURO / CLARO ================= */
 function toggleTema() {
   document.body.classList.toggle("dark");
 
-  localStorage.setItem(
-    "tema",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
+  }
 }
+
 
 /* carregar tema salvo */
 document.addEventListener("DOMContentLoaded", () => {
@@ -52,35 +63,37 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("dark");
   }
 
-  iniciarQuiz(); // só inicia quando DOM existe
+  iniciarQuiz();
 });
 
-/* ===== QUIZ SIMPLES E FUNCIONAL ===== */
+
+/* ================= QUIZ AGRINHO ================= */
+
 const perguntas = [
   {
-    pergunta: "O que é agricultura sustentável?",
+    pergunta: "O que melhor define agricultura sustentável?",
     opcoes: [
       "Produzir sem pensar no meio ambiente",
-      "Equilibrar produção e preservação ambiental",
-      "Usar mais agrotóxicos sempre"
+      "Equilibrar produção agrícola e preservação ambiental",
+      "Aumentar uso de agrotóxicos sempre"
     ],
     correta: 1
   },
   {
-    pergunta: "Qual prática ajuda o meio ambiente?",
+    pergunta: "Qual prática ajuda a preservar o solo?",
     opcoes: [
-      "Desmatamento total",
-      "Uso consciente da água",
-      "Queimada sem controle"
+      "Desmatamento total da área",
+      "Rotação de culturas",
+      "Queimada constante"
     ],
     correta: 1
   },
   {
-    pergunta: "Tecnologia no agro serve para:",
+    pergunta: "Qual é o papel da tecnologia no agro moderno?",
     opcoes: [
       "Aumentar desperdício",
-      "Melhorar eficiência da produção",
-      "Eliminar planejamento"
+      "Melhorar eficiência e reduzir impactos ambientais",
+      "Eliminar necessidade de planejamento"
     ],
     correta: 1
   }
@@ -89,12 +102,16 @@ const perguntas = [
 let atual = 0;
 let pontos = 0;
 
+
+/* iniciar quiz */
 function iniciarQuiz() {
   atual = 0;
   pontos = 0;
   renderQuiz();
 }
 
+
+/* renderizar pergunta */
 function renderQuiz() {
   const quiz = document.getElementById("quiz");
   const resultado = document.getElementById("resultado");
@@ -116,8 +133,10 @@ function renderQuiz() {
   });
 }
 
-function responder(opcao) {
-  if (opcao === perguntas[atual].correta) {
+
+/* responder pergunta */
+function responder(resposta) {
+  if (resposta === perguntas[atual].correta) {
     pontos++;
   }
 
@@ -130,24 +149,30 @@ function responder(opcao) {
   }
 }
 
+
+/* resultado final */
 function mostrarResultado() {
   const quiz = document.getElementById("quiz");
   const resultado = document.getElementById("resultado");
 
   if (!resultado) return;
 
-  let msg = "";
+  let mensagem = "";
 
-  if (pontos === 3) msg = "Excelente entendimento!";
-  else if (pontos === 2) msg = "Bom conhecimento!";
-  else msg = "Você pode aprender mais!";
+  if (pontos === 3) {
+    mensagem = "🌱 Excelente! Você entende bem sustentabilidade no agro.";
+  } else if (pontos === 2) {
+    mensagem = "👍 Bom! Você já tem boa base sobre o tema.";
+  } else {
+    mensagem = "📘 Você ainda pode aprender mais sobre agro sustentável.";
+  }
 
   quiz.innerHTML = "";
 
   resultado.innerHTML = `
-    <h3>Resultado</h3>
-    <p>Você acertou ${pontos}/3</p>
-    <p>${msg}</p>
-    <button onclick="iniciarQuiz()">Tentar novamente</button>
+    <h3>Resultado Final</h3>
+    <p>Você acertou ${pontos} de ${perguntas.length}</p>
+    <p>${mensagem}</p>
+    <button onclick="iniciarQuiz()">Refazer Quiz</button>
   `;
 }
