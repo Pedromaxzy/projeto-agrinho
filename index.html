@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agrinho 2026 - Agro forte, futuro sustentável</title>
+  <title>AgroTech Sustentável | Agrinho 2026</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,172 +12,117 @@
 
 <!-- ================= LOADING ================= -->
 <div id="loading-screen">
-  <div class="loader">
-    <h2>🌱 Preparando o futuro sustentável...</h2>
-    <div class="spinner"></div>
+  <div class="loader-box">
+    <h1>🌱 AgroTech Sustentável</h1>
+    <p>Carregando inovação no campo...</p>
+    <div class="loader-bar"></div>
   </div>
 </div>
 
-<!-- ================= HEADER ================= -->
-<header>
-  <div class="logo">
-    <h1>AGRINHO 2026</h1>
-    <p>Agro forte, futuro sustentável</p>
-  </div>
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <h2>🌿 AgroTech Sustentável</h2>
 
   <nav>
-    <button onclick="mostrarTela('home')">Início</button>
-    <button onclick="mostrarTela('sobre')">Sobre</button>
-    <button onclick="mostrarTela('tecnologia')">Tecnologia</button>
-    <button onclick="mostrarTela('quiz')">Quiz</button>
+    <button onclick="mostrarSecao('inicio')">Início</button>
+    <button onclick="mostrarSecao('agro')">O Agro</button>
+    <button onclick="mostrarSecao('tecnologia')">Tecnologia</button>
+    <button onclick="mostrarSecao('quiz')">Quiz</button>
   </nav>
 
-  <button class="tema-btn" onclick="toggleTema()">🌙 / ☀️</button>
+  <button onclick="toggleTema()" class="tema-btn">🌓</button>
 </header>
 
-<!-- ================= HOME ================= -->
-<section id="home" class="tela ativa">
+<!-- ================= INICIO ================= -->
+<section id="inicio" class="secao ativa">
 
   <div class="hero">
-    <h2>Agro moderno, sustentável e inteligente</h2>
-
+    <h1>Agro forte, futuro sustentável</h1>
     <p>
-      O agronegócio brasileiro é um dos mais fortes do mundo. Porém, para continuar crescendo,
-      ele precisa evoluir com responsabilidade ambiental. Este projeto mostra como tecnologia,
-      inovação e sustentabilidade podem trabalhar juntas para garantir produção eficiente sem destruir a natureza.
+      O campo é a base da vida. Com tecnologia, ciência e respeito ao meio ambiente,
+      construímos um futuro onde produção e natureza caminham juntas.
     </p>
 
-    <button onclick="mostrarTela('sobre')">
-      Explorar projeto
-    </button>
+    <button onclick="mostrarSecao('agro')">Explorar</button>
   </div>
+
+  <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30"
+       alt="Campo agrícola moderno">
+
+</section>
+
+<!-- ================= AGRO ================= -->
+<section id="agro" class="secao">
+
+  <h2>🌾 A importância do Agro</h2>
+
+  <p>
+    A agricultura é responsável por alimentar bilhões de pessoas no mundo.
+    No Brasil, o agronegócio é um dos pilares da economia.
+    Porém, o crescimento precisa vir acompanhado de responsabilidade ambiental.
+  </p>
 
   <div class="cards">
 
     <div class="card">
-      <img src="img/agro1.jpg" alt="Agricultura sustentável"
-           onerror="this.src='https://images.unsplash.com/photo-1500595046743-cd271d694d30'">
-
-      <h3>Sustentabilidade</h3>
-      <p>
-        Uso consciente do solo, preservação da água e redução de impactos ambientais.
-      </p>
+      <h3>🌱 Sustentabilidade</h3>
+      <p>Uso consciente do solo, preservando recursos naturais para o futuro.</p>
     </div>
 
     <div class="card">
-      <img src="img/tecnologia.jpg" alt="Tecnologia no campo"
-           onerror="this.src='https://images.unsplash.com/photo-1581091870622-4c5c4a8f1aab'">
-
-      <h3>Tecnologia</h3>
-      <p>
-        Drones, sensores e inteligência artificial ajudam o produtor rural a tomar decisões melhores.
-      </p>
+      <h3>💧 Água</h3>
+      <p>Gestão eficiente da água evita desperdício e protege ecossistemas.</p>
     </div>
 
     <div class="card">
-      <img src="img/producao.jpg" alt="Produção agrícola"
-           onerror="this.src='https://images.unsplash.com/photo-1464226184884-fa280b87c399'">
-
-      <h3>Produção</h3>
-      <p>
-        Alta produtividade com eficiência, reduzindo desperdícios e aumentando qualidade.
-      </p>
+      <h3>🌍 Meio Ambiente</h3>
+      <p>Redução de impactos ambientais com tecnologia e boas práticas.</p>
     </div>
 
   </div>
 
-</section>
-
-<!-- ================= SOBRE ================= -->
-<section id="sobre" class="tela">
-
-  <h2>Sobre o Projeto</h2>
-
-  <p>
-    O tema “Agro forte, futuro sustentável” aborda um dos maiores desafios do mundo atual:
-    como aumentar a produção de alimentos para uma população crescente sem causar danos ao meio ambiente.
-  </p>
-
-  <p>
-    A agricultura moderna depende cada vez mais da tecnologia. Sistemas inteligentes conseguem
-    monitorar plantações, prever condições climáticas e reduzir o uso excessivo de recursos naturais.
-  </p>
-
-  <p>
-    Este projeto foi desenvolvido para demonstrar, através da programação, como a tecnologia pode ser
-    aplicada para criar soluções reais no campo, promovendo equilíbrio entre produção e natureza.
-  </p>
-
-  <img src="img/campo.jpg" alt="Campo sustentável"
-       onerror="this.src='https://images.unsplash.com/photo-1500382017468-9049fed747ef'">
+  <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399"
+       alt="Plantação sustentável">
 
 </section>
 
 <!-- ================= TECNOLOGIA ================= -->
-<section id="tecnologia" class="tela">
+<section id="tecnologia" class="secao">
 
-  <h2>Tecnologia no Agronegócio</h2>
+  <h2>🚜 Tecnologia no Campo</h2>
 
-  <div class="cards">
+  <p>
+    A tecnologia revolucionou o agronegócio.
+    Hoje, drones, sensores e inteligência artificial ajudam produtores
+    a aumentar a eficiência e reduzir impactos ambientais.
+  </p>
 
-    <div class="card">
-      <img src="img/drone.jpg" alt="Drones agrícolas"
-           onerror="this.src='https://images.unsplash.com/photo-1508610048659-a06b669e3321'">
+  <ul>
+    <li>📡 Monitoramento por satélite</li>
+    <li>🤖 Automação agrícola</li>
+    <li>📊 Análise de dados do solo</li>
+    <li>🚁 Drones para pulverização precisa</li>
+  </ul>
 
-      <h3>Drones</h3>
-      <p>
-        Monitoram plantações, identificam pragas e ajudam no controle da lavoura com precisão.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="img/ia.jpg" alt="Inteligência artificial"
-           onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995'">
-
-      <h3>Inteligência Artificial</h3>
-      <p>
-        Analisa dados agrícolas e ajuda a prever colheitas e condições climáticas.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="img/sensores.jpg" alt="Sensores no campo"
-           onerror="this.src='https://images.unsplash.com/photo-1581091215367-59ab6f7f8f8a'">
-
-      <h3>Sensores</h3>
-      <p>
-        Medem umidade, temperatura e ajudam na irrigação inteligente.
-      </p>
-    </div>
-
-  </div>
+  <img src="https://images.unsplash.com/photo-1602524818053-9a3d0a0a0a8b"
+       alt="Tecnologia agrícola">
 
 </section>
 
 <!-- ================= QUIZ ================= -->
-<section id="quiz" class="tela">
+<section id="quiz" class="secao">
 
-  <h2>Quiz: Agro Sustentável</h2>
+  <h2>🧠 Quiz Agrinho</h2>
 
-  <p style="text-align:center;">
-    Teste seus conhecimentos sobre agricultura sustentável e tecnologia no campo.
-  </p>
+  <div id="quiz-box"></div>
 
-  <div id="quiz-container">
-
-    <div id="quiz"></div>
-
-    <div id="resultado"></div>
-
-  </div>
+  <div id="resultado"></div>
 
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <p>
-    Projeto Agrinho 2026 • Desenvolvido com foco em tecnologia, sustentabilidade e inovação no campo
-  </p>
+  <p>Projeto Agrinho 2026 - AgroTech Sustentável</p>
 </footer>
 
 <script src="main.js"></script>

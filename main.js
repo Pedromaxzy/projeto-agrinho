@@ -1,7 +1,8 @@
 
 /* =========================
    AGRINHO 2026 - MAIN JS FINAL
-   Versão estável + polida
+   AgroTech Sustentável
+   Estável + organizado + sem bugs
 ========================= */
 
 
@@ -18,18 +19,16 @@ window.addEventListener("load", () => {
     setTimeout(() => {
       loading.style.display = "none";
     }, 600);
-  }, 1200);
+  }, 1400);
 });
 
 
-/* ================= NAVEGAÇÃO ENTRE TELAS ================= */
-function mostrarTela(id) {
-  const telas = document.querySelectorAll(".tela");
+/* ================= NAVEGAÇÃO ENTRE SEÇÕES ================= */
+function mostrarSecao(id) {
+  const secoes = document.querySelectorAll(".secao");
 
-  if (!telas.length) return;
-
-  telas.forEach(t => {
-    t.classList.remove("ativa");
+  secoes.forEach(secao => {
+    secao.classList.remove("ativa");
   });
 
   const alvo = document.getElementById(id);
@@ -49,13 +48,15 @@ function mostrarTela(id) {
 function toggleTema() {
   document.body.classList.toggle("dark");
 
-  const modo = document.body.classList.contains("dark") ? "dark" : "light";
+  const modo = document.body.classList.contains("dark")
+    ? "dark"
+    : "light";
 
   localStorage.setItem("tema", modo);
 }
 
 
-/* carregar tema salvo */
+/* aplicar tema salvo */
 document.addEventListener("DOMContentLoaded", () => {
   const tema = localStorage.getItem("tema");
 
@@ -67,24 +68,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* ================= QUIZ AGRINHO ================= */
+/* ================= QUIZ ================= */
 
 const perguntas = [
   {
-    pergunta: "O que melhor representa a agricultura sustentável?",
+    pergunta: "Qual é o principal objetivo da agricultura sustentável?",
     opcoes: [
-      "Produção sem preocupação ambiental",
-      "Equilíbrio entre produção e preservação ambiental",
-      "Uso excessivo de agrotóxicos"
+      "Aumentar produção sem limites",
+      "Equilibrar produção e preservação ambiental",
+      "Usar mais agrotóxicos para produção rápida"
     ],
     correta: 1
   },
   {
-    pergunta: "Qual prática ajuda a manter o solo saudável?",
+    pergunta: "Qual prática ajuda a preservar o solo?",
     opcoes: [
-      "Queimada constante",
+      "Queimadas frequentes",
       "Rotação de culturas",
-      "Desmatamento total"
+      "Desmatamento contínuo"
     ],
     correta: 1
   },
@@ -93,7 +94,7 @@ const perguntas = [
     opcoes: [
       "Aumentando desperdício",
       "Reduzindo eficiência agrícola",
-      "Melhorando produção e reduzindo impactos ambientais"
+      "Melhorando produção com menos impacto ambiental"
     ],
     correta: 2
   }
@@ -111,25 +112,23 @@ function iniciarQuiz() {
 }
 
 
-/* ================= MOSTRAR PERGUNTA ================= */
+/* ================= RENDER QUIZ ================= */
 function renderQuiz() {
-  const quiz = document.getElementById("quiz");
+  const box = document.getElementById("quiz-box");
   const resultado = document.getElementById("resultado");
 
-  if (!quiz) return;
+  if (!box) return;
 
-  if (resultado) {
-    resultado.innerHTML = "";
-  }
+  resultado.innerHTML = "";
 
   const q = perguntas[atual];
 
-  quiz.innerHTML = `
+  box.innerHTML = `
     <h3>${q.pergunta}</h3>
   `;
 
   q.opcoes.forEach((opcao, i) => {
-    quiz.innerHTML += `
+    box.innerHTML += `
       <button onclick="responder(${i}, this)">
         ${opcao}
       </button>
@@ -140,15 +139,18 @@ function renderQuiz() {
 
 /* ================= RESPOSTA ================= */
 function responder(resposta, botao) {
-  const botoes = document.querySelectorAll("#quiz button");
+  const botoes = document.querySelectorAll("#quiz-box button");
 
   botoes.forEach(b => b.disabled = true);
 
-  if (resposta === perguntas[atual].correta) {
+  const correta = perguntas[atual].correta;
+
+  if (resposta === correta) {
     pontos++;
     botao.style.background = "#a5d6a7";
   } else {
     botao.style.background = "#ef9a9a";
+    botoes[correta].style.background = "#a5d6a7";
   }
 
   setTimeout(() => {
@@ -159,34 +161,32 @@ function responder(resposta, botao) {
     } else {
       mostrarResultado();
     }
-  }, 800);
+  }, 900);
 }
 
 
-/* ================= RESULTADO FINAL ================= */
+/* ================= RESULTADO ================= */
 function mostrarResultado() {
-  const quiz = document.getElementById("quiz");
+  const box = document.getElementById("quiz-box");
   const resultado = document.getElementById("resultado");
 
-  if (!resultado) return;
+  box.innerHTML = "";
 
-  let mensagem = "";
+  let msg = "";
 
   if (pontos === 3) {
-    mensagem = "🌱 Excelente! Você domina o conceito de sustentabilidade no agro.";
+    msg = "🌱 Excelente! Você entende perfeitamente o equilíbrio entre agro e meio ambiente.";
   } else if (pontos === 2) {
-    mensagem = "👍 Muito bom! Você já entende bem o tema.";
+    msg = "👍 Muito bom! Você já tem bom conhecimento sobre o tema.";
   } else {
-    mensagem = "📘 Você pode melhorar seus conhecimentos sobre agro sustentável.";
+    msg = "📘 Você ainda pode aprender mais sobre sustentabilidade no agro.";
   }
-
-  quiz.innerHTML = "";
 
   resultado.innerHTML = `
     <h3>Resultado Final</h3>
     <p>Você acertou <strong>${pontos}</strong> de <strong>${perguntas.length}</strong></p>
-    <p>${mensagem}</p>
+    <p>${msg}</p>
 
-    <button onclick="iniciarQuiz()">🔁 Refazer Quiz</button>
+    <button onclick="iniciarQuiz()">🔁 Jogar novamente</button>
   `;
 }
