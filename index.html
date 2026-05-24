@@ -2,862 +2,191 @@
 <html lang="pt-BR">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+  <title>Agro Forte - Futuro Sustentável</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projeto Agrinho 2026 sobre agricultura sustentável, tecnologia no campo e preservação ambiental.">
 
-    <title>
-        Agrinho 2026 | Agro forte, futuro sustentável
-    </title>
-
-    <meta name="description"
-        content="Projeto Agrinho 2026 - Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente">
-
-    <meta name="keywords"
-        content="Agrinho 2026, agro, sustentabilidade, meio ambiente, agricultura, tecnologia, programação">
-
-    <meta name="author" content="Projeto Agrinho 2026">
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="icon"
-        href="https://cdn-icons-png.flaticon.com/512/2909/2909768.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ========================= -->
-    <!-- LOADING -->
-    <!-- ========================= -->
+  <!-- HERO / TOPO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+      <p>Equilíbrio entre produção agrícola, tecnologia e preservação ambiental</p>
 
-    <div id="loading-screen">
-
-        <div class="loader"></div>
-
-        <h2>
-            Carregando Projeto Agrinho 2026...
-        </h2>
-
+      <a href="#inicio" class="btn">Explorar projeto</a>
     </div>
+  </header>
 
-    <!-- ========================= -->
-    <!-- HEADER -->
-    <!-- ========================= -->
+  <!-- MENU -->
+  <nav class="navbar" aria-label="Menu principal">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#desafios">Desafios</a>
+    <a href="#solucoes">Soluções</a>
+    <a href="#tecnologia">Tecnologia</a>
+    <a href="#impacto">Impacto</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contato">Contato</a>
+  </nav>
 
-    <header class="header">
+  <main>
 
-        <div class="logo-container">
+    <!-- INÍCIO -->
+    <section id="inicio" class="card">
+      <h2>🌾 Bem-vindo ao projeto Agrinho</h2>
+      <p>
+        Este projeto apresenta como a agricultura pode evoluir com tecnologia,
+        garantindo produção eficiente sem destruir o meio ambiente.
+      </p>
 
-            <img src="https://cdn-icons-png.flaticon.com/512/2909/2909768.png"
-                alt="Logo Agrinho">
-
-            <div>
-
-                <h1>
-                    AGRINHO 2026
-                </h1>
-
-                <p>
-                    Agro forte, futuro sustentável
-                </p>
-
-            </div>
-
-        </div>
-
-        <nav class="navbar">
-
-            <a href="index.html" class="active">
-                Início
-            </a>
-
-            <a href="tema.html">
-                Tema
-            </a>
-
-            <a href="agro.html">
-                Agro
-            </a>
-
-            <a href="tecnologia.html">
-                Tecnologia
-            </a>
-
-            <a href="estatisticas.html">
-                Estatísticas
-            </a>
-
-            <a href="quiz.html">
-                Quiz
-            </a>
-
-            <a href="simulador.html">
-                Simulador
-            </a>
-
-            <a href="cronograma.html">
-                Cronograma
-            </a>
-
-            <a href="sobre.html">
-                Sobre
-            </a>
-
-        </nav>
-
-        <button id="theme-toggle">
-
-            🌙
-
-        </button>
-
-    </header>
-
-    <!-- ========================= -->
-    <!-- HERO -->
-    <!-- ========================= -->
-
-    <section class="hero">
-
-        <img class="hero-image"
-            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop"
-            alt="Campo agrícola">
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-
-            <span class="hero-tag">
-
-                🌱 Concurso Agrinho 2026
-
-            </span>
-
-            <h2>
-
-                Agro forte,
-                futuro sustentável
-
-            </h2>
-
-            <p>
-
-                Um projeto sobre equilíbrio entre
-                produção agrícola, tecnologia e
-                preservação ambiental.
-
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="tema.html" class="btn-primary">
-
-                    Explorar Tema
-
-                </a>
-
-                <a href="quiz.html" class="btn-secondary">
-
-                    Fazer Quiz
-
-                </a>
-
-            </div>
-
-        </div>
-
+      <button onclick="mostrarMensagem()">💬 Mensagem do projeto</button>
+      <p id="mensagem"></p>
     </section>
 
-    <!-- ========================= -->
-    <!-- INTRODUÇÃO -->
-    <!-- ========================= -->
-
-    <section class="section">
-
-        <div class="section-title">
-
-            <span>
-                🌎 SOBRE O TEMA
-            </span>
-
-            <h2>
-
-                Produzir sem destruir
-
-            </h2>
-
-        </div>
-
-        <div class="intro-grid">
-
-            <div class="intro-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop">
-
-                <div class="intro-content">
-
-                    <h3>
-
-                        Sustentabilidade
-
-                    </h3>
-
-                    <p>
-
-                        O agronegócio moderno busca produzir alimentos
-                        de maneira eficiente sem causar impactos negativos
-                        ao meio ambiente.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="intro-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop">
-
-                <div class="intro-content">
-
-                    <h3>
-
-                        Tecnologia Rural
-
-                    </h3>
-
-                    <p>
-
-                        Drones, sensores, inteligência artificial
-                        e máquinas modernas transformam o campo.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="intro-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?q=80&w=1200&auto=format&fit=crop">
-
-                <div class="intro-content">
-
-                    <h3>
-
-                        Meio Ambiente
-
-                    </h3>
-
-                    <p>
-
-                        Preservar rios, florestas e animais
-                        é essencial para garantir o futuro sustentável.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <!-- SOBRE -->
+    <section id="sobre" class="card">
+      <h2>📌 Sobre o projeto</h2>
+      <p>
+        O agronegócio é essencial para o mundo, mas precisa evoluir para ser sustentável.
+        Este site mostra como isso é possível.
+      </p>
     </section>
 
-    <!-- ========================= -->
-    <!-- ESTATÍSTICAS -->
-    <!-- ========================= -->
+    <!-- DESAFIOS -->
+    <section id="desafios" class="card">
+      <h2>🌍 Desafios atuais</h2>
 
-    <section class="stats-section">
-
-        <div class="stats-overlay"></div>
-
-        <div class="stats-container">
-
-            <div class="stat-card">
-
-                <h3 class="counter" data-target="33">
-
-                    0
-
-                </h3>
-
-                <p>
-
-                    % do PIB brasileiro vem do agro
-
-                </p>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3 class="counter" data-target="210">
-
-                    0
-
-                </h3>
-
-                <p>
-
-                    milhões de brasileiros alimentados
-
-                </p>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3 class="counter" data-target="100">
-
-                    0
-
-                </h3>
-
-                <p>
-
-                    países recebem exportações do Brasil
-
-                </p>
-
-            </div>
-
-            <div class="stat-card">
-
-                <h3 class="counter" data-target="90">
-
-                    0
-
-                </h3>
-
-                <p>
-
-                    % das propriedades são familiares
-
-                </p>
-
-            </div>
-
-        </div>
-
+      <div class="grid">
+        <div class="box">🌳 Desmatamento</div>
+        <div class="box">💧 Escassez de água</div>
+        <div class="box">🌡 Mudanças climáticas</div>
+        <div class="box">🌱 Degradação do solo</div>
+      </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- TECNOLOGIAS -->
-    <!-- ========================= -->
+    <!-- SOLUÇÕES -->
+    <section id="solucoes" class="card">
+      <h2>💡 Soluções sustentáveis</h2>
 
-    <section class="section">
-
-        <div class="section-title">
-
-            <span>
-
-                🚜 TECNOLOGIA
-
-            </span>
-
-            <h2>
-
-                Inovações no agronegócio
-
-            </h2>
-
-        </div>
-
-        <div class="tech-grid">
-
-            <div class="tech-card">
-
-                <div class="tech-icon">
-
-                    🚜
-
-                </div>
-
-                <h3>
-
-                    Máquinas Inteligentes
-
-                </h3>
-
-                <p>
-
-                    Tratores automatizados utilizam
-                    GPS e sensores modernos.
-
-                </p>
-
-            </div>
-
-            <div class="tech-card">
-
-                <div class="tech-icon">
-
-                    🌦️
-
-                </div>
-
-                <h3>
-
-                    Clima Inteligente
-
-                </h3>
-
-                <p>
-
-                    Sistemas ajudam produtores a prever
-                    chuvas e períodos de seca.
-
-                </p>
-
-            </div>
-
-            <div class="tech-card">
-
-                <div class="tech-icon">
-
-                    💧
-
-                </div>
-
-                <h3>
-
-                    Irrigação Sustentável
-
-                </h3>
-
-                <p>
-
-                    Uso consciente da água para
-                    evitar desperdícios.
-
-                </p>
-
-            </div>
-
-            <div class="tech-card">
-
-                <div class="tech-icon">
-
-                    🌱
-
-                </div>
-
-                <h3>
-
-                    Agricultura de Precisão
-
-                </h3>
-
-                <p>
-
-                    Monitoramento detalhado da plantação
-                    melhora produtividade.
-
-                </p>
-
-            </div>
-
-        </div>
-
+      <ul>
+        <li>Agricultura de precisão com sensores</li>
+        <li>Irrigação inteligente</li>
+        <li>Uso de energia solar no campo</li>
+        <li>Reflorestamento estratégico</li>
+      </ul>
     </section>
 
-    <!-- ========================= -->
-    <!-- GALERIA -->
-    <!-- ========================= -->
+    <!-- TECNOLOGIA -->
+    <section id="tecnologia" class="card">
+      <h2>🚜 Tecnologia no agro</h2>
 
-    <section class="gallery-section">
+      <p>
+        A tecnologia está revolucionando o campo com automação e inteligência artificial.
+      </p>
 
-        <div class="section-title">
-
-            <span>
-
-                📸 GALERIA
-
-            </span>
-
-            <h2>
-
-                O agro brasileiro
-
-            </h2>
-
-        </div>
-
-        <div class="gallery-grid">
-
-            <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
-
-            <img
-                src="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1200&auto=format&fit=crop">
-
-            <img
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop">
-
-            <img
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop">
-
-            <img
-                src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?q=80&w=1200&auto=format&fit=crop">
-
-            <img
-                src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop">
-
-        </div>
-
+      <div class="grid">
+        <div>🤖 IA na previsão de colheita</div>
+        <div>🚁 Drones agrícolas</div>
+        <div>📡 Sensores de solo</div>
+        <div>🚜 Máquinas autônomas</div>
+      </div>
     </section>
 
-    <!-- ========================= -->
-    <!-- BENEFÍCIOS -->
-    <!-- ========================= -->
+    <!-- IMPACTO (ESTILO DASHBOARD) -->
+    <section id="impacto" class="card">
+      <h2>📊 Impacto do agro sustentável</h2>
 
-    <section class="benefits-section">
-
-        <div class="section-title">
-
-            <span>
-
-                🌾 BENEFÍCIOS
-
-            </span>
-
-            <h2>
-
-                Por que o agro sustentável importa?
-
-            </h2>
-
+      <div class="grid">
+        <div class="stat">
+          <h3>🌱 + Produção</h3>
+          <p>Uso eficiente de recursos aumenta produtividade</p>
         </div>
 
-        <div class="benefits-grid">
-
-            <div class="benefit-card">
-
-                <h3>
-
-                    🌍 Preservação Ambiental
-
-                </h3>
-
-                <p>
-
-                    Protege rios, florestas e animais.
-
-                </p>
-
-            </div>
-
-            <div class="benefit-card">
-
-                <h3>
-
-                    🍎 Produção de Alimentos
-
-                </h3>
-
-                <p>
-
-                    Garante alimentos para milhões de pessoas.
-
-                </p>
-
-            </div>
-
-            <div class="benefit-card">
-
-                <h3>
-
-                    💼 Economia
-
-                </h3>
-
-                <p>
-
-                    O agronegócio movimenta bilhões no Brasil.
-
-                </p>
-
-            </div>
-
-            <div class="benefit-card">
-
-                <h3>
-
-                    👨‍🌾 Empregos
-
-                </h3>
-
-                <p>
-
-                    Milhares de famílias vivem do campo.
-
-                </p>
-
-            </div>
-
+        <div class="stat">
+          <h3>💧 - Desperdício</h3>
+          <p>Redução no uso de água e energia</p>
         </div>
 
+        <div class="stat">
+          <h3>🌍 Meio ambiente</h3>
+          <p>Menos impacto ambiental e mais preservação</p>
+        </div>
+      </div>
+
+      <button onclick="calcularImpacto()">Calcular impacto</button>
+      <p id="impactoResultado"></p>
     </section>
 
-    <!-- ========================= -->
     <!-- QUIZ -->
-    <!-- ========================= -->
+    <section id="quiz" class="card">
+      <h2>🧠 Quiz Sustentável</h2>
 
-    <section class="quiz-preview">
+      <p>Qual prática ajuda o meio ambiente?</p>
 
-        <div class="quiz-content">
+      <button onclick="responder('A')">A) Queimadas</button>
+      <button onclick="responder('B')">B) Irrigação inteligente</button>
+      <button onclick="responder('C')">C) Desmatamento</button>
 
-            <span>
-
-                🧠 QUIZ INTERATIVO
-
-            </span>
-
-            <h2>
-
-                Descubra quanto você sabe
-                sobre sustentabilidade
-
-            </h2>
-
-            <p>
-
-                Teste seus conhecimentos sobre
-                agricultura sustentável, preservação
-                ambiental e tecnologia no campo.
-
-            </p>
-
-            <a href="quiz.html" class="btn-primary">
-
-                Iniciar Quiz
-
-            </a>
-
-        </div>
-
+      <p id="resultado"></p>
     </section>
 
-    <!-- ========================= -->
-    <!-- CRONOGRAMA -->
-    <!-- ========================= -->
+    <!-- FAQ -->
+    <section id="faq" class="card">
+      <h2>❓ Perguntas frequentes</h2>
 
-    <section class="section">
+      <details>
+        <summary>O que é agricultura sustentável?</summary>
+        <p>É a produção de alimentos sem prejudicar o meio ambiente.</p>
+      </details>
 
-        <div class="section-title">
+      <details>
+        <summary>Como a tecnologia ajuda no agro?</summary>
+        <p>Ela melhora eficiência, reduz desperdício e aumenta produtividade.</p>
+      </details>
 
-            <span>
-
-                📅 CRONOGRAMA
-
-            </span>
-
-            <h2>
-
-                Concurso Agrinho 2026
-
-            </h2>
-
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    Abril 2026
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-
-                        Lançamento Oficial
-
-                    </h3>
-
-                    <p>
-
-                        Divulgação do regulamento oficial.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    14 Junho
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-
-                        Encerramento das inscrições
-
-                    </h3>
-
-                    <p>
-
-                        Último dia para envio dos projetos.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="timeline-item">
-
-                <div class="timeline-date">
-
-                    Setembro
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <h3>
-
-                        Resultado Final
-
-                    </h3>
-
-                    <p>
-
-                        Divulgação dos vencedores estaduais.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      <details>
+        <summary>Por que isso é importante?</summary>
+        <p>Para garantir alimento no futuro sem destruir o planeta.</p>
+      </details>
     </section>
 
-    <!-- ========================= -->
-    <!-- FRASE -->
-    <!-- ========================= -->
+    <!-- CONTATO -->
+    <section id="contato" class="card">
+      <h2>📩 Contato</h2>
 
-    <section class="quote-section">
+      <form>
+        <label>Nome:</label>
+        <input type="text" placeholder="Seu nome">
 
-        <div class="quote-box">
+        <label>Email:</label>
+        <input type="email" placeholder="Seu email">
 
-            <h2>
+        <label>Mensagem:</label>
+        <textarea placeholder="Escreva sua mensagem"></textarea>
 
-                “Cuidar da terra hoje é garantir
-                alimento e vida para amanhã.”
+        <button type="button" onclick="enviarMensagem()">Enviar</button>
+      </form>
 
-            </h2>
-
-        </div>
-
+      <p id="status"></p>
     </section>
 
-    <!-- ========================= -->
-    <!-- FOOTER -->
-    <!-- ========================= -->
+  </main>
 
-    <footer class="footer">
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p>© 2026 - Projeto Agrinho | Agro, Tecnologia e Sustentabilidade</p>
+  </footer>
 
-        <div class="footer-grid">
-
-            <div>
-
-                <h3>
-
-                    AGRINHO 2026
-
-                </h3>
-
-                <p>
-
-                    Projeto desenvolvido para o
-                    Concurso Agrinho 2026.
-
-                </p>
-
-            </div>
-
-            <div>
-
-                <h3>
-
-                    Tema
-
-                </h3>
-
-                <p>
-
-                    Agro forte, futuro sustentável:
-                    equilíbrio entre produção e meio ambiente.
-
-                </p>
-
-            </div>
-
-            <div>
-
-                <h3>
-
-                    Tecnologias
-
-                </h3>
-
-                <p>
-
-                    HTML5<br>
-                    CSS3<br>
-                    JavaScript
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-            © 2026 | Projeto Agrinho
-
-        </div>
-
-    </footer>
-
-    <!-- ========================= -->
-    <!-- BOTÃO TOPO -->
-    <!-- ========================= -->
-
-    <button id="backToTop">
-
-        ↑
-
-    </button>
-
-    <script src="main.js"></script>
+  <!-- JS externo obrigatório -->
+  <script src="script.js"></script>
 
 </body>
-
 </html>
