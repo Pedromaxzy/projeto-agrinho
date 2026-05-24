@@ -1,9 +1,29 @@
 /* ========================================= */
-/* AGRINHO 2026 - MAIN.JS */
+/* AGRINHO 2026 - MAIN.JS PREMIUM */
 /* ========================================= */
 
 /* ========================================= */
-/* VARIÁVEIS */
+/* ELEMENTOS */
+/* ========================================= */
+
+const pages = document.querySelectorAll(".page");
+
+const themeButton = document.getElementById("themeToggle");
+
+const buttons = document.querySelectorAll("button");
+
+const cards = document.querySelectorAll(
+".card, .infoCard, .techCard, .sustainCard"
+);
+
+const cursor = document.querySelector(".cursor");
+
+const clickSound = document.getElementById("clickSound");
+
+const successSound = document.getElementById("successSound");
+
+/* ========================================= */
+/* VARIÁVEIS QUIZ */
 /* ========================================= */
 
 let score = 0;
@@ -11,10 +31,6 @@ let score = 0;
 let answeredQuestions = 0;
 
 let quizFinished = false;
-
-const pages = document.querySelectorAll(".page");
-
-const themeButton = document.getElementById("themeToggle");
 
 /* ========================================= */
 /* LOADING SCREEN */
@@ -36,27 +52,101 @@ loadingScreen.style.display = "none";
 
 },1000);
 
-},1800);
+},2000);
 
 });
 
 /* ========================================= */
-/* NAVEGAÇÃO ENTRE SEÇÕES */
+/* CURSOR */
+/* ========================================= */
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left = e.clientX + "px";
+
+cursor.style.top = e.clientY + "px";
+
+});
+
+/* ========================================= */
+/* CURSOR HOVER */
+/* ========================================= */
+
+buttons.forEach(button => {
+
+button.addEventListener("mouseenter",()=>{
+
+cursor.style.transform = "translate(-50%,-50%) scale(2)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+cursor.style.transform = "translate(-50%,-50%) scale(1)";
+
+});
+
+});
+
+/* ========================================= */
+/* SONS */
+/* ========================================= */
+
+buttons.forEach(button => {
+
+button.addEventListener("click",()=>{
+
+if(clickSound){
+
+clickSound.currentTime = 0;
+
+clickSound.volume = 0.3;
+
+clickSound.play();
+
+}
+
+});
+
+});
+
+/* ========================================= */
+/* NAVEGAÇÃO */
 /* ========================================= */
 
 function navigateTo(pageId){
 
 pages.forEach(page => {
 
+page.style.opacity = "0";
+
+page.style.transform = "translateY(20px)";
+
+setTimeout(()=>{
+
 page.classList.remove("active");
+
+},300);
 
 });
 
+setTimeout(()=>{
+
 const selectedPage = document.getElementById(pageId);
 
-if(selectedPage){
-
 selectedPage.classList.add("active");
+
+selectedPage.style.opacity = "0";
+
+selectedPage.style.transform = "translateY(20px)";
+
+setTimeout(()=>{
+
+selectedPage.style.opacity = "1";
+
+selectedPage.style.transform = "translateY(0)";
+
+},50);
 
 window.scrollTo({
 
@@ -65,7 +155,7 @@ behavior:"smooth"
 
 });
 
-}
+},350);
 
 }
 
@@ -117,7 +207,7 @@ loadTheme();
 /* TROCAR TEMA */
 /* ========================================= */
 
-themeButton.addEventListener("click", () => {
+themeButton.addEventListener("click",()=>{
 
 if(document.body.classList.contains("dark")){
 
@@ -132,6 +222,121 @@ applyTheme("dark");
 localStorage.setItem("agrinhoTheme","dark");
 
 }
+
+});
+
+/* ========================================= */
+/* ANIMAÇÃO DOS CARDS */
+/* ========================================= */
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+
+entry.target.style.transform = "translateY(0)";
+
+}
+
+});
+
+},{
+threshold:0.2
+});
+
+cards.forEach((card,index)=>{
+
+card.style.opacity = "0";
+
+card.style.transform = "translateY(40px)";
+
+card.style.transition = `
+0.8s ease
+${index * 0.08}s
+`;
+
+observer.observe(card);
+
+});
+
+/* ========================================= */
+/* EFEITO HEADER */
+/* ========================================= */
+
+window.addEventListener("scroll",()=>{
+
+const header = document.getElementById("header");
+
+if(window.scrollY > 20){
+
+header.style.boxShadow = `
+0 10px 30px rgba(0,0,0,0.08)
+`;
+
+}else{
+
+header.style.boxShadow = `
+0 5px 25px rgba(0,0,0,0.05)
+`;
+
+}
+
+});
+
+/* ========================================= */
+/* EFEITO DIGITAÇÃO */
+/* ========================================= */
+
+const heroTitle = document.querySelector(".mainTitle");
+
+const originalTitle = "O futuro do agro começa agora";
+
+heroTitle.innerHTML = "";
+
+let index = 0;
+
+function typingEffect(){
+
+if(index < originalTitle.length){
+
+heroTitle.innerHTML += originalTitle.charAt(index);
+
+index++;
+
+setTimeout(typingEffect,45);
+
+}
+
+}
+
+setTimeout(()=>{
+
+typingEffect();
+
+},2300);
+
+/* ========================================= */
+/* HOVER IMAGENS */
+/* ========================================= */
+
+const images = document.querySelectorAll("img");
+
+images.forEach(image=>{
+
+image.addEventListener("mouseenter",()=>{
+
+image.style.transform = "scale(1.03)";
+
+});
+
+image.addEventListener("mouseleave",()=>{
+
+image.style.transform = "scale(1)";
+
+});
 
 });
 
@@ -161,9 +366,9 @@ answeredQuestions++;
 
 score += value;
 
-const buttons = questionBlock.querySelectorAll("button");
+const buttonsInside = questionBlock.querySelectorAll("button");
 
-buttons.forEach(btn => {
+buttonsInside.forEach(btn=>{
 
 btn.disabled = true;
 
@@ -171,19 +376,49 @@ btn.style.opacity = "0.7";
 
 });
 
+/* ========================================= */
+/* RESPOSTA CERTA */
+/* ========================================= */
+
 if(value === 2){
 
 button.style.background = "#111";
 
 button.style.color = "white";
 
+button.style.transform = "scale(1.02)";
+
 }else{
 
-button.style.background = "#d64545";
+button.style.background = "#c62828";
 
 button.style.color = "white";
 
 }
+
+/* ========================================= */
+/* ANIMAÇÃO */
+/* ========================================= */
+
+button.animate([
+
+{
+transform:"scale(1)"
+},
+
+{
+transform:"scale(1.05)"
+},
+
+{
+transform:"scale(1)"
+}
+
+],{
+
+duration:400
+
+});
 
 }
 
@@ -207,11 +442,29 @@ Responda todas as perguntas antes de finalizar o quiz.
 
 `;
 
+result.style.animation = "shake 0.4s";
+
 return;
 
 }
 
 quizFinished = true;
+
+/* ========================================= */
+/* SOM SUCESSO */
+/* ========================================= */
+
+if(successSound){
+
+successSound.volume = 0.4;
+
+successSound.play();
+
+}
+
+/* ========================================= */
+/* RESULTADOS */
+/* ========================================= */
 
 if(score === 6){
 
@@ -220,12 +473,12 @@ result.innerHTML = `
 <h2>🌟 Excelente!</h2>
 
 <p>
-Você demonstrou excelente entendimento sobre agricultura,
-tecnologia e sustentabilidade.
+Você demonstrou excelente conhecimento sobre
+agricultura, tecnologia e sustentabilidade.
 </p>
 
 <p>
-Pontuação final:
+Pontuação:
 <strong>6/6</strong>
 </p>
 
@@ -242,7 +495,7 @@ Você possui um bom entendimento sobre o tema.
 </p>
 
 <p>
-Pontuação final:
+Pontuação:
 <strong>${score}/6</strong>
 </p>
 
@@ -255,12 +508,12 @@ result.innerHTML = `
 <h2>📚 Continue aprendendo!</h2>
 
 <p>
-Você ainda pode aprender mais sobre sustentabilidade
-e tecnologia agrícola.
+Você ainda pode desenvolver mais conhecimento
+sobre sustentabilidade e agronegócio.
 </p>
 
 <p>
-Pontuação final:
+Pontuação:
 <strong>${score}/6</strong>
 </p>
 
@@ -268,121 +521,9 @@ Pontuação final:
 
 }
 
-}
-
-/* ========================================= */
-/* ANIMAÇÃO DOS CARDS */
-/* ========================================= */
-
-const cards = document.querySelectorAll(
-".card, .infoCard, .techCard, .sustainCard"
-);
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity = "1";
-
-entry.target.style.transform = "translateY(0)";
+result.style.animation = "pageFade 0.8s";
 
 }
-
-});
-
-},{
-threshold:0.2
-});
-
-cards.forEach(card => {
-
-card.style.opacity = "0";
-
-card.style.transform = "translateY(30px)";
-
-card.style.transition = "0.7s ease";
-
-observer.observe(card);
-
-});
-
-/* ========================================= */
-/* HEADER EFEITO */
-/* ========================================= */
-
-window.addEventListener("scroll", () => {
-
-const header = document.getElementById("header");
-
-if(window.scrollY > 20){
-
-header.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)";
-
-}else{
-
-header.style.boxShadow = "0 3px 15px rgba(0,0,0,0.05)";
-
-}
-
-});
-
-/* ========================================= */
-/* EFEITO DE DIGITAÇÃO */
-/* ========================================= */
-
-const heroTitle = document.querySelector(".mainTitle");
-
-const originalTitle = "O futuro do agro começa agora";
-
-heroTitle.innerHTML = "";
-
-let index = 0;
-
-function typingEffect(){
-
-if(index < originalTitle.length){
-
-heroTitle.innerHTML += originalTitle.charAt(index);
-
-index++;
-
-setTimeout(typingEffect,45);
-
-}
-
-}
-
-setTimeout(() => {
-
-typingEffect();
-
-},2200);
-
-/* ========================================= */
-/* EFEITO NAS IMAGENS */
-/* ========================================= */
-
-const images = document.querySelectorAll("img");
-
-images.forEach(image => {
-
-image.addEventListener("mouseenter", () => {
-
-image.style.transform = "scale(1.02)";
-
-image.style.transition = "0.4s";
-
-});
-
-image.addEventListener("mouseleave", () => {
-
-image.style.transform = "scale(1)";
-
-});
-
-});
 
 /* ========================================= */
 /* RESPONSIVO */
@@ -404,7 +545,7 @@ document.body.classList.remove("mobile");
 
 checkMobile();
 
-window.addEventListener("resize", checkMobile);
+window.addEventListener("resize",checkMobile);
 
 /* ========================================= */
 /* PRELOAD IMAGENS */
@@ -419,7 +560,7 @@ const imageList = [
 
 ];
 
-imageList.forEach(src => {
+imageList.forEach(src=>{
 
 const img = new Image();
 
@@ -428,16 +569,58 @@ img.src = src;
 });
 
 /* ========================================= */
-/* EFEITO BOTÕES */
+/* PARALLAX SUAVE */
 /* ========================================= */
 
-const buttons = document.querySelectorAll("button");
+window.addEventListener("scroll",()=>{
 
-buttons.forEach(button => {
+const scrolled = window.scrollY;
 
-button.addEventListener("mouseenter", () => {
+const bg = document.querySelector(".backgroundAnimation");
 
-button.style.transition = "0.3s";
+bg.style.transform = `
+translateY(${scrolled * 0.05}px)
+`;
+
+});
+
+/* ========================================= */
+/* EFEITO RIPPLE */
+/* ========================================= */
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const circle = document.createElement("span");
+
+const diameter = Math.max(
+button.clientWidth,
+button.clientHeight
+);
+
+const radius = diameter / 2;
+
+circle.style.width = circle.style.height =
+`${diameter}px`;
+
+circle.style.left =
+`${e.clientX - button.offsetLeft - radius}px`;
+
+circle.style.top =
+`${e.clientY - button.offsetTop - radius}px`;
+
+circle.classList.add("ripple");
+
+const ripple = button.getElementsByClassName("ripple")[0];
+
+if(ripple){
+
+ripple.remove();
+
+}
+
+button.appendChild(circle);
 
 });
 
@@ -451,10 +634,14 @@ console.log(`
 
 🌱 AGRINHO 2026
 
-Projeto carregado com sucesso.
+Sistema carregado com sucesso.
 
-Tema:
-Agro forte, futuro sustentável.
+✔ Navegação ativa
+✔ Dark Mode ativo
+✔ Cursor premium ativo
+✔ Sons ativos
+✔ Quiz funcional
+✔ Animações carregadas
 
 `);
 
