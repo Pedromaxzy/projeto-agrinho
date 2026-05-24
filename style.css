@@ -1,19 +1,20 @@
 
 /* =========================
-   RESET BÁSICO
+   RESET E BASE
 ========================= */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 body {
-  background: #f4f7f5;
+  background: #f3f7f4;
   color: #1f2d1f;
   transition: 0.4s ease;
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -21,44 +22,48 @@ body {
 ========================= */
 
 body.dark {
-  background: #0f1410;
-  color: #e8f5e9;
+  background: #0e1410;
+  color: #e6f4ea;
 }
 
 body.dark header {
-  background: #122016;
+  background: #102015;
 }
 
 body.dark .card {
-  background: #1a2a1d;
-  color: #e8f5e9;
+  background: #16251a;
+  color: #e6f4ea;
+}
+
+body.dark footer {
+  background: #102015;
 }
 
 /* =========================
-   LOADING SCREEN
+   LOADING
 ========================= */
 
 #loading-screen {
   position: fixed;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   background: linear-gradient(135deg, #1b5e20, #43a047);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 9999;
   color: white;
+  z-index: 9999;
 }
 
 .loader h2 {
+  font-size: 18px;
   margin-bottom: 20px;
-  font-size: 20px;
+  text-align: center;
 }
 
 .spinner {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border: 5px solid rgba(255,255,255,0.3);
   border-top: 5px solid #fff;
   border-radius: 50%;
@@ -66,9 +71,7 @@ body.dark .card {
 }
 
 @keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
+  100% { transform: rotate(360deg); }
 }
 
 /* =========================
@@ -79,7 +82,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 18px 25px;
   background: #2e7d32;
   color: white;
   position: sticky;
@@ -88,32 +91,44 @@ header {
 }
 
 header .logo h1 {
-  font-size: 22px;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
-header nav button {
-  margin: 0 5px;
+header .logo p {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+nav button {
+  margin: 0 4px;
   padding: 8px 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  background: #ffffff;
+  background: white;
   color: #2e7d32;
+  font-weight: bold;
   transition: 0.3s;
 }
 
-header nav button:hover {
+nav button:hover {
+  transform: scale(1.05);
   background: #c8e6c9;
 }
 
-/* botão tema */
 .tema-btn {
   background: #1b5e20;
   color: white;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.tema-btn:hover {
+  transform: scale(1.1);
 }
 
 /* =========================
@@ -131,8 +146,14 @@ header nav button:hover {
 }
 
 @keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
@@ -141,33 +162,36 @@ header nav button:hover {
 
 .hero {
   text-align: center;
+  max-width: 850px;
+  margin: auto;
   margin-bottom: 40px;
 }
 
 .hero h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 34px;
+  margin-bottom: 15px;
+  color: #2e7d32;
 }
 
 .hero p {
-  max-width: 700px;
-  margin: auto;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
 .hero button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   background: #2e7d32;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .hero button:hover {
   background: #1b5e20;
+  transform: scale(1.05);
 }
 
 /* =========================
@@ -178,61 +202,69 @@ header nav button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .card {
-  width: 280px;
+  width: 290px;
   background: white;
-  border-radius: 12px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
   transition: 0.3s;
-  transform: translateY(0);
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
 }
 
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  transition: 0.4s;
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 .card h3 {
-  padding: 10px;
+  padding: 10px 12px;
   color: #2e7d32;
 }
 
 .card p {
-  padding: 0 10px 15px;
+  padding: 0 12px 15px;
+  line-height: 1.5;
 }
 
 /* =========================
-   SEÇÃO TEXTO
+   SEÇÕES TEXTO
 ========================= */
 
 section h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 30px;
   color: #2e7d32;
 }
 
 section p {
-  max-width: 800px;
+  max-width: 850px;
   margin: 10px auto;
-  line-height: 1.7;
+  line-height: 1.8;
   text-align: justify;
 }
 
 section img {
   display: block;
-  margin: 20px auto;
+  margin: 25px auto;
   max-width: 90%;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 /* =========================
@@ -240,30 +272,37 @@ section img {
 ========================= */
 
 #quiz-container {
-  max-width: 600px;
+  max-width: 650px;
   margin: auto;
   text-align: center;
+  margin-top: 20px;
+}
+
+#quiz h3 {
+  margin-bottom: 15px;
 }
 
 #quiz button {
-  display: block;
   width: 100%;
   margin: 10px 0;
   padding: 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #e8f5e9;
   cursor: pointer;
   transition: 0.3s;
+  font-size: 14px;
 }
 
 #quiz button:hover {
   background: #c8e6c9;
+  transform: scale(1.02);
 }
 
 #resultado {
   margin-top: 20px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 /* =========================
@@ -276,6 +315,7 @@ footer {
   margin-top: 40px;
   background: #2e7d32;
   color: white;
+  font-size: 14px;
 }
 
 /* =========================
@@ -289,8 +329,18 @@ footer {
     text-align: center;
   }
 
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   .cards {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero h2 {
+    font-size: 26px;
   }
 }
