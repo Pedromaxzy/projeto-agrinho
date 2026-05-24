@@ -1,69 +1,51 @@
-// LOADING SCREEN
-window.onload = () => {
-  setTimeout(() => {
-    document.getElementById("loading").style.display = "none";
-  }, 2000);
-};
-
-// NAVIGAÇÃO ENTRE SEÇÕES
-function showSection(id) {
-  document.querySelectorAll(".section").forEach(sec => {
-    sec.classList.remove("active");
-  });
-  document.getElementById(id).classList.add("active");
-}
-
-// DARK MODE
-const toggle = document.getElementById("themeToggle");
-
-function loadTheme() {
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-    toggle.textContent = "☀️";
-  }
-}
-
-toggle.onclick = () => {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-    toggle.textContent = "☀️";
-  } else {
-    localStorage.setItem("theme", "light");
-    toggle.textContent = "🌙";
-  }
-};
-
-loadTheme();
-
-// QUIZ
 let score = 0;
 let answered = 0;
 
-function answer(points, btn) {
-  if (btn.parentElement.classList.contains("done")) return;
+// LOADING
+window.onload = () => {
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+  }, 1800);
+};
 
-  score += points;
-  answered++;
-
-  btn.parentElement.classList.add("done");
-  btn.style.background = "#4caf50";
+// NAV
+function go(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 }
 
-function finishQuiz() {
-  let result = document.getElementById("result");
+// QUIZ
+function q(btn, value) {
+  if (btn.disabled) return;
+
+  score += value;
+  answered++;
+
+  btn.style.background = value > 0 ? "#2ecc71" : "#e74c3c";
+  btn.style.color = "white";
+
+  btn.parentElement.querySelectorAll("button").forEach(b => b.disabled = true);
+}
+
+// RESULTADO
+function result() {
+  let res = document.getElementById("res");
 
   if (answered < 3) {
-    result.textContent = "Responda todas as perguntas primeiro!";
+    res.innerHTML = "Responda todas as perguntas!";
     return;
   }
 
   if (score === 6) {
-    result.textContent = "Excelente entendimento sobre o agro! 🌱";
+    res.innerHTML = "🌟 Excelente conhecimento sobre agro e tecnologia!";
   } else if (score >= 3) {
-    result.textContent = "Bom entendimento, mas ainda pode melhorar!";
+    res.innerHTML = "👍 Bom entendimento, mas pode melhorar!";
   } else {
-    result.textContent = "Baixo entendimento, estude mais sobre o tema.";
+    res.innerHTML = "📚 Você precisa estudar mais sobre o tema.";
   }
 }
+
+// DARK MODE
+document.getElementById("themeBtn").onclick = () => {
+  document.body.classList.toggle("dark");
+};
