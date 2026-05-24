@@ -24,12 +24,6 @@ href="style.css"
 <body>
 
 <!-- ========================================= -->
-<!-- BACKGROUND -->
-<!-- ========================================= -->
-
-<div class="backgroundAnimation"></div>
-
-<!-- ========================================= -->
 <!-- LOADING -->
 <!-- ========================================= -->
 
@@ -91,6 +85,10 @@ Sustentabilidade
 Quiz
 </button>
 
+<button onclick="navigateTo('credits')">
+Créditos
+</button>
+
 </nav>
 
 <div class="themeArea">
@@ -116,7 +114,7 @@ class="page active"
 
 <div class="heroText">
 
-<h2 class="mainTitle">
+<h2>
 O futuro do agro começa agora
 </h2>
 
@@ -142,9 +140,12 @@ Conhecer Tecnologia
 
 <div class="heroImage">
 
-<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop">
-
+<img
+src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop"
+alt="Agronegócio"
+loading="lazy"
 >
+
 </div>
 
 </div>
@@ -220,29 +221,26 @@ Uma das maiores potências agrícolas do mundo
 <div class="text">
 
 <p>
-A agricultura brasileira possui enorme importância
-econômica e social. O país se destaca pela produção
-de alimentos em larga escala e pela utilização de
-tecnologias modernas no campo.
+A agricultura brasileira possui enorme importância econômica e social.
+O país se destaca pela produção de alimentos em larga escala
+e pela utilização de tecnologias modernas no campo.
 </p>
 
 <p>
 Entre as principais culturas agrícolas brasileiras
-estão a soja, o milho, o café, a cana-de-açúcar
-e o algodão.
+estão a soja, milho, café, algodão e cana-de-açúcar.
 </p>
 
 <p>
-Além de abastecer o mercado interno, o Brasil
-exporta produtos agrícolas para diversos países,
-fortalecendo sua economia.
+Além de abastecer o mercado interno,
+o Brasil exporta produtos agrícolas para diversos países.
 </p>
 
 </div>
 
 <div class="image">
 
-<img 
+<img
 src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
 alt="Plantação agrícola"
 loading="lazy"
@@ -287,8 +285,7 @@ animal e indústria.
 </h3>
 
 <p>
-O café brasileiro é reconhecido
-internacionalmente pela qualidade.
+O café brasileiro é reconhecido mundialmente.
 </p>
 
 </div>
@@ -313,7 +310,7 @@ Tecnologia no Campo
 </h2>
 
 <p>
-Inovação agrícola moderna
+A inovação transformando a agricultura
 </p>
 
 </div>
@@ -324,27 +321,25 @@ Inovação agrícola moderna
 
 <p>
 A tecnologia revolucionou o agronegócio.
-Atualmente, produtores utilizam drones,
-sensores, inteligência artificial e máquinas
-automatizadas para melhorar a produtividade.
+Hoje produtores utilizam drones,
+inteligência artificial e sensores modernos.
 </p>
 
 <p>
 Os drones ajudam no monitoramento das plantações,
-detectando problemas rapidamente.
+detectando pragas e analisando o crescimento das culturas.
 </p>
 
 <p>
-Sensores analisam o solo e o clima,
-enquanto softwares inteligentes auxiliam
-na tomada de decisões.
+Máquinas automatizadas aumentam a produtividade
+e diminuem desperdícios.
 </p>
 
 </div>
 
 <div class="image">
 
-<img 
+<img
 src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=1200&auto=format&fit=crop"
 alt="Drone agrícola"
 loading="lazy"
@@ -363,8 +358,7 @@ loading="lazy"
 </h3>
 
 <p>
-Monitoramento rápido e eficiente
-das plantações.
+Monitoramento moderno e eficiente das lavouras.
 </p>
 
 </div>
@@ -423,14 +417,13 @@ Produzir preservando o meio ambiente
 <div class="text">
 
 <p>
-A sustentabilidade busca equilibrar crescimento
-econômico e preservação ambiental.
+A sustentabilidade busca equilibrar crescimento econômico
+e preservação ambiental.
 </p>
 
 <p>
-No agronegócio, práticas sustentáveis incluem
-economia de água, preservação do solo,
-rotação de culturas e redução do impacto ambiental.
+No agronegócio, práticas sustentáveis incluem economia de água,
+preservação do solo e rotação de culturas.
 </p>
 
 <p>
@@ -442,9 +435,9 @@ para as futuras gerações.
 
 <div class="image">
 
-<img 
+<img
 src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop"
-alt="Sustentabilidade ambiental"
+alt="Sustentabilidade"
 loading="lazy"
 >
 
@@ -520,8 +513,7 @@ Teste seus conhecimentos
 <div class="questionBlock">
 
 <p>
-1. Qual tecnologia é muito utilizada
-na agricultura moderna?
+1. Qual tecnologia é usada na agricultura moderna?
 </p>
 
 <button onclick="answer(this,2)">
@@ -533,7 +525,7 @@ Máquina de escrever
 </button>
 
 <button onclick="answer(this,0)">
-Televisão analógica
+Televisão
 </button>
 
 </div>
@@ -549,11 +541,11 @@ Soja
 </button>
 
 <button onclick="answer(this,0)">
-Carvão
+Petróleo
 </button>
 
 <button onclick="answer(this,0)">
-Petróleo
+Carvão
 </button>
 
 </div>
@@ -592,6 +584,142 @@ Finalizar Quiz
 </section>
 
 <!-- ========================================= -->
+<!-- CRÉDITOS -->
+<!-- ========================================= -->
+
+<section
+id="credits"
+class="page"
+>
+
+<div class="sectionTitle">
+
+<h2>
+Créditos do Projeto
+</h2>
+
+<p>
+Conheça o criador deste projeto Agrinho
+</p>
+
+</div>
+
+<div class="creditWrapper">
+
+<div class="creditCard">
+
+<div class="creditImage">
+
+<img
+src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200&auto=format&fit=crop"
+alt="Pedro Henrique"
+loading="lazy"
+>
+
+</div>
+
+<div class="creditContent">
+
+<div class="creditTop">
+
+<div>
+
+<h3>
+Pedro Henrique Simões Batista
+</h3>
+
+<p class="creatorRole">
+Criador e Desenvolvedor do Projeto
+</p>
+
+</div>
+
+<div class="ageTag">
+15 anos
+</div>
+
+</div>
+
+<div class="creditInfo">
+
+<div class="creditItem">
+
+<h4>
+🎓 Escola
+</h4>
+
+<p>
+Colégio Estadual Cívico Militar
+Dr. Generoso Marques
+</p>
+
+</div>
+
+<div class="creditItem">
+
+<h4>
+💻 Função no Projeto
+</h4>
+
+<p>
+Desenvolvimento Front-End,
+Design do Site e programação JavaScript.
+</p>
+
+</div>
+
+<div class="creditItem">
+
+<h4>
+📱 Redes Sociais
+</h4>
+
+<p>
+@pedro_batistavz
+</p>
+
+</div>
+
+<div class="creditItem">
+
+<h4>
+🌱 Frase
+</h4>
+
+<p>
+"O futuro da agricultura nasce
+da união entre tecnologia,
+consciência ambiental e inovação."
+</p>
+
+</div>
+
+<div class="creditItem fullWidth">
+
+<h4>
+🤝 Agradecimentos
+</h4>
+
+<p>
+Agradeço à minha escola,
+aos professores e ao programa Agrinho
+pela oportunidade de desenvolver
+criatividade, conhecimento e tecnologia.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
 <!-- FOOTER -->
 <!-- ========================================= -->
 
@@ -610,113 +738,6 @@ tecnologia e sustentabilidade.
 </footer>
 
 <script src="main.js"></script>
-<!-- ========================================= -->
-<!-- BOTÃO CRÉDITOS NO MENU -->
-<!-- ADICIONE NO NAV -->
-<!-- ========================================= -->
 
-<button onclick="navigateTo('credits')">
-Créditos
-</button>
-
-<!-- ========================================= -->
-<!-- SEÇÃO CRÉDITOS -->
-<!-- COLE ANTES DO FOOTER -->
-<!-- ========================================= -->
-
-<section
-id="credits"
-class="page"
->
-
-<div class="sectionTitle">
-
-<h2>
-Créditos do Projeto
-</h2>
-
-<p>
-Conheça o criador deste projeto
-</p>
-
-</div>
-
-<div class="creditsContainer">
-
-<div class="creditsCard">
-
-<div class="creditsImage">
-
-<img
-src="https://i.imgur.com/6VBx3io.jpeg"
-alt="Pedro Henrique"
->
-
-</div>
-
-<div class="creditsInfo">
-
-<h3>
-Pedro Henrique Simões Batista
-</h3>
-
-<span>
-15 anos
-</span>
-
-<h4>
-🎓 Escola
-</h4>
-
-<p>
-Colégio Estadual Cívico Militar
-Dr. Generoso Marques
-</p>
-
-<h4>
-💻 Função no Projeto
-</h4>
-
-<p>
-Desenvolvedor Front-End,
-Designer do Site e Criador do Projeto
-</p>
-
-<h4>
-📱 Redes Sociais
-</h4>
-
-<p>
-@pedro_batistavz
-</p>
-
-<h4>
-🌱 Frase
-</h4>
-
-<p>
-"O futuro da agricultura depende
-da tecnologia, da consciência ambiental
-e das novas gerações."
-</p>
-
-<h4>
-🤝 Agradecimentos
-</h4>
-
-<p>
-Agradeço à minha escola,
-aos professores e ao concurso Agrinho
-pela oportunidade de desenvolver
-criatividade, conhecimento e inovação.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
 </body>
 </html>
