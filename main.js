@@ -1,21 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ================= LOADING (SEGURADO CONTRA BUG) =================
+  // ================= LOADING =================
   const loading = document.getElementById("loading-screen");
 
-  function removerLoading() {
-    if (loading) {
-      loading.style.opacity = "0";
-      loading.style.transition = "0.6s ease";
-      setTimeout(() => loading.remove(), 600);
-    }
+  function fecharLoading() {
+    if (!loading) return;
+
+    loading.style.opacity = "0";
+    loading.style.transition = "0.6s ease";
+
+    setTimeout(() => {
+      loading.remove();
+    }, 600);
   }
 
-  // garante que SEMPRE some (mesmo se algo travar)
-  setTimeout(removerLoading, 1200);
-  window.addEventListener("load", removerLoading);
+  // fecha sempre (evita bug infinito)
+  setTimeout(fecharLoading, 1200);
+  window.addEventListener("load", fecharLoading);
 
-  // ================= SPA NAVIGATION =================
+  // ================= NAVEGAÇÃO ENTRE TELAS =================
   window.irPara = function (id) {
     const telas = document.querySelectorAll(".tela");
 
@@ -25,22 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (alvo) {
       alvo.classList.add("ativa");
-
-      // animação leve de entrada
-      alvo.style.opacity = 0;
-      setTimeout(() => {
-        alvo.style.opacity = 1;
-        alvo.style.transition = "0.4s";
-      }, 50);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // ================= TEMA ESCURO / CLARO =================
   const btnTheme = document.getElementById("toggle-theme");
 
-  function setTema(tema) {
+  function aplicarTema(tema) {
     if (tema === "dark") {
       document.body.classList.add("dark");
     } else {
@@ -51,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // carregar tema salvo
   const temaSalvo = localStorage.getItem("tema") || "light";
-  setTema(temaSalvo);
+  aplicarTema(temaSalvo);
 
   if (btnTheme) {
     btnTheme.addEventListener("click", () => {
@@ -59,46 +54,121 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "light"
         : "dark";
 
-      setTema(novoTema);
+      aplicarTema(novoTema);
     });
   }
 
-  // ================= QUIZ COM PONTUAÇÃO =================
+  // ================= QUIZ COMPLETO (3 PERGUNTAS) =================
+  const perguntas = [
+    {
+      pergunta: "Qual é um exemplo de tecnologia sustentável no campo?",
+      opcoes: [
+        "Queimar áreas para plantar",
+        "Uso de drones agrícolas",
+        "Desperdício de água"
+      ],
+      correta: 1
+    },
+    {
+      pergunta: "O que significa agricultura sustentável?",
+      opcoes: [
+        "Produzir sem pensar no futuro",
+        "Produzir com equilíbrio ambiental",
+        "Apenas aumentar produção a qualquer custo"
+      ],
+      correta: 1
+    },
+    {
+      pergunta: "Qual problema o agronegócio moderno tenta reduzir?",
+      opcoes: [
+        "Desmatamento e poluição",
+        "Aumento de tecnologia",
+        "Uso de internet no campo"
+      ],
+      correta: 0
+    }
+  ];
+
+  let atual = 0;
   let pontos = 0;
 
-  window.responder = function (resposta) {
-    const resultado = document.getElementById("resultado");
-    if (!resultado) return;
+  const perguntaEl = document.getElementById("pergunta");
+  const opcoesBtn = [
+    document.getElementById("op1"),
+    document.getElementById("op2"),
+    document.getElementById("op3")
+  ];
+  const resultado = document.getElementById("resultado");
 
-    if (resposta) {
-      pontos += 10;
-      resultado.innerText = `✔ Correto! +10 pontos | Total: ${pontos}`;
-      resultado.style.color = "green";
-    } else {
-      resultado.innerText = `❌ Errado! Total: ${pontos}`;
-      resultado.style.color = "red";
+  function carregarPergunta() {
+    const q = perguntas[atual];
+
+    if (!q) {
+      mostrarResultadoFinal();
+      return;
     }
-  };
 
-  // ================= ANIMAÇÃO AO ROLAR (MODERNO) =================
-  const elementos = document.querySelectorAll(".card, .box, img");
+    if (perguntaEl) perguntaEl.innerText = q.pergunta;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.transform = "translateY(0)";
-        entry.target.style.opacity = "1";
-        entry.target.style.transition = "0.5s ease";
+    opcoesBtn.forEach((btn, i) => {
+      if (btn) {
+        btn.innerText = q.opcoes[i];
+        btn.onclick = () => responder(i);
       }
     });
-  }, { threshold: 0.2 });
 
-  elementos.forEach(el => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    observer.observe(el);
-  });
+    if (resultado) resultado.innerText = "";
+  }
 
-  // ================= SEGURANÇA (EVITA ERROS SILENCIOSOS) =================
+  function responder(indice) {
+    const correta = perguntas[atual].correta;
+
+    if (indice === correta) {
+      pontos += 10;
+      resultado.innerText = "✔ Correto! +10 pontos";
+      resultado.style.color = "green";
+    } else {
+      resultado.innerText = "❌ Errado!";
+      resultado.style.color = "red";
+    }
+
+    // trava botões por 0.8s
+    opcoesBtn.forEach(b => b.disabled = true);
+
+    setTimeout(() => {
+      opcoesBtn.forEach(b => b.disabled = false);
+      atual++;
+      carregarPergunta();
+    }, 800);
+  }
+
+  function mostrarResultadoFinal() {
+    perguntaEl.innerText = "🏁 Quiz finalizado!";
+    resultado.innerHTML = `
+      🌱 Sua pontuação final: <b>${pontos}</b> de 30<br><br>
+      ${pontos === 30
+        ? "🏆 Excelente! Você domina o tema!"
+        : pontos >= 20
+        ? "👍 Muito bom! Você entendeu bem o tema."
+        : "📚 Você pode melhorar mais sobre sustentabilidade."
+      }
+    `;
+
+    opcoesBtn.forEach(b => b.style.display = "none");
+  }
+
+  // botão para reiniciar quiz (se quiser usar depois)
+  window.reiniciarQuiz = function () {
+    atual = 0;
+    pontos = 0;
+
+    opcoesBtn.forEach(b => b.style.display = "block");
+
+    carregarPergunta();
+  };
+
+  // iniciar quiz automaticamente quando entrar na tela
+  carregarPergunta();
+
   console.log("🌱 Agro Forte carregado com sucesso!");
 });
