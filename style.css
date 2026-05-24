@@ -4,35 +4,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ================= TEMA BASE ================= */
+/* ================= BASE ================= */
 body {
-  background: #f4f7f5;
-  color: #1f2d1f;
+  background: #f6f8f6;
+  color: #1c2b1f;
+  line-height: 1.6;
   transition: 0.4s ease;
 }
 
 /* ================= DARK MODE ================= */
 body.dark {
-  background: #0f1411;
-  color: #e6f4ea;
+  background: #0e1411;
+  color: #eaf5ee;
 }
 
-body.dark .card {
-  background: #18221c;
-  color: #e6f4ea;
-}
-
-body.dark .box {
-  background: #1f2c24;
-  color: #e6f4ea;
-}
-
-body.dark .menu button {
-  background: #1f2c24;
-  color: #e6f4ea;
+/* textos mais fáceis de ler no dark */
+body.dark p {
+  color: #d6e6dc;
 }
 
 /* ================= LOADING ================= */
@@ -43,17 +34,19 @@ body.dark .menu button {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 9999;
+  text-align: center;
+  padding: 20px;
 }
 
 .loader {
   width: 60px;
   height: 60px;
-  border: 6px solid #ffffff33;
-  border-top: 6px solid #fff;
   border-radius: 50%;
+  border: 6px solid #ffffff30;
+  border-top: 6px solid #fff;
   animation: spin 1s linear infinite;
   margin-bottom: 15px;
 }
@@ -67,17 +60,25 @@ body.dark .menu button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 16px 20px;
   background: #2d6a4f;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  font-size: 20px;
 }
 
 .topbar button {
-  background: white;
   border: none;
   padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
+  background: white;
+  font-weight: bold;
 }
 
 /* ================= MENU ================= */
@@ -86,7 +87,7 @@ body.dark .menu button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 15px;
+  padding: 12px;
   background: #95d5b2;
 }
 
@@ -96,8 +97,8 @@ body.dark .menu button {
   border-radius: 8px;
   background: white;
   cursor: pointer;
-  transition: 0.3s;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .menu button:hover {
@@ -109,11 +110,13 @@ body.dark .menu button {
 .tela {
   display: none;
   padding: 20px;
-  animation: fade 0.4s ease;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .tela.ativa {
   display: block;
+  animation: fade 0.4s ease;
 }
 
 @keyframes fade {
@@ -121,104 +124,90 @@ body.dark .menu button {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= HERO ================= */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.hero img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.hero-text button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  border: none;
-  background: #2d6a4f;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* ================= CARDS ================= */
+/* ================= CARD PRINCIPAL ================= */
 .card {
   background: white;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-/* ================= GRID ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
+  padding: 25px;
+  border-radius: 14px;
   margin-top: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* ================= BOX ================= */
+/* dark mode card */
+body.dark .card {
+  background: #18221c;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* ================= TEXTOS ================= */
+h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #2d6a4f;
+}
+
+body.dark h2 {
+  color: #7ae582;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* ================= BOXES (informação) ================= */
 .box {
   background: #d8f3dc;
   padding: 15px;
+  margin-top: 10px;
   border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   transition: 0.3s;
 }
 
 .box:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
-/* ================= QUIZ ================= */
-#quiz-area button {
+body.dark .box {
+  background: #1f2c24;
+}
+
+/* ================= BOTÕES QUIZ ================= */
+#quiz button {
   display: block;
   width: 100%;
-  margin: 8px 0;
   padding: 12px;
+  margin: 8px 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #b7e4c7;
   cursor: pointer;
+  font-size: 15px;
   transition: 0.3s;
 }
 
-#quiz-area button:hover {
+#quiz button:hover {
   background: #2d6a4f;
   color: white;
 }
 
+body.dark #quiz button {
+  background: #233329;
+  color: #eaf5ee;
+}
+
 /* ================= RESULTADO ================= */
 #resultado {
-  margin-top: 10px;
+  margin-top: 12px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 /* ================= FOOTER ================= */
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 18px;
   margin-top: 30px;
   background: #2d6a4f;
   color: white;
@@ -226,12 +215,17 @@ footer {
 
 /* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-  }
 
   .menu {
     flex-direction: column;
     align-items: center;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  h2 {
+    font-size: 22px;
   }
 }

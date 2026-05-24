@@ -1,164 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agro Forte - Futuro Sustentável</title>
-
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= LOADING ================= -->
+<!-- LOADING -->
 <div id="loading-screen">
   <div class="loader"></div>
   <h2>🌱 Agro Forte</h2>
-  <p>Carregando o futuro sustentável...</p>
+  <p>Construindo conhecimento sustentável...</p>
 </div>
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 <header class="topbar">
   <h1>🌾 Agro Forte</h1>
   <button id="toggle-theme">🌙 / ☀️</button>
 </header>
 
-<!-- ================= MENU ================= -->
+<!-- MENU -->
 <nav class="menu">
-  <button onclick="irPara('home')">Início</button>
-  <button onclick="irPara('sobre')">Sobre</button>
-  <button onclick="irPara('problemas')">Problemas</button>
-  <button onclick="irPara('solucoes')">Soluções</button>
+  <button onclick="irPara('inicio')">Início</button>
+  <button onclick="irPara('tema')">O Tema</button>
+  <button onclick="irPara('problema')">Problema</button>
   <button onclick="irPara('tecnologia')">Tecnologia</button>
+  <button onclick="irPara('solucao')">Solução</button>
   <button onclick="irPara('quiz')">Quiz</button>
 </nav>
 
-<!-- ================= HOME ================= -->
-<section id="home" class="tela ativa">
-
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" alt="Agricultura moderna">
-    <div class="hero-text">
-      <h2>🌱 Agro forte, futuro sustentável</h2>
-      <p>
-        O agronegócio é uma das bases da economia mundial. Mas para continuar crescendo,
-        ele precisa evoluir com tecnologia e responsabilidade ambiental.
-      </p>
-      <button onclick="irPara('sobre')">Começar</button>
-    </div>
-  </div>
+<!-- ================= INÍCIO ================= -->
+<section id="inicio" class="tela ativa">
 
   <div class="card">
-    <h3>📌 O que é este projeto?</h3>
+    <h2>🌱 Agro forte, futuro sustentável</h2>
+
     <p>
-      Este site foi desenvolvido para o Concurso Agrinho 2026 com o objetivo de mostrar
-      como a tecnologia pode ajudar a equilibrar produção agrícola e preservação ambiental.
+      O agronegócio é um dos pilares mais importantes da economia mundial, sendo responsável por garantir
+      a produção de alimentos que abastecem cidades, países e até continentes inteiros. Sem ele, a vida moderna
+      simplesmente não funcionaria da forma como conhecemos hoje.
+    </p>
+
+    <p>
+      No entanto, o crescimento acelerado da produção agrícola trouxe também grandes desafios ambientais.
+      Durante muitos anos, o foco esteve apenas em produzir mais, sem considerar os impactos que isso causava
+      na natureza, como o desmatamento, o uso excessivo da água e a degradação do solo.
+    </p>
+
+    <p>
+      Este projeto busca refletir sobre uma nova forma de pensar o campo: um modelo onde produção e preservação
+      caminham juntas. A ideia central é mostrar como a tecnologia pode ser uma aliada fundamental na construção
+      de um futuro mais equilibrado e sustentável.
     </p>
   </div>
 
 </section>
 
-<!-- ================= SOBRE ================= -->
-<section id="sobre" class="tela">
+<!-- ================= TEMA ================= -->
+<section id="tema" class="tela">
+
   <div class="card">
-    <h2>📖 Sobre o Agronegócio Sustentável</h2>
+    <h2>📖 Entendendo a agricultura sustentável</h2>
 
     <p>
-      O agronegócio moderno não se trata apenas de produzir mais, mas sim de produzir melhor.
-      Isso significa usar recursos naturais de forma consciente, reduzir impactos ambientais
-      e aumentar a eficiência com o uso da tecnologia.
+      A agricultura sustentável é um modelo de produção que procura atender às necessidades da sociedade atual
+      sem comprometer a capacidade das futuras gerações de também atenderem às suas próprias necessidades.
     </p>
 
     <p>
-      Tecnologias como sensores no solo, drones agrícolas, inteligência artificial e irrigação
-      inteligente estão transformando o campo em um ambiente mais produtivo e sustentável.
+      Isso significa que produzir alimentos não pode ser feito de qualquer forma. É necessário pensar no uso
+      consciente da água, na preservação do solo, na proteção das florestas e no equilíbrio dos ecossistemas.
     </p>
 
-    <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0" style="width:100%; border-radius:12px; margin-top:15px;">
+    <p>
+      Diferente de modelos antigos de produção, a agricultura sustentável não rejeita a tecnologia — pelo contrário,
+      ela depende dela. Hoje, o uso de sensores, satélites, inteligência artificial e sistemas automatizados
+      permite que o produtor tome decisões mais precisas e evite desperdícios.
+    </p>
+
+    <p>
+      Dessa forma, a tecnologia deixa de ser apenas uma ferramenta de produtividade e passa a ser também uma
+      ferramenta de preservação ambiental.
+    </p>
   </div>
+
 </section>
 
-<!-- ================= PROBLEMAS ================= -->
-<section id="problemas" class="tela">
+<!-- ================= PROBLEMA ================= -->
+<section id="problema" class="tela">
+
   <div class="card">
-    <h2>⚠️ Desafios do Agro Atual</h2>
+    <h2>⚠️ Os problemas do modelo atual</h2>
 
     <p>
-      Apesar da importância do agronegócio, ainda existem problemas que precisam ser resolvidos
-      para garantir um futuro sustentável.
+      Apesar dos avanços tecnológicos, ainda existem muitos problemas no agronegócio que precisam ser resolvidos
+      com urgência. Um dos principais é o uso excessivo dos recursos naturais, principalmente da água e do solo.
     </p>
-
-    <div class="grid">
-      <div class="box">🌳 Desmatamento</div>
-      <div class="box">💧 Uso excessivo de água</div>
-      <div class="box">🌱 Esgotamento do solo</div>
-      <div class="box">🌫️ Emissão de gases</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= SOLUÇÕES ================= -->
-<section id="solucoes" class="tela">
-  <div class="card">
-    <h2>💡 Soluções Sustentáveis</h2>
 
     <p>
-      A tecnologia pode ajudar a resolver muitos desses problemas através de práticas mais inteligentes
-      e sustentáveis no campo.
+      Em muitas regiões, o solo já está desgastado devido ao uso intensivo e à falta de técnicas adequadas de
+      recuperação. Isso reduz a produtividade e pode comprometer futuras colheitas.
     </p>
 
-    <div class="grid">
-      <div class="box">📡 Agricultura de precisão</div>
-      <div class="box">🚁 Uso de drones</div>
-      <div class="box">💧 Irrigação inteligente</div>
-      <div class="box">☀️ Energia renovável</div>
-    </div>
+    <p>
+      Outro problema grave é o desmatamento, que afeta diretamente o equilíbrio climático e a biodiversidade.
+      A remoção de vegetação nativa para expansão agrícola impacta não apenas o meio ambiente, mas também a vida
+      das pessoas que dependem desses recursos.
+    </p>
 
+    <p>
+      Além disso, as mudanças climáticas tornam o cenário ainda mais complexo, com secas mais longas, chuvas
+      irregulares e aumento da temperatura média global.
+    </p>
   </div>
+
 </section>
 
 <!-- ================= TECNOLOGIA ================= -->
 <section id="tecnologia" class="tela">
+
   <div class="card">
-    <h2>🤖 Tecnologia no Campo</h2>
+    <h2>🤖 A tecnologia como transformação do campo</h2>
 
     <p>
-      A tecnologia está revolucionando o agronegócio. Hoje, é possível monitorar plantações em tempo real,
-      prever colheitas e otimizar o uso de recursos naturais.
+      A tecnologia tem desempenhado um papel fundamental na transformação do agronegócio moderno. Hoje,
+      o campo está cada vez mais conectado, inteligente e automatizado.
     </p>
 
     <p>
-      Isso aumenta a produtividade e reduz desperdícios, tornando o campo mais eficiente e sustentável.
+      Drones são utilizados para monitorar plantações em tempo real, identificando pragas e problemas antes
+      que eles se espalhem. Sensores instalados no solo analisam a umidade e indicam o momento ideal de irrigação,
+      evitando desperdício de água.
     </p>
 
-    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" style="width:100%; border-radius:12px; margin-top:15px;">
+    <p>
+      Sistemas baseados em inteligência artificial conseguem prever safras, analisar clima e sugerir decisões
+      mais eficientes para o produtor rural.
+    </p>
+
+    <p>
+      Tudo isso representa uma mudança profunda: o agricultor deixa de depender apenas da experiência e passa a
+      contar com dados precisos para tomar decisões mais inteligentes.
+    </p>
   </div>
+
+</section>
+
+<!-- ================= SOLUÇÃO ================= -->
+<section id="solucao" class="tela">
+
+  <div class="card">
+    <h2>🌍 Caminhos para o futuro sustentável</h2>
+
+    <p>
+      A solução para os desafios do agronegócio não está em abandonar a produção, mas sim em torná-la mais inteligente.
+      O futuro da agricultura depende da integração entre tecnologia e sustentabilidade.
+    </p>
+
+    <p>
+      Práticas como agricultura de precisão, uso consciente da água, energia renovável e automação de processos
+      são fundamentais para garantir um sistema produtivo mais equilibrado.
+    </p>
+
+    <p>
+      Além disso, é essencial investir em educação tecnológica no campo, para que produtores de todos os tamanhos
+      possam acessar essas inovações e aplicá-las no seu dia a dia.
+    </p>
+
+    <p>
+      Quando produção e preservação caminham juntas, o resultado é um sistema mais justo, eficiente e preparado
+      para o futuro.
+    </p>
+  </div>
+
 </section>
 
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="tela">
+
   <div class="card">
-    <h2>🧠 Quiz Agrinho</h2>
+    <h2>🧠 Quiz final</h2>
 
-    <p id="quiz-texto">Responda as perguntas sobre sustentabilidade:</p>
+    <p>
+      Agora que você compreendeu como a tecnologia e a sustentabilidade se relacionam no agronegócio,
+      responda o quiz abaixo.
+    </p>
 
-    <div id="quiz-area">
+    <h3 id="pergunta"></h3>
 
-      <h3 id="pergunta"></h3>
+    <button id="op1"></button>
+    <button id="op2"></button>
+    <button id="op3"></button>
 
-      <button onclick="responderQuiz(0)" id="op1"></button>
-      <button onclick="responderQuiz(1)" id="op2"></button>
-      <button onclick="responderQuiz(2)" id="op3"></button>
-
-      <p id="resultado"></p>
-
-      <button onclick="proximaPergunta()">Próxima</button>
-    </div>
+    <p id="resultado"></p>
   </div>
+
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer>
   <p>🌱 Projeto Agrinho 2026 - Agro Forte, Futuro Sustentável</p>
 </footer>
