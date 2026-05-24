@@ -1,9 +1,10 @@
+
 /* ========================================= */
 /* AGRINHO 2026 - MAIN.JS */
 /* ========================================= */
 
 /* ========================================= */
-/* VARIÁVEIS */
+/* VARIÁVEIS GERAIS */
 /* ========================================= */
 
 let score = 0;
@@ -22,17 +23,17 @@ const themeButton = document.getElementById("themeToggle");
 
 window.addEventListener("load", () => {
 
-const loading = document.getElementById("loadingScreen");
+const loadingScreen = document.getElementById("loadingScreen");
 
 setTimeout(() => {
 
-loading.style.opacity = "0";
+loadingScreen.style.opacity = "0";
 
-loading.style.pointerEvents = "none";
+loadingScreen.style.pointerEvents = "none";
 
 setTimeout(() => {
 
-loading.style.display = "none";
+loadingScreen.style.display = "none";
 
 },1000);
 
@@ -52,11 +53,11 @@ page.classList.remove("active");
 
 });
 
-const target = document.getElementById(pageId);
+const selectedPage = document.getElementById(pageId);
 
-if(target){
+if(selectedPage){
 
-target.classList.add("active");
+selectedPage.classList.add("active");
 
 window.scrollTo({
 
@@ -114,7 +115,7 @@ applyTheme("light");
 loadTheme();
 
 /* ========================================= */
-/* TROCAR TEMA */
+/* BOTÃO DARK MODE */
 /* ========================================= */
 
 themeButton.addEventListener("click", () => {
@@ -147,21 +148,21 @@ return;
 
 }
 
-const question = button.parentElement;
+const questionBlock = button.parentElement;
 
-if(question.dataset.answered === "true"){
+if(questionBlock.dataset.answered === "true"){
 
 return;
 
 }
 
-question.dataset.answered = "true";
+questionBlock.dataset.answered = "true";
 
 answeredQuestions++;
 
 score += value;
 
-const buttons = question.querySelectorAll("button");
+const buttons = questionBlock.querySelectorAll("button");
 
 buttons.forEach(btn => {
 
@@ -173,7 +174,7 @@ btn.style.opacity = "0.7";
 
 if(value === 2){
 
-button.style.background = "#3ca64c";
+button.style.background = "#43a047";
 
 button.style.color = "white";
 
@@ -198,11 +199,13 @@ const result = document.getElementById("quizResult");
 if(answeredQuestions < 3){
 
 result.innerHTML = `
+
 <h2>⚠️ Atenção</h2>
 
 <p>
 Responda todas as perguntas antes de finalizar o quiz.
 </p>
+
 `;
 
 return;
@@ -214,44 +217,54 @@ quizFinished = true;
 if(score === 6){
 
 result.innerHTML = `
+
 <h2>🌟 Excelente!</h2>
 
 <p>
-Você possui excelente entendimento sobre agricultura,
+Você demonstrou excelente conhecimento sobre agricultura,
 tecnologia e sustentabilidade.
 </p>
 
 <p>
-Pontuação final: <strong>6/6</strong>
+Pontuação final:
+<strong>6/6</strong>
 </p>
+
 `;
 
 }else if(score >= 3){
 
 result.innerHTML = `
+
 <h2>👍 Bom trabalho!</h2>
 
 <p>
-Você possui um bom conhecimento sobre o tema.
+Você possui um bom entendimento sobre o tema.
 </p>
 
 <p>
-Pontuação final: <strong>${score}/6</strong>
+Pontuação final:
+<strong>${score}/6</strong>
 </p>
+
 `;
 
 }else{
 
 result.innerHTML = `
+
 <h2>📚 Continue aprendendo!</h2>
 
 <p>
-Você ainda pode aprender mais sobre o agronegócio sustentável.
+Você ainda pode desenvolver mais conhecimentos
+sobre o agronegócio sustentável.
 </p>
 
 <p>
-Pontuação final: <strong>${score}/6</strong>
+Pontuação final:
+<strong>${score}/6</strong>
 </p>
+
 `;
 
 }
@@ -262,7 +275,7 @@ Pontuação final: <strong>${score}/6</strong>
 /* ANIMAÇÃO DOS CARDS */
 /* ========================================= */
 
-const animatedCards = document.querySelectorAll(
+const cards = document.querySelectorAll(
 ".card, .infoCard, .techCard, .sustainCard"
 );
 
@@ -284,7 +297,7 @@ entry.target.style.transform = "translateY(0)";
 threshold:0.2
 });
 
-animatedCards.forEach(card => {
+cards.forEach(card => {
 
 card.style.opacity = "0";
 
@@ -297,44 +310,44 @@ observer.observe(card);
 });
 
 /* ========================================= */
-/* HEADER SCROLL */
+/* HEADER EFEITO */
 /* ========================================= */
 
 window.addEventListener("scroll", () => {
 
 const header = document.getElementById("header");
 
-if(window.scrollY > 30){
+if(window.scrollY > 20){
 
-header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.12)";
+header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.12)";
 
 }else{
 
-header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.08)";
+header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.08)";
 
 }
 
 });
 
 /* ========================================= */
-/* EFEITO HERO */
+/* EFEITO DIGITAÇÃO */
 /* ========================================= */
 
 const heroTitle = document.querySelector(".heroText h2");
 
-const originalText = heroTitle.innerText;
+const originalTitle = heroTitle.innerText;
 
 heroTitle.innerText = "";
 
-let index = 0;
+let typingIndex = 0;
 
 function typingEffect(){
 
-if(index < originalText.length){
+if(typingIndex < originalTitle.length){
 
-heroTitle.innerText += originalText.charAt(index);
+heroTitle.innerText += originalTitle.charAt(typingIndex);
 
-index++;
+typingIndex++;
 
 setTimeout(typingEffect,40);
 
@@ -342,10 +355,14 @@ setTimeout(typingEffect,40);
 
 }
 
-setTimeout(typingEffect,2200);
+setTimeout(() => {
+
+typingEffect();
+
+},2200);
 
 /* ========================================= */
-/* HOVER IMAGENS */
+/* HOVER NAS IMAGENS */
 /* ========================================= */
 
 const images = document.querySelectorAll("img");
@@ -396,10 +413,10 @@ window.addEventListener("resize", checkMobile);
 
 const imageList = [
 
-"img/agro.jpg",
-"img/agro2.jpg",
-"img/tech.jpg",
-"img/sust.jpg"
+"./img/agro.jpg",
+"./img/agro2.jpg",
+"./img/tech.jpg",
+"./img/sust.jpg"
 
 ];
 
@@ -412,7 +429,7 @@ img.src = src;
 });
 
 /* ========================================= */
-/* EFEITO SUAVE NOS BOTÕES */
+/* BOTÕES */
 /* ========================================= */
 
 const buttons = document.querySelectorAll("button");
@@ -428,10 +445,11 @@ button.style.transition = "0.3s";
 });
 
 /* ========================================= */
-/* CONSOLE */
+/* MENSAGEM CONSOLE */
 /* ========================================= */
 
 console.log(`
+
 🌱 AGRINHO 2026
 
 Projeto iniciado com sucesso.
