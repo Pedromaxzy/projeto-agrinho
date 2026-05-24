@@ -1,174 +1,153 @@
 /* =========================
-   AGRINHO 2026 - MAIN JS
-   SISTEMA COMPLETO
+   AGRINHO 2026 - JS ESTÁVEL
+   (VERSÃO CORRIGIDA)
 ========================= */
 
-/* ===== LOADING SCREEN ===== */
+/* ===== LOADING (SEM BUG) ===== */
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading-screen");
 
-  // garante que nunca fique infinito
-  setTimeout(() => {
-    if (loading) {
-      loading.style.opacity = "0";
-      loading.style.transition = "0.6s ease";
+  if (!loading) return;
 
-      setTimeout(() => {
-        loading.style.display = "none";
-      }, 600);
-    }
-  }, 1200);
+  setTimeout(() => {
+    loading.style.opacity = "0";
+
+    setTimeout(() => {
+      loading.style.display = "none";
+    }, 500);
+  }, 1000);
 });
 
 /* ===== NAVEGAÇÃO ENTRE TELAS ===== */
 function mostrarTela(id) {
   const telas = document.querySelectorAll(".tela");
 
-  telas.forEach(tela => {
-    tela.classList.remove("ativa");
-  });
+  if (!telas.length) return;
 
-  const ativa = document.getElementById(id);
-  if (ativa) {
-    ativa.classList.add("ativa");
+  telas.forEach(t => t.classList.remove("ativa"));
 
-    // rola pro topo sempre que muda de seção
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+  const alvo = document.getElementById(id);
+
+  if (alvo) {
+    alvo.classList.add("ativa");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
 
-/* ===== DARK / LIGHT MODE ===== */
+/* ===== TEMA ESCURO/CLARO (ROBUSTO) ===== */
 function toggleTema() {
-  const body = document.body;
-  body.classList.toggle("dark");
+  document.body.classList.toggle("dark");
 
-  // salva preferência
-  if (body.classList.contains("dark")) {
-    localStorage.setItem("tema", "dark");
-  } else {
-    localStorage.setItem("tema", "light");
-  }
+  localStorage.setItem(
+    "tema",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
 }
 
 /* carregar tema salvo */
-window.addEventListener("DOMContentLoaded", () => {
-  const temaSalvo = localStorage.getItem("tema");
+document.addEventListener("DOMContentLoaded", () => {
+  const tema = localStorage.getItem("tema");
 
-  if (temaSalvo === "dark") {
+  if (tema === "dark") {
     document.body.classList.add("dark");
   }
+
+  iniciarQuiz(); // só inicia quando DOM existe
 });
 
-/* ===== QUIZ AGRINHO ===== */
-
-let perguntaAtual = 0;
-let pontuacao = 0;
-
+/* ===== QUIZ SIMPLES E FUNCIONAL ===== */
 const perguntas = [
   {
-    pergunta: "Qual é o principal objetivo da agricultura sustentável?",
+    pergunta: "O que é agricultura sustentável?",
     opcoes: [
-      "Aumentar produção sem se importar com o meio ambiente",
-      "Equilibrar produção agrícola e preservação ambiental",
-      "Usar mais agrotóxicos para maior produtividade"
+      "Produzir sem pensar no meio ambiente",
+      "Equilibrar produção e preservação ambiental",
+      "Usar mais agrotóxicos sempre"
     ],
     correta: 1
   },
   {
-    pergunta: "O que ajuda a reduzir impactos ambientais no campo?",
+    pergunta: "Qual prática ajuda o meio ambiente?",
     opcoes: [
-      "Desmatamento total da área",
-      "Uso consciente da água e do solo",
-      "Queima de resíduos agrícolas sem controle"
+      "Desmatamento total",
+      "Uso consciente da água",
+      "Queimada sem controle"
     ],
     correta: 1
   },
   {
-    pergunta: "Tecnologias no agro ajudam principalmente a:",
+    pergunta: "Tecnologia no agro serve para:",
     opcoes: [
-      "Aumentar desperdício de recursos",
-      "Controlar e melhorar a eficiência da produção",
-      "Eliminar a necessidade de planejamento"
+      "Aumentar desperdício",
+      "Melhorar eficiência da produção",
+      "Eliminar planejamento"
     ],
     correta: 1
   }
 ];
 
-/* iniciar quiz */
+let atual = 0;
+let pontos = 0;
+
 function iniciarQuiz() {
-  perguntaAtual = 0;
-  pontuacao = 0;
-  mostrarPergunta();
+  atual = 0;
+  pontos = 0;
+  renderQuiz();
 }
 
-/* mostrar pergunta */
-function mostrarPergunta() {
+function renderQuiz() {
   const quiz = document.getElementById("quiz");
+  const resultado = document.getElementById("resultado");
 
   if (!quiz) return;
 
-  const q = perguntas[perguntaAtual];
+  if (resultado) resultado.innerHTML = "";
+
+  const q = perguntas[atual];
 
   quiz.innerHTML = `
     <h3>${q.pergunta}</h3>
   `;
 
-  q.opcoes.forEach((opcao, index) => {
+  q.opcoes.forEach((opcao, i) => {
     quiz.innerHTML += `
-      <button onclick="responder(${index})">
-        ${opcao}
-      </button>
+      <button onclick="responder(${i})">${opcao}</button>
     `;
   });
-
-  document.getElementById("resultado").innerText = "";
 }
 
-/* responder pergunta */
-function responder(resposta) {
-  const correta = perguntas[perguntaAtual].correta;
-
-  if (resposta === correta) {
-    pontuacao++;
+function responder(opcao) {
+  if (opcao === perguntas[atual].correta) {
+    pontos++;
   }
 
-  perguntaAtual++;
+  atual++;
 
-  if (perguntaAtual < perguntas.length) {
-    mostrarPergunta();
+  if (atual < perguntas.length) {
+    renderQuiz();
   } else {
     mostrarResultado();
   }
 }
 
-/* resultado final */
 function mostrarResultado() {
+  const quiz = document.getElementById("quiz");
   const resultado = document.getElementById("resultado");
 
-  let mensagem = "";
+  if (!resultado) return;
 
-  if (pontuacao === 3) {
-    mensagem = "🌱 Excelente! Você entende bem sustentabilidade no agro!";
-  } 
-  else if (pontuacao === 2) {
-    mensagem = "👍 Bom! Você tem uma boa base sobre o tema.";
-  } 
-  else {
-    mensagem = "📘 Você ainda pode aprender mais sobre agro sustentável.";
-  }
+  let msg = "";
+
+  if (pontos === 3) msg = "Excelente entendimento!";
+  else if (pontos === 2) msg = "Bom conhecimento!";
+  else msg = "Você pode aprender mais!";
+
+  quiz.innerHTML = "";
 
   resultado.innerHTML = `
-    <h3>Resultado Final</h3>
-    <p>Você acertou ${pontuacao} de ${perguntas.length}</p>
-    <p>${mensagem}</p>
-    <button onclick="iniciarQuiz()">Refazer Quiz</button>
+    <h3>Resultado</h3>
+    <p>Você acertou ${pontos}/3</p>
+    <p>${msg}</p>
+    <button onclick="iniciarQuiz()">Tentar novamente</button>
   `;
 }
-
-/* ===== INICIALIZAÇÃO ===== */
-document.addEventListener("DOMContentLoaded", () => {
-  iniciarQuiz();
-});
