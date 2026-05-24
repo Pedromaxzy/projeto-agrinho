@@ -1,29 +1,24 @@
-
-/* =========================
-   AGRINHO 2026 - MAIN JS FINAL
-   AgroTech Sustentável
-   Estável + organizado + sem bugs
-========================= */
-
-
-/* ================= LOADING ================= */
+// =========================
+// LOADING SCREEN FIX
+// =========================
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading-screen");
 
-  if (!loading) return;
-
   setTimeout(() => {
     loading.style.opacity = "0";
-    loading.style.transition = "0.6s ease";
+    loading.style.transition = "0.8s";
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 600);
-  }, 1400);
+    }, 800);
+
+  }, 1200); // tempo mínimo de loading (efeito bonito)
 });
 
 
-/* ================= NAVEGAÇÃO ENTRE SEÇÕES ================= */
+// =========================
+// TROCA DE SEÇÕES (MENU)
+// =========================
 function mostrarSecao(id) {
   const secoes = document.querySelectorAll(".secao");
 
@@ -31,162 +26,126 @@ function mostrarSecao(id) {
     secao.classList.remove("ativa");
   });
 
-  const alvo = document.getElementById(id);
+  document.getElementById(id).classList.add("ativa");
 
-  if (alvo) {
-    alvo.classList.add("ativa");
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+
+// =========================
+// DARK / LIGHT MODE
+// =========================
+function toggleTema() {
+  document.body.classList.toggle("dark");
+
+  // salva preferência
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("tema", "dark");
+  } else {
+    localStorage.setItem("tema", "light");
   }
 }
 
 
-/* ================= TEMA ESCURO / CLARO ================= */
-function toggleTema() {
-  document.body.classList.toggle("dark");
-
-  const modo = document.body.classList.contains("dark")
-    ? "dark"
-    : "light";
-
-  localStorage.setItem("tema", modo);
-}
-
-
-/* aplicar tema salvo */
-document.addEventListener("DOMContentLoaded", () => {
+// carregar tema salvo
+window.addEventListener("load", () => {
   const tema = localStorage.getItem("tema");
 
   if (tema === "dark") {
     document.body.classList.add("dark");
   }
-
-  iniciarQuiz();
 });
 
 
-/* ================= QUIZ ================= */
+// =========================
+// QUIZ AGRÍCOLA (3 PERGUNTAS)
+// =========================
 
 const perguntas = [
   {
-    pergunta: "Qual é o principal objetivo da agricultura sustentável?",
-    opcoes: [
-      "Aumentar produção sem limites",
-      "Equilibrar produção e preservação ambiental",
-      "Usar mais agrotóxicos para produção rápida"
-    ],
-    correta: 1
-  },
-  {
     pergunta: "Qual prática ajuda a preservar o solo?",
-    opcoes: [
-      "Queimadas frequentes",
-      "Rotação de culturas",
-      "Desmatamento contínuo"
-    ],
+    opcoes: ["Desmatamento", "Rotação de culturas", "Queimadas"],
     correta: 1
   },
   {
-    pergunta: "Como a tecnologia ajuda no campo?",
-    opcoes: [
-      "Aumentando desperdício",
-      "Reduzindo eficiência agrícola",
-      "Melhorando produção com menos impacto ambiental"
-    ],
-    correta: 2
+    pergunta: "O que reduz o desperdício de água no agro?",
+    opcoes: ["Irrigação inteligente", "Mais máquinas", "Uso aleatório"],
+    correta: 0
+  },
+  {
+    pergunta: "Qual tecnologia ajuda no monitoramento das lavouras?",
+    opcoes: ["Drones", "TV", "Rádio"],
+    correta: 0
   }
 ];
 
-let atual = 0;
+let indice = 0;
 let pontos = 0;
 
+const quizBox = document.getElementById("quiz-box");
+const resultado = document.getElementById("resultado");
 
-/* ================= INICIAR QUIZ ================= */
-function iniciarQuiz() {
-  atual = 0;
-  pontos = 0;
-  renderQuiz();
-}
-
-
-/* ================= RENDER QUIZ ================= */
-function renderQuiz() {
-  const box = document.getElementById("quiz-box");
-  const resultado = document.getElementById("resultado");
-
-  if (!box) return;
-
-  resultado.innerHTML = "";
-
-  const q = perguntas[atual];
-
-  box.innerHTML = `
-    <h3>${q.pergunta}</h3>
-  `;
-
-  q.opcoes.forEach((opcao, i) => {
-    box.innerHTML += `
-      <button onclick="responder(${i}, this)">
-        ${opcao}
-      </button>
-    `;
-  });
-}
-
-
-/* ================= RESPOSTA ================= */
-function responder(resposta, botao) {
-  const botoes = document.querySelectorAll("#quiz-box button");
-
-  botoes.forEach(b => b.disabled = true);
-
-  const correta = perguntas[atual].correta;
-
-  if (resposta === correta) {
-    pontos++;
-    botao.style.background = "#a5d6a7";
-  } else {
-    botao.style.background = "#ef9a9a";
-    botoes[correta].style.background = "#a5d6a7";
+function carregarPergunta() {
+  if (indice >= perguntas.length) {
+    mostrarResultado();
+    return;
   }
 
-  setTimeout(() => {
-    atual++;
+  const p = perguntas[indice];
 
-    if (atual < perguntas.length) {
-      renderQuiz();
-    } else {
-      mostrarResultado();
-    }
-  }, 900);
+  quizBox.innerHTML = `
+    <h3>${p.pergunta}</h3>
+    ${p.opcoes.map((opcao, i) => `
+      <button class="quiz-btn" onclick="responder(${i})">
+        ${opcao}
+      </button>
+    `).join("")}
+  `;
 }
 
+function responder(resposta) {
+  if (resposta === perguntas[indice].correta) {
+    pontos++;
+  }
 
-/* ================= RESULTADO ================= */
+  indice++;
+  carregarPergunta();
+}
+
 function mostrarResultado() {
-  const box = document.getElementById("quiz-box");
-  const resultado = document.getElementById("resultado");
+  quizBox.innerHTML = "";
 
-  box.innerHTML = "";
-
-  let msg = "";
+  let mensagem = "";
 
   if (pontos === 3) {
-    msg = "🌱 Excelente! Você entende perfeitamente o equilíbrio entre agro e meio ambiente.";
+    mensagem = "🌟 Excelente! Você entende de agro sustentável!";
   } else if (pontos === 2) {
-    msg = "👍 Muito bom! Você já tem bom conhecimento sobre o tema.";
+    mensagem = "👍 Bom! Você já sabe bastante sobre o tema.";
   } else {
-    msg = "📘 Você ainda pode aprender mais sobre sustentabilidade no agro.";
+    mensagem = "🌱 Continue aprendendo sobre sustentabilidade!";
   }
 
   resultado.innerHTML = `
-    <h3>Resultado Final</h3>
-    <p>Você acertou <strong>${pontos}</strong> de <strong>${perguntas.length}</strong></p>
-    <p>${msg}</p>
+    <h3>Resultado final</h3>
+    <p>Você acertou ${pontos} de ${perguntas.length}</p>
+    <p>${mensagem}</p>
 
-    <button onclick="iniciarQuiz()">🔁 Jogar novamente</button>
+    <button class="quiz-btn" onclick="reiniciarQuiz()">Tentar novamente</button>
   `;
 }
+
+function reiniciarQuiz() {
+  indice = 0;
+  pontos = 0;
+  resultado.innerHTML = "";
+  carregarPergunta();
+}
+
+
+// iniciar quiz ao abrir seção (opcional)
+document.addEventListener("DOMContentLoaded", () => {
+  carregarPergunta();
+});

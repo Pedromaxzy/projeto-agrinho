@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroTech Sustentável | Agrinho 2026</title>
+
+  <title>AgroTech Brasil | Agrinho 2026</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,37 +15,40 @@
 <!-- ================= LOADING ================= -->
 <div id="loading-screen">
   <div class="loader-box">
-    <h1>🌱 AgroTech Sustentável</h1>
-    <p>Carregando inovação no campo...</p>
+    <h1>🌱 AgroTech Brasil</h1>
+    <p>Conectando o campo ao futuro sustentável...</p>
     <div class="loader-bar"></div>
   </div>
 </div>
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <h2>🌿 AgroTech Sustentável</h2>
+  <h2>🌿 AgroTech Brasil</h2>
 
   <nav>
     <button onclick="mostrarSecao('inicio')">Início</button>
-    <button onclick="mostrarSecao('agro')">O Agro</button>
+    <button onclick="mostrarSecao('problema')">Problema</button>
+    <button onclick="mostrarSecao('solucao')">Soluções</button>
     <button onclick="mostrarSecao('tecnologia')">Tecnologia</button>
     <button onclick="mostrarSecao('quiz')">Quiz</button>
   </nav>
 
-  <button onclick="toggleTema()" class="tema-btn">🌓</button>
+  <button class="tema-btn" onclick="toggleTema()">🌓</button>
 </header>
 
-<!-- ================= INICIO ================= -->
+<!-- ================= INÍCIO ================= -->
 <section id="inicio" class="secao ativa">
 
   <div class="hero">
     <h1>Agro forte, futuro sustentável</h1>
+
     <p>
-      O campo é a base da vida. Com tecnologia, ciência e respeito ao meio ambiente,
-      construímos um futuro onde produção e natureza caminham juntas.
+      O agronegócio brasileiro é um dos mais importantes do mundo.
+      Ele alimenta milhões de pessoas, movimenta a economia e sustenta cidades inteiras.
+      Mas o futuro exige equilíbrio: produzir mais sem destruir o meio ambiente.
     </p>
 
-    <button onclick="mostrarSecao('agro')">Explorar</button>
+    <button onclick="mostrarSecao('problema')">Entender o desafio</button>
   </div>
 
   <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30"
@@ -51,80 +56,114 @@
 
 </section>
 
-<!-- ================= AGRO ================= -->
-<section id="agro" class="secao">
+<!-- ================= PROBLEMA ================= -->
+<section id="problema" class="secao">
 
-  <h2>🌾 A importância do Agro</h2>
+  <h2>⚠️ O grande desafio do agro</h2>
 
   <p>
-    A agricultura é responsável por alimentar bilhões de pessoas no mundo.
-    No Brasil, o agronegócio é um dos pilares da economia.
-    Porém, o crescimento precisa vir acompanhado de responsabilidade ambiental.
+    O crescimento da agricultura trouxe grandes avanços, mas também impactos ambientais.
+    O uso excessivo do solo, desmatamento e desperdício de água são problemas reais.
+    O desafio do século XXI é manter a produção sem destruir os recursos naturais.
   </p>
 
   <div class="cards">
 
     <div class="card">
-      <h3>🌱 Sustentabilidade</h3>
-      <p>Uso consciente do solo, preservando recursos naturais para o futuro.</p>
+      <h3>🌳 Desmatamento</h3>
+      <p>A expansão agrícola pode reduzir florestas importantes para o equilíbrio climático.</p>
     </div>
 
     <div class="card">
       <h3>💧 Água</h3>
-      <p>Gestão eficiente da água evita desperdício e protege ecossistemas.</p>
+      <p>O uso incorreto da irrigação gera desperdício de um recurso essencial.</p>
     </div>
 
     <div class="card">
-      <h3>🌍 Meio Ambiente</h3>
-      <p>Redução de impactos ambientais com tecnologia e boas práticas.</p>
+      <h3>🌱 Solo</h3>
+      <p>O uso contínuo sem descanso reduz a qualidade e produtividade da terra.</p>
     </div>
 
   </div>
 
-  <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399"
-       alt="Plantação sustentável">
+</section>
+
+<!-- ================= SOLUÇÕES ================= -->
+<section id="solucao" class="secao">
+
+  <h2>🌍 Caminhos para o futuro</h2>
+
+  <p>
+    A solução não é parar de produzir, mas sim produzir com inteligência.
+    A agricultura moderna usa ciência e tecnologia para equilibrar produtividade e preservação ambiental.
+  </p>
+
+  <ul>
+    <li>🌱 Rotação de culturas para preservar o solo</li>
+    <li>🚜 Agricultura de precisão com sensores e drones</li>
+    <li>💧 Irrigação inteligente para evitar desperdício</li>
+    <li>🌾 Uso consciente de fertilizantes naturais</li>
+  </ul>
+
+  <img src="https://images.unsplash.com/photo-1602524818053-9a3d0a0a0a8b"
+       alt="Tecnologia no campo">
 
 </section>
 
 <!-- ================= TECNOLOGIA ================= -->
 <section id="tecnologia" class="secao">
 
-  <h2>🚜 Tecnologia no Campo</h2>
+  <h2>🤖 Tecnologia no Agro</h2>
 
   <p>
-    A tecnologia revolucionou o agronegócio.
-    Hoje, drones, sensores e inteligência artificial ajudam produtores
-    a aumentar a eficiência e reduzir impactos ambientais.
+    A tecnologia transformou o campo em um ambiente inteligente.
+    Hoje, máquinas, sensores e inteligência artificial ajudam agricultores a tomar decisões mais precisas.
   </p>
 
-  <ul>
-    <li>📡 Monitoramento por satélite</li>
-    <li>🤖 Automação agrícola</li>
-    <li>📊 Análise de dados do solo</li>
-    <li>🚁 Drones para pulverização precisa</li>
-  </ul>
+  <div class="cards">
 
-  <img src="https://images.unsplash.com/photo-1602524818053-9a3d0a0a0a8b"
-       alt="Tecnologia agrícola">
+    <div class="card">
+      <h3>📡 Satélites</h3>
+      <p>Monitoram plantações e ajudam no controle climático.</p>
+    </div>
+
+    <div class="card">
+      <h3>🚁 Drones</h3>
+      <p>Fazem pulverização e análise de áreas agrícolas com precisão.</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Dados</h3>
+      <p>Informações ajudam produtores a aumentar eficiência e reduzir perdas.</p>
+    </div>
+
+  </div>
 
 </section>
 
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="secao">
 
-  <h2>🧠 Quiz Agrinho</h2>
+  <h2>🧠 Quiz: Agro Sustentável</h2>
+
+  <p>
+    Teste seus conhecimentos sobre agricultura, tecnologia e sustentabilidade.
+  </p>
 
   <div id="quiz-box"></div>
-
   <div id="resultado"></div>
 
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer>
-  <p>Projeto Agrinho 2026 - AgroTech Sustentável</p>
+  <p>
+    Projeto Agrinho 2026 — AgroTech Brasil 🌱  
+    Desenvolvido com foco em sustentabilidade e inovação no campo.
+  </p>
 </footer>
 
 <script src="main.js"></script>
+
 </body>
 </html>
