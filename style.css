@@ -5,91 +5,124 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --bg: #f4f7f5;
+  --card: #ffffff;
+  --text: #1f2d1f;
+  --primary: #1b5e20;
+  --secondary: #43a047;
+}
+
+/* ================= TEMA ESCURO ================= */
+body.dark {
+  --bg: #0f1410;
+  --card: #1b2a1d;
+  --text: #e6f4ea;
+  --primary: #2e7d32;
+  --secondary: #66bb6a;
+}
+
 body {
-  background: #f4f7f5;
-  color: #1f2d1f;
-  line-height: 1.6;
-}
-
-/* ===== HERO ===== */
-.hero {
-  height: 60vh;
-  background: linear-gradient(120deg, #1b5e20, #43a047, #a5d6a7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: white;
-  color: #1b5e20;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
   transition: 0.3s;
 }
 
-.btn:hover {
-  background: #c8e6c9;
+/* ================= LOADING SCREEN ================= */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #1b5e20, #2e7d32, #66bb6a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 9999;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-  background: #1b5e20;
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid white;
+  border-top: 6px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ================= HEADER ================= */
+.topbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--primary);
+  color: white;
+}
+
+.topbar h1 {
+  font-size: 1.4rem;
+}
+
+/* ================= MENU ================= */
+.menu {
+  display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 12px;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  background: var(--secondary);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  background: #43a047;
-}
-
-/* ===== CONTEÚDO ===== */
-main {
-  padding: 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* ===== CARD ===== */
-.card {
+.menu button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
   background: white;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  color: var(--primary);
+  font-weight: bold;
+  transition: 0.2s;
 }
 
-/* ===== GRID ===== */
+.menu button:hover {
+  transform: scale(1.05);
+  background: #e8f5e9;
+}
+
+/* ================= TELAS (SPA) ================= */
+.tela {
+  display: none;
+  animation: fade 0.4s ease-in-out;
+}
+
+.tela.ativa {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ================= GRID ================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -97,22 +130,22 @@ main {
   margin-top: 15px;
 }
 
-.box, .stat, .grid div {
-  background: #e8f5e9;
+.box, .stat {
+  background: var(--card);
   padding: 15px;
   border-radius: 10px;
   text-align: center;
   transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.box:hover, .stat:hover, .grid div:hover {
-  transform: scale(1.03);
-  background: #c8e6c9;
+.box:hover, .stat:hover {
+  transform: translateY(-5px);
 }
 
-/* ===== BOTÕES ===== */
+/* ================= BOTÕES ================= */
 button {
-  background: #1b5e20;
+  background: var(--primary);
   color: white;
   border: none;
   padding: 10px 15px;
@@ -123,53 +156,50 @@ button {
 }
 
 button:hover {
-  background: #2e7d32;
+  background: var(--secondary);
+  transform: scale(1.03);
 }
 
-/* ===== FORM ===== */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
+/* ================= INPUTS ================= */
 input, textarea {
+  width: 100%;
   padding: 10px;
-  border-radius: 6px;
+  margin-top: 8px;
+  border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-/* ===== FAQ ===== */
+/* ================= FAQ ================= */
 details {
-  background: #f1f8e9;
+  background: var(--card);
   padding: 10px;
-  margin-top: 10px;
+  margin: 10px 0;
   border-radius: 8px;
-  cursor: pointer;
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  background: #1b5e20;
-  color: white;
+/* ================= FOOTER ================= */
+footer {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
   margin-top: 30px;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ================= RESPONSIVO ================= */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.8rem;
+  .topbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
   }
 
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .navbar {
+  .menu {
     flex-direction: column;
     align-items: center;
+  }
+
+  .card {
+    margin: 10px;
   }
 }
