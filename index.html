@@ -3,159 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Campo do Futuro | Agrinho 2026</title>
-
+  <title>Agrinho 2026 - Agro e Futuro Sustentável</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- =========================
-     TELA DE CARREGAMENTO
-========================= -->
-<div id="loading-screen">
-  <div class="loader-box">
-    <h1>🌱 Campo do Futuro</h1>
-    <p>Preparando o conhecimento sobre agricultura sustentável...</p>
-    <div class="loader-bar"></div>
-  </div>
+<!-- LOADING SCREEN -->
+<div id="loading">
+  <div class="loader"></div>
+  <p>Carregando conhecimento do agro...</p>
 </div>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-<header class="navbar">
-  <h2>🌾 Campo do Futuro</h2>
+<!-- HEADER -->
+<header>
+  <h1>🌱 Agrinho 2026</h1>
 
   <nav>
-    <button onclick="abrirSecao('inicio')">Início</button>
-    <button onclick="abrirSecao('agro')">Agricultura</button>
-    <button onclick="abrirSecao('tecnologia')">Tecnologia</button>
-    <button onclick="abrirSecao('sustentabilidade')">Sustentabilidade</button>
-    <button onclick="abrirSecao('quiz')">Quiz</button>
+    <button onclick="showSection('home')">Início</button>
+    <button onclick="showSection('agro')">Agricultura</button>
+    <button onclick="showSection('tech')">Tecnologia</button>
+    <button onclick="showSection('sust')">Sustentabilidade</button>
+    <button onclick="showSection('quiz')">Quiz</button>
   </nav>
 
-  <button class="tema-btn" onclick="alternarTema()">🌙</button>
+  <button id="themeToggle">🌙</button>
 </header>
 
-<!-- =========================
-     INÍCIO
-========================= -->
-<section id="inicio" class="secao ativa">
-  <div class="hero">
-    <h1>Agro forte, futuro sustentável</h1>
+<!-- HOME -->
+<section id="home" class="section active">
+  <h2>Agro forte, futuro sustentável</h2>
+  <p>
+    O Agrinho 2026 traz uma reflexão essencial sobre o equilíbrio entre produção agrícola e preservação ambiental.
+    O agronegócio brasileiro é um dos mais fortes do mundo, responsável por alimentar milhões de pessoas,
+    gerar empregos e impulsionar a economia. No entanto, esse crescimento precisa caminhar lado a lado com a sustentabilidade.
+  </p>
 
-    <p>
-      A agricultura é uma das bases da sociedade moderna. Ela alimenta o mundo,
-      movimenta a economia e sustenta milhões de famílias. Porém, o futuro exige
-      um novo equilíbrio: produzir mais, com menos impacto ambiental.
-    </p>
+  <img src="img/agro1.jpg" alt="Agricultura moderna">
+</section>
 
-    <p>
-      Este projeto apresenta como a tecnologia e a inovação estão transformando
-      o campo, tornando a agricultura mais eficiente, inteligente e sustentável.
-    </p>
+<!-- AGRICULTURA -->
+<section id="agro" class="section">
+  <h2>Agricultura no Brasil</h2>
 
-    <button onclick="abrirSecao('agro')">Explorar o conteúdo</button>
+  <p>
+    A agricultura brasileira é extremamente diversificada, destacando culturas como soja, milho, café, cana-de-açúcar e algodão.
+    O país é um dos maiores exportadores de alimentos do mundo. A soja, por exemplo, é usada tanto na alimentação humana quanto animal,
+    enquanto o café brasileiro é reconhecido internacionalmente pela qualidade.
+  </p>
+
+  <p>
+    O avanço das técnicas agrícolas permitiu aumentar a produtividade sem necessariamente expandir áreas de cultivo,
+    reduzindo impactos ambientais e otimizando o uso do solo.
+  </p>
+
+  <img src="img/agro2.jpg" alt="Plantação">
+</section>
+
+<!-- TECNOLOGIA -->
+<section id="tech" class="section">
+  <h2>Tecnologia no Campo</h2>
+
+  <p>
+    A tecnologia revolucionou o agronegócio. Hoje, drones monitoram plantações em tempo real,
+    sensores analisam a umidade do solo e máquinas automatizadas aumentam a eficiência da colheita.
+  </p>
+
+  <p>
+    A inteligência artificial ajuda produtores a prever safras, identificar pragas e otimizar recursos.
+    Isso reduz desperdícios e aumenta a produtividade de forma sustentável.
+  </p>
+
+  <img src="img/tech.jpg" alt="Tecnologia agrícola">
+</section>
+
+<!-- SUSTENTABILIDADE -->
+<section id="sust" class="section">
+  <h2>Sustentabilidade</h2>
+
+  <p>
+    A sustentabilidade no campo é essencial para garantir que as futuras gerações tenham acesso aos recursos naturais.
+    Práticas como rotação de culturas, preservação do solo e uso consciente da água são fundamentais.
+  </p>
+
+  <p>
+    Além disso, o controle de emissões e o uso de tecnologias limpas ajudam a reduzir o impacto ambiental da produção agrícola,
+    tornando o agronegócio mais responsável e equilibrado.
+  </p>
+
+  <img src="img/sust.jpg" alt="Sustentabilidade">
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="section">
+  <h2>Quiz Agrinho</h2>
+
+  <div class="quiz-box">
+
+    <div class="question">
+      <p>1. Qual cultura o Brasil é grande exportador?</p>
+      <button onclick="answer(2, this)">Soja</button>
+      <button onclick="answer(0, this)">Batata</button>
+      <button onclick="answer(0, this)">Uva</button>
+    </div>
+
+    <div class="question">
+      <p>2. Qual tecnologia ajuda no campo?</p>
+      <button onclick="answer(2, this)">Drones</button>
+      <button onclick="answer(0, this)">Máquina de escrever</button>
+      <button onclick="answer(0, this)">Rádio antigo</button>
+    </div>
+
+    <div class="question">
+      <p>3. O que ajuda a sustentabilidade?</p>
+      <button onclick="answer(2, this)">Rotação de culturas</button>
+      <button onclick="answer(0, this)">Desmatamento</button>
+      <button onclick="answer(0, this)">Queimadas</button>
+    </div>
+
+    <button onclick="finishQuiz()" class="finish">Finalizar Quiz</button>
+
+    <p id="result"></p>
+
   </div>
 </section>
-
-<!-- =========================
-     AGRICULTURA
-========================= -->
-<section id="agro" class="secao">
-
-  <h2>🌾 Agricultura no Brasil</h2>
-
-  <p>
-    O Brasil é um dos maiores produtores agrícolas do mundo. Culturas como soja,
-    milho, café e cana-de-açúcar são fundamentais para a economia nacional.
-  </p>
-
-  <p>
-    No entanto, o crescimento da produção precisa estar alinhado com a preservação
-    do solo, da água e das florestas. A agricultura moderna busca exatamente isso:
-    produtividade com responsabilidade ambiental.
-  </p>
-
-  <p>
-    Técnicas como rotação de culturas, plantio direto e uso consciente do solo
-    ajudam a manter a fertilidade e evitar a degradação ambiental.
-  </p>
-
-</section>
-
-<!-- =========================
-     TECNOLOGIA
-========================= -->
-<section id="tecnologia" class="secao">
-
-  <h2>🚜 Tecnologia no campo</h2>
-
-  <p>
-    A tecnologia revolucionou o campo. Hoje, sensores, drones, GPS e inteligência
-    artificial ajudam agricultores a tomar decisões mais precisas.
-  </p>
-
-  <p>
-    Máquinas modernas conseguem plantar, irrigar e colher com precisão milimétrica,
-    reduzindo desperdícios e aumentando a eficiência da produção.
-  </p>
-
-  <p>
-    Isso significa mais alimentos produzidos com menos impacto ambiental e maior
-    sustentabilidade para o futuro.
-  </p>
-
-</section>
-
-<!-- =========================
-     SUSTENTABILIDADE
-========================= -->
-<section id="sustentabilidade" class="secao">
-
-  <h2>🌱 Sustentabilidade no campo</h2>
-
-  <p>
-    Sustentabilidade significa atender às necessidades do presente sem comprometer
-    o futuro. Na agricultura, isso envolve o uso responsável dos recursos naturais.
-  </p>
-
-  <p>
-    Práticas sustentáveis incluem preservação do solo, economia de água, redução
-    de agrotóxicos e proteção da biodiversidade.
-  </p>
-
-  <p>
-    O equilíbrio entre produção e meio ambiente é essencial para garantir que as
-    próximas gerações também tenham acesso a alimentos e recursos naturais.
-  </p>
-
-</section>
-
-<!-- =========================
-     QUIZ
-========================= -->
-<section id="quiz" class="secao">
-
-  <h2>🧠 Quiz: Agricultura Sustentável</h2>
-
-  <p>
-    Teste seus conhecimentos sobre agricultura, tecnologia e sustentabilidade.
-  </p>
-
-  <div id="quiz-container"></div>
-
-  <button onclick="iniciarQuiz()">Iniciar Quiz</button>
-
-</section>
-
-<!-- =========================
-     FOOTER
-========================= -->
-<footer>
-  <p>Projeto Agrinho 2026 — Campo do Futuro</p>
-</footer>
 
 <script src="main.js"></script>
 </body>

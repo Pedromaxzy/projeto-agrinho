@@ -1,194 +1,69 @@
-
-/* =========================
-   LOADING SCREEN (CORRIGIDO)
-========================= */
-window.addEventListener("load", () => {
-  const loading = document.getElementById("loading-screen");
-
-  if (!loading) return;
-
+// LOADING SCREEN
+window.onload = () => {
   setTimeout(() => {
-    loading.style.opacity = "0";
-    loading.style.transition = "0.8s ease";
+    document.getElementById("loading").style.display = "none";
+  }, 2000);
+};
 
-    setTimeout(() => {
-      loading.remove();
-    }, 800);
-  }, 1000);
-});
-
-/* =========================
-   NAVEGAÇÃO ENTRE SEÇÕES
-========================= */
-function abrirSecao(id) {
-  const secoes = document.querySelectorAll(".secao");
-
-  secoes.forEach(secao => {
-    secao.classList.remove("ativa");
-    secao.style.display = "none";
+// NAVIGAÇÃO ENTRE SEÇÕES
+function showSection(id) {
+  document.querySelectorAll(".section").forEach(sec => {
+    sec.classList.remove("active");
   });
-
-  const alvo = document.getElementById(id);
-
-  if (alvo) {
-    alvo.style.display = "block";
-
-    setTimeout(() => {
-      alvo.classList.add("ativa");
-    }, 50);
-  }
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  document.getElementById(id).classList.add("active");
 }
 
-/* =========================
-   DARK MODE (FUNCIONANDO 100%)
-========================= */
-const btnTema = document.querySelector(".tema-btn");
+// DARK MODE
+const toggle = document.getElementById("themeToggle");
 
-function alternarTema() {
+function loadTheme() {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggle.textContent = "☀️";
+  }
+}
+
+toggle.onclick = () => {
   document.body.classList.toggle("dark");
 
-  const ativo = document.body.classList.contains("dark");
-
-  if (btnTema) {
-    btnTema.textContent = ativo ? "☀️" : "🌙";
-  }
-
-  localStorage.setItem("tema", ativo ? "dark" : "light");
-}
-
-/* carregar tema salvo */
-window.addEventListener("DOMContentLoaded", () => {
-  const tema = localStorage.getItem("tema");
-
-  if (tema === "dark") {
-    document.body.classList.add("dark");
-    if (btnTema) btnTema.textContent = "☀️";
-  }
-});
-
-/* =========================
-   EFEITO BOTÃO (FEEDBACK VISUAL)
-========================= */
-document.addEventListener("click", (e) => {
-  if (e.target.tagName === "BUTTON") {
-    e.target.style.transform = "scale(0.97)";
-
-    setTimeout(() => {
-      e.target.style.transform = "scale(1)";
-    }, 120);
-  }
-});
-
-/* =========================
-   QUIZ AGRÍCOLA FINAL
-========================= */
-
-const quiz = [
-  {
-    pergunta: "Qual é o principal objetivo da agricultura sustentável?",
-    respostas: [
-      { texto: "Produzir sem destruir o meio ambiente", pontos: 2 },
-      { texto: "Produzir o máximo possível sem controle", pontos: 0 },
-      { texto: "Eliminar a tecnologia do campo", pontos: 0 }
-    ]
-  },
-  {
-    pergunta: "Qual tecnologia ajuda o agricultor moderno?",
-    respostas: [
-      { texto: "Drones e sensores agrícolas", pontos: 2 },
-      { texto: "Ferramentas antigas apenas", pontos: 0 },
-      { texto: "Nenhuma tecnologia", pontos: 0 }
-    ]
-  },
-  {
-    pergunta: "Qual prática protege o solo?",
-    respostas: [
-      { texto: "Rotação de culturas", pontos: 2 },
-      { texto: "Queimada constante", pontos: 0 },
-      { texto: "Uso excessivo de agrotóxicos", pontos: 0 }
-    ]
-  }
-];
-
-let perguntaAtual = 0;
-let pontos = 0;
-
-/* iniciar quiz */
-function iniciarQuiz() {
-  perguntaAtual = 0;
-  pontos = 0;
-  mostrarPergunta();
-}
-
-/* mostrar pergunta */
-function mostrarPergunta() {
-  const container = document.getElementById("quiz-container");
-  if (!container) return;
-
-  const atual = quiz[perguntaAtual];
-
-  container.innerHTML = `
-    <div class="quiz-card">
-      <h3>${atual.pergunta}</h3>
-
-      <div class="quiz-opcoes">
-        ${atual.respostas.map(r => `
-          <button onclick="responder(${r.pontos})">
-            ${r.texto}
-          </button>
-        `).join("")}
-      </div>
-    </div>
-  `;
-}
-
-/* responder pergunta */
-function responder(valor) {
-  pontos += valor;
-  perguntaAtual++;
-
-  if (perguntaAtual < quiz.length) {
-    mostrarPergunta();
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    toggle.textContent = "☀️";
   } else {
-    mostrarResultado();
+    localStorage.setItem("theme", "light");
+    toggle.textContent = "🌙";
   }
+};
+
+loadTheme();
+
+// QUIZ
+let score = 0;
+let answered = 0;
+
+function answer(points, btn) {
+  if (btn.parentElement.classList.contains("done")) return;
+
+  score += points;
+  answered++;
+
+  btn.parentElement.classList.add("done");
+  btn.style.background = "#4caf50";
 }
 
-/* resultado final */
-function mostrarResultado() {
-  const container = document.getElementById("quiz-container");
+function finishQuiz() {
+  let result = document.getElementById("result");
 
-  let mensagem = "";
-  let classe = "";
+  if (answered < 3) {
+    result.textContent = "Responda todas as perguntas primeiro!";
+    return;
+  }
 
-  if (pontos === 6) {
-    mensagem = "🌱 Excelente! Você entende muito sobre agricultura sustentável e tecnologia!";
-    classe = "bom";
-  } else if (pontos >= 3) {
-    mensagem = "🌿 Bom! Você já tem conhecimento, mas ainda pode evoluir.";
-    classe = "medio";
+  if (score === 6) {
+    result.textContent = "Excelente entendimento sobre o agro! 🌱";
+  } else if (score >= 3) {
+    result.textContent = "Bom entendimento, mas ainda pode melhorar!";
   } else {
-    mensagem = "🌾 Você precisa estudar mais sobre sustentabilidade no campo.";
-    classe = "ruim";
+    result.textContent = "Baixo entendimento, estude mais sobre o tema.";
   }
-
-  container.innerHTML = `
-    <div class="quiz-resultado ${classe}">
-      <h3>Resultado Final</h3>
-      <p>${mensagem}</p>
-      <button onclick="iniciarQuiz()">Refazer Quiz</button>
-    </div>
-  `;
 }
-
-/* auto iniciar quiz se existir */
-window.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("quiz-container")) {
-    iniciarQuiz();
-  }
-});
