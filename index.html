@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Campo do Futuro | Agrinho 2026</title>
 
   <link rel="stylesheet" href="style.css">
@@ -12,152 +10,153 @@
 
 <body>
 
-<!-- ================= LOADING ================= -->
+<!-- =========================
+     TELA DE CARREGAMENTO
+========================= -->
 <div id="loading-screen">
   <div class="loader-box">
     <h1>🌱 Campo do Futuro</h1>
-    <p>Conectando produção agrícola e sustentabilidade...</p>
+    <p>Preparando o conhecimento sobre agricultura sustentável...</p>
     <div class="loader-bar"></div>
   </div>
 </div>
 
-<!-- ================= NAVBAR ================= -->
+<!-- =========================
+     NAVBAR
+========================= -->
 <header class="navbar">
-
-  <h2>🌱 Campo do Futuro</h2>
+  <h2>🌾 Campo do Futuro</h2>
 
   <nav>
-    <button onclick="mostrarSecao('inicio')">Início</button>
-    <button onclick="mostrarSecao('agro')">Agronegócio</button>
-    <button onclick="mostrarSecao('ambiente')">Meio Ambiente</button>
-    <button onclick="mostrarSecao('equilibrio')">Equilíbrio</button>
-    <button onclick="mostrarSecao('tecnologia')">Tecnologia</button>
-    <button onclick="mostrarSecao('quiz')">Quiz</button>
+    <button onclick="abrirSecao('inicio')">Início</button>
+    <button onclick="abrirSecao('agro')">Agricultura</button>
+    <button onclick="abrirSecao('tecnologia')">Tecnologia</button>
+    <button onclick="abrirSecao('sustentabilidade')">Sustentabilidade</button>
+    <button onclick="abrirSecao('quiz')">Quiz</button>
   </nav>
 
-  <button class="tema-btn" onclick="toggleTema()">🌓</button>
-
+  <button class="tema-btn" onclick="alternarTema()">🌙</button>
 </header>
 
-<!-- ================= INÍCIO ================= -->
+<!-- =========================
+     INÍCIO
+========================= -->
 <section id="inicio" class="secao ativa">
-
   <div class="hero">
-
     <h1>Agro forte, futuro sustentável</h1>
 
     <p>
-      O agronegócio brasileiro é um dos pilares da economia mundial.
-      Ele alimenta milhões de pessoas e movimenta o país inteiro.
-      Mas o grande desafio do século XXI é claro: como produzir mais sem destruir o meio ambiente?
+      A agricultura é uma das bases da sociedade moderna. Ela alimenta o mundo,
+      movimenta a economia e sustenta milhões de famílias. Porém, o futuro exige
+      um novo equilíbrio: produzir mais, com menos impacto ambiental.
     </p>
 
     <p>
-      Este projeto apresenta a importância do equilíbrio entre produção agrícola e preservação ambiental,
-      mostrando como a tecnologia pode ser uma ponte entre esses dois mundos.
+      Este projeto apresenta como a tecnologia e a inovação estão transformando
+      o campo, tornando a agricultura mais eficiente, inteligente e sustentável.
     </p>
 
-    <button onclick="mostrarSecao('agro')">
-      Explorar o projeto
-    </button>
-
+    <button onclick="abrirSecao('agro')">Explorar o conteúdo</button>
   </div>
-
 </section>
 
-<!-- ================= AGRO ================= -->
+<!-- =========================
+     AGRICULTURA
+========================= -->
 <section id="agro" class="secao">
 
-  <h2>🌾 O Agronegócio</h2>
+  <h2>🌾 Agricultura no Brasil</h2>
 
   <p>
-    O agronegócio é responsável por grande parte da produção de alimentos no Brasil e no mundo.
-    Ele envolve desde pequenas propriedades familiares até grandes plantações mecanizadas.
+    O Brasil é um dos maiores produtores agrícolas do mundo. Culturas como soja,
+    milho, café e cana-de-açúcar são fundamentais para a economia nacional.
   </p>
 
   <p>
-    Com o avanço da tecnologia, a produtividade aumentou muito, permitindo colher mais alimentos em menos espaço.
-    No entanto, esse crescimento também trouxe desafios ambientais importantes.
-  </p>
-
-</section>
-
-<!-- ================= MEIO AMBIENTE ================= -->
-<section id="ambiente" class="secao">
-
-  <h2>🌍 Meio Ambiente</h2>
-
-  <p>
-    O meio ambiente é a base de toda produção agrícola.
-    Sem solo fértil, água limpa e clima equilibrado, não há agricultura possível.
+    No entanto, o crescimento da produção precisa estar alinhado com a preservação
+    do solo, da água e das florestas. A agricultura moderna busca exatamente isso:
+    produtividade com responsabilidade ambiental.
   </p>
 
   <p>
-    Problemas como desmatamento, uso excessivo da água e degradação do solo ameaçam o futuro da produção de alimentos.
-    Por isso, preservar a natureza é essencial para garantir a continuidade do agronegócio.
+    Técnicas como rotação de culturas, plantio direto e uso consciente do solo
+    ajudam a manter a fertilidade e evitar a degradação ambiental.
   </p>
 
 </section>
 
-<!-- ================= EQUILÍBRIO ================= -->
-<section id="equilibrio" class="secao">
-
-  <h2>⚖️ O Equilíbrio Necessário</h2>
-
-  <p>
-    O futuro da agricultura depende do equilíbrio entre produção e preservação.
-    Não se trata de escolher entre um ou outro, mas sim de fazer os dois funcionarem juntos.
-  </p>
-
-  <p>
-    Práticas sustentáveis como rotação de culturas, uso consciente da água e preservação de áreas naturais
-    ajudam a manter esse equilíbrio.
-  </p>
-
-</section>
-
-<!-- ================= TECNOLOGIA ================= -->
+<!-- =========================
+     TECNOLOGIA
+========================= -->
 <section id="tecnologia" class="secao">
 
-  <h2>🤖 Tecnologia no Campo</h2>
+  <h2>🚜 Tecnologia no campo</h2>
 
   <p>
-    A tecnologia tem sido uma grande aliada do campo moderno.
-    Ferramentas como drones, sensores e inteligência artificial ajudam agricultores a produzir mais com menos impacto ambiental.
+    A tecnologia revolucionou o campo. Hoje, sensores, drones, GPS e inteligência
+    artificial ajudam agricultores a tomar decisões mais precisas.
   </p>
 
   <p>
-    A chamada agricultura de precisão permite analisar o solo, controlar pragas e otimizar recursos de forma inteligente,
-    reduzindo desperdícios e aumentando a eficiência.
+    Máquinas modernas conseguem plantar, irrigar e colher com precisão milimétrica,
+    reduzindo desperdícios e aumentando a eficiência da produção.
+  </p>
+
+  <p>
+    Isso significa mais alimentos produzidos com menos impacto ambiental e maior
+    sustentabilidade para o futuro.
   </p>
 
 </section>
 
-<!-- ================= QUIZ ================= -->
+<!-- =========================
+     SUSTENTABILIDADE
+========================= -->
+<section id="sustentabilidade" class="secao">
+
+  <h2>🌱 Sustentabilidade no campo</h2>
+
+  <p>
+    Sustentabilidade significa atender às necessidades do presente sem comprometer
+    o futuro. Na agricultura, isso envolve o uso responsável dos recursos naturais.
+  </p>
+
+  <p>
+    Práticas sustentáveis incluem preservação do solo, economia de água, redução
+    de agrotóxicos e proteção da biodiversidade.
+  </p>
+
+  <p>
+    O equilíbrio entre produção e meio ambiente é essencial para garantir que as
+    próximas gerações também tenham acesso a alimentos e recursos naturais.
+  </p>
+
+</section>
+
+<!-- =========================
+     QUIZ
+========================= -->
 <section id="quiz" class="secao">
 
-  <h2>🧠 Quiz: Você entende o equilíbrio do agro?</h2>
+  <h2>🧠 Quiz: Agricultura Sustentável</h2>
 
   <p>
-    Responda às perguntas abaixo e veja se você entende como funciona a relação entre produção agrícola e sustentabilidade.
+    Teste seus conhecimentos sobre agricultura, tecnologia e sustentabilidade.
   </p>
 
-  <div id="quiz-box"></div>
-  <div id="resultado"></div>
+  <div id="quiz-container"></div>
+
+  <button onclick="iniciarQuiz()">Iniciar Quiz</button>
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 <footer>
-
-  <p>
-    Projeto Agrinho 2026 — Campo do Futuro 🌱<br>
-    Tema: Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente
-  </p>
-
+  <p>Projeto Agrinho 2026 — Campo do Futuro</p>
 </footer>
 
 <script src="main.js"></script>
-
 </body>
 </html>

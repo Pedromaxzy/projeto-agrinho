@@ -1,6 +1,3 @@
-/* =========================
-   RESET GERAL
-========================= */
 * {
   margin: 0;
   padding: 0;
@@ -9,18 +6,18 @@
 }
 
 body {
-  background: #f5f7f5;
-  color: #1e2b1f;
-  transition: 0.4s ease;
+  background: #f4f7f4;
+  color: #1f2b1f;
   line-height: 1.6;
+  transition: 0.4s ease;
 }
 
 /* =========================
    DARK MODE
 ========================= */
 body.dark {
-  background: #0f1410;
-  color: #e6f5ea;
+  background: #0e1410;
+  color: #e6f3ea;
 }
 
 /* =========================
@@ -28,13 +25,11 @@ body.dark {
 ========================= */
 #loading-screen {
   position: fixed;
-  width: 100%;
-  height: 100vh;
+  inset: 0;
   background: linear-gradient(135deg, #1b5e20, #43a047);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   z-index: 9999;
   color: white;
 }
@@ -45,7 +40,7 @@ body.dark {
 }
 
 .loader-box h1 {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   margin-bottom: 10px;
 }
 
@@ -54,10 +49,10 @@ body.dark {
 }
 
 .loader-bar {
-  width: 220px;
+  width: 240px;
   height: 6px;
+  margin: 20px auto 0;
   background: rgba(255,255,255,0.3);
-  margin-top: 20px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -68,8 +63,8 @@ body.dark {
   position: absolute;
   width: 40%;
   height: 100%;
-  background: white;
-  animation: loading 1.4s infinite;
+  background: #fff;
+  animation: loading 1.3s infinite;
 }
 
 /* =========================
@@ -95,13 +90,13 @@ body.dark {
 
 .navbar nav {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .navbar button {
-  border: none;
   background: transparent;
+  border: none;
   color: white;
   padding: 8px 10px;
   border-radius: 8px;
@@ -111,6 +106,7 @@ body.dark {
 
 .navbar button:hover {
   background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
 }
 
 .tema-btn {
@@ -118,6 +114,7 @@ body.dark {
   color: #1b5e20;
   border-radius: 50%;
   padding: 6px 10px;
+  border: none;
   cursor: pointer;
 }
 
@@ -126,7 +123,7 @@ body.dark {
 ========================= */
 .secao {
   display: none;
-  padding: 110px 20px 60px;
+  padding: 120px 20px 60px;
   max-width: 1000px;
   margin: auto;
   animation: fadeUp 0.5s ease;
@@ -137,11 +134,11 @@ body.dark {
 }
 
 /* =========================
-   HERO / TEXTO PRINCIPAL
+   HERO
 ========================= */
 .hero {
   text-align: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .hero h1 {
@@ -151,12 +148,12 @@ body.dark {
 }
 
 .hero p {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-size: 1.05rem;
 }
 
 .hero button {
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 12px 18px;
   border: none;
   background: #2e7d32;
@@ -167,12 +164,12 @@ body.dark {
 }
 
 .hero button:hover {
-  transform: scale(1.05);
   background: #1b5e20;
+  transform: scale(1.05);
 }
 
 /* =========================
-   TÍTULOS
+   TEXTOS
 ========================= */
 h2 {
   color: #2e7d32;
@@ -180,11 +177,77 @@ h2 {
   font-size: 1.8rem;
 }
 
-/* =========================
-   PARÁGRAFOS
-========================= */
 p {
   margin-bottom: 12px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+#quiz-container {
+  margin-top: 20px;
+}
+
+.quiz-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeUp 0.4s ease;
+}
+
+body.dark .quiz-card {
+  background: #1b2a1e;
+}
+
+.quiz-card h3 {
+  margin-bottom: 15px;
+}
+
+.quiz-opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quiz-opcoes button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #e8f5e9;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quiz-opcoes button:hover {
+  background: #c8e6c9;
+  transform: scale(1.02);
+}
+
+/* RESULTADO QUIZ */
+.quiz-resultado {
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  animation: fadeUp 0.4s ease;
+}
+
+.quiz-resultado.bom {
+  background: #dcedc8;
+}
+
+.quiz-resultado.medio {
+  background: #fff9c4;
+}
+
+.quiz-resultado.ruim {
+  background: #ffcdd2;
+}
+
+body.dark .quiz-resultado.bom,
+body.dark .quiz-resultado.medio,
+body.dark .quiz-resultado.ruim {
+  color: #000;
 }
 
 /* =========================
@@ -196,13 +259,6 @@ footer {
   background: #1b5e20;
   color: white;
   margin-top: 40px;
-}
-
-/* =========================
-   DARK MODE CARD FIX (caso use depois)
-========================= */
-body.dark .card {
-  background: #1c2a1f;
 }
 
 /* =========================
