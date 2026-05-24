@@ -1,26 +1,24 @@
-/* ===================================================== */
-/* AGRINHO 2026 - MAIN.JS                                */
-/* ===================================================== */
+/* ========================================= */
+/* AGRINHO 2026 - MAIN.JS */
+/* ========================================= */
 
-/* ===================================================== */
-/* VARIÁVEIS GLOBAIS                                     */
-/* ===================================================== */
+/* ========================================= */
+/* VARIÁVEIS */
+/* ========================================= */
 
-let currentPage = "home";
-
-let quizScore = 0;
+let score = 0;
 
 let answeredQuestions = 0;
 
-let quizLocked = false;
+let quizFinished = false;
 
 const pages = document.querySelectorAll(".page");
 
 const themeButton = document.getElementById("themeToggle");
 
-/* ===================================================== */
-/* LOADING SCREEN                                        */
-/* ===================================================== */
+/* ========================================= */
+/* LOADING SCREEN */
+/* ========================================= */
 
 window.addEventListener("load", () => {
 
@@ -38,13 +36,13 @@ loading.style.display = "none";
 
 },1000);
 
-},2200);
+},1800);
 
 });
 
-/* ===================================================== */
-/* NAVEGAÇÃO ENTRE PÁGINAS                               */
-/* ===================================================== */
+/* ========================================= */
+/* NAVEGAÇÃO ENTRE PÁGINAS */
+/* ========================================= */
 
 function navigateTo(pageId){
 
@@ -54,13 +52,11 @@ page.classList.remove("active");
 
 });
 
-const targetPage = document.getElementById(pageId);
+const target = document.getElementById(pageId);
 
-if(targetPage){
+if(target){
 
-targetPage.classList.add("active");
-
-currentPage = pageId;
+target.classList.add("active");
 
 window.scrollTo({
 
@@ -73,15 +69,13 @@ behavior:"smooth"
 
 }
 
-/* ===================================================== */
-/* DARK MODE                                             */
-/* ===================================================== */
+/* ========================================= */
+/* DARK MODE */
+/* ========================================= */
 
 function applyTheme(theme){
 
 if(theme === "dark"){
-
-document.body.classList.remove("light");
 
 document.body.classList.add("dark");
 
@@ -91,17 +85,15 @@ themeButton.textContent = "☀️";
 
 document.body.classList.remove("dark");
 
-document.body.classList.add("light");
-
 themeButton.textContent = "🌙";
 
 }
 
 }
 
-/* ===================================================== */
-/* CARREGAR TEMA                                         */
-/* ===================================================== */
+/* ========================================= */
+/* CARREGAR TEMA */
+/* ========================================= */
 
 function loadTheme(){
 
@@ -113,7 +105,7 @@ applyTheme(savedTheme);
 
 }else{
 
-applyTheme("dark");
+applyTheme("light");
 
 }
 
@@ -121,9 +113,9 @@ applyTheme("dark");
 
 loadTheme();
 
-/* ===================================================== */
-/* TROCAR TEMA                                           */
-/* ===================================================== */
+/* ========================================= */
+/* TROCAR TEMA */
+/* ========================================= */
 
 themeButton.addEventListener("click", () => {
 
@@ -143,13 +135,13 @@ localStorage.setItem("agrinhoTheme","dark");
 
 });
 
-/* ===================================================== */
-/* QUIZ                                                  */
-/* ===================================================== */
+/* ========================================= */
+/* QUIZ */
+/* ========================================= */
 
 function answer(button,value){
 
-if(quizLocked){
+if(quizFinished){
 
 return;
 
@@ -167,7 +159,7 @@ question.dataset.answered = "true";
 
 answeredQuestions++;
 
-quizScore += value;
+score += value;
 
 const buttons = question.querySelectorAll("button");
 
@@ -175,33 +167,29 @@ buttons.forEach(btn => {
 
 btn.disabled = true;
 
-btn.style.opacity = "0.6";
+btn.style.opacity = "0.7";
 
 });
 
-button.style.opacity = "1";
-
 if(value === 2){
 
-button.style.background = "#00ff88";
+button.style.background = "#3ca64c";
 
-button.style.color = "#000";
-
-button.style.transform = "scale(1.03)";
+button.style.color = "white";
 
 }else{
 
-button.style.background = "#ff3b3b";
+button.style.background = "#d64545";
 
-button.style.color = "#fff";
-
-}
+button.style.color = "white";
 
 }
 
-/* ===================================================== */
-/* FINALIZAR QUIZ                                        */
-/* ===================================================== */
+}
+
+/* ========================================= */
+/* FINALIZAR QUIZ */
+/* ========================================= */
 
 function finishQuiz(){
 
@@ -211,6 +199,7 @@ if(answeredQuestions < 3){
 
 result.innerHTML = `
 <h2>⚠️ Atenção</h2>
+
 <p>
 Responda todas as perguntas antes de finalizar o quiz.
 </p>
@@ -220,15 +209,15 @@ return;
 
 }
 
-quizLocked = true;
+quizFinished = true;
 
-if(quizScore === 6){
+if(score === 6){
 
 result.innerHTML = `
 <h2>🌟 Excelente!</h2>
 
 <p>
-Você demonstrou excelente entendimento sobre agricultura,
+Você possui excelente entendimento sobre agricultura,
 tecnologia e sustentabilidade.
 </p>
 
@@ -237,18 +226,17 @@ Pontuação final: <strong>6/6</strong>
 </p>
 `;
 
-}else if(quizScore >= 3){
+}else if(score >= 3){
 
 result.innerHTML = `
 <h2>👍 Bom trabalho!</h2>
 
 <p>
-Você possui um bom conhecimento sobre o tema,
-mas ainda pode aprender mais.
+Você possui um bom conhecimento sobre o tema.
 </p>
 
 <p>
-Pontuação final: <strong>${quizScore}/6</strong>
+Pontuação final: <strong>${score}/6</strong>
 </p>
 `;
 
@@ -258,12 +246,11 @@ result.innerHTML = `
 <h2>📚 Continue aprendendo!</h2>
 
 <p>
-Você ainda pode desenvolver mais conhecimentos
-sobre agricultura sustentável e tecnologia no campo.
+Você ainda pode aprender mais sobre o agronegócio sustentável.
 </p>
 
 <p>
-Pontuação final: <strong>${quizScore}/6</strong>
+Pontuação final: <strong>${score}/6</strong>
 </p>
 `;
 
@@ -271,214 +258,12 @@ Pontuação final: <strong>${quizScore}/6</strong>
 
 }
 
-/* ===================================================== */
-/* PARTICLES CANVAS                                      */
-/* ===================================================== */
-
-const canvas = document.getElementById("backgroundCanvas");
-
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-
-canvas.height = window.innerHeight;
-
-/* ===================================================== */
-/* REDIMENSIONAR                                         */
-/* ===================================================== */
-
-window.addEventListener("resize", () => {
-
-canvas.width = window.innerWidth;
-
-canvas.height = window.innerHeight;
-
-});
-
-/* ===================================================== */
-/* PARTICLE CLASS                                        */
-/* ===================================================== */
-
-class Particle{
-
-constructor(){
-
-this.x = Math.random() * canvas.width;
-
-this.y = Math.random() * canvas.height;
-
-this.size = Math.random() * 3 + 1;
-
-this.speedX = (Math.random() - 0.5) * 0.7;
-
-this.speedY = (Math.random() - 0.5) * 0.7;
-
-this.opacity = Math.random() * 0.5 + 0.2;
-
-}
-
-update(){
-
-this.x += this.speedX;
-
-this.y += this.speedY;
-
-if(this.x < 0){
-
-this.x = canvas.width;
-
-}
-
-if(this.x > canvas.width){
-
-this.x = 0;
-
-}
-
-if(this.y < 0){
-
-this.y = canvas.height;
-
-}
-
-if(this.y > canvas.height){
-
-this.y = 0;
-
-}
-
-}
-
-draw(){
-
-ctx.beginPath();
-
-ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-
-ctx.fillStyle = `rgba(0,255,136,${this.opacity})`;
-
-ctx.fill();
-
-}
-
-}
-
-/* ===================================================== */
-/* ARRAY DE PARTICULAS                                   */
-/* ===================================================== */
-
-const particles = [];
-
-/* ===================================================== */
-/* INICIALIZAR                                           */
-/* ===================================================== */
-
-function initParticles(){
-
-particles.length = 0;
-
-for(let i = 0; i < 140; i++){
-
-particles.push(new Particle());
-
-}
-
-}
-
-initParticles();
-
-/* ===================================================== */
-/* CONECTAR LINHAS                                       */
-/* ===================================================== */
-
-function connectParticles(){
-
-for(let a = 0; a < particles.length; a++){
-
-for(let b = a; b < particles.length; b++){
-
-let dx = particles[a].x - particles[b].x;
-
-let dy = particles[a].y - particles[b].y;
-
-let distance = dx * dx + dy * dy;
-
-if(distance < 12000){
-
-ctx.beginPath();
-
-ctx.strokeStyle = "rgba(0,255,136,0.05)";
-
-ctx.lineWidth = 1;
-
-ctx.moveTo(particles[a].x,particles[a].y);
-
-ctx.lineTo(particles[b].x,particles[b].y);
-
-ctx.stroke();
-
-}
-
-}
-
-}
-
-}
-
-/* ===================================================== */
-/* ANIMAR PARTICLES                                      */
-/* ===================================================== */
-
-function animateParticles(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-particles.forEach(particle => {
-
-particle.update();
-
-particle.draw();
-
-});
-
-connectParticles();
-
-requestAnimationFrame(animateParticles);
-
-}
-
-animateParticles();
-
-/* ===================================================== */
-/* EFEITO HEADER                                         */
-/* ===================================================== */
-
-window.addEventListener("scroll", () => {
-
-const header = document.getElementById("header");
-
-if(window.scrollY > 50){
-
-header.style.background = "rgba(0,0,0,0.75)";
-
-header.style.boxShadow = "0 0 20px rgba(0,255,136,0.1)";
-
-}else{
-
-header.style.background = "rgba(0,0,0,0.4)";
-
-header.style.boxShadow = "none";
-
-}
-
-});
-
-/* ===================================================== */
-/* REVELAR CARDS                                         */
-/* ===================================================== */
+/* ========================================= */
+/* ANIMAÇÃO DOS CARDS */
+/* ========================================= */
 
 const animatedCards = document.querySelectorAll(
-".statCard, .contentCard, .techCard, .sustainCard, .futureCard"
+".card, .infoCard, .techCard, .sustainCard"
 );
 
 const observer = new IntersectionObserver(entries => {
@@ -503,54 +288,37 @@ animatedCards.forEach(card => {
 
 card.style.opacity = "0";
 
-card.style.transform = "translateY(40px)";
+card.style.transform = "translateY(30px)";
 
-card.style.transition = "0.7s ease";
+card.style.transition = "0.6s ease";
 
 observer.observe(card);
 
 });
 
-/* ===================================================== */
-/* GALERIA HOVER                                         */
-/* ===================================================== */
+/* ========================================= */
+/* HEADER SCROLL */
+/* ========================================= */
 
-const galleryImages = document.querySelectorAll(".galleryGrid img");
+window.addEventListener("scroll", () => {
 
-galleryImages.forEach(image => {
+const header = document.getElementById("header");
 
-image.addEventListener("mouseenter", () => {
+if(window.scrollY > 30){
 
-image.style.transform = "scale(1.05) rotate(1deg)";
+header.style.boxShadow = "0 4px 15px rgba(0,0,0,0.12)";
 
-});
+}else{
 
-image.addEventListener("mouseleave", () => {
+header.style.boxShadow = "0 2px 10px rgba(0,0,0,0.08)";
 
-image.style.transform = "scale(1) rotate(0deg)";
-
-});
+}
 
 });
 
-/* ===================================================== */
-/* MICRO INTERAÇÃO MOUSE                                 */
-/* ===================================================== */
-
-document.addEventListener("mousemove", e => {
-
-const x = e.clientX / window.innerWidth;
-
-const y = e.clientY / window.innerHeight;
-
-document.body.style.backgroundPosition =
-`${x * 20}px ${y * 20}px`;
-
-});
-
-/* ===================================================== */
-/* TEXTO DIGITANDO                                       */
-/* ===================================================== */
+/* ========================================= */
+/* EFEITO HERO */
+/* ========================================= */
 
 const heroTitle = document.querySelector(".heroText h2");
 
@@ -558,89 +326,55 @@ const originalText = heroTitle.innerText;
 
 heroTitle.innerText = "";
 
-let typeIndex = 0;
+let index = 0;
 
-function typeWriter(){
+function typingEffect(){
 
-if(typeIndex < originalText.length){
+if(index < originalText.length){
 
-heroTitle.innerText += originalText.charAt(typeIndex);
+heroTitle.innerText += originalText.charAt(index);
 
-typeIndex++;
+index++;
 
-setTimeout(typeWriter,50);
-
-}
+setTimeout(typingEffect,40);
 
 }
 
-setTimeout(typeWriter,2500);
-
-/* ===================================================== */
-/* BOTÕES HERO                                           */
-/* ===================================================== */
-
-const heroButtons = document.querySelectorAll(".heroButtons button");
-
-heroButtons.forEach(button => {
-
-button.addEventListener("mouseenter", () => {
-
-button.style.letterSpacing = "1px";
-
-});
-
-button.addEventListener("mouseleave", () => {
-
-button.style.letterSpacing = "0px";
-
-});
-
-});
-
-/* ===================================================== */
-/* EFEITO FLUTUAR                                        */
-/* ===================================================== */
-
-const floatingCards = document.querySelectorAll(
-".statCard,.futureCard"
-);
-
-floatingCards.forEach((card,index) => {
-
-setInterval(() => {
-
-card.style.transform = `
-translateY(${Math.sin(Date.now()/700 + index)*4}px)
-`;
-
-},30);
-
-});
-
-/* ===================================================== */
-/* DETECTAR MOBILE                                       */
-/* ===================================================== */
-
-function isMobile(){
-
-return window.innerWidth <= 768;
-
 }
 
-if(isMobile()){
+setTimeout(typingEffect,2200);
 
-document.body.classList.add("mobile");
+/* ========================================= */
+/* HOVER IMAGENS */
+/* ========================================= */
 
-}
+const images = document.querySelectorAll("img");
 
-/* ===================================================== */
-/* RECARREGAR MOBILE                                     */
-/* ===================================================== */
+images.forEach(image => {
 
-window.addEventListener("resize", () => {
+image.addEventListener("mouseenter", () => {
 
-if(isMobile()){
+image.style.transform = "scale(1.02)";
+
+image.style.transition = "0.4s";
+
+});
+
+image.addEventListener("mouseleave", () => {
+
+image.style.transform = "scale(1)";
+
+});
+
+});
+
+/* ========================================= */
+/* RESPONSIVIDADE */
+/* ========================================= */
+
+function checkMobile(){
+
+if(window.innerWidth <= 768){
 
 document.body.classList.add("mobile");
 
@@ -650,13 +384,17 @@ document.body.classList.remove("mobile");
 
 }
 
-});
+}
 
-/* ===================================================== */
-/* PRELOAD IMAGES                                        */
-/* ===================================================== */
+checkMobile();
 
-const imageSources = [
+window.addEventListener("resize", checkMobile);
+
+/* ========================================= */
+/* PRELOAD DE IMAGENS */
+/* ========================================= */
+
+const imageList = [
 
 "img/agro.jpg",
 "img/agro2.jpg",
@@ -665,7 +403,7 @@ const imageSources = [
 
 ];
 
-imageSources.forEach(src => {
+imageList.forEach(src => {
 
 const img = new Image();
 
@@ -673,19 +411,36 @@ img.src = src;
 
 });
 
-/* ===================================================== */
-/* CONSOLE MESSAGE                                       */
-/* ===================================================== */
+/* ========================================= */
+/* EFEITO SUAVE NOS BOTÕES */
+/* ========================================= */
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+
+button.addEventListener("mouseenter", () => {
+
+button.style.transition = "0.3s";
+
+});
+
+});
+
+/* ========================================= */
+/* CONSOLE */
+/* ========================================= */
 
 console.log(`
 🌱 AGRINHO 2026
 
-Projeto carregado com sucesso.
+Projeto iniciado com sucesso.
 
-Tecnologia + Sustentabilidade + Futuro.
+Tema:
+Agro forte, futuro sustentável.
 
 `);
 
-/* ===================================================== */
-/* FINAL                                                 */
-/* ===================================================== */
+/* ========================================= */
+/* FINAL */
+/* ========================================= */
