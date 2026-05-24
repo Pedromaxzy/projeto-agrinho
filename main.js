@@ -1,24 +1,22 @@
-// =========================
-// LOADING SCREEN FIX
-// =========================
+/* =========================
+   LOADING SCREEN
+========================= */
 window.addEventListener("load", () => {
   const loading = document.getElementById("loading-screen");
 
   setTimeout(() => {
     loading.style.opacity = "0";
-    loading.style.transition = "0.8s";
+    loading.style.transition = "0.6s ease";
 
     setTimeout(() => {
       loading.style.display = "none";
-    }, 800);
-
-  }, 1200); // tempo mínimo de loading (efeito bonito)
+    }, 600);
+  }, 1200);
 });
 
-
-// =========================
-// TROCA DE SEÇÕES (MENU)
-// =========================
+/* =========================
+   NAVEGAÇÃO ENTRE SEÇÕES
+========================= */
 function mostrarSecao(id) {
   const secoes = document.querySelectorAll(".secao");
 
@@ -26,126 +24,138 @@ function mostrarSecao(id) {
     secao.classList.remove("ativa");
   });
 
-  document.getElementById(id).classList.add("ativa");
+  const alvo = document.getElementById(id);
+  if (alvo) {
+    alvo.classList.add("ativa");
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
 }
 
-
-// =========================
-// DARK / LIGHT MODE
-// =========================
-function toggleTema() {
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+function alternarTema() {
   document.body.classList.toggle("dark");
 
-  // salva preferência
+  const botao = document.querySelector(".tema-btn");
+
   if (document.body.classList.contains("dark")) {
+    botao.textContent = "☀️";
     localStorage.setItem("tema", "dark");
   } else {
+    botao.textContent = "🌙";
     localStorage.setItem("tema", "light");
   }
 }
 
+/* carregar tema salvo */
+window.addEventListener("DOMContentLoaded", () => {
+  const temaSalvo = localStorage.getItem("tema");
 
-// carregar tema salvo
-window.addEventListener("load", () => {
-  const tema = localStorage.getItem("tema");
-
-  if (tema === "dark") {
+  if (temaSalvo === "dark") {
     document.body.classList.add("dark");
+    const botao = document.querySelector(".tema-btn");
+    if (botao) botao.textContent = "☀️";
   }
 });
 
+/* =========================
+   QUIZ (3 PERGUNTAS)
+========================= */
 
-// =========================
-// QUIZ AGRÍCOLA (3 PERGUNTAS)
-// =========================
+let perguntaAtual = 0;
+let pontuacao = 0;
 
 const perguntas = [
   {
-    pergunta: "Qual prática ajuda a preservar o solo?",
-    opcoes: ["Desmatamento", "Rotação de culturas", "Queimadas"],
-    correta: 1
+    pergunta: "Qual prática ajuda a preservar o solo agrícola?",
+    opcoes: [
+      { texto: "Rotação de culturas", valor: 1 },
+      { texto: "Queimada constante", valor: 0 },
+      { texto: "Desmatamento", valor: 0 }
+    ]
   },
   {
-    pergunta: "O que reduz o desperdício de água no agro?",
-    opcoes: ["Irrigação inteligente", "Mais máquinas", "Uso aleatório"],
-    correta: 0
+    pergunta: "O que é agricultura sustentável?",
+    opcoes: [
+      { texto: "Produção sem pensar no futuro", valor: 0 },
+      { texto: "Produção equilibrada com o meio ambiente", valor: 1 },
+      { texto: "Uso excessivo de agrotóxicos", valor: 0 }
+    ]
   },
   {
-    pergunta: "Qual tecnologia ajuda no monitoramento das lavouras?",
-    opcoes: ["Drones", "TV", "Rádio"],
-    correta: 0
+    pergunta: "Qual tecnologia ajuda no campo moderno?",
+    opcoes: [
+      { texto: "Drones agrícolas", valor: 1 },
+      { texto: "Ferramentas quebradas", valor: 0 },
+      { texto: "Queima de pasto", valor: 0 }
+    ]
   }
 ];
 
-let indice = 0;
-let pontos = 0;
+function iniciarQuiz() {
+  perguntaAtual = 0;
+  pontuacao = 0;
+  mostrarPergunta();
+}
 
-const quizBox = document.getElementById("quiz-box");
-const resultado = document.getElementById("resultado");
+function mostrarPergunta() {
+  const container = document.getElementById("quiz-container");
 
-function carregarPergunta() {
-  if (indice >= perguntas.length) {
-    mostrarResultado();
-    return;
-  }
+  if (!container) return;
 
-  const p = perguntas[indice];
+  const q = perguntas[perguntaAtual];
 
-  quizBox.innerHTML = `
-    <h3>${p.pergunta}</h3>
-    ${p.opcoes.map((opcao, i) => `
-      <button class="quiz-btn" onclick="responder(${i})">
-        ${opcao}
-      </button>
-    `).join("")}
+  container.innerHTML = `
+    <h3>${q.pergunta}</h3>
+    <div class="opcoes">
+      ${q.opcoes.map((op, index) => `
+        <button onclick="responder(${op.valor})">
+          ${op.texto}
+        </button>
+      `).join("")}
+    </div>
   `;
 }
 
-function responder(resposta) {
-  if (resposta === perguntas[indice].correta) {
-    pontos++;
-  }
+function responder(valor) {
+  pontuacao += valor;
+  perguntaAtual++;
 
-  indice++;
-  carregarPergunta();
+  if (perguntaAtual < perguntas.length) {
+    mostrarPergunta();
+  } else {
+    mostrarResultado();
+  }
 }
 
 function mostrarResultado() {
-  quizBox.innerHTML = "";
+  const container = document.getElementById("quiz-container");
 
   let mensagem = "";
 
-  if (pontos === 3) {
-    mensagem = "🌟 Excelente! Você entende de agro sustentável!";
-  } else if (pontos === 2) {
-    mensagem = "👍 Bom! Você já sabe bastante sobre o tema.";
+  if (pontuacao === 3) {
+    mensagem = "🌱 Excelente! Você entende muito sobre agricultura sustentável!";
+  } else if (pontuacao === 2) {
+    mensagem = "🌿 Bom! Você já entende bem, mas pode melhorar.";
   } else {
-    mensagem = "🌱 Continue aprendendo sobre sustentabilidade!";
+    mensagem = "🌾 Você precisa aprender mais sobre sustentabilidade no campo.";
   }
 
-  resultado.innerHTML = `
-    <h3>Resultado final</h3>
-    <p>Você acertou ${pontos} de ${perguntas.length}</p>
+  container.innerHTML = `
+    <h3>Resultado</h3>
     <p>${mensagem}</p>
-
-    <button class="quiz-btn" onclick="reiniciarQuiz()">Tentar novamente</button>
+    <button onclick="iniciarQuiz()">Tentar novamente</button>
   `;
 }
 
-function reiniciarQuiz() {
-  indice = 0;
-  pontos = 0;
-  resultado.innerHTML = "";
-  carregarPergunta();
-}
-
-
-// iniciar quiz ao abrir seção (opcional)
-document.addEventListener("DOMContentLoaded", () => {
-  carregarPergunta();
+/* iniciar quiz automaticamente se existir */
+window.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("quiz-container")) {
+    iniciarQuiz();
+  }
 });

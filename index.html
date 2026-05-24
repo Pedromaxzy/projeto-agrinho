@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>AgroTech Brasil | Agrinho 2026</title>
+  <title>Campo do Futuro | Agrinho 2026</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,139 +15,131 @@
 <!-- ================= LOADING ================= -->
 <div id="loading-screen">
   <div class="loader-box">
-    <h1>🌱 AgroTech Brasil</h1>
-    <p>Conectando o campo ao futuro sustentável...</p>
+    <h1>🌱 Campo do Futuro</h1>
+    <p>Conectando produção agrícola e sustentabilidade...</p>
     <div class="loader-bar"></div>
   </div>
 </div>
 
 <!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <h2>🌿 AgroTech Brasil</h2>
+
+  <h2>🌱 Campo do Futuro</h2>
 
   <nav>
     <button onclick="mostrarSecao('inicio')">Início</button>
-    <button onclick="mostrarSecao('problema')">Problema</button>
-    <button onclick="mostrarSecao('solucao')">Soluções</button>
+    <button onclick="mostrarSecao('agro')">Agronegócio</button>
+    <button onclick="mostrarSecao('ambiente')">Meio Ambiente</button>
+    <button onclick="mostrarSecao('equilibrio')">Equilíbrio</button>
     <button onclick="mostrarSecao('tecnologia')">Tecnologia</button>
     <button onclick="mostrarSecao('quiz')">Quiz</button>
   </nav>
 
   <button class="tema-btn" onclick="toggleTema()">🌓</button>
+
 </header>
 
 <!-- ================= INÍCIO ================= -->
 <section id="inicio" class="secao ativa">
 
   <div class="hero">
+
     <h1>Agro forte, futuro sustentável</h1>
 
     <p>
-      O agronegócio brasileiro é um dos mais importantes do mundo.
-      Ele alimenta milhões de pessoas, movimenta a economia e sustenta cidades inteiras.
-      Mas o futuro exige equilíbrio: produzir mais sem destruir o meio ambiente.
+      O agronegócio brasileiro é um dos pilares da economia mundial.
+      Ele alimenta milhões de pessoas e movimenta o país inteiro.
+      Mas o grande desafio do século XXI é claro: como produzir mais sem destruir o meio ambiente?
     </p>
 
-    <button onclick="mostrarSecao('problema')">Entender o desafio</button>
-  </div>
+    <p>
+      Este projeto apresenta a importância do equilíbrio entre produção agrícola e preservação ambiental,
+      mostrando como a tecnologia pode ser uma ponte entre esses dois mundos.
+    </p>
 
-  <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30"
-       alt="Campo agrícola moderno">
-
-</section>
-
-<!-- ================= PROBLEMA ================= -->
-<section id="problema" class="secao">
-
-  <h2>⚠️ O grande desafio do agro</h2>
-
-  <p>
-    O crescimento da agricultura trouxe grandes avanços, mas também impactos ambientais.
-    O uso excessivo do solo, desmatamento e desperdício de água são problemas reais.
-    O desafio do século XXI é manter a produção sem destruir os recursos naturais.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>🌳 Desmatamento</h3>
-      <p>A expansão agrícola pode reduzir florestas importantes para o equilíbrio climático.</p>
-    </div>
-
-    <div class="card">
-      <h3>💧 Água</h3>
-      <p>O uso incorreto da irrigação gera desperdício de um recurso essencial.</p>
-    </div>
-
-    <div class="card">
-      <h3>🌱 Solo</h3>
-      <p>O uso contínuo sem descanso reduz a qualidade e produtividade da terra.</p>
-    </div>
+    <button onclick="mostrarSecao('agro')">
+      Explorar o projeto
+    </button>
 
   </div>
 
 </section>
 
-<!-- ================= SOLUÇÕES ================= -->
-<section id="solucao" class="secao">
+<!-- ================= AGRO ================= -->
+<section id="agro" class="secao">
 
-  <h2>🌍 Caminhos para o futuro</h2>
+  <h2>🌾 O Agronegócio</h2>
 
   <p>
-    A solução não é parar de produzir, mas sim produzir com inteligência.
-    A agricultura moderna usa ciência e tecnologia para equilibrar produtividade e preservação ambiental.
+    O agronegócio é responsável por grande parte da produção de alimentos no Brasil e no mundo.
+    Ele envolve desde pequenas propriedades familiares até grandes plantações mecanizadas.
   </p>
 
-  <ul>
-    <li>🌱 Rotação de culturas para preservar o solo</li>
-    <li>🚜 Agricultura de precisão com sensores e drones</li>
-    <li>💧 Irrigação inteligente para evitar desperdício</li>
-    <li>🌾 Uso consciente de fertilizantes naturais</li>
-  </ul>
+  <p>
+    Com o avanço da tecnologia, a produtividade aumentou muito, permitindo colher mais alimentos em menos espaço.
+    No entanto, esse crescimento também trouxe desafios ambientais importantes.
+  </p>
 
-  <img src="https://images.unsplash.com/photo-1602524818053-9a3d0a0a0a8b"
-       alt="Tecnologia no campo">
+</section>
+
+<!-- ================= MEIO AMBIENTE ================= -->
+<section id="ambiente" class="secao">
+
+  <h2>🌍 Meio Ambiente</h2>
+
+  <p>
+    O meio ambiente é a base de toda produção agrícola.
+    Sem solo fértil, água limpa e clima equilibrado, não há agricultura possível.
+  </p>
+
+  <p>
+    Problemas como desmatamento, uso excessivo da água e degradação do solo ameaçam o futuro da produção de alimentos.
+    Por isso, preservar a natureza é essencial para garantir a continuidade do agronegócio.
+  </p>
+
+</section>
+
+<!-- ================= EQUILÍBRIO ================= -->
+<section id="equilibrio" class="secao">
+
+  <h2>⚖️ O Equilíbrio Necessário</h2>
+
+  <p>
+    O futuro da agricultura depende do equilíbrio entre produção e preservação.
+    Não se trata de escolher entre um ou outro, mas sim de fazer os dois funcionarem juntos.
+  </p>
+
+  <p>
+    Práticas sustentáveis como rotação de culturas, uso consciente da água e preservação de áreas naturais
+    ajudam a manter esse equilíbrio.
+  </p>
 
 </section>
 
 <!-- ================= TECNOLOGIA ================= -->
 <section id="tecnologia" class="secao">
 
-  <h2>🤖 Tecnologia no Agro</h2>
+  <h2>🤖 Tecnologia no Campo</h2>
 
   <p>
-    A tecnologia transformou o campo em um ambiente inteligente.
-    Hoje, máquinas, sensores e inteligência artificial ajudam agricultores a tomar decisões mais precisas.
+    A tecnologia tem sido uma grande aliada do campo moderno.
+    Ferramentas como drones, sensores e inteligência artificial ajudam agricultores a produzir mais com menos impacto ambiental.
   </p>
 
-  <div class="cards">
-
-    <div class="card">
-      <h3>📡 Satélites</h3>
-      <p>Monitoram plantações e ajudam no controle climático.</p>
-    </div>
-
-    <div class="card">
-      <h3>🚁 Drones</h3>
-      <p>Fazem pulverização e análise de áreas agrícolas com precisão.</p>
-    </div>
-
-    <div class="card">
-      <h3>📊 Dados</h3>
-      <p>Informações ajudam produtores a aumentar eficiência e reduzir perdas.</p>
-    </div>
-
-  </div>
+  <p>
+    A chamada agricultura de precisão permite analisar o solo, controlar pragas e otimizar recursos de forma inteligente,
+    reduzindo desperdícios e aumentando a eficiência.
+  </p>
 
 </section>
 
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="secao">
 
-  <h2>🧠 Quiz: Agro Sustentável</h2>
+  <h2>🧠 Quiz: Você entende o equilíbrio do agro?</h2>
 
   <p>
-    Teste seus conhecimentos sobre agricultura, tecnologia e sustentabilidade.
+    Responda às perguntas abaixo e veja se você entende como funciona a relação entre produção agrícola e sustentabilidade.
   </p>
 
   <div id="quiz-box"></div>
@@ -157,10 +149,12 @@
 
 <!-- ================= FOOTER ================= -->
 <footer>
+
   <p>
-    Projeto Agrinho 2026 — AgroTech Brasil 🌱  
-    Desenvolvido com foco em sustentabilidade e inovação no campo.
+    Projeto Agrinho 2026 — Campo do Futuro 🌱<br>
+    Tema: Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente
   </p>
+
 </footer>
 
 <script src="main.js"></script>
