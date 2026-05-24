@@ -1,10 +1,9 @@
-
 /* ========================================= */
 /* AGRINHO 2026 - MAIN.JS */
 /* ========================================= */
 
 /* ========================================= */
-/* VARIÁVEIS GERAIS */
+/* VARIÁVEIS */
 /* ========================================= */
 
 let score = 0;
@@ -42,7 +41,7 @@ loadingScreen.style.display = "none";
 });
 
 /* ========================================= */
-/* NAVEGAÇÃO ENTRE PÁGINAS */
+/* NAVEGAÇÃO ENTRE SEÇÕES */
 /* ========================================= */
 
 function navigateTo(pageId){
@@ -115,7 +114,7 @@ applyTheme("light");
 loadTheme();
 
 /* ========================================= */
-/* BOTÃO DARK MODE */
+/* TROCAR TEMA */
 /* ========================================= */
 
 themeButton.addEventListener("click", () => {
@@ -174,7 +173,7 @@ btn.style.opacity = "0.7";
 
 if(value === 2){
 
-button.style.background = "#43a047";
+button.style.background = "#111";
 
 button.style.color = "white";
 
@@ -221,7 +220,7 @@ result.innerHTML = `
 <h2>🌟 Excelente!</h2>
 
 <p>
-Você demonstrou excelente conhecimento sobre agricultura,
+Você demonstrou excelente entendimento sobre agricultura,
 tecnologia e sustentabilidade.
 </p>
 
@@ -256,8 +255,8 @@ result.innerHTML = `
 <h2>📚 Continue aprendendo!</h2>
 
 <p>
-Você ainda pode desenvolver mais conhecimentos
-sobre o agronegócio sustentável.
+Você ainda pode aprender mais sobre sustentabilidade
+e tecnologia agrícola.
 </p>
 
 <p>
@@ -303,7 +302,7 @@ card.style.opacity = "0";
 
 card.style.transform = "translateY(30px)";
 
-card.style.transition = "0.6s ease";
+card.style.transition = "0.7s ease";
 
 observer.observe(card);
 
@@ -319,37 +318,37 @@ const header = document.getElementById("header");
 
 if(window.scrollY > 20){
 
-header.style.boxShadow = "0 5px 20px rgba(0,0,0,0.12)";
+header.style.boxShadow = "0 8px 20px rgba(0,0,0,0.08)";
 
 }else{
 
-header.style.boxShadow = "0 2px 15px rgba(0,0,0,0.08)";
+header.style.boxShadow = "0 3px 15px rgba(0,0,0,0.05)";
 
 }
 
 });
 
 /* ========================================= */
-/* EFEITO DIGITAÇÃO */
+/* EFEITO DE DIGITAÇÃO */
 /* ========================================= */
 
-const heroTitle = document.querySelector(".heroText h2");
+const heroTitle = document.querySelector(".mainTitle");
 
-const originalTitle = heroTitle.innerText;
+const originalTitle = "O futuro do agro começa agora";
 
-heroTitle.innerText = "";
+heroTitle.innerHTML = "";
 
-let typingIndex = 0;
+let index = 0;
 
 function typingEffect(){
 
-if(typingIndex < originalTitle.length){
+if(index < originalTitle.length){
 
-heroTitle.innerText += originalTitle.charAt(typingIndex);
+heroTitle.innerHTML += originalTitle.charAt(index);
 
-typingIndex++;
+index++;
 
-setTimeout(typingEffect,40);
+setTimeout(typingEffect,45);
 
 }
 
@@ -362,7 +361,7 @@ typingEffect();
 },2200);
 
 /* ========================================= */
-/* HOVER NAS IMAGENS */
+/* EFEITO NAS IMAGENS */
 /* ========================================= */
 
 const images = document.querySelectorAll("img");
@@ -386,7 +385,7 @@ image.style.transform = "scale(1)";
 });
 
 /* ========================================= */
-/* RESPONSIVIDADE */
+/* RESPONSIVO */
 /* ========================================= */
 
 function checkMobile(){
@@ -408,15 +407,15 @@ checkMobile();
 window.addEventListener("resize", checkMobile);
 
 /* ========================================= */
-/* PRELOAD DE IMAGENS */
+/* PRELOAD IMAGENS */
 /* ========================================= */
 
 const imageList = [
 
-"./img/agro.jpg",
-"./img/agro2.jpg",
-"./img/tech.jpg",
-"./img/sust.jpg"
+"img/agro.jpg",
+"img/agro2.jpg",
+"img/tech.jpg",
+"img/sust.jpg"
 
 ];
 
@@ -429,7 +428,7 @@ img.src = src;
 });
 
 /* ========================================= */
-/* BOTÕES */
+/* EFEITO BOTÕES */
 /* ========================================= */
 
 const buttons = document.querySelectorAll("button");
@@ -445,14 +444,14 @@ button.style.transition = "0.3s";
 });
 
 /* ========================================= */
-/* MENSAGEM CONSOLE */
+/* CONSOLE */
 /* ========================================= */
 
 console.log(`
 
 🌱 AGRINHO 2026
 
-Projeto iniciado com sucesso.
+Projeto carregado com sucesso.
 
 Tema:
 Agro forte, futuro sustentável.
