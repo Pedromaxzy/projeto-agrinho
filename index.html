@@ -1,269 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agro Forte - Futuro Sustentável</title>
 
-  <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
-
-  <meta name="description" content="Projeto Agrinho 2026 sobre agricultura sustentável, tecnologia no campo e preservação ambiental.">
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
 
-  <!-- ================= LOADING SCREEN ================= -->
-  <div id="loading-screen">
-    <div class="loader"></div>
-    <h2>🌱 Carregando Agro Sustentável...</h2>
-    <p>Preparando experiência interativa...</p>
+<!-- ================= LOADING (FIX CORRETO) ================= -->
+<div id="loading-screen">
+  <div class="loader"></div>
+  <h2>🌱 Carregando Agro Sustentável...</h2>
+  <p>Conectando tecnologia e natureza</p>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="topbar">
+  <h1>🌾 Agro Forte</h1>
+  <button id="toggle-theme">🌙 / ☀️</button>
+</header>
+
+<!-- ================= MENU ================= -->
+<nav class="menu">
+  <button onclick="irPara('home')">Início</button>
+  <button onclick="irPara('sobre')">Sobre</button>
+  <button onclick="irPara('problemas')">Problemas</button>
+  <button onclick="irPara('solucoes')">Soluções</button>
+  <button onclick="irPara('galeria')">Galeria</button>
+  <button onclick="irPara('quiz')">Quiz</button>
+  <button onclick="irPara('contato')">Contato</button>
+</nav>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="tela ativa">
+
+  <div class="hero">
+    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" alt="Campo agrícola"/>
+    <div class="hero-text">
+      <h2>🌱 Agro forte, futuro sustentável</h2>
+      <p>
+        Tecnologia e natureza trabalhando juntas para alimentar o mundo
+        sem destruir o planeta.
+      </p>
+      <button onclick="irPara('sobre')">Explorar</button>
+    </div>
   </div>
 
-  <!-- ================= APP PRINCIPAL ================= -->
-  <div id="app" style="display:none;">
+  <div class="card">
+    <h3>🌎 Destaques do Agro Sustentável</h3>
 
-    <!-- ================= HEADER ================= -->
-    <header class="topbar">
-      <div class="logo">
-        <h1>🌱 Agro Forte</h1>
-        <p>Futuro Sustentável</p>
-      </div>
-
-      <div class="controls">
-        <button onclick="toggleTema()">🌙 / ☀️ Tema</button>
-      </div>
-    </header>
-
-    <!-- ================= NAVBAR ================= -->
-    <nav class="menu">
-
-      <button onclick="irPara('home')">Início</button>
-      <button onclick="irPara('sobre')">Sobre</button>
-      <button onclick="irPara('problemas')">Problemas</button>
-      <button onclick="irPara('solucoes')">Soluções</button>
-      <button onclick="irPara('tecnologia')">Tecnologia</button>
-      <button onclick="irPara('impacto')">Impacto</button>
-      <button onclick="irPara('quiz')">Quiz</button>
-      <button onclick="irPara('dados')">Dados</button>
-      <button onclick="irPara('faq')">FAQ</button>
-      <button onclick="irPara('contato')">Contato</button>
-
-    </nav>
-
-    <!-- ================= CONTEÚDO ================= -->
-    <main>
-
-      <!-- ================= HOME ================= -->
-      <section id="home" class="tela ativa">
-        <h2>🌾 Bem-vindo ao projeto Agrinho 2026</h2>
-
-        <p>
-          Este projeto demonstra como o agronegócio pode evoluir através da tecnologia,
-          mantendo o equilíbrio entre produção e preservação ambiental.
-        </p>
-
-        <div class="card">
-          <h3>🎯 Objetivo do projeto</h3>
-          <p>
-            Mostrar como o uso consciente de recursos naturais pode garantir um futuro sustentável.
-          </p>
-        </div>
-
-        <button onclick="mostrarMensagem()">💬 Mensagem motivacional</button>
-        <p id="mensagem"></p>
-
-      </section>
-
-      <!-- ================= SOBRE ================= -->
-      <section id="sobre" class="tela">
-        <h2>📌 Sobre o projeto</h2>
-
-        <p>
-          O agronegócio é uma das bases da economia, mas precisa evoluir para práticas mais sustentáveis.
-        </p>
-
-        <p>
-          Este site foi desenvolvido para conscientizar sobre a importância da tecnologia no campo.
-        </p>
-
-      </section>
-
-      <!-- ================= PROBLEMAS ================= -->
-      <section id="problemas" class="tela">
-        <h2>🌍 Problemas ambientais</h2>
-
-        <ul>
-          <li>🌳 Desmatamento acelerado</li>
-          <li>💧 Desperdício de água</li>
-          <li>🌡 Mudanças climáticas</li>
-          <li>🌱 Erosão do solo</li>
-          <li>🐄 Emissão de gases do efeito estufa</li>
-        </ul>
-
-        <div class="card">
-          <p>
-            Esses problemas afetam diretamente a produção agrícola e o equilíbrio do planeta.
-          </p>
-        </div>
-
-      </section>
-
-      <!-- ================= SOLUÇÕES ================= -->
-      <section id="solucoes" class="tela">
-        <h2>💡 Soluções sustentáveis</h2>
-
-        <div class="grid">
-
-          <div class="box">
-            <h3>🌾 Agricultura inteligente</h3>
-            <p>Uso de sensores para monitorar solo e clima.</p>
-          </div>
-
-          <div class="box">
-            <h3>💧 Irrigação eficiente</h3>
-            <p>Redução do desperdício de água no campo.</p>
-          </div>
-
-          <div class="box">
-            <h3>☀ Energia solar</h3>
-            <p>Uso de energia limpa na produção agrícola.</p>
-          </div>
-
-          <div class="box">
-            <h3>🤖 Inteligência Artificial</h3>
-            <p>Previsão de colheitas e clima.</p>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- ================= TECNOLOGIA ================= -->
-      <section id="tecnologia" class="tela">
-        <h2>🚜 Tecnologia no campo</h2>
-
-        <p>
-          A tecnologia está transformando o agronegócio com inovação e automação.
-        </p>
-
-        <ul>
-          <li>🚁 Drones agrícolas</li>
-          <li>📡 Sensores de solo</li>
-          <li>🤖 Máquinas autônomas</li>
-          <li>📊 Big Data no campo</li>
-        </ul>
-
-      </section>
-
-      <!-- ================= IMPACTO ================= -->
-      <section id="impacto" class="tela">
-        <h2>📊 Impacto do agro sustentável</h2>
-
-        <div class="card">
-          <p>O equilíbrio entre produção e meio ambiente gera benefícios como:</p>
-
-          <ul>
-            <li>🌱 Maior produtividade</li>
-            <li>💧 Menor desperdício</li>
-            <li>🌍 Preservação ambiental</li>
-            <li>📈 Economia sustentável</li>
-          </ul>
-        </div>
-
-        <button onclick="calcularImpacto()">Calcular impacto</button>
-        <p id="impactoResultado"></p>
-
-      </section>
-
-      <!-- ================= QUIZ ================= -->
-      <section id="quiz" class="tela">
-        <h2>🧠 Quiz Sustentável</h2>
-
-        <p>Qual prática ajuda o meio ambiente?</p>
-
-        <div class="quiz-buttons">
-          <button onclick="responder('A')">A) Queimadas</button>
-          <button onclick="responder('B')">B) Irrigação inteligente</button>
-          <button onclick="responder('C')">C) Desmatamento</button>
-        </div>
-
-        <p id="resultado"></p>
-
-      </section>
-
-      <!-- ================= DADOS ================= -->
-      <section id="dados" class="tela">
-        <h2>📊 Dados do Agro</h2>
-
-        <div class="grid">
-
-          <div class="stat">
-            <h3>70%</h3>
-            <p>da água doce usada na agricultura</p>
-          </div>
-
-          <div class="stat">
-            <h3>30%</h3>
-            <p>de desperdício evitável com tecnologia</p>
-          </div>
-
-          <div class="stat">
-            <h3>+50%</h3>
-            <p>de eficiência com agricultura inteligente</p>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- ================= FAQ ================= -->
-      <section id="faq" class="tela">
-        <h2>❓ Perguntas frequentes</h2>
-
-        <details>
-          <summary>O que é agro sustentável?</summary>
-          <p>É a produção agrícola sem prejudicar o meio ambiente.</p>
-        </details>
-
-        <details>
-          <summary>Como a tecnologia ajuda?</summary>
-          <p>Ela aumenta eficiência e reduz desperdício.</p>
-        </details>
-
-        <details>
-          <summary>Por que isso é importante?</summary>
-          <p>Para garantir futuro equilibrado para próximas gerações.</p>
-        </details>
-
-      </section>
-
-      <!-- ================= CONTATO ================= -->
-      <section id="contato" class="tela">
-        <h2>📩 Contato</h2>
-
-        <input type="text" placeholder="Seu nome">
-        <input type="email" placeholder="Seu email">
-        <textarea placeholder="Sua mensagem"></textarea>
-
-        <button onclick="enviarMensagem()">Enviar</button>
-
-        <p id="status"></p>
-
-      </section>
-
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer>
-      <p>© 2026 - Agrinho | Agro, Tecnologia e Sustentabilidade</p>
-      <p>Projeto desenvolvido para fins educacionais</p>
-    </footer>
-
+    <div class="grid">
+      <div class="box">🚜 Agricultura moderna</div>
+      <div class="box">💧 Uso inteligente da água</div>
+      <div class="box">🌱 Solo preservado</div>
+      <div class="box">⚡ Energia limpa</div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section id="sobre" class="tela">
+  <div class="card">
+    <h2>📖 Sobre o Projeto</h2>
+
+    <p>
+      O agronegócio moderno precisa equilibrar produção e preservação ambiental.
+      Este projeto mostra como a tecnologia pode ajudar nesse processo.
+    </p>
+
+    <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0" alt="Agricultura sustentável" style="width:100%; border-radius:12px; margin-top:15px;">
+  </div>
+</section>
+
+<!-- ================= PROBLEMAS ================= -->
+<section id="problemas" class="tela">
+  <div class="card">
+    <h2>⚠️ Problemas do Agro Atual</h2>
+
+    <div class="grid">
+      <div class="box">Desmatamento 🌳</div>
+      <div class="box">Uso excessivo de água 💧</div>
+      <div class="box">Solo degradado 🌱</div>
+      <div class="box">Emissão de carbono 🌫️</div>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" style="width:100%; border-radius:12px; margin-top:15px;">
+  </div>
+</section>
+
+<!-- ================= SOLUÇÕES ================= -->
+<section id="solucoes" class="tela">
+  <div class="card">
+    <h2>💡 Soluções Sustentáveis</h2>
+
+    <div class="grid">
+      <div class="box">Agricultura de precisão 📡</div>
+      <div class="box">Irrigação inteligente 💧</div>
+      <div class="box">Drones no campo 🚁</div>
+      <div class="box">Energia solar ☀️</div>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" style="width:100%; border-radius:12px; margin-top:15px;">
+  </div>
+</section>
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria" class="tela">
+  <div class="card">
+    <h2>📸 Galeria do Agro</h2>
+
+    <div class="grid">
+      <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30" style="width:100%; border-radius:10px;">
+      <img src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0" style="width:100%; border-radius:10px;">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" style="width:100%; border-radius:10px;">
+      <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" style="width:100%; border-radius:10px;">
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz" class="tela">
+  <div class="card">
+    <h2>🧠 Quiz Sustentável</h2>
+
+    <p>Qual prática ajuda mais o meio ambiente?</p>
+
+    <button onclick="responder(true)">Tecnologia no campo 🌱</button>
+    <button onclick="responder(false)">Desmatamento 🌳</button>
+
+    <p id="resultado"></p>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section id="contato" class="tela">
+  <div class="card">
+    <h2>📩 Contato</h2>
+
+    <input type="text" placeholder="Seu nome"/>
+    <input type="email" placeholder="Seu email"/>
+    <textarea placeholder="Mensagem"></textarea>
+
+    <button>Enviar</button>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>🌱 Projeto Agrinho 2026 - Agro Forte, Futuro Sustentável</p>
+</footer>
+
+<!-- ================= JS ================= -->
+<script src="main.js"></script>
 
 </body>
 </html>
