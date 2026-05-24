@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agrinho 2026 - Agro e Sustentabilidade</title>
+  <title>Agrinho 2026 - Agro forte, futuro sustentável</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,94 +12,115 @@
 
 <!-- ================= LOADING ================= -->
 <div id="loading-screen">
-  <div class="loader"></div>
-  <h2>Carregando conhecimento...</h2>
-  <p>Agro forte, futuro sustentável 🌱</p>
+  <div class="loader">
+    <h2>🌱 Carregando Agro Sustentável...</h2>
+    <div class="spinner"></div>
+  </div>
 </div>
 
 <!-- ================= HEADER ================= -->
-<header class="topbar">
-  <h1>🌱 Agrinho 2026</h1>
-
-  <div>
-    <button onclick="toggleTema()">🌙 / ☀️</button>
+<header>
+  <div class="logo">
+    <h1>AGRINHO 2026</h1>
+    <p>Agro forte, futuro sustentável</p>
   </div>
-</header>
 
-<!-- ================= MENU ================= -->
-<nav class="menu">
-  <button onclick="mostrarTela('home')">Início</button>
-  <button onclick="mostrarTela('agro')">O Agro</button>
-  <button onclick="mostrarTela('sustentabilidade')">Sustentabilidade</button>
-  <button onclick="mostrarTela('quiz')">Quiz</button>
-  <button onclick="mostrarTela('creditos')">Créditos</button>
-</nav>
+  <nav>
+    <button onclick="mostrarTela('home')">Início</button>
+    <button onclick="mostrarTela('sobre')">Sobre</button>
+    <button onclick="mostrarTela('tecnologia')">Tecnologia</button>
+    <button onclick="mostrarTela('quiz')">Quiz</button>
+  </nav>
+
+  <button class="tema-btn" onclick="toggleTema()">🌙 / ☀️</button>
+</header>
 
 <!-- ================= HOME ================= -->
 <section id="home" class="tela ativa">
 
-  <div class="card">
-    <h2>Bem-vindo ao projeto Agrinho 2026</h2>
-
+  <div class="hero">
+    <h2>O futuro do agro começa agora</h2>
     <p>
-      Este site foi desenvolvido com o objetivo de mostrar a importância da relação
-      entre o agronegócio e a sustentabilidade ambiental. O tema “Agro forte, futuro
-      sustentável: equilíbrio entre produção e meio ambiente” busca refletir sobre
-      como a tecnologia, o conhecimento e a responsabilidade ambiental podem caminhar juntos.
+      O agronegócio moderno é a união entre tecnologia, sustentabilidade e produção inteligente.
+      O objetivo deste projeto é mostrar como é possível produzir mais alimentos sem destruir o meio ambiente.
     </p>
 
-    <p>
-      O agronegócio é uma das bases da economia brasileira, sendo responsável por grande
-      parte dos alimentos consumidos no país e no mundo. No entanto, seu crescimento precisa
-      estar aliado à preservação do meio ambiente, evitando desmatamento, desperdício de água
-      e uso excessivo de recursos naturais.
-    </p>
+    <button onclick="mostrarTela('sobre')">Explorar projeto</button>
+  </div>
 
-    <img src="img/agro1.jpg" alt="Agricultura sustentável" style="width:100%; border-radius:12px; margin-top:10px;">
+  <div class="cards">
+
+    <div class="card">
+      <img src="img/agro1.jpg" alt="Agricultura sustentável">
+      <h3>Sustentabilidade</h3>
+      <p>Uso consciente do solo, da água e dos recursos naturais.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/tecnologia.jpg" alt="Tecnologia no agro">
+      <h3>Tecnologia</h3>
+      <p>Drones, sensores e IA ajudando o produtor rural.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/producao.jpg" alt="Produção agrícola">
+      <h3>Produção</h3>
+      <p>Alta produtividade com menor impacto ambiental.</p>
+    </div>
+
   </div>
 
 </section>
 
-<!-- ================= AGRO ================= -->
-<section id="agro" class="tela">
+<!-- ================= SOBRE ================= -->
+<section id="sobre" class="tela">
 
-  <div class="card">
-    <h2>O que é o Agronegócio?</h2>
+  <h2>Sobre o Projeto</h2>
 
-    <p>
-      O agronegócio envolve todas as etapas da produção agrícola: desde o preparo do solo,
-      plantio, colheita, transporte, processamento até a distribuição dos alimentos.
-      Ele é essencial para a economia global.
-    </p>
+  <p>
+    O agronegócio é um dos pilares da economia brasileira. No entanto, ele enfrenta um grande desafio:
+    aumentar a produção de alimentos sem prejudicar o meio ambiente.
+  </p>
 
-    <p>
-      No Brasil, o agro representa uma grande parte do PIB e emprega milhões de pessoas.
-      Porém, sua evolução precisa considerar práticas modernas e sustentáveis, como agricultura
-      de precisão, uso consciente da água e tecnologias que reduzem impactos ambientais.
-    </p>
+  <p>
+    A sustentabilidade no campo envolve práticas como rotação de culturas, uso racional da água,
+    preservação do solo e uso de tecnologias modernas que reduzem desperdícios.
+  </p>
 
-    <div class="box">📌 Exemplo: sensores no solo ajudam a economizar água na irrigação.</div>
-  </div>
+  <p>
+    Este projeto foi criado para demonstrar como a programação e a tecnologia podem ajudar a resolver
+    problemas reais do mundo agrícola, promovendo um futuro mais equilibrado entre produção e natureza.
+  </p>
+
+  <img src="img/campo.jpg" alt="Campo sustentável">
 
 </section>
 
-<!-- ================= SUSTENTABILIDADE ================= -->
-<section id="sustentabilidade" class="tela">
+<!-- ================= TECNOLOGIA ================= -->
+<section id="tecnologia" class="tela">
 
-  <div class="card">
-    <h2>Sustentabilidade no Campo</h2>
+  <h2>Tecnologia no Agro</h2>
 
-    <p>
-      Sustentabilidade significa atender às necessidades do presente sem comprometer as futuras gerações.
-      No campo, isso envolve práticas como rotação de culturas, preservação de áreas verdes e redução de agrotóxicos.
-    </p>
+  <div class="cards">
 
-    <p>
-      A tecnologia tem sido uma grande aliada nesse processo, permitindo maior eficiência na produção
-      e menor impacto ambiental. Drones, sensores e inteligência artificial já são utilizados para monitorar plantações.
-    </p>
+    <div class="card">
+      <img src="img/drone.jpg">
+      <h3>Drones</h3>
+      <p>Monitoramento de plantações com precisão.</p>
+    </div>
 
-    <img src="img/sustentavel.jpg" alt="Sustentabilidade no agro" style="width:100%; border-radius:12px;">
+    <div class="card">
+      <img src="img/ia.jpg">
+      <h3>Inteligência Artificial</h3>
+      <p>Previsão de safra e análise de solo.</p>
+    </div>
+
+    <div class="card">
+      <img src="img/sensores.jpg">
+      <h3>Sensores</h3>
+      <p>Controle de irrigação e clima em tempo real.</p>
+    </div>
+
   </div>
 
 </section>
@@ -107,43 +128,20 @@
 <!-- ================= QUIZ ================= -->
 <section id="quiz" class="tela">
 
-  <div class="card">
-    <h2>Quiz: Agro e Meio Ambiente</h2>
+  <h2>Quiz: Agro Sustentável</h2>
 
-    <p>Responda e descubra seu nível de conhecimento:</p>
-
+  <div id="quiz-container">
     <div id="quiz"></div>
-
     <div id="resultado"></div>
   </div>
 
 </section>
 
-<!-- ================= CREDITOS ================= -->
-<section id="creditos" class="tela">
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>Projeto Agrinho 2026 • Desenvolvido com foco em sustentabilidade e tecnologia</p>
+</footer>
 
-  <div class="card">
-    <h2>Créditos</h2>
-
-    <p>
-      Projeto desenvolvido para o Concurso Agrinho 2026, com o tema:
-      “Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente”.
-    </p>
-
-    <p>
-      Este site utiliza conceitos de HTML, CSS e JavaScript com foco em educação,
-      tecnologia e consciência ambiental.
-    </p>
-
-    <p>
-      Desenvolvido por: <strong>Estudante participante</strong>
-    </p>
-  </div>
-
-</section>
-
-<!-- ================= JS ================= -->
 <script src="main.js"></script>
-
 </body>
 </html>

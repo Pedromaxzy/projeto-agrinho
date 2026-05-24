@@ -1,248 +1,296 @@
 
-/* ================= RESET ================= */
+/* =========================
+   RESET BÁSICO
+========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ================= BASE ================= */
 body {
   background: #f4f7f5;
-  color: #1b2b22;
-  line-height: 1.7;
+  color: #1f2d1f;
   transition: 0.4s ease;
 }
 
-/* ================= DARK MODE ================= */
+/* =========================
+   DARK MODE
+========================= */
+
 body.dark {
-  background: #0d1410;
-  color: #e8f5ee;
+  background: #0f1410;
+  color: #e8f5e9;
 }
 
-/* ================= LOADING ================= */
+body.dark header {
+  background: #122016;
+}
+
+body.dark .card {
+  background: #1a2a1d;
+  color: #e8f5e9;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
 #loading-screen {
   position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1b5e20, #43a047);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  color: white;
-  z-index: 9999;
-  text-align: center;
-  padding: 20px;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 6px solid #ffffff40;
-  border-top: 6px solid white;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ================= HEADER ================= */
-.topbar {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #2d6a4f;
+  flex-direction: column;
+  z-index: 9999;
   color: white;
-  padding: 15px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.topbar h1 {
+.loader h2 {
+  margin-bottom: 20px;
   font-size: 20px;
 }
 
-.topbar button {
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #2e7d32;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo h1 {
+  font-size: 22px;
+}
+
+header nav button {
+  margin: 0 5px;
   padding: 8px 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  background: white;
-  font-weight: bold;
-}
-
-/* ================= MENU ================= */
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px;
-  background: #95d5b2;
-}
-
-.menu button {
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: white;
-  font-weight: bold;
-  cursor: pointer;
+  background: #ffffff;
+  color: #2e7d32;
   transition: 0.3s;
 }
 
-.menu button:hover {
-  background: #2d6a4f;
-  color: white;
+header nav button:hover {
+  background: #c8e6c9;
 }
 
-/* ================= TELAS ================= */
+/* botão tema */
+.tema-btn {
+  background: #1b5e20;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   TELAS
+========================= */
+
 .tela {
   display: none;
-  padding: 25px;
-  max-width: 1000px;
-  margin: auto;
+  padding: 40px 20px;
+  animation: fade 0.5s ease;
 }
 
 .tela.ativa {
   display: block;
-  animation: fade 0.4s ease;
 }
 
 @keyframes fade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ================= CARD ================= */
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 16px;
-  margin-top: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #2e7d32;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-body.dark .card {
-  background: #17231c;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+.hero button:hover {
+  background: #1b5e20;
 }
 
-/* ================= TEXTOS ================= */
-h2 {
-  color: #2d6a4f;
-  margin-bottom: 12px;
-  font-size: 26px;
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-body.dark h2 {
-  color: #7ae582;
-}
-
-p {
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-
-/* ================= BOX INFORMATIVO ================= */
-.box {
-  background: #d8f3dc;
-  padding: 15px;
+.card {
+  width: 280px;
+  background: white;
   border-radius: 12px;
-  margin-top: 10px;
-  font-weight: 600;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  transform: translateY(0);
 }
 
-body.dark .box {
-  background: #1f2c24;
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
 }
 
-/* ================= IMAGENS ================= */
-img {
+.card img {
   width: 100%;
-  margin-top: 10px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  height: 180px;
+  object-fit: cover;
 }
 
-/* ================= QUIZ ================= */
-#quiz {
-  margin-top: 15px;
+.card h3 {
+  padding: 10px;
+  color: #2e7d32;
 }
 
-#quiz h3 {
-  margin-bottom: 10px;
+.card p {
+  padding: 0 10px 15px;
+}
+
+/* =========================
+   SEÇÃO TEXTO
+========================= */
+
+section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2e7d32;
+}
+
+section p {
+  max-width: 800px;
+  margin: 10px auto;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+section img {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+#quiz-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
 }
 
 #quiz button {
   display: block;
   width: 100%;
+  margin: 10px 0;
   padding: 12px;
-  margin: 8px 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+  background: #e8f5e9;
   cursor: pointer;
-  background: #b7e4c7;
-  font-size: 15px;
   transition: 0.3s;
 }
 
 #quiz button:hover {
-  background: #2d6a4f;
-  color: white;
-}
-
-body.dark #quiz button {
-  background: #24342b;
-  color: #e8f5ee;
+  background: #c8e6c9;
 }
 
 #resultado {
-  margin-top: 15px;
+  margin-top: 20px;
   font-weight: bold;
-  font-size: 16px;
 }
 
-/* ================= BOTÕES GERAIS ================= */
-button {
-  transition: 0.3s;
-}
+/* =========================
+   FOOTER
+========================= */
 
-/* ================= FOOTER (caso use depois) ================= */
 footer {
   text-align: center;
   padding: 20px;
-  margin-top: 30px;
-  background: #2d6a4f;
+  margin-top: 40px;
+  background: #2e7d32;
   color: white;
 }
 
-/* ================= RESPONSIVO ================= */
-@media (max-width: 768px) {
+/* =========================
+   RESPONSIVO
+========================= */
 
-  .menu {
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .cards {
     flex-direction: column;
     align-items: center;
-  }
-
-  .card {
-    padding: 18px;
-  }
-
-  h2 {
-    font-size: 22px;
   }
 }
