@@ -1,5 +1,5 @@
 /* ========================================= */
-/* AGRINHO 2026 - MAIN.JS */
+/* PROJETO AGRINHO - MAIN.JS */
 /* ========================================= */
 
 /* ========================================= */
@@ -8,14 +8,15 @@
 
 const pages = document.querySelectorAll(".page");
 
-const themeToggle = document.getElementById("themeToggle");
+const themeToggle =
+document.getElementById("themeToggle");
 
 const cards = document.querySelectorAll(
 ".card, .infoCard, .techCard, .sustainCard"
 );
 
 /* ========================================= */
-/* VARIÁVEIS QUIZ */
+/* VARIÁVEIS DO QUIZ */
 /* ========================================= */
 
 let score = 0;
@@ -43,14 +44,14 @@ setTimeout(()=>{
 
 loadingScreen.style.display = "none";
 
-},1000);
+},700);
 
-},1800);
+},1400);
 
 });
 
 /* ========================================= */
-/* NAVEGAÇÃO ENTRE SEÇÕES */
+/* NAVEGAÇÃO */
 /* ========================================= */
 
 function navigateTo(pageId){
@@ -169,7 +170,7 @@ entry.target.style.transform =
 });
 
 },{
-threshold:0.2
+threshold:0.15
 });
 
 cards.forEach((card,index)=>{
@@ -177,11 +178,11 @@ cards.forEach((card,index)=>{
 card.style.opacity = "0";
 
 card.style.transform =
-"translateY(40px)";
+"translateY(20px)";
 
 card.style.transition = `
-0.8s ease
-${index * 0.1}s
+0.5s ease
+${index * 0.05}s
 `;
 
 observer.observe(card);
@@ -189,7 +190,7 @@ observer.observe(card);
 });
 
 /* ========================================= */
-/* HEADER SOMBRA */
+/* SOMBRA HEADER */
 /* ========================================= */
 
 window.addEventListener("scroll",()=>{
@@ -197,57 +198,22 @@ window.addEventListener("scroll",()=>{
 const header =
 document.getElementById("header");
 
-if(window.scrollY > 20){
+if(window.scrollY > 10){
 
 header.style.boxShadow =
-"0 10px 30px rgba(0,0,0,0.12)";
+"0 6px 18px rgba(0,0,0,0.08)";
 
 }else{
 
 header.style.boxShadow =
-"0 5px 25px rgba(0,0,0,0.05)";
+"0 4px 18px rgba(0,0,0,0.05)";
 
 }
 
 });
 
 /* ========================================= */
-/* EFEITO DIGITAÇÃO */
-/* ========================================= */
-
-const mainTitle =
-document.querySelector(".mainTitle");
-
-const originalText =
-"O futuro do agro começa agora";
-
-mainTitle.innerHTML = "";
-
-let textIndex = 0;
-
-function typingEffect(){
-
-if(textIndex < originalText.length){
-
-mainTitle.innerHTML +=
-originalText.charAt(textIndex);
-
-textIndex++;
-
-setTimeout(typingEffect,45);
-
-}
-
-}
-
-setTimeout(()=>{
-
-typingEffect();
-
-},2200);
-
-/* ========================================= */
-/* HOVER NAS IMAGENS */
+/* EFEITO HOVER NAS IMAGENS */
 /* ========================================= */
 
 const images =
@@ -258,7 +224,7 @@ images.forEach(image=>{
 image.addEventListener("mouseenter",()=>{
 
 image.style.transform =
-"scale(1.03)";
+"scale(1.02)";
 
 });
 
@@ -312,7 +278,7 @@ btn.style.opacity = "0.7";
 });
 
 /* ========================================= */
-/* RESPOSTA CERTA */
+/* COR DA RESPOSTA */
 /* ========================================= */
 
 if(value === 2){
@@ -320,8 +286,6 @@ if(value === 2){
 button.style.background = "#111";
 
 button.style.color = "white";
-
-button.style.transform = "scale(1.02)";
 
 }else{
 
@@ -332,28 +296,18 @@ button.style.color = "white";
 }
 
 /* ========================================= */
-/* ANIMAÇÃO */
+/* PEQUENA ANIMAÇÃO */
 /* ========================================= */
 
-button.animate([
+button.style.transform =
+"scale(1.02)";
 
-{
-transform:"scale(1)"
-},
+setTimeout(()=>{
 
-{
-transform:"scale(1.05)"
-},
+button.style.transform =
+"scale(1)";
 
-{
-transform:"scale(1)"
-}
-
-],{
-
-duration:400
-
-});
+},200);
 
 }
 
@@ -380,9 +334,6 @@ antes de finalizar o quiz.
 </p>
 
 `;
-
-result.style.animation =
-"pageFade 0.5s";
 
 return;
 
@@ -425,7 +376,7 @@ result.innerHTML = `
 
 <p>
 Você possui um bom entendimento
-sobre o tema.
+sobre o tema agrícola.
 </p>
 
 <p>
@@ -458,13 +409,21 @@ Pontuação:
 
 }
 
-result.style.animation =
-"pageFade 0.8s";
+result.style.opacity = "0";
+
+setTimeout(()=>{
+
+result.style.transition =
+"0.4s";
+
+result.style.opacity = "1";
+
+},50);
 
 }
 
 /* ========================================= */
-/* RESPONSIVO */
+/* RESPONSIVIDADE */
 /* ========================================= */
 
 function checkMobile(){
@@ -489,7 +448,7 @@ checkMobile
 );
 
 /* ========================================= */
-/* PRELOAD IMAGENS */
+/* PRELOAD DAS IMAGENS */
 /* ========================================= */
 
 const imageList = [
@@ -510,79 +469,6 @@ img.src = src;
 });
 
 /* ========================================= */
-/* PARALLAX SUAVE */
-/* ========================================= */
-
-window.addEventListener("scroll",()=>{
-
-const scrolled = window.scrollY;
-
-const background =
-document.querySelector(
-".backgroundAnimation"
-);
-
-background.style.transform =
-`translateY(${scrolled * 0.03}px)`;
-
-});
-
-/* ========================================= */
-/* EFEITO RIPPLE NOS BOTÕES */
-/* ========================================= */
-
-const allButtons =
-document.querySelectorAll("button");
-
-allButtons.forEach(button=>{
-
-button.addEventListener("click",
-function(e){
-
-const circle =
-document.createElement("span");
-
-const diameter = Math.max(
-button.clientWidth,
-button.clientHeight
-);
-
-const radius = diameter / 2;
-
-circle.style.width =
-circle.style.height =
-`${diameter}px`;
-
-circle.style.left =
-`${e.clientX -
-button.offsetLeft -
-radius}px`;
-
-circle.style.top =
-`${e.clientY -
-button.offsetTop -
-radius}px`;
-
-circle.classList.add("ripple");
-
-const ripple =
-button.getElementsByClassName(
-"ripple"
-)[0];
-
-if(ripple){
-
-ripple.remove();
-
-}
-
-button.appendChild(circle);
-
-});
-
-});
-
-/* ========================================= */
 /* CONSOLE */
 /* ========================================= */
 
@@ -590,13 +476,11 @@ console.log(`
 
 🌱 PROJETO AGRINHO
 
-Sistema carregado com sucesso.
-
-✔ Navegação ativa
-✔ Dark Mode funcionando
+✔ Sistema carregado
+✔ Navegação funcionando
+✔ Dark mode ativo
 ✔ Quiz funcionando
-✔ Animações carregadas
-✔ Responsividade ativa
+✔ Site otimizado
 
 `);
 
