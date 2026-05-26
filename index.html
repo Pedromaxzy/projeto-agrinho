@@ -33,11 +33,11 @@ href="style.css"
 
 <div class="loader"></div>
 
-<h1>
+<h1 data-translate="loadingTitle">
 Projeto Agrinho
 </h1>
 
-<p>
+<p data-translate="loadingText">
 Agro forte, futuro sustentável
 </p>
 
@@ -57,42 +57,82 @@ Agro forte, futuro sustentável
 🌱 Projeto Agrinho
 </h1>
 
-<p>
+<p data-translate="headerSubtitle">
 Agro forte, futuro sustentável:
 equilíbrio entre produção e meio ambiente
 </p>
 
 </div>
 
+<!-- ========================================= -->
+<!-- NAV -->
+<!-- ========================================= -->
+
 <nav>
 
 <button onclick="navigateTo('home')">
+<span data-translate="navHome">
 Início
+</span>
 </button>
 
 <button onclick="navigateTo('agriculture')">
+<span data-translate="navAgriculture">
 Agricultura
+</span>
 </button>
 
 <button onclick="navigateTo('technology')">
+<span data-translate="navTechnology">
 Tecnologia
+</span>
 </button>
 
 <button onclick="navigateTo('sustainability')">
+<span data-translate="navSustainability">
 Sustentabilidade
+</span>
 </button>
 
 <button onclick="navigateTo('quiz')">
+<span data-translate="navQuiz">
 Quiz
+</span>
 </button>
 
 <button onclick="navigateTo('credits')">
+<span data-translate="navCredits">
 Créditos
+</span>
 </button>
 
 </nav>
 
-<div class="themeArea">
+<!-- ========================================= -->
+<!-- CONTROLS -->
+<!-- ========================================= -->
+
+<div class="headerControls">
+
+<!-- IDIOMA -->
+
+<select id="languageSelect">
+
+<option value="pt">
+🇧🇷 PT
+</option>
+
+<option value="en">
+🇺🇸 EN
+</option>
+
+<option value="es">
+🇪🇸 ES
+</option>
+
+</select>
+
+<!-- DARK MODE -->
 
 <button id="themeToggle">
 🌙
@@ -115,11 +155,11 @@ class="page active"
 
 <div class="heroText">
 
-<h2>
+<h2 data-translate="heroTitle">
 O futuro do agro começa agora
 </h2>
 
-<p>
+<p data-translate="heroText">
 O agronegócio brasileiro é uma das maiores forças econômicas do planeta.
 A união entre tecnologia, produtividade e sustentabilidade garante
 desenvolvimento, geração de empregos e preservação ambiental.
@@ -128,11 +168,19 @@ desenvolvimento, geração de empregos e preservação ambiental.
 <div class="heroButtons">
 
 <button onclick="navigateTo('agriculture')">
+
+<span data-translate="heroButton1">
 Explorar Agricultura
+</span>
+
 </button>
 
 <button onclick="navigateTo('technology')">
+
+<span data-translate="heroButton2">
 Conhecer Tecnologia
+</span>
+
 </button>
 
 </div>
@@ -156,10 +204,12 @@ loading="lazy"
 <div class="card">
 
 <h3>
-🌾 Produção Agrícola
+🌾 <span data-translate="card1Title">
+Produção Agrícola
+</span>
 </h3>
 
-<p>
+<p data-translate="card1Text">
 O Brasil é referência mundial na produção
 de alimentos e exportação agrícola.
 </p>
@@ -169,10 +219,12 @@ de alimentos e exportação agrícola.
 <div class="card">
 
 <h3>
-🚜 Tecnologia no Campo
+🚜 <span data-translate="card2Title">
+Tecnologia no Campo
+</span>
 </h3>
 
-<p>
+<p data-translate="card2Text">
 Máquinas modernas aumentam a produtividade
 e reduzem desperdícios.
 </p>
@@ -182,10 +234,12 @@ e reduzem desperdícios.
 <div class="card">
 
 <h3>
-🌍 Sustentabilidade
+🌍 <span data-translate="card3Title">
+Sustentabilidade
+</span>
 </h3>
 
-<p>
+<p data-translate="card3Text">
 O equilíbrio entre produção e meio ambiente
 é essencial para o futuro.
 </p>
@@ -207,11 +261,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="agricultureTitle">
 Agricultura Brasileira
 </h2>
 
-<p>
+<p data-translate="agricultureSubtitle">
 Uma das maiores potências agrícolas do mundo
 </p>
 
@@ -221,18 +275,18 @@ Uma das maiores potências agrícolas do mundo
 
 <div class="text">
 
-<p>
+<p data-translate="agricultureText1">
 A agricultura brasileira possui enorme importância econômica e social.
 O país se destaca pela produção de alimentos em larga escala
 e pela utilização de tecnologias modernas no campo.
 </p>
 
-<p>
+<p data-translate="agricultureText2">
 Entre as principais culturas agrícolas brasileiras
 estão a soja, milho, café, algodão e cana-de-açúcar.
 </p>
 
-<p>
+<p data-translate="agricultureText3">
 Além de abastecer o mercado interno,
 o Brasil exporta produtos agrícolas para diversos países.
 </p>
@@ -251,48 +305,6 @@ loading="lazy"
 
 </div>
 
-<div class="infoGrid">
-
-<div class="infoCard">
-
-<h3>
-🌱 Soja
-</h3>
-
-<p>
-O Brasil é um dos maiores produtores
-de soja do mundo.
-</p>
-
-</div>
-
-<div class="infoCard">
-
-<h3>
-🌽 Milho
-</h3>
-
-<p>
-Importante para alimentação humana,
-animal e indústria.
-</p>
-
-</div>
-
-<div class="infoCard">
-
-<h3>
-☕ Café
-</h3>
-
-<p>
-O café brasileiro é reconhecido mundialmente.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
 <!-- ========================================= -->
@@ -306,11 +318,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="technologyTitle">
 Tecnologia no Campo
 </h2>
 
-<p>
+<p data-translate="technologySubtitle">
 A inovação transformando a agricultura
 </p>
 
@@ -320,18 +332,18 @@ A inovação transformando a agricultura
 
 <div class="text">
 
-<p>
+<p data-translate="technologyText1">
 A tecnologia revolucionou o agronegócio.
 Hoje produtores utilizam drones,
 inteligência artificial e sensores modernos.
 </p>
 
-<p>
+<p data-translate="technologyText2">
 Os drones ajudam no monitoramento das plantações,
 detectando pragas e analisando o crescimento das culturas.
 </p>
 
-<p>
+<p data-translate="technologyText3">
 Máquinas automatizadas aumentam a produtividade
 e diminuem desperdícios.
 </p>
@@ -350,46 +362,6 @@ loading="lazy"
 
 </div>
 
-<div class="techCards">
-
-<div class="techCard">
-
-<h3>
-🚁 Drones
-</h3>
-
-<p>
-Monitoramento moderno e eficiente das lavouras.
-</p>
-
-</div>
-
-<div class="techCard">
-
-<h3>
-🧠 Inteligência Artificial
-</h3>
-
-<p>
-Análise inteligente de dados agrícolas.
-</p>
-
-</div>
-
-<div class="techCard">
-
-<h3>
-🚜 Máquinas Automatizadas
-</h3>
-
-<p>
-Maior eficiência e produtividade no campo.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
 <!-- ========================================= -->
@@ -403,11 +375,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="sustainabilityTitle">
 Sustentabilidade
 </h2>
 
-<p>
+<p data-translate="sustainabilitySubtitle">
 Produzir preservando o meio ambiente
 </p>
 
@@ -417,17 +389,17 @@ Produzir preservando o meio ambiente
 
 <div class="text">
 
-<p>
+<p data-translate="sustainabilityText1">
 A sustentabilidade busca equilibrar crescimento econômico
 e preservação ambiental.
 </p>
 
-<p>
+<p data-translate="sustainabilityText2">
 No agronegócio, práticas sustentáveis incluem economia de água,
 preservação do solo e rotação de culturas.
 </p>
 
-<p>
+<p data-translate="sustainabilityText3">
 Essas ações ajudam a garantir recursos naturais
 para as futuras gerações.
 </p>
@@ -446,46 +418,6 @@ loading="lazy"
 
 </div>
 
-<div class="sustainCards">
-
-<div class="sustainCard">
-
-<h3>
-💧 Economia de Água
-</h3>
-
-<p>
-Uso consciente da água na irrigação agrícola.
-</p>
-
-</div>
-
-<div class="sustainCard">
-
-<h3>
-🌱 Preservação do Solo
-</h3>
-
-<p>
-Proteção da fertilidade e qualidade do solo.
-</p>
-
-</div>
-
-<div class="sustainCard">
-
-<h3>
-🌳 Meio Ambiente
-</h3>
-
-<p>
-Preservação da biodiversidade e das florestas.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
 <!-- ========================================= -->
@@ -499,11 +431,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="quizTitle">
 Quiz Agrinho
 </h2>
 
-<p>
+<p data-translate="quizSubtitle">
 Teste seus conhecimentos
 </p>
 
@@ -513,7 +445,7 @@ Teste seus conhecimentos
 
 <div class="questionBlock">
 
-<p>
+<p data-translate="quizQuestion1">
 1. Qual tecnologia é usada na agricultura moderna?
 </p>
 
@@ -533,7 +465,7 @@ Televisão
 
 <div class="questionBlock">
 
-<p>
+<p data-translate="quizQuestion2">
 2. Qual cultura agrícola é destaque no Brasil?
 </p>
 
@@ -553,7 +485,7 @@ Carvão
 
 <div class="questionBlock">
 
-<p>
+<p data-translate="quizQuestion3">
 3. O que significa sustentabilidade?
 </p>
 
@@ -575,7 +507,11 @@ Ignorar o meio ambiente
 class="finishButton"
 onclick="finishQuiz()"
 >
+
+<span data-translate="finishQuiz">
 Finalizar Quiz
+</span>
+
 </button>
 
 <div id="quizResult"></div>
@@ -595,11 +531,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="creditsTitle">
 Créditos do Projeto
 </h2>
 
-<p>
+<p data-translate="creditsSubtitle">
 Conheça o criador deste projeto Agrinho
 </p>
 
@@ -630,7 +566,11 @@ Pedro Henrique Simões Batista
 </h3>
 
 <p class="creatorRole">
+
+<span data-translate="creatorRole">
 Criador e Desenvolvedor do Projeto
+</span>
+
 </p>
 
 </div>
@@ -646,7 +586,9 @@ Criador e Desenvolvedor do Projeto
 <div class="creditItem">
 
 <h4>
-🎓 Escola
+🎓 <span data-translate="schoolTitle">
+Escola
+</span>
 </h4>
 
 <p>
@@ -659,10 +601,12 @@ Dr. Generoso Marques
 <div class="creditItem">
 
 <h4>
-💻 Função no Projeto
+💻 <span data-translate="functionTitle">
+Função no Projeto
+</span>
 </h4>
 
-<p>
+<p data-translate="functionText">
 Desenvolvimento Front-End,
 Design do Site e programação JavaScript.
 </p>
@@ -684,28 +628,15 @@ Design do Site e programação JavaScript.
 <div class="creditItem">
 
 <h4>
-🌱 Frase
+🌱 <span data-translate="phraseTitle">
+Frase
+</span>
 </h4>
 
-<p>
+<p data-translate="phraseText">
 "O futuro da agricultura nasce
 da união entre tecnologia,
 consciência ambiental e inovação."
-</p>
-
-</div>
-
-<div class="creditItem fullWidth">
-
-<h4>
-🤝 Agradecimentos
-</h4>
-
-<p>
-Agradeço à minha escola,
-aos professores e ao programa Agrinho
-pela oportunidade de desenvolver
-criatividade, conhecimento e tecnologia.
 </p>
 
 </div>
@@ -730,7 +661,7 @@ criatividade, conhecimento e tecnologia.
 🌱 Projeto Agrinho
 </h2>
 
-<p>
+<p data-translate="footerText">
 Projeto educativo desenvolvido para o concurso
 Agrinho 2026 com foco em agricultura,
 tecnologia e sustentabilidade.

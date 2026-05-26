@@ -1,77 +1,51 @@
 /* ========================================= */
-/* PROJETO AGRINHO - MAIN.JS */
-/* ========================================= */
-
-/* ========================================= */
-/* ELEMENTOS */
-/* ========================================= */
-
-const pages = document.querySelectorAll(".page");
-
-const themeToggle =
-document.getElementById("themeToggle");
-
-const cards = document.querySelectorAll(
-".card, .infoCard, .techCard, .sustainCard"
-);
-
-/* ========================================= */
-/* VARIÁVEIS DO QUIZ */
-/* ========================================= */
-
-let score = 0;
-
-let answeredQuestions = 0;
-
-let quizFinished = false;
-
-/* ========================================= */
 /* LOADING SCREEN */
 /* ========================================= */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
 const loadingScreen =
 document.getElementById("loadingScreen");
 
-setTimeout(()=>{
+setTimeout(() => {
 
 loadingScreen.style.opacity = "0";
 
 loadingScreen.style.pointerEvents = "none";
 
-setTimeout(()=>{
+setTimeout(() => {
 
 loadingScreen.style.display = "none";
 
-},700);
+}, 700);
 
-},1400);
+}, 1800);
 
 });
 
 /* ========================================= */
-/* NAVEGAÇÃO */
+/* PAGE NAVIGATION */
 /* ========================================= */
 
 function navigateTo(pageId){
 
-pages.forEach(page=>{
+const pages =
+document.querySelectorAll(".page");
+
+pages.forEach((page) => {
 
 page.classList.remove("active");
 
 });
 
-const selectedPage =
+const targetPage =
 document.getElementById(pageId);
 
-selectedPage.classList.add("active");
+targetPage.classList.add("active");
 
 window.scrollTo({
-
 top:0,
 behavior:"smooth"
-
 });
 
 }
@@ -80,9 +54,15 @@ behavior:"smooth"
 /* DARK MODE */
 /* ========================================= */
 
-function applyTheme(theme){
+const themeToggle =
+document.getElementById("themeToggle");
 
-if(theme === "dark"){
+const savedTheme =
+localStorage.getItem("theme");
+
+/* LOAD THEME */
+
+if(savedTheme === "dark"){
 
 document.body.classList.add("dark");
 
@@ -90,150 +70,32 @@ themeToggle.textContent = "☀️";
 
 }else{
 
-document.body.classList.remove("dark");
-
 themeToggle.textContent = "🌙";
 
 }
 
-}
+/* TOGGLE */
 
-/* ========================================= */
-/* CARREGAR TEMA */
-/* ========================================= */
+themeToggle.addEventListener("click", () => {
 
-function loadTheme(){
+document.body.classList.toggle("dark");
 
-const savedTheme =
-localStorage.getItem("agrinho-theme");
+const isDark =
+document.body.classList.contains("dark");
 
-if(savedTheme){
+if(isDark){
 
-applyTheme(savedTheme);
+themeToggle.textContent = "☀️";
 
-}else{
-
-applyTheme("light");
-
-}
-
-}
-
-loadTheme();
-
-/* ========================================= */
-/* TROCAR TEMA */
-/* ========================================= */
-
-themeToggle.addEventListener("click",()=>{
-
-if(document.body.classList.contains("dark")){
-
-applyTheme("light");
-
-localStorage.setItem(
-"agrinho-theme",
-"light"
-);
+localStorage.setItem("theme", "dark");
 
 }else{
 
-applyTheme("dark");
+themeToggle.textContent = "🌙";
 
-localStorage.setItem(
-"agrinho-theme",
-"dark"
-);
+localStorage.setItem("theme", "light");
 
 }
-
-});
-
-/* ========================================= */
-/* ANIMAÇÃO DOS CARDS */
-/* ========================================= */
-
-const observer =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.style.opacity = "1";
-
-entry.target.style.transform =
-"translateY(0)";
-
-}
-
-});
-
-},{
-threshold:0.15
-});
-
-cards.forEach((card,index)=>{
-
-card.style.opacity = "0";
-
-card.style.transform =
-"translateY(20px)";
-
-card.style.transition = `
-0.5s ease
-${index * 0.05}s
-`;
-
-observer.observe(card);
-
-});
-
-/* ========================================= */
-/* SOMBRA HEADER */
-/* ========================================= */
-
-window.addEventListener("scroll",()=>{
-
-const header =
-document.getElementById("header");
-
-if(window.scrollY > 10){
-
-header.style.boxShadow =
-"0 6px 18px rgba(0,0,0,0.08)";
-
-}else{
-
-header.style.boxShadow =
-"0 4px 18px rgba(0,0,0,0.05)";
-
-}
-
-});
-
-/* ========================================= */
-/* EFEITO HOVER NAS IMAGENS */
-/* ========================================= */
-
-const images =
-document.querySelectorAll("img");
-
-images.forEach(image=>{
-
-image.addEventListener("mouseenter",()=>{
-
-image.style.transform =
-"scale(1.02)";
-
-});
-
-image.addEventListener("mouseleave",()=>{
-
-image.style.transform =
-"scale(1)";
-
-});
 
 });
 
@@ -241,252 +103,571 @@ image.style.transform =
 /* QUIZ */
 /* ========================================= */
 
-function answer(button,value){
+let score = 0;
 
-if(quizFinished){
+let answeredQuestions = [];
 
-return;
+/* ANSWER */
 
-}
+function answer(button, points){
 
 const questionBlock =
 button.parentElement;
 
-if(questionBlock.dataset.answered
-=== "true"){
-
-return;
-
-}
-
-questionBlock.dataset.answered =
-"true";
-
-answeredQuestions++;
-
-score += value;
-
 const buttons =
 questionBlock.querySelectorAll("button");
 
-buttons.forEach(btn=>{
+/* PREVENT MULTIPLE ANSWERS */
+
+if(answeredQuestions.includes(questionBlock)){
+return;
+}
+
+answeredQuestions.push(questionBlock);
+
+/* ADD SCORE */
+
+score += points;
+
+/* BUTTON VISUAL */
+
+buttons.forEach((btn) => {
+
+btn.style.opacity = "0.5";
 
 btn.disabled = true;
 
-btn.style.opacity = "0.7";
-
 });
 
-/* ========================================= */
-/* COR DA RESPOSTA */
-/* ========================================= */
+/* SELECTED BUTTON */
 
-if(value === 2){
+button.style.opacity = "1";
 
-button.style.background = "#111";
+button.style.transform = "scale(1.03)";
 
-button.style.color = "white";
+/* CORRECT / WRONG */
+
+if(points === 2){
+
+button.style.background = "#63d471";
+
+button.style.color = "#111";
 
 }else{
 
-button.style.background = "#c62828";
+button.style.background = "#ff5f5f";
 
 button.style.color = "white";
 
 }
 
-/* ========================================= */
-/* PEQUENA ANIMAÇÃO */
-/* ========================================= */
-
-button.style.transform =
-"scale(1.02)";
-
-setTimeout(()=>{
-
-button.style.transform =
-"scale(1)";
-
-},200);
-
 }
 
-/* ========================================= */
-/* FINALIZAR QUIZ */
-/* ========================================= */
+/* FINISH QUIZ */
 
 function finishQuiz(){
 
 const result =
 document.getElementById("quizResult");
 
-if(answeredQuestions < 3){
+let message = "";
 
-result.innerHTML = `
-
-<h2>
-⚠️ Atenção
-</h2>
-
-<p>
-Responda todas as perguntas
-antes de finalizar o quiz.
-</p>
-
-`;
-
-return;
-
-}
-
-quizFinished = true;
-
-/* ========================================= */
-/* RESULTADOS */
-/* ========================================= */
+/* RESULT */
 
 if(score === 6){
 
-result.innerHTML = `
-
-<h2>
-🌟 Excelente!
-</h2>
-
-<p>
-Você demonstrou excelente
-conhecimento sobre agricultura,
-tecnologia e sustentabilidade.
-</p>
-
-<p>
-Pontuação:
-<strong>6/6</strong>
-</p>
-
-`;
+message =
+"🌟 Excelente! Você possui um ótimo entendimento sobre agricultura, tecnologia e sustentabilidade.";
 
 }else if(score >= 3){
 
-result.innerHTML = `
-
-<h2>
-👍 Bom trabalho!
-</h2>
-
-<p>
-Você possui um bom entendimento
-sobre o tema agrícola.
-</p>
-
-<p>
-Pontuação:
-<strong>${score}/6</strong>
-</p>
-
-`;
+message =
+"✅ Bom trabalho! Você entende bastante sobre o tema Agrinho.";
 
 }else{
 
+message =
+"📚 Continue aprendendo! Conhecimento é essencial para construir um futuro sustentável.";
+
+}
+
+/* SHOW RESULT */
+
 result.innerHTML = `
 
+<div class="resultBox">
+
 <h2>
-📚 Continue aprendendo!
+Pontuação: ${score}/6
 </h2>
 
 <p>
-Você ainda pode desenvolver mais
-conhecimento sobre sustentabilidade
-e agronegócio.
+${message}
 </p>
 
-<p>
-Pontuação:
-<strong>${score}/6</strong>
-</p>
+</div>
 
 `;
 
 }
 
-result.style.opacity = "0";
-
-setTimeout(()=>{
-
-result.style.transition =
-"0.4s";
-
-result.style.opacity = "1";
-
-},50);
-
-}
-
 /* ========================================= */
-/* RESPONSIVIDADE */
+/* LANGUAGE SYSTEM */
 /* ========================================= */
 
-function checkMobile(){
+const translations = {
 
-if(window.innerWidth <= 768){
+/* ========================================= */
+/* PORTUGUÊS */
+/* ========================================= */
 
-document.body.classList.add("mobile");
+pt: {
 
-}else{
+loadingTitle:
+"Projeto Agrinho",
 
-document.body.classList.remove("mobile");
+loadingText:
+"Agro forte, futuro sustentável",
+
+headerSubtitle:
+"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente",
+
+navHome:
+"Início",
+
+navAgriculture:
+"Agricultura",
+
+navTechnology:
+"Tecnologia",
+
+navSustainability:
+"Sustentabilidade",
+
+navQuiz:
+"Quiz",
+
+navCredits:
+"Créditos",
+
+heroTitle:
+"O futuro do agro começa agora",
+
+heroText:
+"O agronegócio brasileiro é uma das maiores forças econômicas do planeta. A união entre tecnologia, produtividade e sustentabilidade garante desenvolvimento, geração de empregos e preservação ambiental.",
+
+heroButton1:
+"Explorar Agricultura",
+
+heroButton2:
+"Conhecer Tecnologia",
+
+card1Title:
+"Produção Agrícola",
+
+card1Text:
+"O Brasil é referência mundial na produção de alimentos e exportação agrícola.",
+
+card2Title:
+"Tecnologia no Campo",
+
+card2Text:
+"Máquinas modernas aumentam a produtividade e reduzem desperdícios.",
+
+card3Title:
+"Sustentabilidade",
+
+card3Text:
+"O equilíbrio entre produção e meio ambiente é essencial para o futuro.",
+
+agricultureTitle:
+"Agricultura Brasileira",
+
+agricultureSubtitle:
+"Uma das maiores potências agrícolas do mundo",
+
+technologyTitle:
+"Tecnologia no Campo",
+
+technologySubtitle:
+"A inovação transformando a agricultura",
+
+sustainabilityTitle:
+"Sustentabilidade",
+
+sustainabilitySubtitle:
+"Produzir preservando o meio ambiente",
+
+quizTitle:
+"Quiz Agrinho",
+
+quizSubtitle:
+"Teste seus conhecimentos",
+
+finishQuiz:
+"Finalizar Quiz",
+
+creditsTitle:
+"Créditos do Projeto",
+
+creditsSubtitle:
+"Conheça o criador deste projeto Agrinho",
+
+creatorRole:
+"Criador e Desenvolvedor do Projeto",
+
+schoolTitle:
+"Escola",
+
+functionTitle:
+"Função no Projeto",
+
+functionText:
+"Desenvolvimento Front-End, Design do Site e programação JavaScript.",
+
+phraseTitle:
+"Frase",
+
+phraseText:
+"\"O futuro da agricultura nasce da união entre tecnologia, consciência ambiental e inovação.\"",
+
+footerText:
+"Projeto educativo desenvolvido para o concurso Agrinho 2026 com foco em agricultura, tecnologia e sustentabilidade."
+
+},
+
+/* ========================================= */
+/* ENGLISH */
+/* ========================================= */
+
+en: {
+
+loadingTitle:
+"Agrinho Project",
+
+loadingText:
+"Strong agriculture, sustainable future",
+
+headerSubtitle:
+"Strong agriculture, sustainable future: balance between production and environment",
+
+navHome:
+"Home",
+
+navAgriculture:
+"Agriculture",
+
+navTechnology:
+"Technology",
+
+navSustainability:
+"Sustainability",
+
+navQuiz:
+"Quiz",
+
+navCredits:
+"Credits",
+
+heroTitle:
+"The future of agriculture starts now",
+
+heroText:
+"Brazilian agribusiness is one of the greatest economic forces on the planet. The union between technology, productivity and sustainability guarantees development and environmental preservation.",
+
+heroButton1:
+"Explore Agriculture",
+
+heroButton2:
+"Discover Technology",
+
+card1Title:
+"Agricultural Production",
+
+card1Text:
+"Brazil is a world reference in food production and agricultural exports.",
+
+card2Title:
+"Technology in the Field",
+
+card2Text:
+"Modern machines increase productivity and reduce waste.",
+
+card3Title:
+"Sustainability",
+
+card3Text:
+"The balance between production and the environment is essential for the future.",
+
+agricultureTitle:
+"Brazilian Agriculture",
+
+agricultureSubtitle:
+"One of the largest agricultural powers in the world",
+
+technologyTitle:
+"Technology in Agriculture",
+
+technologySubtitle:
+"Innovation transforming agriculture",
+
+sustainabilityTitle:
+"Sustainability",
+
+sustainabilitySubtitle:
+"Producing while preserving the environment",
+
+quizTitle:
+"Agrinho Quiz",
+
+quizSubtitle:
+"Test your knowledge",
+
+finishQuiz:
+"Finish Quiz",
+
+creditsTitle:
+"Project Credits",
+
+creditsSubtitle:
+"Meet the creator of this Agrinho project",
+
+creatorRole:
+"Project Creator and Developer",
+
+schoolTitle:
+"School",
+
+functionTitle:
+"Project Role",
+
+functionText:
+"Front-End development, website design and JavaScript programming.",
+
+phraseTitle:
+"Phrase",
+
+phraseText:
+"\"The future of agriculture is born from the union of technology, environmental awareness and innovation.\"",
+
+footerText:
+"Educational project developed for the Agrinho 2026 contest focusing on agriculture, technology and sustainability."
+
+},
+
+/* ========================================= */
+/* ESPAÑOL */
+/* ========================================= */
+
+es: {
+
+loadingTitle:
+"Proyecto Agrinho",
+
+loadingText:
+"Agro fuerte, futuro sostenible",
+
+headerSubtitle:
+"Agro fuerte, futuro sostenible: equilibrio entre producción y medio ambiente",
+
+navHome:
+"Inicio",
+
+navAgriculture:
+"Agricultura",
+
+navTechnology:
+"Tecnología",
+
+navSustainability:
+"Sostenibilidad",
+
+navQuiz:
+"Quiz",
+
+navCredits:
+"Créditos",
+
+heroTitle:
+"El futuro de la agricultura comienza ahora",
+
+heroText:
+"El agronegocio brasileño es una de las mayores fuerzas económicas del planeta. La unión entre tecnología, productividad y sostenibilidad garantiza desarrollo y preservación ambiental.",
+
+heroButton1:
+"Explorar Agricultura",
+
+heroButton2:
+"Conocer Tecnología",
+
+card1Title:
+"Producción Agrícola",
+
+card1Text:
+"Brasil es referencia mundial en producción de alimentos y exportación agrícola.",
+
+card2Title:
+"Tecnología en el Campo",
+
+card2Text:
+"Las máquinas modernas aumentan la productividad y reducen desperdicios.",
+
+card3Title:
+"Sostenibilidad",
+
+card3Text:
+"El equilibrio entre producción y medio ambiente es esencial para el futuro.",
+
+agricultureTitle:
+"Agricultura Brasileña",
+
+agricultureSubtitle:
+"Una de las mayores potencias agrícolas del mundo",
+
+technologyTitle:
+"Tecnología en el Campo",
+
+technologySubtitle:
+"La innovación transformando la agricultura",
+
+sustainabilityTitle:
+"Sostenibilidad",
+
+sustainabilitySubtitle:
+"Producir preservando el medio ambiente",
+
+quizTitle:
+"Quiz Agrinho",
+
+quizSubtitle:
+"Pon a prueba tus conocimientos",
+
+finishQuiz:
+"Finalizar Quiz",
+
+creditsTitle:
+"Créditos del Proyecto",
+
+creditsSubtitle:
+"Conoce al creador de este proyecto Agrinho",
+
+creatorRole:
+"Creador y Desarrollador del Proyecto",
+
+schoolTitle:
+"Escuela",
+
+functionTitle:
+"Función en el Proyecto",
+
+functionText:
+"Desarrollo Front-End, diseño del sitio y programación JavaScript.",
+
+phraseTitle:
+"Frase",
+
+phraseText:
+"\"El futuro de la agricultura nace de la unión entre tecnología, conciencia ambiental e innovación.\"",
+
+footerText:
+"Proyecto educativo desarrollado para el concurso Agrinho 2026 enfocado en agricultura, tecnología y sostenibilidad."
 
 }
 
-}
+};
 
-checkMobile();
+/* ========================================= */
+/* LANGUAGE SELECT */
+/* ========================================= */
 
-window.addEventListener(
-"resize",
-checkMobile
+const languageSelect =
+document.getElementById("languageSelect");
+
+/* LOAD LANGUAGE */
+
+const savedLanguage =
+localStorage.getItem("language") || "pt";
+
+languageSelect.value =
+savedLanguage;
+
+changeLanguage(savedLanguage);
+
+/* CHANGE EVENT */
+
+languageSelect.addEventListener("change", (e) => {
+
+const selectedLanguage =
+e.target.value;
+
+changeLanguage(selectedLanguage);
+
+localStorage.setItem(
+"language",
+selectedLanguage
 );
-
-/* ========================================= */
-/* PRELOAD DAS IMAGENS */
-/* ========================================= */
-
-const imageList = [
-
-"https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop",
-
-"https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop",
-
-"https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop",
-
-"https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop"
-
-];
-
-imageList.forEach(src=>{
-
-const img = new Image();
-
-img.src = src;
 
 });
 
 /* ========================================= */
-/* CONSOLE */
+/* CHANGE LANGUAGE */
 /* ========================================= */
 
-console.log(`
+function changeLanguage(language){
 
-🌱 PROJETO AGRINHO
+const elements =
+document.querySelectorAll("[data-translate]");
 
-✔ Sistema carregado
-✔ Navegação funcionando
-✔ Dark mode ativo
-✔ Quiz funcionando
-✔ Site otimizado
+elements.forEach((element) => {
 
-`);
+const key =
+element.getAttribute("data-translate");
+
+if(translations[language][key]){
+
+element.textContent =
+translations[language][key];
+
+}
+
+});
+
+}
 
 /* ========================================= */
-/* FINAL */
+/* SCROLL HEADER EFFECT */
 /* ========================================= */
+
+window.addEventListener("scroll", () => {
+
+const header =
+document.getElementById("header");
+
+if(window.scrollY > 20){
+
+header.style.background =
+"rgba(17,17,17,0.95)";
+
+header.style.backdropFilter =
+"blur(10px)";
+
+}else{
+
+header.style.background =
+"#111";
+
+header.style.backdropFilter =
+"none";
+
+}
+
+});
+
+/* ========================================= */
+/* CONSOLE MESSAGE */
+/* ========================================= */
+
+console.log(
+"%c🌱 Projeto Agrinho carregado com sucesso!",
+"color:#63d471; font-size:16px; font-weight:bold;"
+);
