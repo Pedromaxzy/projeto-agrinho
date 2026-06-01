@@ -1,4 +1,5 @@
 https://github.com/Pedromaxzy/projeto-agrinho/blob/main/IMG_20251121_102820_521.webp?raw=true
+
  Projeto Agrinho 2026  Agro Forte, Futuro Sustentável
 
 Esse site foi desenvolvido como projeto educativo para o **Concurso Agrinho 2026**. A ideia principal é mostrar como o agronegócio brasileiro une tecnologia de ponta e sustentabilidade para produzir alimentos e preservar o meio ambiente.
