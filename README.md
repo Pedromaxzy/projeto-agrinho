@@ -1,5 +1,3 @@
-https://github.com/Pedromaxzy/projeto-agrinho/blob/main/IMG_20251121_102820_521.webp?raw=true
-
 
 # Projeto Agrinho 2026 – Agro Forte, Futuro Sustentável: Equilíbrio entre Produção e Meio Ambiente
 
@@ -223,7 +221,7 @@ Promover aprendizado de forma divertida e interativa.
 ### Autor
 
 Pedro Henrique Simões Batista
-
+https://github.com/Pedromaxzy/projeto-agrinho/blob/main/IMG_20251121_102820_521.webp?raw=true
 ### Informações apresentadas
 
 * Nome completo;
