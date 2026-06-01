@@ -1,5 +1,5 @@
 https://github.com/Pedromaxzy/projeto-agrinho/blob/main/IMG_20251121_102820_521.webp?raw=true
-# 🌱 Projeto Agrinho 2026 — Agro Forte, Futuro Sustentável
+ Projeto Agrinho 2026  Agro Forte, Futuro Sustentável
 
 Esse site foi desenvolvido como projeto educativo para o **Concurso Agrinho 2026**. A ideia principal é mostrar como o agronegócio brasileiro une tecnologia de ponta e sustentabilidade para produzir alimentos e preservar o meio ambiente.
 
@@ -7,7 +7,7 @@ O projeto foi construído como uma **SPA (Single Page Application)**, ou seja, t
 
 ---
 
-## 💻 O que foi usado no desenvolvimento
+ O que foi usado no desenvolvimento
 
 * **HTML5:** Estrutura semântica das seções (Home, Agricultura, Tecnologia, Sustentabilidade, Quiz e Créditos).
 * **CSS3:** Estilização geral, transições de tela e layout totalmente responsivo (funciona bem no celular e no computador).
@@ -15,7 +15,7 @@ O projeto foi construído como uma **SPA (Single Page Application)**, ou seja, t
 
 ---
 
-## 🛠️ Funcionalidades principais
+ Funcionalidades principais
 
 * **Navegação por Abas:** Sistema em JS que esconde/mostra as seções de forma instantânea.
 * **Sistema de Idiomas (i18n):** Tradução dinâmica para Português, Inglês e Espanhol usando atributos `data-translate`.
@@ -25,7 +25,7 @@ O projeto foi construído como uma **SPA (Single Page Application)**, ou seja, t
 
 ---
 
-## 🧑‍💻 Sobre o Autor
+ Sobre o Autor
 
 * **Nome:** Pedro Henrique Simões Batista
 * **Idade:** 15 anos
