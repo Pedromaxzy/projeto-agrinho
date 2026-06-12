@@ -173,7 +173,7 @@ let message = "";
 
 /* RESULT */
 
-if(score === 6){
+if(score === 10){
 
 message =
 "🌟 Excelente! Você possui um ótimo entendimento sobre agricultura, tecnologia e sustentabilidade.";
@@ -197,7 +197,7 @@ result.innerHTML = `
 <div class="resultBox">
 
 <h2>
-Pontuação: ${score}/6
+Pontuação: ${score}/10
 </h2>
 
 <p>
