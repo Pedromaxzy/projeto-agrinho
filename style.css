@@ -823,8 +823,7 @@ font-size:1.1rem;
 font-weight:800;
 
 background:var(--accent);
-
-color:#111;
+background:var(--text);
 
 transition:.3s ease;
 }
