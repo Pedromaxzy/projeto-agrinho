@@ -1,15 +1,14 @@
-
-# Projeto Agrinho 2026 – Agro Forte, Futuro Sustentável: Equilíbrio entre Produção e Meio Ambiente
+# AgroFeed – Energia que Move o Campo
 
 ## Descrição do Projeto
 
-Este projeto foi desenvolvido para participação no Concurso Agrinho 2026, cujo tema é **"Agro Forte, Futuro Sustentável: equilíbrio entre produção e meio ambiente"**.
+O AgroFeed é um projeto desenvolvido para o Concurso Agrinho 2026 com o tema **"Agro Forte, Futuro Sustentável: equilíbrio entre produção e meio ambiente"**.
 
-O site tem como objetivo conscientizar estudantes e visitantes sobre a importância do agronegócio brasileiro para a economia nacional e para a segurança alimentar mundial. Além disso, apresenta como a tecnologia e a sustentabilidade podem atuar juntas para garantir uma produção agrícola eficiente, responsável e ambientalmente equilibrada.
+O objetivo do site é apresentar a importância da agricultura brasileira e demonstrar como a energia eólica pode contribuir para uma produção agrícola mais eficiente, econômica e sustentável.
 
-A plataforma foi construída de forma moderna e interativa, permitindo que o usuário navegue entre diferentes conteúdos educativos sem precisar recarregar a página. O projeto também oferece suporte a múltiplos idiomas, modo claro e escuro, animações de carregamento e um quiz educativo para reforçar o aprendizado.
+A plataforma explora a relação entre agricultura, energias renováveis e preservação ambiental, mostrando como a inovação tecnológica pode fortalecer o agronegócio sem comprometer os recursos naturais.
 
-O conteúdo foi elaborado para demonstrar que o futuro da agricultura depende da união entre inovação tecnológica, preservação dos recursos naturais e produção consciente.
+O projeto foi desenvolvido utilizando tecnologias web modernas e recursos interativos que proporcionam uma experiência dinâmica e educativa aos visitantes.
 
 ---
 
@@ -19,29 +18,30 @@ O conteúdo foi elaborado para demonstrar que o futuro da agricultura depende da
 
 ### HTML5
 
-Utilizado para a construção da estrutura principal do site, organização das seções, textos, imagens e elementos interativos.
+Responsável pela estrutura geral do site, organização das seções, textos, imagens e elementos interativos.
 
 ### CSS3
 
-Responsável pelo design visual do projeto, incluindo:
+Utilizado para:
 
+* Estilização visual;
 * Layout responsivo;
 * Animações;
-* Efeitos visuais;
 * Sistema de tema claro e escuro;
-* Organização visual dos cards;
-* Adaptação para dispositivos móveis.
+* Efeitos visuais;
+* Organização dos componentes da interface.
 
 ### JavaScript
 
-Responsável pelas funcionalidades dinâmicas do site:
+Responsável pelas funcionalidades dinâmicas:
 
-* Navegação entre páginas;
-* Sistema de tradução;
+* Navegação entre seções;
+* Sistema de idiomas;
 * Quiz interativo;
-* Controle do modo escuro;
-* Tela de carregamento;
-* Exibição dinâmica de conteúdos.
+* Dark Mode;
+* Loading Screen;
+* Armazenamento de preferências do usuário;
+* Animações e interações.
 
 ---
 
@@ -53,235 +53,249 @@ Arquivo principal responsável pela estrutura completa do site.
 
 ### style.css
 
-Arquivo que contém toda a estilização visual do projeto.
+Arquivo responsável pela estilização visual, responsividade, animações e personalização gráfica.
 
 ### main.js
 
-Arquivo responsável pelas funcionalidades interativas e comportamentos dinâmicos do sistema.
+Arquivo responsável pela lógica do sistema, incluindo:
+
+* Navegação dinâmica;
+* Sistema de tradução;
+* Quiz;
+* Controle de temas;
+* Loading Screen;
+* Persistência de configurações.
+
+---
+
+# Funcionalidades Implementadas
+
+## Loading Screen
+
+Tela de carregamento exibida ao abrir o site.
+
+### Recursos:
+
+* Animação de carregamento;
+* Identidade visual do projeto;
+* Transição suave para o conteúdo principal.
+
+---
+
+## Sistema de Navegação Dinâmica
+
+O site funciona como uma SPA (Single Page Application).
+
+### Benefícios:
+
+* Navegação rápida;
+* Sem recarregamento de página;
+* Melhor experiência para o usuário;
+* Transições suaves entre conteúdos.
+
+---
+
+## Sistema de Idiomas
+
+O visitante pode escolher entre:
+
+* Português (Brasil)
+* English (English)
+* Español (Español)
+
+As traduções são aplicadas dinamicamente através do JavaScript.
+
+---
+
+## Dark Mode
+
+Permite alternar entre:
+
+* Tema Claro
+* Tema Escuro
+
+A preferência do usuário é salva automaticamente no navegador utilizando LocalStorage.
 
 ---
 
 # Descrição das Seções
 
-## Tela de Carregamento (Loading Screen)
-
-Ao abrir o site, o visitante visualiza uma tela de carregamento personalizada contendo:
-
-* Nome do projeto;
-* Tema do Agrinho;
-* Animação visual de carregamento.
-
-Essa funcionalidade melhora a experiência do usuário e torna o site mais moderno.
-
----
-
-## Cabeçalho (Header)
-
-Presente em todas as seções.
-
-### Componentes:
-
-* Logo do Projeto Agrinho;
-* Tema oficial do trabalho;
-* Menu de navegação;
-* Seletor de idiomas;
-* Botão de modo escuro.
-
-### Menu de Navegação
-
-* Início
-* Agricultura
-* Tecnologia
-* Sustentabilidade
-* Quiz
-* Créditos
-
----
-
 ## Página Inicial
 
-### Objetivo
+### Título
 
-Apresentar uma visão geral sobre o agronegócio brasileiro e introduzir os temas abordados no projeto.
+Energia que Move o Campo
 
 ### Conteúdo
 
-* Título principal;
-* Texto introdutório;
-* Botões de acesso rápido;
+Apresenta a proposta do projeto e explica como a energia eólica pode contribuir para o desenvolvimento sustentável da agricultura brasileira.
+
+### Componentes
+
+* Banner principal;
 * Imagem ilustrativa;
-* Cards informativos.
+* Botões de navegação rápida;
+* Cards informativos;
+* Destaque sobre a importância da energia no campo.
 
 ### Cards
 
 #### Produção Agrícola
 
-Explica a relevância econômica do agronegócio brasileiro.
+Apresenta a relevância da agricultura brasileira para a economia e para a segurança alimentar.
 
-#### Tecnologia no Campo
+#### Energia Renovável
 
-Apresenta a modernização da agricultura por meio de máquinas, sensores e inteligência artificial.
+Mostra os benefícios da energia eólica para propriedades rurais.
 
-#### Sustentabilidade
+#### Futuro Sustentável
 
-Mostra a importância da preservação ambiental para garantir a continuidade da produção agrícola.
+Aborda a importância do equilíbrio entre produtividade e preservação ambiental.
 
 ---
 
-## Seção Agricultura
-
-### Título
-
-Agricultura Brasileira
-
-### Conteúdo
-
-* Importância econômica da agricultura;
-* Papel do Brasil na produção mundial de alimentos;
-* Principais culturas agrícolas:
-
-  * Soja;
-  * Milho;
-  * Café;
-  * Cana-de-açúcar;
-  * Algodão.
+## Agricultura Brasileira
 
 ### Objetivo
 
-Demonstrar como o setor agrícola contribui para o desenvolvimento do país e para a geração de empregos.
-
----
-
-## Seção Tecnologia
-
-### Título
-
-Tecnologia no Campo
+Demonstrar a importância da agricultura para o Brasil.
 
 ### Conteúdo
 
-* Agricultura de precisão;
-* Uso de drones;
-* Sensores inteligentes;
-* Inteligência Artificial;
-* Máquinas agrícolas automatizadas.
+* Produção agrícola nacional;
+* Exportações;
+* Geração de empregos;
+* Uso de tecnologias modernas.
+
+### Culturas Destacadas
+
+#### Soja
+
+Uma das principais commodities agrícolas do país.
+
+#### Milho
+
+Importante para alimentação humana e animal.
+
+#### Café
+
+Produto reconhecido mundialmente pela qualidade.
+
+---
+
+## Energia Eólica
+
+### Objetivo
+
+Explicar como a energia dos ventos pode ser utilizada no agronegócio.
+
+### Conteúdo
+
+* Funcionamento da energia eólica;
+* Aerogeradores;
+* Produção de eletricidade;
+* Aplicações no campo.
 
 ### Benefícios
 
-* Maior produtividade;
-* Menor desperdício;
-* Economia de recursos;
-* Melhor monitoramento das plantações.
+* Fonte renovável;
+* Baixa emissão de poluentes;
+* Redução de custos energéticos;
+* Sustentabilidade.
+
+### Destaques
+
+#### Aerogeradores
+
+Equipamentos responsáveis pela conversão da energia dos ventos em energia elétrica.
+
+#### Energia Limpa
+
+Produção energética sem dependência de combustíveis fósseis.
+
+#### Baixo Impacto Ambiental
+
+Alternativa sustentável para o desenvolvimento agrícola.
 
 ---
 
-## Seção Sustentabilidade
+## Sustentabilidade
 
-### Título
+### Objetivo
 
-Produzir Preservando o Meio Ambiente
+Mostrar a importância da preservação ambiental no agronegócio.
 
 ### Conteúdo
 
-* Conservação dos recursos naturais;
-* Preservação do solo;
+* Conservação do solo;
 * Economia de água;
 * Rotação de culturas;
-* Produção responsável.
+* Uso de energias renováveis.
 
-### Objetivo
+### Benefícios
 
-Mostrar que é possível produzir mais alimentos sem comprometer o meio ambiente.
+* Preservação dos recursos naturais;
+* Redução de desperdícios;
+* Produção responsável;
+* Desenvolvimento sustentável.
 
 ---
 
-## Quiz Agrinho
+## Quiz AgroFeed
 
 ### Objetivo
 
-Promover aprendizado de forma divertida e interativa.
+Avaliar os conhecimentos adquiridos durante a navegação.
 
 ### Características
 
-* Perguntas educativas;
+* 10 perguntas interativas;
 * Correção automática;
-* Resultado instantâneo;
-* Interação com o usuário.
+* Feedback imediato;
+* Sistema de pontuação.
 
-### Temas abordados
+### Temas Abordados
 
 * Agricultura;
-* Tecnologia;
-* Sustentabilidade.
+* Energia Eólica;
+* Sustentabilidade;
+* Tecnologia no Campo.
 
 ---
 
-## Seção Créditos
+## Créditos
 
 ### Autor
 
 Pedro Henrique Simões Batista
-https://github.com/Pedromaxzy/projeto-agrinho/blob/main/IMG_20251121_102820_521.webp?raw=true
-### Informações apresentadas
 
-* Nome completo;
-* Idade;
-* Escola;
-* Função no projeto;
-* Redes sociais;
-* Mensagem inspiradora.
+### Idade
+
+15 anos
 
 ### Escola
 
-Colégio Estadual Cívico Militar Dr. Generoso Marques.
+Colégio Estadual Cívico Militar Dr. Generoso Marques
+
+### Funções Desenvolvidas
+
+* Planejamento do projeto;
+* Pesquisa de conteúdo;
+* Desenvolvimento Front-End;
+* Design da interface;
+* Programação JavaScript;
+* Traduções;
+* Testes e ajustes.
 
 ---
 
-# Recursos Interativos
+# Recursos de Acessibilidade
 
-## Sistema de Idiomas
-
-O visitante pode alterar o idioma do site entre:
-
-* Português (Brasil)
-* Inglês (English)
-* Espanhol (Español)
-
-Todo o conteúdo é traduzido dinamicamente utilizando JavaScript.
-
----
-
-## Modo Escuro
-
-Permite ao usuário alternar entre:
-
-* Tema Claro;
-* Tema Escuro.
-
-O recurso melhora a acessibilidade e proporciona maior conforto visual.
-
----
-
-## Responsividade
-
-O projeto foi desenvolvido para funcionar corretamente em:
-
-* Computadores;
-* Notebooks;
-* Tablets;
-* Smartphones.
-
----
-
-# Objetivos Educacionais
-
-Este projeto busca:
-
-* Valorizar o agronegócio brasileiro;
-* Incentivar a educação ambiental;
-* Demonstrar a importância da inovação tecnológica;
-* Conscientizar sobre práticas sustentáveis;
-* Promover o conhecimento sobre a produção de alimentos.
+* Interface responsiva;
+* Contraste para modo escuro;
+* Navegação simplificada;
+* Textos organizados;
+* Compatibilidade com dispositivos móveis.
 
 ---
 
@@ -289,27 +303,29 @@ Este projeto busca:
 
 Imagens obtidas através da plataforma Unsplash:
 
-* Fazenda e produção agrícola:
-  https://unsplash.com/photos/1500937386664-56d1dfef3854
+### Energia Eólica
 
-* Plantação agrícola:
-  https://unsplash.com/photos/1464226184884-fa280b87c399
+https://images.unsplash.com/photo-1466611653911-95081537e5b7
 
-* Drone agrícola:
-  https://unsplash.com/photos/1508614589041-895b88991e3e
+### Agricultura Brasileira
 
-* Sustentabilidade e natureza:
-  https://unsplash.com/photos/1473448912268-2022ce9509d8
+https://images.unsplash.com/photo-1500937386664-56d1dfef3854
+
+### Sustentabilidade
+
+https://images.unsplash.com/photo-1473448912268-2022ce9509d8
 
 Foto do autor:
 
-* Acervo pessoal de Pedro Henrique Simões Batista.
+Acervo pessoal de Pedro Henrique Simões Batista.
 
 ---
 
-# Considerações Finais
+# Objetivo Educacional
 
-O Projeto Agrinho 2026 foi desenvolvido com o propósito de demonstrar que o agronegócio moderno pode unir produtividade, tecnologia e sustentabilidade. Através de conteúdos educativos, recursos interativos e uma interface moderna, o site busca informar e conscientizar os visitantes sobre a importância do equilíbrio entre produção agrícola e preservação ambiental para a construção de um futuro mais sustentável.
+O AgroFeed busca conscientizar estudantes e visitantes sobre a importância da agricultura sustentável e do uso de energias renováveis no campo.
+
+Através de informações educativas e recursos interativos, o projeto demonstra como a tecnologia e a preservação ambiental podem trabalhar juntas para garantir um futuro mais sustentável para a produção agrícola brasileira.
 
 ---
 
@@ -317,4 +333,4 @@ O Projeto Agrinho 2026 foi desenvolvido com o propósito de demonstrar que o agr
 
 Projeto desenvolvido exclusivamente para fins educacionais e participação no Concurso Agrinho 2026.
 
-Todos os direitos sobre textos, design, programação e organização pertencem ao autor do projeto.
+Todos os conteúdos, códigos, textos e elementos visuais foram organizados para utilização no concurso e na divulgação do conhecimento sobre agricultura, energia renovável e sustentabilidade.
