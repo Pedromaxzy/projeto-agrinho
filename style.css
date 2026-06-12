@@ -275,7 +275,7 @@ nav button:hover{
 
 background:var(--accent);
 
-
+background:var(--header);
 
 transform:
 translateY(-2px);
