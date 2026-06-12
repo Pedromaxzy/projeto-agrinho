@@ -4,22 +4,23 @@
 
 window.addEventListener("load", () => {
 
-const loadingScreen =
-document.getElementById("loadingScreen");
+    const loadingScreen =
+    document.getElementById("loadingScreen");
 
-setTimeout(() => {
+    if(!loadingScreen) return;
 
-loadingScreen.style.opacity = "0";
+    setTimeout(() => {
 
-loadingScreen.style.pointerEvents = "none";
+        loadingScreen.style.opacity = "0";
+        loadingScreen.style.pointerEvents = "none";
 
-setTimeout(() => {
+        setTimeout(() => {
 
-loadingScreen.style.display = "none";
+            loadingScreen.style.display = "none";
 
-}, 700);
+        }, 700);
 
-}, 1800);
+    }, 1800);
 
 });
 
@@ -29,26 +30,31 @@ loadingScreen.style.display = "none";
 
 function navigateTo(pageId){
 
-const pages =
-document.querySelectorAll(".page");
+    const pages =
+    document.querySelectorAll(".page");
 
-pages.forEach((page) => {
+    pages.forEach((page) => {
 
-page.classList.remove("active");
+        page.classList.remove("active");
 
-});
+    });
 
-const targetPage =
-document.getElementById(pageId);
+    const targetPage =
+    document.getElementById(pageId);
 
-targetPage.classList.add("active");
+    if(targetPage){
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+        targetPage.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
 
 }
+
 /* ========================================= */
 /* DARK MODE */
 /* ========================================= */
@@ -56,47 +62,44 @@ behavior:"smooth"
 const themeToggle =
 document.getElementById("themeToggle");
 
-const savedTheme =
-localStorage.getItem("theme");
+if(themeToggle){
 
-/* LOAD THEME */
+    const savedTheme =
+    localStorage.getItem("theme");
 
-if(savedTheme === "dark"){
+    if(savedTheme === "dark"){
 
-document.body.classList.add("dark");
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀️";
 
-themeToggle.textContent = "☀️";
+    }else{
 
-}else{
+        themeToggle.textContent = "🌙";
 
-themeToggle.textContent = "🌙";
+    }
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        const isDark =
+        document.body.classList.contains("dark");
+
+        if(isDark){
+
+            themeToggle.textContent = "☀️";
+            localStorage.setItem("theme", "dark");
+
+        }else{
+
+            themeToggle.textContent = "🌙";
+            localStorage.setItem("theme", "light");
+
+        }
+
+    });
 
 }
-
-/* TOGGLE */
-
-themeToggle.addEventListener("click", () => {
-
-document.body.classList.toggle("dark");
-
-const isDark =
-document.body.classList.contains("dark");
-
-if(isDark){
-
-themeToggle.textContent = "☀️";
-
-localStorage.setItem("theme", "dark");
-
-}else{
-
-themeToggle.textContent = "🌙";
-
-localStorage.setItem("theme", "light");
-
-}
-
-});
 
 /* ========================================= */
 /* QUIZ */
@@ -104,109 +107,97 @@ localStorage.setItem("theme", "light");
 
 let score = 0;
 
-let answeredQuestions = [];
+const answeredQuestions = [];
 
 /* ANSWER */
 
 function answer(button, points){
 
-const questionBlock =
-button.parentElement;
+    const questionBlock =
+    button.parentElement;
 
-const buttons =
-questionBlock.querySelectorAll("button");
+    if(answeredQuestions.includes(questionBlock)){
+        return;
+    }
 
-/* PREVENT MULTIPLE ANSWERS */
+    answeredQuestions.push(questionBlock);
 
-if(answeredQuestions.includes(questionBlock)){
-return;
-}
+    score += points;
 
-answeredQuestions.push(questionBlock);
+    const buttons =
+    questionBlock.querySelectorAll("button");
 
-/* ADD SCORE */
+    buttons.forEach((btn) => {
 
-score += points;
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
 
-/* BUTTON VISUAL */
+    });
 
-buttons.forEach((btn) => {
+    button.style.opacity = "1";
+    button.style.transform = "scale(1.03)";
 
-btn.style.opacity = "0.5";
+    /* RESPOSTA CORRETA */
 
-btn.disabled = true;
+    if(points === 1){
 
-});
+        button.style.background = "#63d471";
+        button.style.color = "#111";
 
-/* SELECTED BUTTON */
+    }else{
 
-button.style.opacity = "1";
+        button.style.background = "#ff5f5f";
+        button.style.color = "#fff";
 
-button.style.transform = "scale(1.03)";
-
-/* CORRECT / WRONG */
-
-if(points === 2){
-
-button.style.background = "#63d471";
-
-button.style.color = "#111";
-
-}else{
-
-button.style.background = "#ff5f5f";
-
-button.style.color = "white";
+    }
 
 }
 
-}
-
+/* ========================================= */
 /* FINISH QUIZ */
+/* ========================================= */
 
 function finishQuiz(){
 
-const result =
-document.getElementById("quizResult");
+    const result =
+    document.getElementById("quizResult");
 
-let message = "";
+    if(!result) return;
 
-/* RESULT */
+    let message = "";
 
-if(score === 10){
+    if(score === 10){
 
-message =
-"🌟 Excelente! Você possui um ótimo entendimento sobre agricultura, tecnologia e sustentabilidade.";
+        message =
+        "🌟 Excelente! Você possui um ótimo entendimento sobre agricultura, tecnologia e sustentabilidade.";
 
-}else if(score >= 3){
+    }else if(score >= 7){
 
-message =
-"✅ Bom trabalho! Você entende bastante sobre o tema Agrinho.";
+        message =
+        "✅ Bom trabalho! Você entende bastante sobre o tema Agrinho.";
 
-}else{
+    }else{
 
-message =
-"📚 Continue aprendendo! Conhecimento é essencial para construir um futuro sustentável.";
+        message =
+        "📚 Continue aprendendo! Conhecimento é essencial para construir um futuro sustentável.";
 
-}
+    }
 
-/* SHOW RESULT */
+    result.innerHTML = `
 
-result.innerHTML = `
+    <div class="resultBox">
 
-<div class="resultBox">
+        <h2>
+            Pontuação: ${score}/10
+        </h2>
 
-<h2>
-Pontuação: ${score}/10
-</h2>
+        <p>
+            ${message}
+        </p>
 
-<p>
-${message}
-</p>
+    </div>
 
-</div>
-
-`;
+    `;
 
 }
 
@@ -341,8 +332,10 @@ heroButton2: "Discover Wind Energy",
 
 card1Title: "Agricultural Production",
 card1Text: "Brazil is one of the largest food producers in the world.",
+
 card2Title: "Renewable Energy",
 card2Text: "Wind energy is clean and sustainable.",
+
 card3Title: "Sustainable Future",
 card3Text: "Balance between production and environment is essential.",
 
@@ -410,106 +403,7 @@ functionTitle: "Project Role",
 
 footerText: "Educational project about agriculture, energy and sustainability."
 
-},
-
-/* ========================================= */
-/* ESPAÑOL */
-/* ========================================= */
-
-es: {
-
-pageTitle: "AgroFeed | Energía que mueve el campo",
-
-loadingTitle: "AgroFeed",
-loadingText: "Agro fuerte, futuro sostenible",
-
-headerSubtitle: "Agro fuerte, futuro sostenible: equilibrio entre producción y medio ambiente",
-
-navHome: "Inicio",
-navAgriculture: "Agricultura",
-navWind: "Energía Eólica",
-navSustainability: "Sostenibilidad",
-navQuiz: "Quiz",
-navCredits: "Créditos",
-
-heroTitle: "Energía que mueve el campo",
-heroText: "El agronegocio depende de la unión entre producción, tecnología y sostenibilidad.",
-heroButton1: "Explorar Agricultura",
-heroButton2: "Conocer Energía Eólica",
-
-card1Title: "Producción Agrícola",
-card1Text: "Brasil es uno de los mayores productores de alimentos.",
-card2Title: "Energía Renovable",
-card2Text: "La energía eólica es limpia y sostenible.",
-card3Title: "Futuro Sostenible",
-card3Text: "El equilibrio entre producción y medio ambiente es clave.",
-
-agricultureTitle: "Agricultura Brasileña",
-agricultureSubtitle: "La fuerza que alimenta el país y el mundo",
-
-agricultureText1: "La agricultura brasileña es fundamental para la economía.",
-agricultureText2: "Brasil lidera la producción mundial de soja, maíz y café.",
-agricultureText3: "La tecnología aumentó la productividad sostenible.",
-agricultureText4: "Las máquinas modernas mejoran la eficiencia.",
-
-windTitle: "Energía Eólica",
-windSubtitle: "La fuerza del viento impulsando la agricultura",
-
-windText1: "La energía eólica proviene del viento.",
-windText2: "Es una fuente limpia y renovable.",
-windText3: "Se usa en sistemas agrícolas.",
-windText4: "Reduce costos e impacto ambiental.",
-
-sustainabilityTitle: "Sostenibilidad",
-sustainabilitySubtitle: "Producir preservando la naturaleza",
-
-sustainabilityText1: "La sostenibilidad es esencial en la agricultura.",
-sustainabilityText2: "Ayuda a conservar suelo y agua.",
-sustainabilityText3: "Las energías renovables reducen contaminación.",
-sustainabilityText4: "Equilibra producción y naturaleza.",
-
-infoSojaTitle: "Soja",
-infoSojaText: "Uno de los cultivos más importantes de Brasil.",
-
-infoMilhoTitle: "Maíz",
-infoMilhoText: "Esencial para alimentación humana y animal.",
-
-infoCafeTitle: "Café",
-infoCafeText: "Producto brasileño reconocido mundialmente.",
-
-tech1Title: "Aerogeneradores",
-tech1Text: "Convierten el viento en electricidad.",
-
-tech2Title: "Energía Limpia",
-tech2Text: "Producción sin contaminación.",
-
-tech3Title: "Bajo Impacto",
-tech3Text: "Reduce impacto ambiental.",
-
-sustain1Title: "Conservación del Suelo",
-sustain1Text: "Mantiene fertilidad del suelo.",
-
-sustain2Title: "Ahorro de Agua",
-sustain2Text: "Uso eficiente del agua.",
-
-sustain3Title: "Rotación de Cultivos",
-sustain3Text: "Mejora la calidad del suelo.",
-
-quizTitle: "Quiz AgroFeed",
-quizSubtitle: "Pon a prueba tus conocimientos",
-
-finishQuiz: "Finalizar Quiz",
-
-creditsTitle: "Créditos del Proyecto",
-creditsSubtitle: "Conoce al creador",
-
-schoolTitle: "Escuela",
-functionTitle: "Función en el Proyecto",
-
-footerText: "Proyecto educativo sobre agricultura, energía y sostenibilidad."
 }
-
-};
 
 /* ========================================= */
 /* LANGUAGE SELECT */
