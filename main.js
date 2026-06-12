@@ -222,116 +222,95 @@ const translations = {
 
 pt: {
 
-loadingTitle:
-"Projeto Agrinho",
+pageTitle: "AgroFeed | Energia que move o campo",
 
-loadingText:
-"Agro forte, futuro sustentável",
+loadingTitle: "AgroFeed",
+loadingText: "Agro forte, futuro sustentável",
 
-headerSubtitle:
-"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente",
+headerSubtitle: "Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente",
 
-navHome:
-"Início",
+navHome: "Início",
+navAgriculture: "Agricultura",
+navWind: "Energia Eólica",
+navSustainability: "Sustentabilidade",
+navQuiz: "Quiz",
+navCredits: "Créditos",
 
-navAgriculture:
-"Agricultura",
+heroTitle: "Energia que move o campo",
+heroText: "O futuro do agronegócio depende da união entre produção, tecnologia e sustentabilidade. O AgroFeed apresenta como a energia eólica pode transformar o campo.",
+heroButton1: "Explorar Agricultura",
+heroButton2: "Conhecer Energia Eólica",
 
-navTechnology:
-"Tecnologia",
+card1Title: "Produção Agrícola",
+card1Text: "O Brasil está entre os maiores produtores de alimentos do mundo.",
+card2Title: "Energia Renovável",
+card2Text: "A energia eólica é uma fonte limpa e sustentável para o campo.",
+card3Title: "Futuro Sustentável",
+card3Text: "O equilíbrio entre produção e meio ambiente é essencial para o futuro.",
 
-navSustainability:
-"Sustentabilidade",
+agricultureTitle: "Agricultura Brasileira",
+agricultureSubtitle: "A força que alimenta o país e o mundo",
 
-navQuiz:
-"Quiz",
+agricultureText1: "A agricultura brasileira possui papel fundamental na economia nacional.",
+agricultureText2: "O Brasil é destaque mundial na produção de soja, milho, café e outras culturas.",
+agricultureText3: "O avanço tecnológico aumentou a produtividade de forma sustentável.",
+agricultureText4: "Máquinas modernas e sensores ajudam na eficiência do campo.",
 
-navCredits:
-"Créditos",
+windTitle: "Energia Eólica",
+windSubtitle: "A força dos ventos impulsionando o agronegócio",
 
-heroTitle:
-"O futuro do agro começa agora",
+windText1: "A energia eólica é produzida a partir da força dos ventos.",
+windText2: "É uma fonte limpa e renovável de energia.",
+windText3: "No campo, pode ser usada para irrigação e produção agrícola.",
+windText4: "Reduz custos e impactos ambientais.",
 
-heroText:
-"O agronegócio brasileiro é uma das maiores forças econômicas do planeta. A união entre tecnologia, produtividade e sustentabilidade garante desenvolvimento, geração de empregos e preservação ambiental.",
+sustainabilityTitle: "Sustentabilidade",
+sustainabilitySubtitle: "Produzir mais preservando os recursos naturais",
 
-heroButton1:
-"Explorar Agricultura",
+sustainabilityText1: "A sustentabilidade é essencial para o agronegócio moderno.",
+sustainabilityText2: "Ajuda a preservar o solo e economizar água.",
+sustainabilityText3: "Energias renováveis reduzem a emissão de poluentes.",
+sustainabilityText4: "Garante equilíbrio entre produção e meio ambiente.",
 
-heroButton2:
-"Conhecer Tecnologia",
+infoSojaTitle: "Soja",
+infoSojaText: "Uma das culturas mais importantes do Brasil.",
 
-card1Title:
-"Produção Agrícola",
+infoMilhoTitle: "Milho",
+infoMilhoText: "Fundamental para alimentação humana e animal.",
 
-card1Text:
-"O Brasil é referência mundial na produção de alimentos e exportação agrícola.",
+infoCafeTitle: "Café",
+infoCafeText: "Produto brasileiro reconhecido mundialmente.",
 
-card2Title:
-"Tecnologia no Campo",
+tech1Title: "Aerogeradores",
+tech1Text: "Transformam energia dos ventos em eletricidade.",
 
-card2Text:
-"Máquinas modernas aumentam a produtividade e reduzem desperdícios.",
+tech2Title: "Energia Limpa",
+tech2Text: "Produção sem emissão de poluentes.",
 
-card3Title:
-"Sustentabilidade",
+tech3Title: "Baixo Impacto",
+tech3Text: "Reduz impacto ambiental das atividades humanas.",
 
-card3Text:
-"O equilíbrio entre produção e meio ambiente é essencial para o futuro.",
+sustain1Title: "Preservação do Solo",
+sustain1Text: "Mantém a fertilidade e evita erosão.",
 
-agricultureTitle:
-"Agricultura Brasileira",
+sustain2Title: "Economia de Água",
+sustain2Text: "Uso eficiente de recursos hídricos.",
 
-agricultureSubtitle:
-"Uma das maiores potências agrícolas do mundo",
+sustain3Title: "Rotação de Culturas",
+sustain3Text: "Melhora a qualidade do solo.",
 
-technologyTitle:
-"Tecnologia no Campo",
+quizTitle: "Quiz AgroFeed",
+quizSubtitle: "Teste seus conhecimentos sobre agricultura e energia",
 
-technologySubtitle:
-"A inovação transformando a agricultura",
+finishQuiz: "Finalizar Quiz",
 
-sustainabilityTitle:
-"Sustentabilidade",
+creditsTitle: "Créditos do Projeto",
+creditsSubtitle: "Conheça o criador deste projeto",
 
-sustainabilitySubtitle:
-"Produzir preservando o meio ambiente",
+schoolTitle: "Escola",
+functionTitle: "Função no Projeto",
 
-quizTitle:
-"Quiz Agrinho",
-
-quizSubtitle:
-"Teste seus conhecimentos",
-
-finishQuiz:
-"Finalizar Quiz",
-
-creditsTitle:
-"Créditos do Projeto",
-
-creditsSubtitle:
-"Conheça o criador deste projeto Agrinho",
-
-creatorRole:
-"Criador e Desenvolvedor do Projeto",
-
-schoolTitle:
-"Escola",
-
-functionTitle:
-"Função no Projeto",
-
-functionText:
-"Desenvolvimento Front-End, Design do Site e programação JavaScript.",
-
-phraseTitle:
-"Frase",
-
-phraseText:
-"\"O futuro da agricultura nasce da união entre tecnologia, consciência ambiental e inovação.\"",
-
-footerText:
-"Projeto educativo desenvolvido para o concurso Agrinho 2026 com foco em agricultura, tecnologia e sustentabilidade."
+footerText: "Projeto educativo sobre agricultura, energia e sustentabilidade."
 
 },
 
@@ -341,116 +320,95 @@ footerText:
 
 en: {
 
-loadingTitle:
-"Agrinho Project",
+pageTitle: "AgroFeed | Energy that drives the countryside",
 
-loadingText:
-"Strong agriculture, sustainable future",
+loadingTitle: "AgroFeed",
+loadingText: "Strong agriculture, sustainable future",
 
-headerSubtitle:
-"Strong agriculture, sustainable future: balance between production and environment",
+headerSubtitle: "Strong agriculture, sustainable future: balance between production and environment",
 
-navHome:
-"Home",
+navHome: "Home",
+navAgriculture: "Agriculture",
+navWind: "Wind Energy",
+navSustainability: "Sustainability",
+navQuiz: "Quiz",
+navCredits: "Credits",
 
-navAgriculture:
-"Agriculture",
+heroTitle: "Energy that drives the countryside",
+heroText: "Agribusiness depends on the union of production, technology and sustainability.",
+heroButton1: "Explore Agriculture",
+heroButton2: "Discover Wind Energy",
 
-navTechnology:
-"Technology",
+card1Title: "Agricultural Production",
+card1Text: "Brazil is one of the largest food producers in the world.",
+card2Title: "Renewable Energy",
+card2Text: "Wind energy is clean and sustainable.",
+card3Title: "Sustainable Future",
+card3Text: "Balance between production and environment is essential.",
 
-navSustainability:
-"Sustainability",
+agricultureTitle: "Brazilian Agriculture",
+agricultureSubtitle: "The force that feeds the country and the world",
 
-navQuiz:
-"Quiz",
+agricultureText1: "Brazilian agriculture plays a key role in the economy.",
+agricultureText2: "The country is a global leader in soy, corn and coffee production.",
+agricultureText3: "Technology has increased productivity sustainably.",
+agricultureText4: "Modern machines improve efficiency in farming.",
 
-navCredits:
-"Credits",
+windTitle: "Wind Energy",
+windSubtitle: "The power of wind driving agriculture",
 
-heroTitle:
-"The future of agriculture starts now",
+windText1: "Wind energy comes from wind movement.",
+windText2: "It is a clean and renewable source.",
+windText3: "It can power irrigation and rural systems.",
+windText4: "It reduces costs and environmental impact.",
 
-heroText:
-"Brazilian agribusiness is one of the greatest economic forces on the planet. The union between technology, productivity and sustainability guarantees development and environmental preservation.",
+sustainabilityTitle: "Sustainability",
+sustainabilitySubtitle: "Producing while preserving nature",
 
-heroButton1:
-"Explore Agriculture",
+sustainabilityText1: "Sustainability is essential for modern farming.",
+sustainabilityText2: "It helps preserve soil and save water.",
+sustainabilityText3: "Renewable energy reduces pollution.",
+sustainabilityText4: "Ensures balance between production and nature.",
 
-heroButton2:
-"Discover Technology",
+infoSojaTitle: "Soybean",
+infoSojaText: "One of Brazil's most important crops.",
 
-card1Title:
-"Agricultural Production",
+infoMilhoTitle: "Corn",
+infoMilhoText: "Essential for human and animal food.",
 
-card1Text:
-"Brazil is a world reference in food production and agricultural exports.",
+infoCafeTitle: "Coffee",
+infoCafeText: "Brazilian product recognized worldwide.",
 
-card2Title:
-"Technology in the Field",
+tech1Title: "Wind Turbines",
+tech1Text: "Convert wind energy into electricity.",
 
-card2Text:
-"Modern machines increase productivity and reduce waste.",
+tech2Title: "Clean Energy",
+tech2Text: "Production without pollution emissions.",
 
-card3Title:
-"Sustainability",
+tech3Title: "Low Impact",
+tech3Text: "Reduces environmental impact.",
 
-card3Text:
-"The balance between production and the environment is essential for the future.",
+sustain1Title: "Soil Preservation",
+sustain1Text: "Maintains fertility and prevents erosion.",
 
-agricultureTitle:
-"Brazilian Agriculture",
+sustain2Title: "Water Saving",
+sustain2Text: "Efficient use of water resources.",
 
-agricultureSubtitle:
-"One of the largest agricultural powers in the world",
+sustain3Title: "Crop Rotation",
+sustain3Text: "Improves soil quality.",
 
-technologyTitle:
-"Technology in Agriculture",
+quizTitle: "AgroFeed Quiz",
+quizSubtitle: "Test your knowledge",
 
-technologySubtitle:
-"Innovation transforming agriculture",
+finishQuiz: "Finish Quiz",
 
-sustainabilityTitle:
-"Sustainability",
+creditsTitle: "Project Credits",
+creditsSubtitle: "Meet the creator",
 
-sustainabilitySubtitle:
-"Producing while preserving the environment",
+schoolTitle: "School",
+functionTitle: "Project Role",
 
-quizTitle:
-"Agrinho Quiz",
-
-quizSubtitle:
-"Test your knowledge",
-
-finishQuiz:
-"Finish Quiz",
-
-creditsTitle:
-"Project Credits",
-
-creditsSubtitle:
-"Meet the creator of this Agrinho project",
-
-creatorRole:
-"Project Creator and Developer",
-
-schoolTitle:
-"School",
-
-functionTitle:
-"Project Role",
-
-functionText:
-"Front-End development, website design and JavaScript programming.",
-
-phraseTitle:
-"Phrase",
-
-phraseText:
-"\"The future of agriculture is born from the union of technology, environmental awareness and innovation.\"",
-
-footerText:
-"Educational project developed for the Agrinho 2026 contest focusing on agriculture, technology and sustainability."
+footerText: "Educational project about agriculture, energy and sustainability."
 
 },
 
@@ -460,117 +418,95 @@ footerText:
 
 es: {
 
-loadingTitle:
-"Proyecto Agrinho",
+pageTitle: "AgroFeed | Energía que mueve el campo",
 
-loadingText:
-"Agro fuerte, futuro sostenible",
+loadingTitle: "AgroFeed",
+loadingText: "Agro fuerte, futuro sostenible",
 
-headerSubtitle:
-"Agro fuerte, futuro sostenible: equilibrio entre producción y medio ambiente",
+headerSubtitle: "Agro fuerte, futuro sostenible: equilibrio entre producción y medio ambiente",
 
-navHome:
-"Inicio",
+navHome: "Inicio",
+navAgriculture: "Agricultura",
+navWind: "Energía Eólica",
+navSustainability: "Sostenibilidad",
+navQuiz: "Quiz",
+navCredits: "Créditos",
 
-navAgriculture:
-"Agricultura",
+heroTitle: "Energía que mueve el campo",
+heroText: "El agronegocio depende de la unión entre producción, tecnología y sostenibilidad.",
+heroButton1: "Explorar Agricultura",
+heroButton2: "Conocer Energía Eólica",
 
-navTechnology:
-"Tecnología",
+card1Title: "Producción Agrícola",
+card1Text: "Brasil es uno de los mayores productores de alimentos.",
+card2Title: "Energía Renovable",
+card2Text: "La energía eólica es limpia y sostenible.",
+card3Title: "Futuro Sostenible",
+card3Text: "El equilibrio entre producción y medio ambiente es clave.",
 
-navSustainability:
-"Sostenibilidad",
+agricultureTitle: "Agricultura Brasileña",
+agricultureSubtitle: "La fuerza que alimenta el país y el mundo",
 
-navQuiz:
-"Quiz",
+agricultureText1: "La agricultura brasileña es fundamental para la economía.",
+agricultureText2: "Brasil lidera la producción mundial de soja, maíz y café.",
+agricultureText3: "La tecnología aumentó la productividad sostenible.",
+agricultureText4: "Las máquinas modernas mejoran la eficiencia.",
 
-navCredits:
-"Créditos",
+windTitle: "Energía Eólica",
+windSubtitle: "La fuerza del viento impulsando la agricultura",
 
-heroTitle:
-"El futuro de la agricultura comienza ahora",
+windText1: "La energía eólica proviene del viento.",
+windText2: "Es una fuente limpia y renovable.",
+windText3: "Se usa en sistemas agrícolas.",
+windText4: "Reduce costos e impacto ambiental.",
 
-heroText:
-"El agronegocio brasileño es una de las mayores fuerzas económicas del planeta. La unión entre tecnología, productividad y sostenibilidad garantiza desarrollo y preservación ambiental.",
+sustainabilityTitle: "Sostenibilidad",
+sustainabilitySubtitle: "Producir preservando la naturaleza",
 
-heroButton1:
-"Explorar Agricultura",
+sustainabilityText1: "La sostenibilidad es esencial en la agricultura.",
+sustainabilityText2: "Ayuda a conservar suelo y agua.",
+sustainabilityText3: "Las energías renovables reducen contaminación.",
+sustainabilityText4: "Equilibra producción y naturaleza.",
 
-heroButton2:
-"Conocer Tecnología",
+infoSojaTitle: "Soja",
+infoSojaText: "Uno de los cultivos más importantes de Brasil.",
 
-card1Title:
-"Producción Agrícola",
+infoMilhoTitle: "Maíz",
+infoMilhoText: "Esencial para alimentación humana y animal.",
 
-card1Text:
-"Brasil es referencia mundial en producción de alimentos y exportación agrícola.",
+infoCafeTitle: "Café",
+infoCafeText: "Producto brasileño reconocido mundialmente.",
 
-card2Title:
-"Tecnología en el Campo",
+tech1Title: "Aerogeneradores",
+tech1Text: "Convierten el viento en electricidad.",
 
-card2Text:
-"Las máquinas modernas aumentan la productividad y reducen desperdicios.",
+tech2Title: "Energía Limpia",
+tech2Text: "Producción sin contaminación.",
 
-card3Title:
-"Sostenibilidad",
+tech3Title: "Bajo Impacto",
+tech3Text: "Reduce impacto ambiental.",
 
-card3Text:
-"El equilibrio entre producción y medio ambiente es esencial para el futuro.",
+sustain1Title: "Conservación del Suelo",
+sustain1Text: "Mantiene fertilidad del suelo.",
 
-agricultureTitle:
-"Agricultura Brasileña",
+sustain2Title: "Ahorro de Agua",
+sustain2Text: "Uso eficiente del agua.",
 
-agricultureSubtitle:
-"Una de las mayores potencias agrícolas del mundo",
+sustain3Title: "Rotación de Cultivos",
+sustain3Text: "Mejora la calidad del suelo.",
 
-technologyTitle:
-"Tecnología en el Campo",
+quizTitle: "Quiz AgroFeed",
+quizSubtitle: "Pon a prueba tus conocimientos",
 
-technologySubtitle:
-"La innovación transformando la agricultura",
+finishQuiz: "Finalizar Quiz",
 
-sustainabilityTitle:
-"Sostenibilidad",
+creditsTitle: "Créditos del Proyecto",
+creditsSubtitle: "Conoce al creador",
 
-sustainabilitySubtitle:
-"Producir preservando el medio ambiente",
+schoolTitle: "Escuela",
+functionTitle: "Función en el Proyecto",
 
-quizTitle:
-"Quiz Agrinho",
-
-quizSubtitle:
-"Pon a prueba tus conocimientos",
-
-finishQuiz:
-"Finalizar Quiz",
-
-creditsTitle:
-"Créditos del Proyecto",
-
-creditsSubtitle:
-"Conoce al creador de este proyecto Agrinho",
-
-creatorRole:
-"Creador y Desarrollador del Proyecto",
-
-schoolTitle:
-"Escuela",
-
-functionTitle:
-"Función en el Proyecto",
-
-functionText:
-"Desarrollo Front-End, diseño del sitio y programación JavaScript.",
-
-phraseTitle:
-"Frase",
-
-phraseText:
-"\"El futuro de la agricultura nace de la unión entre tecnología, conciencia ambiental e innovación.\"",
-
-footerText:
-"Proyecto educativo desarrollado para el concurso Agrinho 2026 enfocado en agricultura, tecnología y sostenibilidad."
-
+footerText: "Proyecto educativo sobre agricultura, energía y sostenibilidad."
 }
 
 };
