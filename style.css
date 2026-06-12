@@ -493,22 +493,13 @@ font-size:1rem;
 
 font-weight:700;
 
-background:var(--text);
-
-color:white;
-
-transition:.25s ease;
-}
-
-.heroButtons button:hover{
-
 background:var(--accent);
 
 color:#111;
 
-transform:
-translateY(-3px);
+transition:.25s ease;
 }
+
 
 /* ========================================= */
 /* HERO IMAGE */
