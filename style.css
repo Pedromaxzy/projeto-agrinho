@@ -53,25 +53,25 @@ body.dark{
 
 body{
 
-    font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
+font-family:
+"Segoe UI",
+Arial,
+sans-serif;
 
-    background:var(--bg);
+background:var(--bg);
 
-    color:var(--text);
+color:var(--text);
 
-    overflow-x:hidden;
+overflow-x:hidden;
 
-    transition:
-    background .35s ease,
-    color .35s ease;
+transition:
+background .35s ease,
+color .35s ease;
 
-    position:relative;
+position:relative;
 
+min-height:100vh;
 }
-
 
 /* Corrige faixa preta durante scroll */
 
@@ -239,45 +239,50 @@ body::before{
 
 #header{
 
-    width:100%;
+width:100%;
 
+padding:16px 40px;
 
-    padding:16px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
+flex-wrap:wrap;
 
-    display:flex;
+gap:15px;
 
-    justify-content:space-between;
+background:var(--header);
 
-    align-items:center;
+position:sticky;
 
+top:0;
 
-    flex-wrap:wrap;
+z-index:1000;
 
+border-bottom:
+1px solid rgba(99,212,113,.12);
 
-    gap:15px;
-
-
-    background:var(--header);
-
-
-    position:sticky;
-
-
-    top:0;
-
-
-    z-index:1000;
-
-
-    border-bottom:
-    1px solid rgba(99,212,113,.12);
-
-
-    transition:.35s ease;
+transition:
+background .35s ease,
+color .35s ease;
 
 }
 
+/* evita a faixa preta ao rolar */
+
+#header::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:var(--header);
+
+z-index:-1;
+
+}
 
 
 /* ========================================= */
