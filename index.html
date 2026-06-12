@@ -1,1654 +1,706 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
-
 
 <head>
 
-
-
 <meta charset="UTF-8">
 
-
-
 <meta
-
 name="viewport"
-
 content="width=device-width, initial-scale=1.0"
-
 >
-
-
 
 <title>
-
 AgroFeed | Energia que move o campo
-
 </title>
 
-
-
 <link
-
 rel="stylesheet"
-
 href="style.css"
-
 >
-
-
 
 </head>
 
-
-
 <body>
 
-
-
 <!-- ========================================= -->
-
 <!-- LOADING -->
-
 <!-- ========================================= -->
-
-
 
 <div id="loadingScreen">
 
-
-
 <div class="loadingContent">
 
+<div class="loader"></div>
 
-    <div class="loader"></div>
-    <h1>AgroFeed</h1>
-    <p>Agro forte, futuro sustentável</p>
+<h1>
+AgroFeed
+</h1>
+
+<p>
+Agro forte, futuro sustentável
+</p>
 
 </div>
 
-
 </div>
-
-
 
 <!-- ========================================= -->
-
 <!-- HEADER -->
-
 <!-- ========================================= -->
-
-
 
 <header id="header">
 
-
-
 <div class="logo">
 
-
-
 <h1>
-
 AgroFeed
-
 </h1>
 
-
-
 <p data-translate="headerSubtitle">
-
 Agro forte, futuro sustentável:
-
 equilíbrio entre produção e meio ambiente
-
 </p>
 
-
 </div>
-
-
 
 <nav>
 
-
-
 <button onclick="navigateTo('home')">
-
-<span data-translate="navHome">
-
-Início
-
-</span>
-
+<span data-translate="navHome">Início</span>
 </button>
-
-
 
 <button onclick="navigateTo('agriculture')">
-
-<span data-translate="navAgriculture">
-
-Agricultura
-
-</span>
-
+<span data-translate="navAgriculture">Agricultura</span>
 </button>
-
-
 
 <button onclick="navigateTo('wind')">
-
-<span data-translate="navWind">
-
-Energia Eólica
-
-</span>
-
+<span data-translate="navWind">Energia Eólica</span>
 </button>
-
-
 
 <button onclick="navigateTo('sustainability')">
-
-<span data-translate="navSustainability">
-
-Sustentabilidade
-
-</span>
-
+<span data-translate="navSustainability">Sustentabilidade</span>
 </button>
-
-
 
 <button onclick="navigateTo('quiz')">
-
-<span data-translate="navQuiz">
-
-Quiz
-
-</span>
-
+<span data-translate="navQuiz">Quiz</span>
 </button>
-
-
 
 <button onclick="navigateTo('credits')">
-
-<span data-translate="navCredits">
-
-Créditos
-
-</span>
-
+<span data-translate="navCredits">Créditos</span>
 </button>
-
-
 
 </nav>
 
-
-
 <div class="headerControls">
-
-
 
 <select id="languageSelect">
 
-
-
-<option value="pt">
-
-🇧🇷 PT
-
-</option>
-
-
-
-<option value="en">
-
-🇺🇸 EN
-
-</option>
-
-
-
-<option value="es">
-
-🇪🇸 ES
-
-</option>
-
-
+<option value="pt">🇧🇷 PT</option>
+<option value="en">🇺🇸 EN</option>
+<option value="es">🇪🇸 ES</option>
 
 </select>
 
-
-
 <button id="themeToggle">
-
 🌙
-
 </button>
 
-
-
 </div>
-
-
 
 </header>
 
-
-
 <!-- ========================================= -->
-
 <!-- HOME -->
-
 <!-- ========================================= -->
-
-
 
 <section
-
 id="home"
-
 class="page active"
-
 >
-
-
 
 <div class="hero">
 
-
-
 <div class="heroText">
-
-
 
 <div class="energyLine"></div>
 
-
-
 <h2 data-translate="heroTitle">
-
 Energia que move o campo
-
 </h2>
-
-
 
 <p data-translate="heroText">
 
-
-
 O futuro do agronegócio depende da união entre produção,
-
 tecnologia e sustentabilidade. O AgroFeed apresenta como
-
 a energia eólica pode transformar o campo, reduzir impactos
-
 ambientais e fortalecer a produção agrícola brasileira.
 
-
-
 </p>
-
-
 
 <div class="heroButtons">
 
-
-
 <button onclick="navigateTo('agriculture')">
-
-
-
 <span data-translate="heroButton1">
-
 Explorar Agricultura
-
 </span>
-
-
-
 </button>
-
-
 
 <button onclick="navigateTo('wind')">
-
-
-
 <span data-translate="heroButton2">
-
 Conhecer Energia Eólica
-
 </span>
-
-
-
 </button>
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="heroImage">
 
-
-
 <img
-
 src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1400&auto=format&fit=crop"
-
 alt="Energia Eólica"
-
 >
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="cards">
 
-
-
 <div class="card">
-
-
 
 <div class="cardIcon"></div>
 
-
-
-<h3>
-
+<h3 data-translate="card1Title">
 Produção Agrícola
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="card1Text">
 O Brasil está entre os maiores produtores de alimentos
-
 do mundo, abastecendo milhões de pessoas e contribuindo
-
 para a economia nacional.
-
-
-
 </p>
-
-
 
 </div>
 
-
-
 <div class="card">
-
-
 
 <div class="cardIcon"></div>
 
-
-
-<h3>
-
+<h3 data-translate="card2Title">
 Energia Renovável
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="card2Text">
 A energia eólica é uma fonte limpa e sustentável que
-
 ajuda propriedades rurais a reduzir custos e impactos
-
 ambientais.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="card">
 
-
-
 <div class="cardIcon"></div>
 
-
-
-<h3>
-
+<h3 data-translate="card3Title">
 Futuro Sustentável
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="card3Text">
 O equilíbrio entre produtividade e preservação ambiental
-
 é essencial para garantir recursos para as próximas
-
 gerações.
-
-
-
 </p>
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="highlightSection">
 
-
-
 <h2>
-
 Por que falar sobre energia no campo?
-
 </h2>
 
-
-
 <p>
-
-
-
 A demanda por alimentos cresce a cada ano.
-
 Para atender essa necessidade sem causar danos ao meio
-
 ambiente, novas fontes de energia estão sendo utilizadas.
-
 Entre elas, a energia eólica se destaca por ser limpa,
-
 renovável e eficiente.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 </section>
 
 
-
 <!-- ========================================= -->
-
 <!-- AGRICULTURA -->
-
 <!-- ========================================= -->
-
-
 
 <section
-
 id="agriculture"
-
 class="page"
-
 >
-
-
 
 <div class="sectionTitle">
 
-
-
-<h2>
-
+<h2 data-translate="agricultureTitle">
 Agricultura Brasileira
-
 </h2>
 
-
-
-<p>
-
+<p data-translate="agricultureSubtitle">
 A força que alimenta o país e o mundo
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="content">
 
-
-
 <div class="text">
 
-
-
-<p>
-
-
-
+<p data-translate="agricultureText1">
 A agricultura brasileira possui papel fundamental na
-
 economia nacional. O setor é responsável por milhões de
-
 empregos e por grande parte das exportações brasileiras.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="agricultureText2">
 O Brasil é destaque mundial na produção de soja, milho,
-
 café, algodão e cana-de-açúcar. Essas culturas movimentam
-
 a economia e garantem o abastecimento alimentar.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="agricultureText3">
 Nos últimos anos, o avanço tecnológico permitiu aumentar
-
 a produtividade sem a necessidade de ampliar áreas de
-
 cultivo de forma descontrolada.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="agricultureText4">
 Máquinas modernas, sensores inteligentes e sistemas de
-
 monitoramento ajudam produtores a tomar decisões mais
-
 eficientes e sustentáveis.
-
-
-
 </p>
-
-
 
 </div>
-
-
 
 <div class="image">
 
-
-
 <img
-
 src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1400&auto=format&fit=crop"
-
 alt="Agricultura"
-
 >
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="infoGrid">
 
-
-
 <div class="infoCard">
 
-
-
-<h3>
-
+<h3 data-translate="infoSojaTitle">
 Soja
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="infoSojaText">
 Uma das culturas mais importantes do Brasil,
-
 utilizada para alimentação, exportação e produção
-
 de diversos produtos industriais.
-
-
-
 </p>
-
-
 
 </div>
 
-
-
 <div class="infoCard">
 
-
-
-<h3>
-
+<h3 data-translate="infoMilhoTitle">
 Milho
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="infoMilhoText">
 Fundamental para alimentação humana e animal,
-
 sendo uma das principais culturas agrícolas do país.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="infoCard">
 
-
-
-<h3>
-
+<h3 data-translate="infoCafeTitle">
 Café
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="infoCafeText">
 O café brasileiro é reconhecido mundialmente pela
-
 qualidade e importância econômica.
-
-
-
 </p>
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 </section>
 
-
-
 <!-- ========================================= -->
-
 <!-- ENERGIA EÓLICA -->
-
 <!-- ========================================= -->
-
-
 
 <section
-
 id="wind"
-
 class="page"
-
 >
-
-
 
 <div class="sectionTitle">
 
-
-
-<h2>
-
+<h2 data-translate="windTitle">
 Energia Eólica
-
 </h2>
 
-
-
-<p>
-
+<p data-translate="windSubtitle">
 A força dos ventos impulsionando o agronegócio
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="content">
 
-
-
 <div class="text">
 
-
-
-<p>
-
-
-
+<p data-translate="windText1">
 A energia eólica é produzida a partir da força dos ventos.
-
 Por meio de aerogeradores, a energia cinética do vento é
-
 transformada em energia elétrica.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="windText2">
 Essa fonte energética é considerada limpa e renovável,
-
 pois não depende da queima de combustíveis fósseis nem
-
 gera grandes emissões de gases poluentes.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="windText3">
 No campo, a energia eólica pode ser utilizada para
-
 alimentar sistemas de irrigação, armazenamento de grãos,
-
 equipamentos agrícolas e instalações rurais.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="windText4">
 Além de reduzir custos, essa tecnologia contribui para
-
 a preservação ambiental e fortalece o desenvolvimento
-
 sustentável.
-
-
-
 </p>
-
-
 
 </div>
-
-
 
 <div class="image">
 
-
-
 <img
-
 src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1400&auto=format&fit=crop"
-
 alt="Turbinas Eólicas"
-
 >
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="techCards">
 
-
-
 <div class="techCard">
 
-
-
-<h3>
-
+<h3 data-translate="tech1Title">
 Aerogeradores
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="tech1Text">
 Equipamentos responsáveis por transformar a energia
-
 dos ventos em eletricidade.
-
-
-
 </p>
-
-
 
 </div>
 
-
-
 <div class="techCard">
 
-
-
-<h3>
-
+<h3 data-translate="tech2Title">
 Energia Limpa
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="tech2Text">
 Produz eletricidade sem emissão significativa de
-
 poluentes atmosféricos.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="techCard">
 
-
-
-<h3>
-
+<h3 data-translate="tech3Title">
 Baixo Impacto
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="tech3Text">
 Ajuda a reduzir a dependência de fontes energéticas
-
 mais agressivas ao meio ambiente.
-
-
-
 </p>
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="windHighlight">
 
-
-
 <h2>
-
 O vento como aliado do futuro
-
 </h2>
 
-
-
 <p>
-
-
-
 A expansão da energia eólica representa uma grande
-
 oportunidade para tornar a produção agrícola mais
-
 sustentável, eficiente e preparada para os desafios
-
 ambientais do futuro.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 </section>
 
-
-
 <!-- ========================================= -->
-
 <!-- SUSTENTABILIDADE -->
-
 <!-- ========================================= -->
-
-
 
 <section
-
 id="sustainability"
-
 class="page"
-
 >
-
-
 
 <div class="sectionTitle">
 
-
-
-<h2>
-
+<h2 data-translate="sustainabilityTitle">
 Sustentabilidade
-
 </h2>
 
-
-
-<p>
-
+<p data-translate="sustainabilitySubtitle">
 Produzir mais preservando os recursos naturais
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="content">
 
-
-
 <div class="text">
 
-
-
-<p>
-
-
-
+<p data-translate="sustainabilityText1">
 A sustentabilidade é um dos pilares mais importantes
-
 do agronegócio moderno. Produzir alimentos de forma
-
 responsável significa atender às necessidades atuais
-
 sem comprometer as futuras gerações.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="sustainabilityText2">
 Práticas sustentáveis ajudam a preservar o solo,
-
 economizar água, reduzir desperdícios e proteger
-
 a biodiversidade presente nas áreas rurais.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="sustainabilityText3">
 A utilização de energias renováveis, como a energia
-
 eólica, contribui diretamente para a redução da
-
 emissão de gases poluentes e para um modelo de
-
 produção mais limpo.
-
-
-
 </p>
 
-
-
-<p>
-
-
-
+<p data-translate="sustainabilityText4">
 Quando agricultura, tecnologia e responsabilidade
-
 ambiental trabalham juntas, é possível construir
-
 um futuro mais equilibrado e sustentável.
-
-
-
 </p>
-
-
 
 </div>
-
-
 
 <div class="image">
 
-
-
 <img
-
 src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1400&auto=format&fit=crop"
-
 alt="Sustentabilidade"
-
 >
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 <div class="sustainCards">
 
-
-
 <div class="sustainCard">
 
-
-
-<h3>
-
+<h3 data-translate="sustain1Title">
 Preservação do Solo
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="sustain1Text">
 Técnicas modernas ajudam a manter a fertilidade
-
 e evitar processos de erosão.
-
-
-
 </p>
-
-
 
 </div>
 
-
-
 <div class="sustainCard">
 
-
-
-<h3>
-
+<h3 data-translate="sustain2Title">
 Economia de Água
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="sustain2Text">
 Sistemas inteligentes de irrigação reduzem o
-
 desperdício e aumentam a eficiência.
-
-
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="sustainCard">
 
-
-
-<h3>
-
+<h3 data-translate="sustain3Title">
 Rotação de Culturas
-
 </h3>
 
-
-
-<p>
-
-
-
+<p data-translate="sustain3Text">
 A alternância de culturas melhora a qualidade
-
 do solo e reduz a incidência de pragas.
-
-
-
 </p>
 
-
-
 </div>
 
-
-
 </div>
-
-
 
 </section>
 
 
 
 <!-- ========================================= -->
-
 <!-- QUIZ -->
-
 <!-- ========================================= -->
 
-
-
 <section
-
 id="quiz"
-
 class="page"
-
 >
-
-
 
 <div class="sectionTitle">
 
-
-
-<h2>
-
+<h2 data-translate="quizTitle">
 Quiz AgroFeed
-
 </h2>
 
-
-
-<p>
-
+<p data-translate="quizSubtitle">
 Teste seus conhecimentos sobre agricultura,
-
 energia e sustentabilidade
-
 </p>
 
-
-
 </div>
-
-
 
 <div class="quizContainer">
 
-
+<!-- Mantenha todas as perguntas exatamente como estão -->
 
 <!-- 1 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-1. Qual fonte de energia utiliza a força dos ventos?
-
-</p>
-
-
-
+<p>1. Qual fonte de energia utiliza a força dos ventos?</p>
 <button onclick="answer(this,1)">Energia Eólica</button>
-
 <button onclick="answer(this,0)">Energia Nuclear</button>
-
 <button onclick="answer(this,0)">Energia Geotérmica</button>
-
-
-
 </div>
-
-
 
 <!-- 2 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-2. Qual equipamento transforma vento em energia elétrica?
-
-</p>
-
-
-
+<p>2. Qual equipamento transforma vento em energia elétrica?</p>
 <button onclick="answer(this,1)">Aerogerador</button>
-
 <button onclick="answer(this,0)">Trator</button>
-
 <button onclick="answer(this,0)">Painel Solar</button>
-
-
-
 </div>
-
-
 
 <!-- 3 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-3. A energia eólica é considerada:
-
-</p>
-
-
-
+<p>3. A energia eólica é considerada:</p>
 <button onclick="answer(this,1)">Renovável</button>
-
 <button onclick="answer(this,0)">Fóssil</button>
-
 <button onclick="answer(this,0)">Poluente</button>
-
-
-
 </div>
-
-
 
 <!-- 4 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-4. Qual cultura agrícola é destaque no Brasil?
-
-</p>
-
-
-
+<p>4. Qual cultura agrícola é destaque no Brasil?</p>
 <button onclick="answer(this,1)">Soja</button>
-
 <button onclick="answer(this,0)">Carvão</button>
-
 <button onclick="answer(this,0)">Petróleo</button>
-
-
-
 </div>
-
-
 
 <!-- 5 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-5. Qual tecnologia monitora plantações pelo ar?
-
-</p>
-
-
-
+<p>5. Qual tecnologia monitora plantações pelo ar?</p>
 <button onclick="answer(this,1)">Drone</button>
-
 <button onclick="answer(this,0)">Televisão</button>
-
 <button onclick="answer(this,0)">Calculadora</button>
-
-
-
 </div>
-
-
 
 <!-- 6 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-6. A rotação de culturas ajuda:
-
-</p>
-
-
-
+<p>6. A rotação de culturas ajuda:</p>
 <button onclick="answer(this,1)">Preservar o solo</button>
-
 <button onclick="answer(this,0)">Gastar mais água</button>
-
 <button onclick="answer(this,0)">Aumentar erosões</button>
-
-
-
 </div>
-
-
 
 <!-- 7 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-7. Um benefício da energia eólica é:
-
-</p>
-
-
-
+<p>7. Um benefício da energia eólica é:</p>
 <button onclick="answer(this,1)">Baixa emissão de poluentes</button>
-
 <button onclick="answer(this,0)">Produção de fumaça</button>
-
 <button onclick="answer(this,0)">Uso de combustíveis fósseis</button>
-
-
-
 </div>
-
-
 
 <!-- 8 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-8. O agronegócio é importante porque:
-
-</p>
-
-
-
+<p>8. O agronegócio é importante porque:</p>
 <button onclick="answer(this,1)">Produz alimentos e gera empregos</button>
-
 <button onclick="answer(this,0)">Não movimenta a economia</button>
-
 <button onclick="answer(this,0)">Serve apenas para exportação</button>
-
-
-
 </div>
-
-
 
 <!-- 9 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-9. Sustentabilidade significa:
-
-</p>
-
-
-
+<p>9. Sustentabilidade significa:</p>
 <button onclick="answer(this,1)">Equilíbrio entre produção e meio ambiente</button>
-
 <button onclick="answer(this,0)">Produzir sem limites</button>
-
 <button onclick="answer(this,0)">Ignorar recursos naturais</button>
-
-
-
 </div>
-
-
 
 <!-- 10 -->
-
-
-
 <div class="questionBlock">
-
-
-
-<p>
-
-10. O futuro do agro depende da união entre:
-
-</p>
-
-
-
+<p>10. O futuro do agro depende da união entre:</p>
 <button onclick="answer(this,1)">Tecnologia e sustentabilidade</button>
-
 <button onclick="answer(this,0)">Apenas máquinas</button>
-
 <button onclick="answer(this,0)">Apenas produção</button>
-
-
-
 </div>
 
-
-
 <button
-
 class="finishButton"
-
 onclick="finishQuiz()"
-
+data-translate="finishQuiz"
 >
-
-
-
 Finalizar Quiz
-
-
-
 </button>
-
-
 
 <div id="quizResult"></div>
 
-
-
 </div>
-
-
 
 </section>
 
-
-
 <!-- ========================================= -->
-
 <!-- CRÉDITOS -->
-
 <!-- ========================================= -->
 
 <section
@@ -1658,11 +710,11 @@ class="page"
 
 <div class="sectionTitle">
 
-<h2>
+<h2 data-translate="creditsTitle">
 Créditos do Projeto
 </h2>
 
-<p>
+<p data-translate="creditsSubtitle">
 Conheça o criador deste projeto
 </p>
 
@@ -1675,7 +727,7 @@ Conheça o criador deste projeto
 <div class="creditsImage">
 
 <img
-src="https://github.com/user-attachments/assets/1dd3c9de-753f-4c09-9641-a2afbc298ce1" 
+src="https://github.com/user-attachments/assets/1dd3c9de-753f-4c09-9641-a2afbc298ce1"
 alt="Pedro Henrique"
 >
 
@@ -1691,7 +743,7 @@ Pedro Henrique Simões Batista
 15 anos
 </span>
 
-<h4>
+<h4 data-translate="schoolTitle">
 🎓 Escola
 </h4>
 
@@ -1700,7 +752,7 @@ Colégio Estadual Cívico Militar
 Dr. Generoso Marques
 </p>
 
-<h4>
+<h4 data-translate="functionTitle">
 💻 Função no Projeto
 </h4>
 
@@ -1748,44 +800,21 @@ criatividade, conhecimento e inovação.
 
 <footer>
 
-
-
 <h2>
-
 AgroFeed
-
 </h2>
 
-
-
-<p>
-
-
-
+<p data-translate="footerText">
 Projeto educativo desenvolvido para demonstrar
-
 como a agricultura moderna pode crescer de forma
-
 sustentável utilizando tecnologias renováveis,
-
 como a energia eólica, promovendo equilíbrio
-
 entre produção e meio ambiente.
-
-
-
 </p>
-
-
 
 </footer>
 
-
-
 <script src="main.js"></script>
 
-
-
 </body>
-
 </html>
