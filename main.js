@@ -614,19 +614,14 @@ selectedLanguage
 
 function changeLanguage(language){
 
-const elements =
-document.querySelectorAll("[data-translate]");
+const elements = document.querySelectorAll("[data-translate]");
 
 elements.forEach((element) => {
 
-const key =
-element.getAttribute("data-translate");
+const key = element.getAttribute("data-translate");
 
 if(translations[language][key]){
-
-element.textContent =
-translations[language][key];
-
+    element.textContent = translations[language][key];
 }
 
 });
