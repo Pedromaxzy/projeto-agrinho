@@ -404,6 +404,7 @@ functionTitle: "Project Role",
 footerText: "Educational project about agriculture, energy and sustainability."
 
 }
+};
 
 /* ========================================= */
 /* LANGUAGE SELECT */
